@@ -9,16 +9,25 @@ O TALOS é um sistema integrado de gestão para pequenas e médias empresas que 
 Sistema Talos 1.0 - 
 Módulos do Sistema:
 
-- 1 - Talos Retaguarda Gerencial
-- 2 - Talos PDV - Fiscal - Não fiscal
-- 3 - Talos Config. Retaguarda
-- 4 - Talos Config. PDV
-- 5 - Talos Server OFFLINE
-- 6 - Talos Emissor NFe que substitui o Sistema NFe Gratuito do Governo
-- 7 - Talos OS
-- 8 - Talos Atendimento
-- 9 - Talos Migrador de Dados.
-- 10- Banco de Dados (LIMPO).
+ 1 - Talos Retaguarda Gerencial 
+ 
+ 2 - Talos PDV - Fiscal - Não fiscal
+ 
+ 3 - Talos Config. Retaguarda
+ 
+ 4 - Talos Config. PDV
+ 
+ 5 - Talos Server OFFLINE
+ 
+ 6 - Talos Emissor NFe que substitui o Sistema NFe Gratuito do Governo
+ 
+ 7 - Talos OS
+ 
+ 8 - Talos Atendimento
+ 
+ 9 - Talos Migrador de Dados.
+ 
+ 10- Banco de Dados (LIMPO).
 
 * Ficha Técnicas:
 * Equipamentos:
