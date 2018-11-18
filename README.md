@@ -6,8 +6,10 @@
 
 O TALOS é um sistema integrado de gestão para pequenas e médias empresas que busca apresentar várias funcionalidades vendidas separadamente, pagas, e que não apresentam bons resultados em um sistema único, direto, sem enrolação e de fácil gerenciamento.
 
-Sistema Talos 1.0 - 
-Módulos do Sistema:
+### Bugs ou Sugestões de Funcionalidades? Utilize o "issues" acima para submeter as informações ###
+
+**Sistema Talos 1.0 - 
+Módulos do Sistema:**
 
  1 - Talos Retaguarda Gerencial 
  
