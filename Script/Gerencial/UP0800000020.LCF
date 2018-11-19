@@ -1,0 +1,19 @@
+CREATE TABLE componentes_prestacao_cte (
+  ID integer not null,
+  IDCTE integer ,
+  DESCRICAO varchar(15) ,
+  VALOR decimal(13,2) );
+
+ALTER TABLE componentes_prestacao_cte add constraint pk_componentes_prestacao_cte primary key (ID);
+--ALTER TABLE componentes_prestacao_cte add CONSTRAINT FK_IDCTE_PRESTACAO FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+CREATE GENERATOR inc_componentes_prestacao_cte;
+SET GENERATOR inc_componentes_prestacao_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_componentes_prestacao_cte FOR componentes_prestacao_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_componentes_prestacao_cte,1);
+END;

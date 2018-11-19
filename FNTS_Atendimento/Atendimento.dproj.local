@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/08/21 16:33:48.000.888,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\senha.pas=</Transaction>
+    <Transaction>2017/08/21 23:02:15.000.972,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas</Transaction>
+    <Transaction>2017/08/21 23:05:45.000.650,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\NumeroFicha.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas</Transaction>
+    <Transaction>2017/08/21 23:05:45.000.650,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\NumeroFicha.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.dfm</Transaction>
+    <Transaction>2017/08/22 10:27:34.000.765,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\venda_fechamento_avista.pas=</Transaction>
+    <Transaction>2017/08/22 12:24:08.000.461,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas</Transaction>
+    <Transaction>2017/08/22 12:49:42.000.037,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Impressao.dfm</Transaction>
+    <Transaction>2017/08/22 12:49:42.000.037,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Impressao.pas</Transaction>
+    <Transaction>2017/08/22 21:26:23.000.158,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas</Transaction>
+    <Transaction>2017/08/22 21:26:38.000.467,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Atendimento\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\contantes.pas</Transaction>
+  </Transactions>
+</BorlandProject>

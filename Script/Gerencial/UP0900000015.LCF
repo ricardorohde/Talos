@@ -1,0 +1,2 @@
+alter table c000025 add codigo_anp varchar(10);
+

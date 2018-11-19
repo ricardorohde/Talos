@@ -1,0 +1,93 @@
+create or alter procedure SINTEGRA61 (
+    DATAHORA_INI date,
+    DATAHORA_FIM date)
+returns (
+    EMISSAO date,
+    MODELO varchar(2),
+    SERIE varchar(3),
+    SUBSERIE varchar(2),
+    NUMORDEMINICIAL integer,
+    NUMORDEMFINAL integer,
+    VALOR double precision,
+    BASEDECALCULO double precision,
+    VALORICMS double precision,
+    ISENTAS double precision,
+    OUTRAS double precision,
+    ALIQUOTA double precision)
+as
+BEGIN
+  -- SAIDAS MODELO 02
+  FOR SELECT
+    S.DATA                           EMISSAO,
+    S.MODELO_NF                      MODELO,
+    S.SERIE_NF                       SERIE,
+    COALESCE(I.ICMS, 0)              ALIQUOTA,
+    MIN(CAST(S.NUMERO AS INTEGER))   NUMORDEMINICIAL,
+    MAX(CAST(S.NUMERO AS INTEGER))   NUMORDEMFINAL,
+    COALESCE(SUM(I.TOTAL), 0)        VALOR,
+    COALESCE(SUM(I.BASE_CALCULO), 0) BASECALCULO,
+    COALESCE(SUM(I.VALOR_ICMS), 0)   VALORICMS,
+    COALESCE(SUM(I.ISENTO), 0)       ISENTAS,
+    COALESCE(SUM(I.OUTRAS), 0)       OUTRAS
+  FROM C000062 I
+  JOIN C000061 S ON (I.CODNOTA = S.CODIGO)
+  WHERE
+    (S.MODELO_NF = '02') AND
+    (S.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2, 3, 4
+  INTO
+    :EMISSAO,
+    :MODELO,
+    :SERIE,
+    :ALIQUOTA,
+    :NUMORDEMINICIAL,
+    :NUMORDEMFINAL,
+    :VALOR,
+    :BASEDECALCULO,
+    :VALORICMS,
+    :ISENTAS,
+    :OUTRAS
+  DO
+  BEGIN
+    SUBSERIE = NULL;
+    SUSPEND;
+  END
+
+
+  -- SAIDAS MODELO 65
+  FOR SELECT
+    I.DATA                             EMISSAO,
+    '65'                               MODELO,
+    NULL                               SERIE,
+    COALESCE(I.ALIQUOTA, 0)            ALIQUOTA,
+    MIN(CAST(I.NUMERONOTA AS INTEGER)) NUMORDEMINICIAL,
+    MAX(CAST(I.NUMERONOTA AS INTEGER)) NUMORDEMFINAL,
+    COALESCE(SUM(I.TOTAL), 0)          VALOR,
+    COALESCE(SUM(I.BASE_CALCULO), 0)   BASECALCULO,
+    COALESCE(SUM(I.VALOR_ICMS), 0)     VALORICMS,
+    COALESCE(SUM(I.ISENTAS_ICMS), 0)   ISENTAS,
+    COALESCE(SUM(I.OUTRAS_ICMS), 0)    OUTRAS
+  FROM C000032 I
+  WHERE
+    (I.NFCE = 'S') AND
+    (I.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2, 3, 4
+  INTO
+    :EMISSAO,
+    :MODELO,
+    :SERIE,
+    :ALIQUOTA,
+    :NUMORDEMINICIAL,
+    :NUMORDEMFINAL,
+    :VALOR,
+    :BASEDECALCULO,
+    :VALORICMS,
+    :ISENTAS,
+    :OUTRAS
+  DO
+  BEGIN
+    SUBSERIE = NULL;
+    SUSPEND;
+  END
+
+END

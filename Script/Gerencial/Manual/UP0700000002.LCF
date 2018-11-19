@@ -1,0 +1,2 @@
+alter table c000049 add RETIRADO_POR varchar(50);
+

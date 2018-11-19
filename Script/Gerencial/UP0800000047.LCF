@@ -1,0 +1,40 @@
+CREATE VIEW vcte_cancelada (
+        CID,
+        IDCTE,
+        DATA,
+        PROTOCOLO,
+        CHAVE,
+        STATUS,
+        JUSTIFICATIVA,
+        DATA_CANCELAMENTO,
+        DID,
+        VALOR_PRESTACAO,
+        IDMUNICIPIOINICIO,
+        IDMUNICIPIOFIM,
+        IID,
+        IUF,
+        FID,
+        FUF
+)AS
+    SELECT 
+        c.ID AS CID,
+        c.IDCTE AS IDCTE,
+        c.DATA AS DATA,
+        c.PROTOCOLO AS PROTOCOLO,
+        c.CHAVE AS CHAVE,
+        c.STATUS AS STATUS,
+        c.JUSTIFICATIVA AS JUSTIFICATIVA,
+        c.DATA_CANCELAMENTO AS DATA_CANCELAMENTO,
+        d.ID AS DID,
+        d.VALOR_PRESTACAO AS VALOR_PRESTACAO,
+        d.IDMUNICIPIOINICIO AS IDMUNICIPIOINICIO,
+        d.IDMUNICIPIOFIM AS IDMUNICIPIOFIM,
+        i.codigo AS IID,
+        i.uf AS IUF,
+        f.codigo AS FID,
+        f.uf AS FUF
+    FROM
+        cte_cancelada c
+        LEFT JOIN cabecalho_cte d ON c.IDCTE = d.ID
+        LEFT JOIN c000006 i ON i.codigo = d.IDMUNICIPIOINICIO
+        LEFT JOIN c000006 f ON f.codigo = d.IDMUNICIPIOFIM

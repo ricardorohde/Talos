@@ -1,0 +1,2 @@
+alter table SUPERVISOR add aprova_desconto varchar(1);
+

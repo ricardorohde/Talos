@@ -1,0 +1,151 @@
+CREATE OR ALTER TRIGGER C000032_INS FOR C000032
+ACTIVE AFTER INSERT POSITION 0
+AS
+ BEGIN
+ if ((select coalesce(nao_movimenta_estoque,'N') from c000025 where codigo = new.codproduto) <> 'S') then begin
+  if ((new.SITUACAO IS Null) OR (new.SITUACAO=1))  then BEGIN
+   if (new.movimento in (1,3,7,8,12,13,16,21)) then
+      UPDATE c000100
+      SET entradas = entradas + new.movimento_estoque,
+      estoque_atual = estoque_inicial + entradas - saidas + new.movimento_estoque,
+      ultima_entrada = new.data,
+      nota_fiscal = new.numeronota
+      WHERE codproduto = new.codproduto;
+   else
+    if (new.movimento in (2,4,5,6,9,11,14,15,17,18,19,20)) then begin
+       UPDATE c000100
+       SET saidas = saidas + (new.movimento_estoque * (-1)),
+       estoque_atual = estoque_inicial + entradas - saidas  - (new.movimento_estoque * (-1)),
+       ultima_saida = new.data
+       WHERE codproduto = new.codproduto;
+       execute procedure st_baixacomposicao(new.codproduto, (new.movimento_estoque * (-1)));
+     end else
+     BEGIN
+       if (new.movimento_estoque > 0) then
+       BEGIN
+          UPDATE c000100
+          SET entradas = entradas + new.movimento_estoque,
+          estoque_atual =  estoque_inicial + entradas - saidas  + new.movimento_estoque
+        WHERE codproduto = new.codproduto;
+       END
+       else
+       BEGIN
+          UPDATE c000100
+          SET saidas = saidas + (new.movimento_estoque * (-1)),
+          estoque_atual = estoque_inicial + entradas - saidas  - (new.movimento_estoque * (-1))
+          WHERE codproduto = new.codproduto;
+          execute procedure st_baixacomposicao(new.codproduto, (new.movimento_estoque * (-1)));
+       END
+     END
+   END
+  END
+ END;
+
+
+
+CREATE OR ALTER TRIGGER C000032_UPD FOR C000032
+ACTIVE AFTER UPDATE POSITION 0
+AS
+ BEGIN
+ if ((select coalesce(nao_movimenta_estoque,'N') from c000025 where codigo = new.codproduto) <> 'S') then begin
+  if (old.lancado = 1) then
+  BEGIN
+     if (new.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial + new.movimento_estoque - old.movimento_estoque,
+        estoque_atual =  estoque_inicial + entradas - saidas
+        WHERE codproduto = new.codproduto;
+     END
+     else
+     BEGIN
+       if ((new.SITUACAO IS Null) OR (new.SITUACAO=1))  then
+       BEGIN
+         UPDATE c000100
+         SET estoque_inicial = estoque_inicial + (new.movimento_estoque *(-1)) - (old.movimento_estoque*(-1)),
+         estoque_atual = estoque_inicial + entradas - saidas
+         WHERE codproduto = new.codproduto;
+       END
+       else
+       BEGIN
+         UPDATE c000100
+         SET estoque_inicial = estoque_inicial + new.movimento_estoque,
+         estoque_atual = estoque_inicial + entradas - saidas
+         WHERE codproduto = new.codproduto;
+       END
+     END
+  END
+  else
+  BEGIN
+     if (new.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET entradas = entradas + new.movimento_estoque - old.movimento_estoque,
+        estoque_atual =  estoque_inicial + entradas - saidas
+        WHERE codproduto = new.codproduto;
+     END
+     else
+     BEGIN
+       if ((new.SITUACAO IS Null) OR (new.SITUACAO=1))  then
+       BEGIN
+         UPDATE c000100
+         SET saidas = saidas + (new.movimento_estoque *(-1)) - (old.movimento_estoque*(-1)),
+         estoque_atual = estoque_inicial + entradas - saidas
+         WHERE codproduto = new.codproduto;
+         execute procedure st_baixacomposicao(new.codproduto, (new.movimento_estoque *(-1)) - (old.movimento_estoque*(-1)));
+       END
+       else
+       BEGIN
+         UPDATE c000100
+         SET saidas = saidas + new.movimento_estoque,
+         estoque_atual = estoque_inicial + entradas - saidas
+         WHERE codproduto = new.codproduto;
+         execute procedure st_baixacomposicao(new.codproduto, new.movimento_estoque);
+       END
+     END
+  END
+ END
+END;
+
+CREATE OR ALTER TRIGGER C000032_DEL FOR C000032
+ACTIVE AFTER DELETE POSITION 0
+AS
+BEGIN
+ if ((select coalesce(nao_movimenta_estoque,'N') from c000025 where codigo = old.codproduto) <> 'S') then begin
+  if (old.lancado = 1) then
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial - old.movimento_estoque,
+        estoque_atual =  estoque_inicial + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial  - (old.movimento_estoque*(-1)),
+        estoque_atual = estoque_inicial + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+  END
+  else
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET entradas = entradas - old.movimento_estoque,
+        estoque_atual =  estoque_atual - old.movimento_estoque
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100 SET
+          saidas = saidas + old.movimento_estoque,
+          estoque_atual = estoque_atual - old.movimento_estoque
+        WHERE codproduto = old.codproduto;
+        execute procedure st_baixacomposicao(old.codproduto, old.movimento_estoque);
+     END
+   END
+ END
+END;

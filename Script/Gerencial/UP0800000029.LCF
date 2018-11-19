@@ -1,0 +1,20 @@
+CREATE TABLE lista_contratante (
+  ID integer not null,
+  TIPO_DOC integer ,
+  DOC varchar(16) ,
+  IDMDFE integer);
+
+ALTER TABLE lista_contratante add constraint pk_lista_contratante primary key (ID);
+--ALTER TABLE lista_contratante add CONSTRAINT FK_MDFE_CONTATANTE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+
+CREATE GENERATOR inc_lista_contratante;
+SET GENERATOR inc_lista_contratante TO 0;
+
+CREATE OR ALTER TRIGGER in_lista_contratante FOR lista_contratante
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_lista_contratante,1);
+END;

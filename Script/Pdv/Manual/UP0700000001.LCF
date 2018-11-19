@@ -1,0 +1,7 @@
+CREATE TABLE CLIENTE_AUT (
+    CODIGO      INTEGER,
+    CODCLIENTE  VARCHAR(6),
+    NOME        VARCHAR(60)
+);
+
+Alter table cupom add pego_porquem varchar(60);

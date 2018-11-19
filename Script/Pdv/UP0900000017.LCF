@@ -1,0 +1,6 @@
+create table cupom_item_sub (
+ cod_item cod_extendido,
+ codpro varchar(10),
+ qtde numeric(15,3));
+
+

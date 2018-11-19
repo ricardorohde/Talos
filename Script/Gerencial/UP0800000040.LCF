@@ -1,0 +1,19 @@
+CREATE TABLE reboque_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  IDVEICULO RDB$1507);
+
+ALTER TABLE reboque_mdfe add constraint pk_reboque_mdfe primary key (ID);
+--ALTER TABLE reboque_mdfe add CONSTRAINT FK_IDVEICULO_REBOQUE FOREIGN KEY (IDVEICULO) REFERENCES c000054 (codigo);
+--ALTER TABLE reboque_mdfe add CONSTRAINT FK_ID_MDFE_REBOQUE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+CREATE GENERATOR inc_reboque_mdfe;
+SET GENERATOR inc_reboque_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_reboque_mdfe FOR reboque_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_reboque_mdfe,1);
+END;

@@ -1,0 +1,24 @@
+CREATE TABLE cte_cancelada (
+  ID integer not null,
+  IDCTE integer ,
+  DATA timestamp ,
+  PROTOCOLO varchar(45) ,
+  CHAVE varchar(45) ,
+  STATUS varchar(60) ,
+  JUSTIFICATIVA varchar(80) ,
+  DATA_CANCELAMENTO date);
+
+ALTER TABLE cte_cancelada add constraint pk_cte_cancelada primary key (ID);
+--ALTER TABLE cte_cancelada add CONSTRAINT FK_IDCTE_cte_cancelada FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_cte_cancelada;
+SET GENERATOR inc_cte_cancelada TO 0;
+
+CREATE OR ALTER TRIGGER in_cte_cancelada FOR cte_cancelada
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_cte_cancelada,1);
+END;

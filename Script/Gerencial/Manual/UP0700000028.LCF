@@ -1,0 +1,2 @@
+alter table c000008 add aprova_desconto varchar(1);
+

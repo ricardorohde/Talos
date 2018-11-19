@@ -1,0 +1,18 @@
+CREATE TABLE aut_mdfe_downloads (
+  ID integer not null,
+  CNPJ_CPF varchar(20),
+  IDMDFE integer);
+
+ALTER TABLE aut_mdfe_downloads add constraint pk_aut_mdfe_downloads primary key (ID);
+--ALTER TABLE aut_mdfe_downloads add CONSTRAINT FK_AUTMDFE_MDFE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+CREATE GENERATOR inc_aut_mdfe_downloads;
+SET GENERATOR inc_aut_mdfe_downloads TO 0;
+
+CREATE OR ALTER TRIGGER in_aut_mdfe_downloads FOR aut_mdfe_downloads
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_aut_mdfe_downloads,1);
+END;

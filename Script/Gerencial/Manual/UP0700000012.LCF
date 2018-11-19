@@ -1,0 +1,22 @@
+alter table C000001 add cobra_couver varchar(1);
+alter table C000001 add valor_couver decimal(15,2);
+alter table C000001 add cobra_comissao varchar(1);
+alter table C000001 add comissao_percentual decimal(15,2);
+
+alter table R000001 add perguntou_comissao varchar(1);
+alter table R000001 add cliente_autorizou varchar(1);
+
+create or alter procedure ST_LANCTO_INSERT (
+    CODIGO integer,
+    DATA date,
+    HORA varchar(10),
+    COD_FUNCIONARIO varchar(10),
+    perguntou_comissao varchar(1),
+    cliente_autorizou varchar(1))
+as
+BEGIN
+
+INSERT INTO R000001  (codigo,data,hora, cod_funcionario,perguntou_comissao,cliente_autorizou)
+values  (:codigo,:data,:hora, :cod_funcionario,:perguntou_comissao,:cliente_autorizou);
+
+END;

@@ -1,0 +1,18 @@
+CREATE VIEW vlocal_carregamento (
+        ID,
+        IDMDFE,
+        IDMUNICIPIO,
+        MID,
+        MUNICIPIO,
+        COD_IBGE
+) AS
+    SELECT
+        l.ID AS ID,
+        l.IDMDFE AS IDMDFE,
+        l.IDMUNICIPIO AS IDMUNICIPIO,
+        m.codigo AS MID,
+        m.cidade AS MUNICIPIO,
+        m.ibge AS COD_IBGE
+    FROM
+        local_carregamento_mdfe l
+        LEFT JOIN c000006 m ON m.codigo = l.idmunicipio

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/09/14 15:48:12.000.466,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\contasreceber_movimentacao.pas=</Transaction>
+    <Transaction>2018/10/15 17:14:16.000.463,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ConsultaCPF.pas</Transaction>
+    <Transaction>2018/10/15 17:14:27.000.413,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ConsultaCNPJ.pas</Transaction>
+  </Transactions>
+</BorlandProject>

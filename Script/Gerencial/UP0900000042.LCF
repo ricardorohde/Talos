@@ -1,0 +1,2 @@
+alter table item_delivery add complemento varchar(50);
+

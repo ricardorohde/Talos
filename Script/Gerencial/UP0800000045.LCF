@@ -1,0 +1,37 @@
+CREATE VIEW vcliente (
+        ID,
+        TIPO_PESSOA,
+        RAZAO_SOCIAL,
+        NOME_FANTASIA,
+        CNPJ_CPF,
+        INSCRICAO,
+        LOGRADOURO,
+        NUMERO,
+        COMPLEMENTO,
+        BAIRRO,
+        CEP,
+        TELEFONE,
+        MID,
+        MUNICIPIO,
+        COD_IBGE,
+        UF
+)AS
+    SELECT
+        c.codigo AS ID,
+        c.tipo AS TIPO_PESSOA,
+        c.nome AS RAZAO_SOCIAL,
+        c.apelido AS NOME_FANTASIA,
+        c.cpf AS CNPJ_CPF,
+        c.rg AS INSCRICAO,
+        c.endereco AS LOGRADOURO,
+        c.numero AS NUMERO,
+        c.complemento AS COMPLEMENTO,
+        c.bairro AS BAIRRO,
+        c.cep AS CEP,
+        c.telefone1 AS TELEFONE,
+        c.cod_municipio_ibge AS MID,
+        c.cidade AS MUNICIPIO,
+        c.ibge AS COD_IBGE,
+        c.uf AS UF
+    FROM
+        c000007 c

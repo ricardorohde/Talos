@@ -1,0 +1,73 @@
+create or alter procedure SINTEGRA70 (
+    DATAHORA_INI date,
+    DATAHORA_FIM date)
+returns (
+    CPFCNPJ varchar(14),
+    INSCRICAO varchar(14),
+    DATADOCUMENTO date,
+    UF varchar(2),
+    MODELO varchar(2),
+    SERIE varchar(1),
+    SUBSERIE varchar(2),
+    NUMERO varchar(6),
+    CFOP varchar(4),
+    VALORCONTABIL double precision,
+    BASEDECALCULO double precision,
+    ICMS double precision,
+    ISENTAS double precision,
+    OUTRAS double precision,
+    CIFFOBOUTROS varchar(1),
+    SITUACAO varchar(1))
+as
+declare variable VCNPJ varchar(25);
+declare variable VIE varchar(25);
+BEGIN
+  FOR SELECT
+    F.CNPJ,
+    F.IE,
+    T.DATA_LANCAMENTO,
+    F.UF,
+    LEFT(TRIM(T.MODELO), 2),
+    LEFT(TRIM(T.SERIE), 1),
+    NULL,
+    RIGHT(TRIM(T.NUMERO), 6),
+    LEFT(TRIM(T.CFOP), 4),
+    T.TOTAL_NOTA,
+    T.BASE_ICMS,
+    T.VALOR_ICMS,
+    T.ICMS_ISENTO,
+    T.ICMS_OUTRAS,
+    LEFT(TRIM(T.TRANSP_FRETE), 1),
+    'N'
+  FROM C000087 T
+  JOIN C000009 F ON (F.CODIGO = T.CODFORNECEDOR)
+  WHERE
+    (T.DATA_LANCAMENTO BETWEEN :DATAHORA_INI AND :DATAHORA_FIM) AND
+    (T.MODELO IN ('07', '08', '09', '10', '11', '26', '27', '67'))
+  ORDER BY
+    T.CODIGO
+  INTO
+    :VCNPJ,
+    :VIE,
+    :DATADOCUMENTO,
+    :UF,
+    :MODELO,
+    :SERIE,
+    :SUBSERIE,
+    :NUMERO,
+    :CFOP,
+    :VALORCONTABIL,
+    :BASEDECALCULO,
+    :ICMS,
+    :ISENTAS,
+    :OUTRAS,
+    :CIFFOBOUTROS,
+    :SITUACAO
+  DO
+  BEGIN
+    SELECT LEFT(RETORNO, 14) FROM EXTRACT_ONLY_NUMBER(:VCNPJ) INTO :CPFCNPJ;
+    SELECT LEFT(RETORNO, 14) FROM EXTRACT_ONLY_NUMBER(:VIE) INTO :INSCRICAO;
+
+    SUSPEND;
+  END
+END

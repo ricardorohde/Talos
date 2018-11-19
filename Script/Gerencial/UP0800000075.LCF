@@ -1,0 +1,3 @@
+alter table c000001 add email_tls varchar(1);
+alter table c000001 add email_ssl varchar(1);
+

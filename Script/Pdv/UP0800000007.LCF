@@ -1,0 +1,11 @@
+create table cupom_cartao (
+codigo varchar(50),
+codigo_cupom varchar(50),
+banco varchar(3),
+tipo_cartao varchar(1),
+prestacao integer,
+valor decimal(15,2),
+vencimento date,
+ex varchar(1));
+
+

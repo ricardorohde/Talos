@@ -1,0 +1,20 @@
+CREATE TABLE veiculo_cte (
+  ID integer NOT NULL,
+  IDCTE integer ,
+  IDVEICULO RDB$1507
+);
+
+ALTER TABLE veiculo_cte add constraint pk_veiculo_cte primary key (ID);
+--ALTER TABLE veiculo_cte add CONSTRAINT FK_VEICULOS_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+--ALTER TABLE veiculo_cte add CONSTRAINT FK_VEICULO_CTE FOREIGN KEY (IDVEICULO) REFERENCES c000054 (codigo);
+
+CREATE GENERATOR inc_veiculo_cte;
+SET GENERATOR inc_veiculo_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_veiculo_cte FOR veiculo_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_veiculo_cte,1);
+END;

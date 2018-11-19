@@ -1,0 +1,2 @@
+alter table dfe_configuracoes add caminho_baixar_nfe varchar(255);
+

@@ -1,0 +1,5597 @@
+object frmos: Tfrmos
+  Left = 200
+  Top = 110
+  BorderStyle = bsNone
+  Caption = 'O.S. | Ordem de Servi'#231'o'
+  ClientHeight = 664
+  ClientWidth = 1042
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageView1: TPageView
+    Left = -1
+    Top = 330
+    Width = 892
+    Height = 335
+    ActivePage = PageSheet1
+    ActivePageIndex = 1
+    AdaptiveColors = True
+    BackgroundColor = 12508128
+    BackgroundKind = bkSolid
+    Indent = 2
+    Margin = 0
+    Options = [pgBoldActiveTab]
+    PopupMenu = PopupMenu1
+    ShowTabs = True
+    Spacing = 0
+    TabHeight = 17
+    TabOrder = 0
+    TabStyle = tsWhidbey
+    TopIndent = 1
+    OnChange = PageView1Change
+    object PageSheet3: TPageSheet
+      Left = 0
+      Top = 19
+      Width = 892
+      Height = 316
+      Caption = 'F2 | Laudo'
+      Color = clSilver
+      DisplayMode = tdTextOnly
+      Glyph.Data = {
+        DA050000424DDA05000000000000360000002800000019000000130000000100
+        180000000000A4050000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFF8F4539ECE3E0ECE2DFEBE0
+        DEECE2DFECE2DFECE2DFECE3E0ECE2DFEBE0DEECE2DFECE3E0ECE3E0ECE2DFEB
+        E0DEEBE0DEECE2DFECE2DFECE2DFECE2DFECE2DFECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0AE6A37AC6734A66031A25B2D9C552B965028914B238A481D84
+        441C7D411F763E22713D236D3B256838266536276437266438256537266A3A25
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFB16D39AE6A37AA6533A6602FA1
+        5A2C9B542A955026904B2388471D81431C793F22733C256C3B24663826643726
+        6136255E3526613625643825EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFB5
+        723BB36F3AB06C38AC6734A86231A35D2D9D562A985228924D248A481D82441B
+        794020733D246C3A266537266035275E35275E3527613626EBDFDD8F4539FFFF
+        FF00FFFFFF8F4539ECE3E0B9763CB7753CCA8D50FFFFFFFFFFFFB7753DA66030
+        A25B2D9C552BCFA887FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB59E886136255E35
+        26623626EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFBC7A3EBC7A3ECE9254
+        FFFFFFFFFFFFBD7C41B06C39AC6737A86232B16E3BF8F6F5FFFFFFE0D7CCC8B1
+        9AC5AE9A9C7758663726623626633726EBE0DE8F4539FFFFFF00FFFFFF8F4539
+        ECE3E0C17F3DC1803FD39857FFFFFFFFFFFFCD904EC28144BF7E42B36F3BAE69
+        35BC7C48F1EEEBFBFAF9BF957582431D783F226F3C236A3A25693925EBDFDD8F
+        4539FFFFFF00FFFFFF8F4539ECE3E0C6853DC6853ED89D55FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFBD7B3FB6733CAF6B39B8763FE8E0D6FFFFFFCDB29785461C7B
+        4120733D23723D23EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0C8873CC888
+        3EDCA153FFFFFFFFFFFFE4B57BE1AC69E0AA69C1803FBF7E41C38344BA7941B0
+        6C38E8E0D7FFFFFFAE794F87461C7F411E7C4020ECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0CB8B3BCC8C3ADFA551FFFFFFFFFFFFE8BF88E5B67CE4B67CD7
+        9C54E0AB71FFFFFFEADED0C3854CE5D9CBFFFFFFBE8E66904B228A471E86451C
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCD8D38CF8F38E0A652FFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFE8BF8DC58442E8D3B9FFFFFFFFFFFFFFFFFFE1CFBA
+        A45F2E98512A934D268F4B22EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0CF
+        8F36D09037D29237D8993FD8993ED59741D39442D19344C98942C17F3EBC7A3E
+        C28142C7894EB8753DA96434A45E2E9F582D9B5429985128EBE0DE8F4539FFFF
+        FF00FFFFFF8F4539ECE2DFD09036D09037CF8F38CE8E38CD8D39CA8A3BC8873D
+        C6853EC3833EBF7E3FBC7A3EB9773DB6733CB26F3AAE6937AA6533A55F30A25B
+        2C9F582CECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCF8F38CF8F38CE8E39
+        CD8D3ACB8B3CC8883DC6863DC5843EC3823FC07F3FBD7B3FBA783DB8763DB572
+        3CB16E3AAE6937AB6634A86231A6602FEBE0DE8F4539FFFFFF00FFFFFF8F4539
+        EBE0DEEBE0DEEBDFDDEBE0DEEBE0DEEBE0DEEBE0DEEBE0DEEBDFDDEBE0DEEBE0
+        DEEBE0DEEBE0DEEBDFDDEBDFDDEBE0DEEBE0DEEBDFDDEBE0DEEBDFDDEBDFDD8F
+        4539FFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 0
+      ParentColor = False
+      TabColor = 14540253
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label50: TLabel
+        Left = 8
+        Top = 272
+        Width = 45
+        Height = 13
+        Caption = 'Situa'#231#227'o:'
+      end
+      object Bevel4: TBevel
+        Left = 435
+        Top = 0
+        Width = 3
+        Height = 316
+        Align = alRight
+        ExplicitLeft = 434
+        ExplicitHeight = 313
+      end
+      object GroupBox3: TGroupBox
+        Left = 5
+        Top = 8
+        Width = 324
+        Height = 254
+        Caption = 'Detectado (Parecer) / Previs'#227'o de Atendimento'
+        Color = 14657888
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object Label10: TLabel
+          Left = 8
+          Top = 24
+          Width = 27
+          Height = 13
+          Caption = 'Data:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label11: TLabel
+          Left = 5
+          Top = 53
+          Width = 40
+          Height = 13
+          Caption = 'T'#233'cnico:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label12: TLabel
+          Left = 7
+          Top = 105
+          Width = 98
+          Height = 13
+          Caption = 'Defeitos Detectados'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label41: TLabel
+          Left = 5
+          Top = 77
+          Width = 51
+          Height = 13
+          Caption = 'Setor/Lab:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label43: TLabel
+          Left = 176
+          Top = 24
+          Width = 27
+          Height = 13
+          Caption = 'Hora:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object DBDateEdit2: TJvDBDateEdit
+          Left = 62
+          Top = 20
+          Width = 91
+          Height = 21
+          Margins.Left = 4
+          Margins.Top = 1
+          DataField = 'DETECTADO_DATA'
+          DataSource = dsos
+          Color = 15916445
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFDFB492D49C73D09567CD9162CA8D5DC8895AC6
+            8655C28351C28351C28351C28351C28351C28351CFA07CFFFFFFFFFFFFD6A074
+            F7F1ECF6EFE9F5ECE5F3E9E1F2E6DDF0E3DAEFE1D7EFE1D7EFE1D7EFE1D7EFE1
+            D7EFE1D7C48A5DFFFFFFFFFFFFD8A379F8F2EDEACFBBE6C0A3E6BEA0E5BD9EE5
+            BA99E2B794E0B48EDDAF88DBAA82D8AD88EFE1D7C58B5EFFFFFFFFFFFFDCA77D
+            F8F2EEEACFB9FEFEFEFDFDFDFDFEFDFDFEFDFEFEFEFDFDFDFEFEFEFEFEFEDAAF
+            8BEFE1D7C5895BFFFFFFFFFFFFDEA981F8F2EEE9CDB6FEFEFEBFDCC261AA68A0
+            CCA4AAD1AE67AD6DAAD1AEFEFEFEDCB390EFE1D7C78C5EFFFFFFFFFFFFE0AD86
+            F9F3EFE9CAB1FEFEFEFEFEFE61AA68D4E8D68BC090FEFEFE61AA68FEFEFEDEB7
+            95EFE1D7C38553FFFFFFFFFFFFE2B08BF9F5F0E9C8ADFEFEFEFEFEFE61AA68D4
+            E8D695C69AF8FBF86BB072FEFEFEE0BC9CEFE1D7C58554FFFFFFFFFFFFE4B38E
+            F9F5F1E8C5A9FEFEFEAAD1AE6BB072D4E8D6AAD1AE64AC6BAAD1AEFEFEFEE3C0
+            A3F1E6DDC78958FFFFFFFFFFFFE6B693FAF6F3E8C2A5FEFEFEFEFEFEFEFEFEFE
+            FEFEFEFEFEFEFEFEFEFEFEFEFEFEE4C5AAF6F0EACA8E5EFFFFFFFFFFFFE8B997
+            FAF6F364A3FE63A2FE61A1FE60A0FE5E9EFE5B9CFE5999FE5697FE5394FE5193
+            FEFAF6F3CD9263FFFFFFFFFFFFEABC9AFAF6F363A3FE78BCFE74BAFE70B8FE6C
+            B7FE67B2FE60AFFE59AAFE53A6FE3A7CFEFAF6F3D09669FFFFFFFFFFFFEBBE9D
+            FAF6F364A3FE63A2FE5F9FFE5C9DFE5798FE5395FE4C8FFE468AFE4183FE3C7E
+            FEFAF6F3D39A6EFFFFFFFFFFFFEEC5A7FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FA
+            F6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3D7A277FFFFFFFFFFFFF7E0D1
+            F0C7ABECBF9EEABD9CEABB99E8B995E6B692E5B48FE3B18BE1AE87DFAB83DCA8
+            7FDBA47CE1B595FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          ImageKind = ikCustom
+          ShowNullDate = False
+          TabOrder = 0
+          OnEnter = DBDateEdit2Enter
+          OnExit = DBDateEdit2Exit
+          OnKeyPress = DBDateEdit1KeyPress
+        end
+        object enometecnico: TDBEdit
+          Left = 130
+          Top = 49
+          Width = 182
+          Height = 21
+          Color = 15916445
+          DataField = 'detectado_tecnico'
+          DataSource = dsos
+          Enabled = False
+          TabOrder = 5
+        end
+        object enomesetor: TDBEdit
+          Left = 130
+          Top = 73
+          Width = 182
+          Height = 21
+          Color = 15916445
+          DataField = 'setor'
+          DataSource = dsos
+          Enabled = False
+          TabOrder = 6
+        end
+        object DBEdit18: TDBEdit
+          Left = 224
+          Top = 20
+          Width = 87
+          Height = 21
+          Color = 15916445
+          DataField = 'DETECTADO_HORA'
+          DataSource = dsos
+          TabOrder = 1
+          OnEnter = combomarcaEnter
+          OnExit = DBEdit18Exit
+          OnKeyPress = DBDateEdit1KeyPress
+        end
+        object EDETECTADO: TDBMemo
+          Left = 5
+          Top = 120
+          Width = 312
+          Height = 128
+          Color = 15916445
+          DataField = 'DETECTADO'
+          DataSource = dsos
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+          OnEnter = edetectadoEnter
+          OnExit = edetectadoExit
+          OnKeyPress = edetectadoKeyPress
+        end
+        object etecnico: TRzDBButtonEdit
+          Left = 61
+          Top = 49
+          Width = 66
+          Height = 21
+          DataSource = dsos
+          DataField = 'DETECTADO_CODTECNICO'
+          Color = 15916445
+          FocusColor = 10550008
+          TabOrder = 2
+          OnExit = etecnicoExit
+          OnKeyPress = etecnicoKeyPress
+          AltBtnWidth = 15
+          ButtonWidth = 15
+          OnButtonClick = etecnicoButtonClick
+        end
+        object esetor: TRzDBButtonEdit
+          Left = 61
+          Top = 73
+          Width = 66
+          Height = 21
+          DataSource = dsos
+          DataField = 'CODSETOR'
+          Color = 15916445
+          FocusColor = 10550008
+          TabOrder = 3
+          OnExit = esetorExit
+          OnKeyPress = etecnicoKeyPress
+          AltBtnWidth = 15
+          ButtonWidth = 15
+          OnButtonClick = esetorButtonClick
+        end
+      end
+      object Panel1: TPanel
+        Left = 438
+        Top = 0
+        Width = 454
+        Height = 316
+        Align = alRight
+        BevelOuter = bvNone
+        Color = clSilver
+        ParentBackground = False
+        TabOrder = 2
+        object Label51: TLabel
+          Left = 8
+          Top = 2
+          Width = 433
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Interven'#231#245'es'
+          Color = 14657888
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object gconclusao: TGroupBox
+          Left = 4
+          Top = 224
+          Width = 446
+          Height = 65
+          Caption = 'Conclus'#227'o'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          object Label13: TLabel
+            Left = 4
+            Top = 17
+            Width = 64
+            Height = 13
+            Alignment = taRightJustify
+            AutoSize = False
+            Caption = 'Data:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label14: TLabel
+            Left = 188
+            Top = 17
+            Width = 64
+            Height = 13
+            Alignment = taRightJustify
+            AutoSize = False
+            Caption = 'Entregue:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label15: TLabel
+            Left = 4
+            Top = 39
+            Width = 64
+            Height = 13
+            Alignment = taRightJustify
+            AutoSize = False
+            Caption = 'Retirado por:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object DBDateEdit3: TJvDBDateEdit
+            Left = 75
+            Top = 13
+            Width = 101
+            Height = 21
+            Margins.Left = 4
+            Margins.Top = 1
+            DataField = 'CONCLUSAO_DATA'
+            DataSource = dsos
+            Color = 15916445
+            Enabled = False
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFDFB492D49C73D09567CD9162CA8D5DC8895AC6
+              8655C28351C28351C28351C28351C28351C28351CFA07CFFFFFFFFFFFFD6A074
+              F7F1ECF6EFE9F5ECE5F3E9E1F2E6DDF0E3DAEFE1D7EFE1D7EFE1D7EFE1D7EFE1
+              D7EFE1D7C48A5DFFFFFFFFFFFFD8A379F8F2EDEACFBBE6C0A3E6BEA0E5BD9EE5
+              BA99E2B794E0B48EDDAF88DBAA82D8AD88EFE1D7C58B5EFFFFFFFFFFFFDCA77D
+              F8F2EEEACFB9FEFEFEFDFDFDFDFEFDFDFEFDFEFEFEFDFDFDFEFEFEFEFEFEDAAF
+              8BEFE1D7C5895BFFFFFFFFFFFFDEA981F8F2EEE9CDB6FEFEFEBFDCC261AA68A0
+              CCA4AAD1AE67AD6DAAD1AEFEFEFEDCB390EFE1D7C78C5EFFFFFFFFFFFFE0AD86
+              F9F3EFE9CAB1FEFEFEFEFEFE61AA68D4E8D68BC090FEFEFE61AA68FEFEFEDEB7
+              95EFE1D7C38553FFFFFFFFFFFFE2B08BF9F5F0E9C8ADFEFEFEFEFEFE61AA68D4
+              E8D695C69AF8FBF86BB072FEFEFEE0BC9CEFE1D7C58554FFFFFFFFFFFFE4B38E
+              F9F5F1E8C5A9FEFEFEAAD1AE6BB072D4E8D6AAD1AE64AC6BAAD1AEFEFEFEE3C0
+              A3F1E6DDC78958FFFFFFFFFFFFE6B693FAF6F3E8C2A5FEFEFEFEFEFEFEFEFEFE
+              FEFEFEFEFEFEFEFEFEFEFEFEFEFEE4C5AAF6F0EACA8E5EFFFFFFFFFFFFE8B997
+              FAF6F364A3FE63A2FE61A1FE60A0FE5E9EFE5B9CFE5999FE5697FE5394FE5193
+              FEFAF6F3CD9263FFFFFFFFFFFFEABC9AFAF6F363A3FE78BCFE74BAFE70B8FE6C
+              B7FE67B2FE60AFFE59AAFE53A6FE3A7CFEFAF6F3D09669FFFFFFFFFFFFEBBE9D
+              FAF6F364A3FE63A2FE5F9FFE5C9DFE5798FE5395FE4C8FFE468AFE4183FE3C7E
+              FEFAF6F3D39A6EFFFFFFFFFFFFEEC5A7FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FA
+              F6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3D7A277FFFFFFFFFFFFF7E0D1
+              F0C7ABECBF9EEABD9CEABB99E8B995E6B692E5B48FE3B18BE1AE87DFAB83DCA8
+              7FDBA47CE1B595FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ImageKind = ikCustom
+            ShowNullDate = False
+            TabOrder = 0
+            OnEnter = DBDateEdit3Enter
+            OnExit = DBEdit10Exit
+            OnKeyPress = DBDateEdit1KeyPress
+          end
+          object DBDateEdit4: TJvDBDateEdit
+            Left = 259
+            Top = 13
+            Width = 101
+            Height = 21
+            Margins.Left = 4
+            Margins.Top = 1
+            DataField = 'CONCLUSAO_ENTREGUE'
+            DataSource = dsos
+            Color = 15916445
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFDFB492D49C73D09567CD9162CA8D5DC8895AC6
+              8655C28351C28351C28351C28351C28351C28351CFA07CFFFFFFFFFFFFD6A074
+              F7F1ECF6EFE9F5ECE5F3E9E1F2E6DDF0E3DAEFE1D7EFE1D7EFE1D7EFE1D7EFE1
+              D7EFE1D7C48A5DFFFFFFFFFFFFD8A379F8F2EDEACFBBE6C0A3E6BEA0E5BD9EE5
+              BA99E2B794E0B48EDDAF88DBAA82D8AD88EFE1D7C58B5EFFFFFFFFFFFFDCA77D
+              F8F2EEEACFB9FEFEFEFDFDFDFDFEFDFDFEFDFEFEFEFDFDFDFEFEFEFEFEFEDAAF
+              8BEFE1D7C5895BFFFFFFFFFFFFDEA981F8F2EEE9CDB6FEFEFEBFDCC261AA68A0
+              CCA4AAD1AE67AD6DAAD1AEFEFEFEDCB390EFE1D7C78C5EFFFFFFFFFFFFE0AD86
+              F9F3EFE9CAB1FEFEFEFEFEFE61AA68D4E8D68BC090FEFEFE61AA68FEFEFEDEB7
+              95EFE1D7C38553FFFFFFFFFFFFE2B08BF9F5F0E9C8ADFEFEFEFEFEFE61AA68D4
+              E8D695C69AF8FBF86BB072FEFEFEE0BC9CEFE1D7C58554FFFFFFFFFFFFE4B38E
+              F9F5F1E8C5A9FEFEFEAAD1AE6BB072D4E8D6AAD1AE64AC6BAAD1AEFEFEFEE3C0
+              A3F1E6DDC78958FFFFFFFFFFFFE6B693FAF6F3E8C2A5FEFEFEFEFEFEFEFEFEFE
+              FEFEFEFEFEFEFEFEFEFEFEFEFEFEE4C5AAF6F0EACA8E5EFFFFFFFFFFFFE8B997
+              FAF6F364A3FE63A2FE61A1FE60A0FE5E9EFE5B9CFE5999FE5697FE5394FE5193
+              FEFAF6F3CD9263FFFFFFFFFFFFEABC9AFAF6F363A3FE78BCFE74BAFE70B8FE6C
+              B7FE67B2FE60AFFE59AAFE53A6FE3A7CFEFAF6F3D09669FFFFFFFFFFFFEBBE9D
+              FAF6F364A3FE63A2FE5F9FFE5C9DFE5798FE5395FE4C8FFE468AFE4183FE3C7E
+              FEFAF6F3D39A6EFFFFFFFFFFFFEEC5A7FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FA
+              F6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3FAF6F3D7A277FFFFFFFFFFFFF7E0D1
+              F0C7ABECBF9EEABD9CEABB99E8B995E6B692E5B48FE3B18BE1AE87DFAB83DCA8
+              7FDBA47CE1B595FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ImageKind = ikCustom
+            ShowNullDate = False
+            TabOrder = 1
+            OnEnter = DBEdit10Enter
+            OnExit = DBEdit10Exit
+            OnKeyPress = DBDateEdit1KeyPress
+          end
+          object DBEdit11: TDBEdit
+            Left = 75
+            Top = 37
+            Width = 358
+            Height = 21
+            Color = 15916445
+            DataField = 'RETIRADO_POR'
+            DataSource = dsos
+            TabOrder = 2
+            OnEnter = DBEdit10Enter
+            OnExit = DBEdit10Exit
+            OnKeyPress = DBEdit11KeyPress
+          end
+        end
+        object EINTERVENCAO: TDBMemo
+          Left = 5
+          Top = 18
+          Width = 442
+          Height = 191
+          Color = 15916445
+          DataField = 'INTERVENCOES'
+          DataSource = dsos
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnEnter = eintervencaoEnter
+          OnExit = eintervencaoExit
+        end
+      end
+      object combosituacao: TwwDBComboBox
+        Left = 56
+        Top = 268
+        Width = 265
+        Height = 21
+        ShowButton = True
+        Style = csDropDownList
+        MapList = False
+        AllowClearKey = False
+        AutoDropDown = True
+        Color = 8440061
+        DataField = 'SITUACAO'
+        DataSource = dsos
+        DropDownCount = 8
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clRed
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ItemHeight = 0
+        Items.Strings = (
+          'ABERTA - Aguardando Confirma'#231#227'o'
+          'ABERTA - Executando Servi'#231'os'
+          'FECHADA')
+        ItemIndex = 0
+        ParentFont = False
+        Sorted = False
+        TabOrder = 1
+        UnboundDataType = wwDefault
+        OnChange = combosituacaoChange
+        OnEnter = combosituacaoEnter
+        OnExit = combosituacaoExit
+        OnKeyPress = combosituacaoKeyPress
+      end
+    end
+    object PageSheet1: TPageSheet
+      Left = 0
+      Top = 19
+      Width = 892
+      Height = 316
+      Caption = 'F3 | Servi'#231'os'
+      Color = 5460819
+      DisplayMode = tdTextOnly
+      Glyph.Data = {
+        DA050000424DDA05000000000000360000002800000019000000130000000100
+        180000000000A4050000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFF8F4539ECE3E0ECE2DFEBE0
+        DEECE2DFECE2DFECE2DFECE3E0ECE2DFEBE0DEECE2DFECE3E0ECE3E0ECE2DFEB
+        E0DEEBE0DEECE2DFECE2DFECE2DFECE2DFECE2DFECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0AE6A37AC6734A66031A25B2D9C552B965028914B238A481D84
+        441C7D411F763E22713D236D3B256838266536276437266438256537266A3A25
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFB16D39AE6A37AA6533A6602FA1
+        5A2C9B542A955026904B2388471D81431C793F22733C256C3B24663826643726
+        6136255E3526613625643825EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFB5
+        723BB36F3AB06C38AC6734A86231A35D2D9D562A985228924D248A481D82441B
+        7940207D4A266F3D246537266035275E35275E3527613626EBDFDD8F4539FFFF
+        FF00FFFFFF8F4539ECE3E0B9763CB7753CB5723BCC9158FFFFFFEDE8E1A66030
+        A25B2D9C552B954F27AF7A52EDEAE5FFFFFFFAF9F8C4B3A1693B256136255E35
+        26623626EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFBC7A3EBC7A3EBA783E
+        D1975CFFFFFFEEE8E1B06C39AC6737A86232A45E2EECE8E1FAF9F8A36C43CDBA
+        A5FFFFFFA68669663726623626633726EBE0DE8F4539FFFFFF00FFFFFF8F4539
+        ECE3E0C17F3DC1803FC17F3FD79E60FFFFFFF1EBE5C28144BF7E42B8763DAE69
+        35A76131A86431975129C49C7DFFFFFFBFA1896F3C236A3A25693925EBDFDD8F
+        4539FFFFFF00FFFFFF8F4539ECE3E0C6853DC6853EC6853EDBA35EFFFFFFFFFF
+        FFFFFFFFFFFFFFE6C29BB6733CAF6B39AA6533E1D1C0FEFEFDE4DDD5945C327B
+        4120733D23723D23EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0C8873CC888
+        3EC9893DE0A75BFFFFFFF5F2EEE1AC69E0AA69D29652BC7A3EB7743CB16D39D3
+        A276F8F6F4E3D9CD934F2687461C7F411E7C4020ECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0CB8B3BCC8C3ACE8E39E2AA5CFFFFFFF6F3F0E5B67CE4B67CE3
+        B37CC38241E8CCABEADFD2B8763EE4D7C7FFFFFFAC6E40904B228A471E86451C
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCD8D38CF8F38D09037E3AB5BFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFC58542DEAA73FAF9F7FFFFFFFFFFFFE0CDB7
+        A05A2C98512A934D268F4B22EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0CF
+        8F36D09037D09037D29237D8993ED59741D39442D19344CE9045C1803EBC7A3E
+        BF7E40C7894EBB7A42A96434A45E2E9F582D9B5429985128EBE0DE8F4539FFFF
+        FF00FFFFFF8F4539ECE2DFD09036D09037CF8F38CE8E38CD8D39CA8A3BC8873D
+        C6853EC3833EBF7E3FBC7A3EB9773DB6733CB26F3AAE6937AA6533A55F30A25B
+        2C9F582CECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCF8F38CF8F38CE8E39
+        CD8D3ACB8B3CC8883DC6863DC5843EC3823FC07F3FBD7B3FBA783DB8763DB572
+        3CB16E3AAE6937AB6634A86231A6602FEBE0DE8F4539FFFFFF00FFFFFF8F4539
+        EBE0DEEBE0DEEBDFDDEBE0DEEBE0DEEBE0DEEBE0DEEBE0DEEBDFDDEBE0DEEBE0
+        DEEBE0DEEBE0DEEBDFDDEBDFDDEBE0DEEBE0DEEBDFDDEBE0DEEBDFDDEBDFDD8F
+        4539FFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 1
+      ParentColor = False
+      TabColor = 6349305
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label16: TLabel
+        Left = 621
+        Top = 279
+        Width = 28
+        Height = 13
+        Caption = 'Total:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 274
+        Top = 279
+        Width = 44
+        Height = 13
+        Caption = 'Subtotal:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label18: TLabel
+        Left = 442
+        Top = 279
+        Width = 49
+        Height = 13
+        Caption = 'Desconto:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object DBEdit4: TDBEdit
+        Left = 656
+        Top = 274
+        Width = 105
+        Height = 21
+        DataField = 'SERVICO_TOTAL'
+        DataSource = dsos
+        Enabled = False
+        TabOrder = 0
+        OnChange = DBEdit4Change
+      end
+      object DBEdit5: TDBEdit
+        Left = 328
+        Top = 274
+        Width = 105
+        Height = 21
+        DataField = 'SERVICO_SUBTOTAL'
+        DataSource = dsos
+        Enabled = False
+        TabOrder = 1
+      end
+      object DBEdit6: TDBEdit
+        Left = 504
+        Top = 274
+        Width = 105
+        Height = 21
+        DataField = 'SERVICO_DESCONTO'
+        DataSource = dsos
+        TabOrder = 2
+        OnEnter = DBEdit6Enter
+        OnExit = DBEdit6Exit
+        OnKeyPress = DBEdit6KeyPress
+      end
+      object gridservico: TwwDBGrid
+        Left = 0
+        Top = 0
+        Width = 892
+        Height = 262
+        ControlType.Strings = (
+          'CODSERVICO;CustomEdit;ESERVICO;F'
+          'SERVICO;CustomEdit;COMBOSERVICO;F'
+          'CODTECNICO;CustomEdit;combotecnico;F')
+        Selected.Strings = (
+          'CODSERVICO'#9'7'#9'C'#243'digo'#9#9
+          'SERVICO'#9'40'#9'Descri'#231#227'o do Servi'#231'o'#9#9
+          'COMPLEMENTO'#9'50'#9'COMPLEMENTO'#9#9
+          'VALOR'#9'10'#9'Valor-R$'#9#9
+          'CODTECNICO'#9'9'#9'Cd.T'#233'cnico'#9#9
+          'TECNICO'#9'16'#9'Nome do T'#233'cnico'#9'F'#9)
+        IniAttributes.Delimiter = ';;'
+        IniAttributes.UnicodeIniFile = False
+        TitleColor = clBtnFace
+        FixedCols = 0
+        ShowHorzScrollBar = True
+        Align = alTop
+        DataSource = dsos_servico
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        KeyOptions = [dgEnterToTab, dgAllowDelete, dgAllowInsert]
+        ParentFont = False
+        TabOrder = 3
+        TitleAlignment = taCenter
+        TitleFont.Charset = ANSI_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        TitleLines = 1
+        TitleButtons = False
+        OnExit = gridservicoExit
+        PaintOptions.AlternatingRowColor = 16053492
+      end
+      object COMBOSERVICO: TwwDBLookupCombo
+        Left = 136
+        Top = 48
+        Width = 121
+        Height = 21
+        DropDownAlignment = taLeftJustify
+        Selected.Strings = (
+          'SERVICO'#9'50'#9'SERVI'#199'O'#9'F'
+          'CODIGO'#9'6'#9'C'#211'DIGO'#9'F'
+          'VALOR'#9'10'#9'VALOR'#9#9)
+        DataField = 'SERVICO'
+        DataSource = dsos_servico
+        LookupTable = frmmodulo.qrservico
+        LookupField = 'SERVICO'
+        Options = [loColLines, loTitles]
+        TabOrder = 4
+        AutoDropDown = True
+        ShowButton = True
+        PreciseEditRegion = False
+        AllowClearKey = False
+        OnExit = COMBOSERVICOExit
+      end
+      object ESERVICO: TwwDBEdit
+        Left = 8
+        Top = 48
+        Width = 121
+        Height = 21
+        DataField = 'CODSERVICO'
+        DataSource = dsos_servico
+        TabOrder = 5
+        UnboundDataType = wwDefault
+        WantReturns = False
+        WordWrap = False
+        OnExit = ESERVICOExit
+      end
+      object combotecnico: TwwDBLookupComboDlg
+        Left = 544
+        Top = 160
+        Width = 121
+        Height = 21
+        GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
+        GridColor = clWhite
+        GridTitleAlignment = taLeftJustify
+        Caption = 'Localizar T'#233'cnico'
+        MaxWidth = 0
+        MaxHeight = 209
+        Selected.Strings = (
+          'CODIGO'#9'6'#9'C'#211'DIGO'#9'F'#9
+          'NOME'#9'30'#9'NOME'#9'F'#9)
+        DataField = 'CODTECNICO'
+        DataSource = dsos_servico
+        LookupTable = frmmodulo.qrfunci
+        LookupField = 'CODIGO'
+        TabOrder = 6
+        AutoDropDown = False
+        ShowButton = True
+        AllowClearKey = False
+        OnExit = combotecnicoExit
+      end
+      object bexcluir_servico: TAdvGlowButton
+        Left = 7
+        Top = 265
+        Width = 117
+        Height = 41
+        Caption = 'Excluir '
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 49
+        FocusType = ftHot
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        Picture.Data = {
+          89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+          6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+          7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+          1F90000009AC4944415478DABC99FB6F5BE519C71F093189494813EC0F80FD30
+          0DD05426B631DAAE491B274DDDE6E6E3737C5CE79E1CDB8993A6494ADB946449
+          53CA65FB6597A24D306063058198D46DD286C6B81746D7D116145AFB388993C6
+          3EBE9DF31EDBC7CED549BFFBC169523769D2A6B01F3E3F1CEB7DE58F9FC7CFF3
+          3E7E4DE8EFA73C068FD2425F1F31DE49C6DE364AD67988092ECAD47552426C25
+          436C279D7793C64B0F68BCD3C304E74B4C70BEABF1D284C64BC6226126BA3E62
+          82F3A4C63B0FE8BCF361C6BB48E7DDC4C4164AD5B693B1B79D747B2BA5440F31
+          CE49D9C33D842707E97A1FBA59C1C9866E4A889E7B74C1DDC378A757E3255C45
+          B536E3DA678D97A072CDD0ACCBCF8C7706182F1D67B696FB8CBA7D9476ECFB0A
+          041D6D94AC6F2326B8EF4CDA5B9FD104673227B352E8665073FBB2BAE8FA5DCA
+          DE76AFEEF0DC6E04DB2959EB298B73CD232AD7B461B195D16D826A6DD6D95E77
+          BD616F27C6B9D6103CDA9FCFF141C2403FE9363731CE35A8F11234EB5723964F
+          2E13CCEA3AC178172D3CD14B78FAD80A1F425F7F3E034769E1482F319BF364DC
+          D298F73DFA3A588CE6BFB2078F10060757F8106AFA7354F713EA9EA46C6D0FA9
+          42E3AB5FA7D46AC4F9860F676B0E12EA8FE75C16BD08DD03391E3F4A38708C0C
+          5BDBD158453DFEDF82B1CA7A24B996D7D03948383448E8EE27740F1019CE2E32
+          9C5D94F63C4E29574761DC7A0B69159CD00409ACA00AEC2766B02D65391E3543
+          373BC01C9E9B97B44A88730D484A6DF586E7E09217CD361EA259A987A66A0EDC
+          112B6F54556BD3F2269B0BAAD901B558805A625BC9760EAA4940F4B99711FEF3
+          DF1179E5CD1C7F790BCAFE3EC41F2901DB695F7D6FB10DEA4EFBF2075D2CC668
+          790326ABBBEE9D958ED06CE321A2F9F65E9AEF1C20A3AEFD9958E575A9E59AC0
+          EA3BC0A40360CDDD2B7178C01A3A1166498400288B44008CBEF1575CDE6C46C2
+          F9F8EA7BA503604D5DD06D2EB0BC54372055EB797D7E7F3FCDB7F71219622719
+          B6FD776956299BD7E72C8D508BAC303E3D8FC9F97964D2532B3116999C417A6A
+          16996B4867A6914AA69136A656DD3B959D47321845886B845E560B76358ABC84
+          38D78494B0EF4143EC224A3B3A2921B4F4C4AF4D2D2F41AB6A805A50897454C3
+          34B02633D905CCCC6431333B8F99D9794CCF64310360668D3D590053002E950A
+          B8BCAD1C297BCB92A46A6D822EB87F9BDEDB49C4ECADC4046770C529C1354133
+          3B907CEE0F489DBD003D330D3D3D053D95B96D1273F3601786107DF975C83B79
+          7CF95829826535482E4AAAD66630C19962F6D63B89D95CDFB96165896E683F28
+          429C97105475047503C170FCF68831285700B9B1034377DF07B9C8025FB11517
+          0B2B102CBF4ED2E62A2726B83AD63A6359A91D5A751B94893042E96928516D89
+          489C41896A082D3E87630CE158FE6B57D75C259C4C4361290C3BDCF06E2A846C
+          E2209B38F88A2CF992B9EA7E8198E83AB9E6595B590F56568BF0B92184B20B79
+          6FB611C2D373080D8F432EB5C1F7D8AE25C13CC9B21A24C516E8A2EB0362A2EB
+          43955B43906B02DBC121F2F6E95C2B896A8869098C4D4471E6FC250C8F2988B3
+          2494A8860B5F0EE3FCD03094A886384B623810C299CF2E62784C414CCBAD0967
+          AF2074E122E4C20AF8B6EEC9135C92DC5E81E09E6A188E563F69BC145ABBC337
+          831554217AEA9F7982A3E3617CF0E9E7904783D0120694A886FF5CF0E2CCB94B
+          50A21AB48401DFC804DEFFE43CE4D120D445C10880E0E9B3F03D5A02B9A06285
+          E0B264258265351A69BC34B5DE31C4369721FAEAA93CC1C0E5083E3E3B047F20
+          04554F41896AF8EC0B19FFFDDC0725AA41D553904783387DE60BF80321C4AF11
+          9CF8C77BF06D2A84BCA36A55C1AB92DE1D55999B13DC5286D8AF7E9F138CB1DB
+          16BCFCC6DFE07D682BE422CB0D0517C990669522EB0A1654217EE4698466B250
+          D4C46D0B8EBFF81ABCDF7D743D39C8264E27DDEEFE64CD22E125B0222BD48E3E
+          28893414DDD8B8608C21022070FC97EB0AFA4C160C9BF851D245D7EBEB0AEE14
+          A14ADD50222A945466E3825A12E1B9798CB41DCEA5784D410EC3C5D68F49135C
+          87D6FD31B4DB01CDD18A70208850667AC382E1441AE1441AC3F5EDF03D5CB86E
+          8AFDC5DC2BA48BEE07D71D26CB6BA1714D087F2923349BDDB8A0310925A2C1CF
+          37C1F743D3FA112CB1DA4913DDA4F192B6A660550398B91A91B39F23B4808D0B
+          CE6411F28D422EE1E1DB6C5E2F8273FE12EE9B64D8F7534270FF62C5B8B5EA69
+          F21142D8B86004C0C4FBFFCE45AFB0F2C6723B2C904BACAF8D94D98812C23E4A
+          F06DDF5EB75036EF41EC8F6FDEB6E0E5536FC1FBFD9FDEB049FB8BACB864AA84
+          B7DCFA6399138966DA7A68767F2F256B3D2FC42A1BD616FCCD8B080188B32446
+          C7C378FF930BF08D2C1F7567CE5DC2A79F5D5C3AEABCC31378F7F439F8468250
+          592AD703FFF426BC0F6CBE6193BE545481F122C7DB5A590769E5ED440BEE23B4
+          E0E9A3D9868377C72B1B67D51B4C366C6B39E2CF9E40E80A1051139850E2F00E
+          5FC6782886A8AA43896AF00742F0074250A21AA2AA8EF160145E7F6E4D24AE23
+          0260ECB9976FDC038B2C18329563BCB2FEFE68958722952E22BDA683F4EA0E4A
+          3674915ED72AC6B9D5A3C8B65522DEFB2C942B80624C22924C43CD4C2392CC20
+          A4A7A0240CC4D35388A7A7A0240C84F414A2A9CCD21A2561200A20F0F313AB0B
+          1673B85458855091A3276E69A030574D614B0D51B6B33747771F2D74F553CAE6
+          793E56B552929588509BBB11D29250E6E6114E666E8DF414A200469F780ADEEF
+          3DB66A6ABDBB2CEF19E51D34653E4053E64E9A327712A1F6E8220384FAE334E7
+          384C314BFD3B2B04ADCDD0050913CD5DF036EEC37063C7ADD1B41F235237E4DD
+          76C8852BC72C6F41857794B7DF1170D7D348432D8D34E620F4F42F736480AEF4
+          0E50F6600F319BF33DD5D298778BC07809BA4940E01113861EDA0AEFA642F836
+          15C27B5314E4AA775B19E49DC2B25851157C26CBC54C61E7B7E676FC8CE64A8E
+          D06C71CF128463FDCB0CF6139E1A240C1ECD5DBF59A493D7178D6E7321696FC1
+          D82E3B2E1656DCCC44B2E6CCE72BB1BC259770DF982FEC256C7D96B06590B0E5
+          D8126B5C60BAC8B0B753A2B6B539CE35CFE52E30AF9114DD1B96F41559E03359
+          306A120E8F9A45F2957234537088B0ED4942417F1EEB5F0137B411135CF727C4
+          9697AEFEA856F966E8361712A21B63E65B902CCA8D517E93706AD86C7B78AC54
+          A440A948BE9D960D0AEE6DA3449D8798CD4D93F55D94105B7FA40BAE5F33DE19
+          CD493A7392BB445CDC5EB1629EBB4E30259BB8176433BF7DCC5C4B813D7B2950
+          6AA3D152DB572078EDDF10B676D279F75D1A2F9569BCF3846E73BD93B4B778C7
+          CCF6B8774795219B384336719ADF64F5FB4DD60FE562EE797FB15594775AEF91
+          4BACE4DF2DD098B9864677DB6F4AF07F0300CBC7E9D9495EFE5F000000004945
+          4E44AE426082}
+        Transparent = True
+        TabOrder = 7
+        OnClick = bexcluir_servicoClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = clBlack
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 7915518
+        Appearance.ColorCheckedTo = 11918331
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Enabled = False
+      end
+    end
+    object PageSheet2: TPageSheet
+      Left = 0
+      Top = 19
+      Width = 892
+      Height = 316
+      Caption = 'F4 | Produtos'
+      Color = 5460819
+      DisplayMode = tdTextOnly
+      Glyph.Data = {
+        DA050000424DDA05000000000000360000002800000019000000130000000100
+        180000000000A4050000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFF8F4539ECE3E0ECE2DFEBE0
+        DEECE2DFECE2DFECE2DFECE3E0ECE2DFEBE0DEECE2DFECE3E0ECE3E0ECE2DFEB
+        E0DEEBE0DEECE2DFECE2DFECE2DFECE2DFECE2DFECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0AE6A37AC6734A66031A25B2D9C552B965028914B238A481D84
+        441C7D411F763E22713D236D3B256838266536276437266438256537266A3A25
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFB16D39AE6A37AA6533A6602FA1
+        5A2C9B542A955026904B2388471D81431C793F22733C256C3B24663826643726
+        6136255E3526613625643825EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFB5
+        723BB36F3AB06C38AC6734A86231A35D2D9D562A985228924D248A481D82441B
+        794020733D246C3A266537266035275E35275E3527613626EBDFDD8F4539FFFF
+        FF00FFFFFF8F4539ECE3E0B9763CB7753CB5723BCC9158FFFFFFEDE8E1A66030
+        A25B2D9C552B954F278E492386461B7E421DD8CEC3F1EEEC6437266136255E35
+        26623626EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFBC7A3EBC7A3EBA783E
+        D1975CFFFFFFEEE8E1B06C39AC6737A86232B77845DAC4AAD7C2ABD3C0ABF2F0
+        EEFAFAF9B99F88663726623626633726EBE0DE8F4539FFFFFF00FFFFFF8F4539
+        ECE3E0C17F3DC1803FC17F3FD79E60FFFFFFF1EBE5C28144BF7E42B8763DCA91
+        5AFFFFFFF2EEEBE8E2DBFAF9F8FDFDFDCFC0AE6F3C236A3A25693925EBDFDD8F
+        4539FFFFFF00FFFFFF8F4539ECE3E0C6853DC6853EC6853EDBA35EFFFFFFFFFF
+        FFFFFFFFFFFFFFE6C29BB9773EE8DBCCE8DFD5A96431DFD2C3F2EFEC83441C7B
+        4120733D23723D23EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0C8873CC888
+        3EC9893DE0A75BFFFFFFF5F2EEE1AC69E0AA69D29652BC7A3EC18142F1EDE8E2
+        CEB7E3D6C7F2EFEC8F4B2387461C7F411E7C4020ECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0CB8B3BCC8C3ACE8E39E2AA5CFFFFFFF6F3F0E5B67CE4B67CE3
+        B37CC38241BB793DC98C50FBFAF8FFFFFFF2EFEC975029904B228A471E86451C
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCD8D38CF8F38D09037E3AB5BFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFC58542BC7A3DB7753CD49F6CFFFFFFF2EFEC
+        9E572B98512A934D268F4B22EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0CF
+        8F36D09037D09037D29237D8993ED59741D39442D19344CE9045C1803EBC7A3E
+        B9773CB5723CC3844CBF814AA45E2E9F582D9B5429985128EBE0DE8F4539FFFF
+        FF00FFFFFF8F4539ECE2DFD09036D09037CF8F38CE8E38CD8D39CA8A3BC8873D
+        C6853EC3833EBF7E3FBC7A3EB9773DB6733CB26F3AAE6937AA6533A55F30A25B
+        2C9F582CECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCF8F38CF8F38CE8E39
+        CD8D3ACB8B3CC8883DC6863DC5843EC3823FC07F3FBD7B3FBA783DB8763DB572
+        3CB16E3AAE6937AB6634A86231A6602FEBE0DE8F4539FFFFFF00FFFFFF8F4539
+        EBE0DEEBE0DEEBDFDDEBE0DEEBE0DEEBE0DEEBE0DEEBE0DEEBDFDDEBE0DEEBE0
+        DEEBE0DEEBE0DEEBDFDDEBDFDDEBE0DEEBE0DEEBDFDDEBE0DEEBDFDDEBDFDD8F
+        4539FFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 2
+      ParentColor = False
+      TabColor = 14989404
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label19: TLabel
+        Left = 242
+        Top = 276
+        Width = 44
+        Height = 13
+        Caption = 'Subtotal:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label20: TLabel
+        Left = 434
+        Top = 276
+        Width = 49
+        Height = 13
+        Caption = 'Desconto:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label21: TLabel
+        Left = 629
+        Top = 276
+        Width = 28
+        Height = 13
+        Caption = 'Total:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Bevel13: TBevel
+        Left = 0
+        Top = 255
+        Width = 892
+        Height = 0
+        Align = alTop
+        ExplicitTop = 263
+        ExplicitWidth = 891
+      end
+      object wwDBGrid2: TwwDBGrid
+        Left = 0
+        Top = 25
+        Width = 892
+        Height = 230
+        ControlType.Strings = (
+          'FILTRO;CheckBox;1;0'
+          'SITUACAO;ImageIndex;Original Size'
+          'situacao2;ImageIndex;Original Size')
+        Selected.Strings = (
+          'CODPRODUTO'#9'6'#9'C'#243'digo'#9'F'#9
+          'PRODUTO'#9'55'#9'PRODUTO'#9'F'#9
+          'SERIAL'#9'10'#9'SERIAL'#9'F'#9
+          'ALIQUOTA'#9'6'#9'ALIQ'#9'F'#9
+          'UNIDADE'#9'3'#9'UN'#9'F'#9
+          'UNITARIO'#9'10'#9'UNITARIO'#9'F'#9
+          'QTDE'#9'3'#9'QTDE'#9'F'#9
+          'TOTAL'#9'8'#9'TOTAL'#9'F'#9
+          'DESCONTO'#9'8'#9'DESC'#9'F'#9
+          'ACRESCIMO'#9'8'#9'ACRES'#9'F'#9
+          'CST'#9'3'#9'CST'#9'F'#9)
+        IniAttributes.Delimiter = ';;'
+        IniAttributes.UnicodeIniFile = False
+        TitleColor = clBtnFace
+        FixedCols = 0
+        ShowHorzScrollBar = True
+        Align = alTop
+        DataSource = dsos_produto
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+        ParentFont = False
+        RowHeightPercent = 107
+        TabOrder = 0
+        TitleAlignment = taCenter
+        TitleFont.Charset = ANSI_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        TitleLines = 1
+        TitleButtons = True
+        PaintOptions.AlternatingRowColor = 16053492
+        PaintOptions.ActiveRecordColor = clBlack
+      end
+      object DBEdit7: TDBEdit
+        Left = 304
+        Top = 272
+        Width = 105
+        Height = 21
+        Color = 15916445
+        DataField = 'PRODUTO_SUBTOTAL'
+        DataSource = dsos
+        Enabled = False
+        TabOrder = 1
+      end
+      object DBEdit8: TDBEdit
+        Left = 496
+        Top = 272
+        Width = 105
+        Height = 21
+        Color = 15916445
+        DataField = 'PRODUTO_DESCONTO'
+        DataSource = dsos
+        TabOrder = 2
+        OnEnter = DBEdit8Enter
+        OnExit = DBEdit8Exit
+        OnKeyPress = DBEdit8KeyPress
+      end
+      object DBEdit9: TDBEdit
+        Left = 664
+        Top = 272
+        Width = 105
+        Height = 21
+        Color = 15916445
+        DataField = 'PRODUTO_TOTAL'
+        DataSource = dsos
+        Enabled = False
+        TabOrder = 3
+        OnChange = DBEdit9Change
+      end
+      object bincluir_produto: TAdvGlowButton
+        Left = 10
+        Top = 264
+        Width = 96
+        Height = 40
+        Caption = 'Incluir'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 49
+        FocusType = ftHot
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        Picture.Data = {
+          89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+          6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+          7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+          1F90000008114944415478DAC4996B6C93E715C78F5475D22A4D9AC6A47EDB56
+          50271589065448207142B817125FE25C80006D40A0B5ABD0A441C7C23A41416C
+          48D3BE4C95360DA9ADB8A4B939972A0112B29CC749C6AA96EE46E25B204460BF
+          EF6BBF6F9CC431F12597FF3ED8E4E2C4C44E53EDC34FB22C3D8F7E7ACE73CE79
+          7C4CE71834970F19749E41A5AC52296B54CE4364642F1DE0009958A352F65311
+          FBC8C8CA6B46A1BC6712CAC745C2FB37A3501E1B851288214B66E1ED3209EF75
+          A3504E9B58596F622F15B1970CAC52190F53190F5309AB54CA2AE959A1333C41
+          97125CCE318852152CE7312AE2A15545C25769125EBB5128788661CEE767E885
+          3CEF7B93F00E988472C9C0EA4FF6F308EDE7916F2E58C61A1D663F19D8F76289
+          D02E1B8577C420E40532E96010CA4491F0FDA584875795B2B67CC13256A99487
+          A85C0CE90B84FC402F2418BFA1DCACA40CBD90FD25C25751CADAF3053F8C4B3D
+          13BB18A79C87A8502817629BAE8C58A2646C5FEF474656E82C4FD1E5392ECFA0
+          F371B1F37304CF31A854F8AEEF159E45EFD74A52286418847CE73447E922837E
+          9B0055306638CEA0631CA562A1DC48E7AEE9594161027A4E57D6633DCCE37494
+          41871974240E9D66D069069D61D0FB0C3209FF85DDE249CA1B1759156CEF90A1
+          6B93A06B8F91D326615B870C73972FE57DF60A370C42ABFA25832AE32EEFC74E
+          30406F73804E70908E89917C8390520EAB8115E4DF91F169FF28FEED1FC75D39
+          88BB7210FF1A0AA1A67F183BDBDD3074A9A94742785021FC1527788C2A384015
+          1C203AC2213ACA212AE3A72FEC161ED5206498D2086DD66D09FF51C70100989E
+          8C01E0911AC0EBD536ECE99050DC93AAA48CDDC28D121E5B75944374844344C7
+          394A3FE7093A24462EEF13EEB4EE8D9E1564B749604F10C02482E31104C72300
+          A6F0B51CC0BAAA5E64D6DA61603965C902E146B9F0579FE4497A9727898E7184
+          CA39F4DD02214FA45B4E96125C5F63C7C61A1B741647CA9226A1A0504830F0F0
+          5A130788DE62950E08F5AC7E19B52E15C1AC7A07B2EBEC69491A8404B3F0FD79
+          3F0F13195826BD90DDCBA961A90AE636381324B554F61F35B3EF4532B1B67AB9
+          45361DC1859229DC49560D6414DE5FA45284F58B50D019CBE2CE4504EFC901AC
+          ABB663639D03D91627B22D4EE4589CC8AAB5614BBD03059D324CDDEA12F7D17B
+          858A84F7BAE1394538FF8E8C2DB73DC86E9316B0F9B684D5CD6EDC7E32962038
+          8D2F3CA378F993FBF8F1B55EBC7AA36F869FDEE8C39AABF7B1E65A2F36DF74C3
+          DCA32E5AD60C42419150049985D7BA5882E845AC437CDA3F827FF8C6C19EE002
+          3ADD41DC7E3C8627A3218423D119C170240A653484D6877EDC1AF0A3EDD1F002
+          3A07FD687069305B15ECB3FA92087A5D6414CAA20952C80AB6B449700EC58B30
+          269332158922F034322318781A46341C8DAF9B4E02301D8E6047930B5BDBDCC9
+          124723A350C69309EADA25DC9583C0F46CF8560A4C4E421A1947BEC5818C6A5B
+          B2C409FEDF057734B9B0AEAA37597607C920143979883DB0FB43F1504D25611A
+          939128024FC3F3421C0947E78473B175C054248A9D4D2E64D4D89395203F9508
+          DFDF174D1256B0AD43464DBF1F7D6A00FF94C7F0B51C58C0179E5128A32184C2
+          B349120A47A18D85F19514C03D29B0E83A9BF614DD8F47B0BDC985376A171673
+          738F0F45C2FB90CCC25B9DEC716AEEF26167BB07199FD9F07A551F36D4DAB1BE
+          669675D576BCFCC97DB43EF403989E5707BF94025873BD0F6B3FB3CD5B33970D
+          B576E4363891172FE47325F52CA3B447EB21A350CE3CB72F76A9D8D32121B336
+          D6F8B3EA1D336CAC73E047577B716B607881E03D2980D7AA6CD810EF268964D6
+          39E67599DC44C906270A3BA4AB64626DED522DA7B847858165E82CB1C63FB391
+          C589576FF4A1EDD142C1C55A5DAAE4353A915D6F477EA3EB2099D94746A168E9
+          4AE6357E7B82F1B047F39BFB5FA2FDEC27B350FF601012D295CC6EF89604EB1D
+          D035BAAA725B1F10E9D94F05ECFF61618A4FFDE21E6D4632ABD6B6E282790D2E
+          6CB1D89073CB9199DBEE223ACE117A872374400C5D2948F1C9FFEC24B7D43BB0
+          E6EA7F575430ABAE0FBB9B07DB2BAC1A1DB66A44277882DEE5092AE7D0F7DE14
+          5224D5DFC3C53D2A0A3A65ACBED60BEBA03FDEAE27630070694164D4D8919986
+          A0CEE2C4A6FAFB286D1B7CE59D4E858EDE9189CA78984A79980EF1281D14DA01
+          7D1AD30453B78ACD37DD687069180D45208D86208D8C231089A2EBC90836D4D8
+          B1390DC1CDB536EC6975571677FB482F24D20B89E8144FD0299EA05FF1049DE2
+          29328BA12BFB8427E557B5B95B85D9AA60579313F916077634BBB0ABD985ED4D
+          AEB4429B596F435E93834F8A009DB28ED3498E416F316638C6A0431CA602F1A4
+          23D5509B44EC3DB7B5CD8D8C6A1BD655F521A3C68E376AEDF33AC4526CAAB3DB
+          4DED032FFCAC7B80DEE6075411872AE3A3864A069D65D0073C4D67384A25C2D7
+          99CE49262BE64B915D6F478EC5D1F75E7BF0FBE744947E23A254C9911966C66D
+          17197481419718F4BBF8F8AD40C8D7D3996EA523A96B7042677140D7E8B895D7
+          ECFACE079D93F4C7AE98C35CA7E70E304B78880E8AA1E305428EEAD3C8EEC48E
+          932897637120C7E2C0B6A687BFDEDD3A40799FBBE8F49D30FDDEBAFC11F02B25
+          42FD7876F0B8BC93D4599CD0353890DFD8DFB8A7E5C1FA3DAD83B4ABE511E536
+          3B972798384437B1B6A948F8FE64125E65A921BAB94785BE538E85B2DE81BC06
+          6740D7E0BC92DFE2DAB6F7D62015B60ED0AE9601DAD932B03282097F43BC6464
+          456F14CA4726A174C4A7FEBED9BF2114CD241457498F662DECF0FC5567711ED8
+          DAE4FC415E938BF26FF6D39B371FD1BE96872909FE6F008F83EB725A3ED50800
+          00000049454E44AE426082}
+        Transparent = True
+        TabOrder = 4
+        OnClick = bincluir_produtoClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = clBlack
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 7915518
+        Appearance.ColorCheckedTo = 11918331
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Enabled = False
+      end
+      object bexcluir_produto: TAdvGlowButton
+        Left = 114
+        Top = 264
+        Width = 104
+        Height = 40
+        Caption = 'Excluir'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImageIndex = 49
+        FocusType = ftHot
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        Picture.Data = {
+          89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+          6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+          7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+          1F90000009AC4944415478DABC99FB6F5BE519C71F093189494813EC0F80FD30
+          0DD05426B631DAAE491B274DDDE6E6E3737C5CE79E1CDB8993A6494ADB946449
+          53CA65FB6597A24D306063058198D46DD286C6B81746D7D116145AFB388993C6
+          3EBE9DF31EDBC7CED549BFFBC169523769D2A6B01F3E3F1CEB7DE58F9FC7CFF3
+          3E7E4DE8EFA73C068FD2425F1F31DE49C6DE364AD67988092ECAD47552426C25
+          436C279D7793C64B0F68BCD3C304E74B4C70BEABF1D284C64BC6226126BA3E62
+          82F3A4C63B0FE8BCF361C6BB48E7DDC4C4164AD5B693B1B79D747B2BA5440F31
+          CE49D9C33D842707E97A1FBA59C1C9866E4A889E7B74C1DDC378A757E3255C45
+          B536E3DA678D97A072CDD0ACCBCF8C7706182F1D67B696FB8CBA7D9476ECFB0A
+          041D6D94AC6F2326B8EF4CDA5B9FD104673227B352E8665073FBB2BAE8FA5DCA
+          DE76AFEEF0DC6E04DB2959EB298B73CD232AD7B461B195D16D826A6DD6D95E77
+          BD616F27C6B9D6103CDA9FCFF141C2403FE9363731CE35A8F11234EB5723964F
+          2E13CCEA3AC178172D3CD14B78FAD80A1F425F7F3E034769E1482F319BF364DC
+          D298F73DFA3A588CE6BFB2078F10060757F8106AFA7354F713EA9EA46C6D0FA9
+          42E3AB5FA7D46AC4F9860F676B0E12EA8FE75C16BD08DD03391E3F4A38708C0C
+          5BDBD158453DFEDF82B1CA7A24B996D7D03948383448E8EE27740F1019CE2E32
+          9C5D94F63C4E29574761DC7A0B69159CD00409ACA00AEC2766B02D65391E3543
+          373BC01C9E9B97B44A88730D484A6DF586E7E09217CD361EA259A987A66A0EDC
+          112B6F54556BD3F2269B0BAAD901B558805A625BC9760EAA4940F4B99711FEF3
+          DF1179E5CD1C7F790BCAFE3EC41F2901DB695F7D6FB10DEA4EFBF2075D2CC668
+          790326ABBBEE9D958ED06CE321A2F9F65E9AEF1C20A3AEFD9958E575A9E59AC0
+          EA3BC0A40360CDDD2B7178C01A3A1166498400288B44008CBEF1575CDE6C46C2
+          F9F8EA7BA503604D5DD06D2EB0BC54372055EB797D7E7F3FCDB7F71219622719
+          B6FD776956299BD7E72C8D508BAC303E3D8FC9F97964D2532B3116999C417A6A
+          16996B4867A6914AA69136A656DD3B959D47321845886B845E560B76358ABC84
+          38D78494B0EF4143EC224A3B3A2921B4F4C4AF4D2D2F41AB6A805A50897454C3
+          34B02633D905CCCC6431333B8F99D9794CCF64310360668D3D590053002E950A
+          B8BCAD1C297BCB92A46A6D822EB87F9BDEDB49C4ECADC4046770C529C1354133
+          3B907CEE0F489DBD003D330D3D3D053D95B96D1273F3601786107DF975C83B79
+          7CF95829826535482E4AAAD66630C19962F6D63B89D95CDFB96165896E683F28
+          429C97105475047503C170FCF68831285700B9B1034377DF07B9C8025FB11517
+          0B2B102CBF4ED2E62A2726B83AD63A6359A91D5A751B94893042E96928516D89
+          489C41896A082D3E87630CE158FE6B57D75C259C4C4361290C3BDCF06E2A846C
+          E2209B38F88A2CF992B9EA7E8198E83AB9E6595B590F56568BF0B92184B20B79
+          6FB611C2D373080D8F432EB5C1F7D8AE25C13CC9B21A24C516E8A2EB0362A2EB
+          43955B43906B02DBC121F2F6E95C2B896A8869098C4D4471E6FC250C8F2988B3
+          2494A8860B5F0EE3FCD03094A886384B623810C299CF2E62784C414CCBAD0967
+          AF2074E122E4C20AF8B6EEC9135C92DC5E81E09E6A188E563F69BC145ABBC337
+          831554217AEA9F7982A3E3617CF0E9E7904783D0120694A886FF5CF0E2CCB94B
+          50A21AB48401DFC804DEFFE43CE4D120D445C10880E0E9B3F03D5A02B9A06285
+          E0B264258265351A69BC34B5DE31C4369721FAEAA93CC1C0E5083E3E3B047F20
+          04554F41896AF8EC0B19FFFDDC0725AA41D553904783387DE60BF80321C4AF11
+          9CF8C77BF06D2A84BCA36A55C1AB92DE1D55999B13DC5286D8AF7E9F138CB1DB
+          16BCFCC6DFE07D682BE422CB0D0517C990669522EB0A1654217EE4698466B250
+          D4C46D0B8EBFF81ABCDF7D743D39C8264E27DDEEFE64CD22E125B0222BD48E3E
+          28893414DDD8B8608C21022070FC97EB0AFA4C160C9BF851D245D7EBEB0AEE14
+          A14ADD50222A945466E3825A12E1B9798CB41DCEA5784D410EC3C5D68F49135C
+          87D6FD31B4DB01CDD18A70208850667AC382E1441AE1441AC3F5EDF03D5CB86E
+          8AFDC5DC2BA48BEE07D71D26CB6BA1714D087F2923349BDDB8A0310925A2C1CF
+          37C1F743D3FA112CB1DA4913DDA4F192B6A660550398B91A91B39F23B4808D0B
+          CE6411F28D422EE1E1DB6C5E2F8273FE12EE9B64D8F7534270FF62C5B8B5EA69
+          F21142D8B86004C0C4FBFFCE45AFB0F2C6723B2C904BACAF8D94D98812C23E4A
+          F06DDF5EB75036EF41EC8F6FDEB6E0E5536FC1FBFD9FDEB049FB8BACB864AA84
+          B7DCFA6399138966DA7A68767F2F256B3D2FC42A1BD616FCCD8B080188B32446
+          C7C378FF930BF08D2C1F7567CE5DC2A79F5D5C3AEABCC31378F7F439F8468250
+          592AD703FFF426BC0F6CBE6193BE545481F122C7DB5A590769E5ED440BEE23B4
+          E0E9A3D9868377C72B1B67D51B4C366C6B39E2CF9E40E80A1051139850E2F00E
+          5FC6782886A8AA43896AF00742F0074250A21AA2AA8EF160145E7F6E4D24AE23
+          0260ECB9976FDC038B2C18329563BCB2FEFE68958722952E22BDA683F4EA0E4A
+          3674915ED72AC6B9D5A3C8B65522DEFB2C942B80624C22924C43CD4C2392CC20
+          A4A7A0240CC4D35388A7A7A0240C84F414A2A9CCD21A2561200A20F0F313AB0B
+          1673B85458855091A3276E69A030574D614B0D51B6B33747771F2D74F553CAE6
+          793E56B552929588509BBB11D29250E6E6114E666E8DF414A200469F780ADEEF
+          3DB66A6ABDBB2CEF19E51D34653E4053E64E9A327712A1F6E8220384FAE334E7
+          384C314BFD3B2B04ADCDD0050913CD5DF036EEC37063C7ADD1B41F235237E4DD
+          76C8852BC72C6F41857794B7DF1170D7D348432D8D34E620F4F42F736480AEF4
+          0E50F6600F319BF33DD5D298778BC07809BA4940E01113861EDA0AEFA642F836
+          15C27B5314E4AA775B19E49DC2B25851157C26CBC54C61E7B7E676FC8CE64A8E
+          D06C71CF128463FDCB0CF6139E1A240C1ECD5DBF59A493D7178D6E7321696FC1
+          D82E3B2E1656DCCC44B2E6CCE72BB1BC259770DF982FEC256C7D96B06590B0E5
+          D8126B5C60BAC8B0B753A2B6B539CE35CFE52E30AF9114DD1B96F41559E03359
+          306A120E8F9A45F2957234537088B0ED4942417F1EEB5F0137B411135CF727C4
+          9697AEFEA856F966E8361712A21B63E65B902CCA8D517E93706AD86C7B78AC54
+          A440A948BE9D960D0AEE6DA3449D8798CD4D93F55D94105B7FA40BAE5F33DE19
+          CD493A7392BB445CDC5EB1629EBB4E30259BB8176433BF7DCC5C4B813D7B2950
+          6AA3D152DB572078EDDF10B676D279F75D1A2F9569BCF3846E73BD93B4B778C7
+          CCF6B8774795219B384336719ADF64F5FB4DD60FE562EE797FB15594775AEF91
+          4BACE4DF2DD098B9864677DB6F4AF07F0300CBC7E9D9495EFE5F000000004945
+          4E44AE426082}
+        Transparent = True
+        TabOrder = 5
+        OnClick = bexcluir_produtoClick
+        Appearance.BorderColor = 14727579
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.BorderColorChecked = clBlack
+        Appearance.Color = 15653832
+        Appearance.ColorTo = 16178633
+        Appearance.ColorChecked = 7915518
+        Appearance.ColorCheckedTo = 11918331
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 15586496
+        Appearance.ColorMirrorTo = 16245200
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Enabled = False
+      end
+      object PESTOQUE: TPanel
+        Left = 0
+        Top = 0
+        Width = 892
+        Height = 25
+        Align = alTop
+        BevelOuter = bvNone
+        Color = 33023
+        ParentBackground = False
+        TabOrder = 6
+        object restoque: TCheckBox
+          Left = 8
+          Top = 4
+          Width = 105
+          Height = 17
+          Caption = 'Baixar Estoque'
+          Checked = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 0
+        end
+      end
+    end
+    object PageSheet5: TPageSheet
+      Left = 0
+      Top = 19
+      Width = 892
+      Height = 316
+      Caption = 'F5 | Deslocamento'
+      Color = clSilver
+      DisplayMode = tdTextOnly
+      Glyph.Data = {
+        DA050000424DDA05000000000000360000002800000019000000130000000100
+        180000000000A4050000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFF8F4539ECE3E0ECE2DFEBE0
+        DEECE2DFECE2DFECE2DFECE3E0ECE2DFEBE0DEECE2DFECE3E0ECE3E0ECE2DFEB
+        E0DEEBE0DEECE2DFECE2DFECE2DFECE2DFECE2DFECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0AE6A37AC6734A66031A25B2D9C552B965028914B238A481D84
+        441C7D411F763E22713D236D3B256838266536276437266438256537266A3A25
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFB16D39AE6A37AA6533A6602FA1
+        5A2C9B542A955026904B2388471D81431C793F22733C256C3B24663826643726
+        6136255E3526613625643825EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFB5
+        723BB36F3AB06C38AC6734A86231A35D2D9D562A985228924D248A481D82441B
+        7B411F7F4B286F3C256537266035275E35275E3527613626EBDFDD8F4539FFFF
+        FF00FFFFFF8F4539ECE3E0B9763CB7753CB5723BCC9158FFFFFFEDE8E1A66030
+        A25B2D9C552B954F27B3825CF0EDEAFFFFFFF7F5F4BCA48F6537266136255E35
+        26623626EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFBC7A3EBC7A3EBA783E
+        D1975CFFFFFFEEE8E1B06C39AC6737A86232A6602EEAE5DEF8F6F5A36C43CFBC
+        A8FFFFFF9F7C5E663726623626633726EBE0DE8F4539FFFFFF00FFFFFF8F4539
+        ECE3E0C17F3DC1803FC17F3FD79E60FFFFFFF1EBE5C28144BF7E42B8763DAE69
+        35A66031A25C2D975129BA8F6EFFFFFFC1A7916F3C236A3A25693925EBDFDD8F
+        4539FFFFFF00FFFFFF8F4539ECE3E0C6853DC6853EC6853EDBA35EFFFFFFFFFF
+        FFFFFFFFFFFFFFE6C29BB6733CE3CAADECE7E0D8AF8DE7E0D8FFFFFFAC82607B
+        4120733D23723D23EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0C8873CC888
+        3EC9893DE0A75BFFFFFFF5F2EEE1AC69E0AA69D29652BC7A3EE6D2B9FFFFFFDF
+        C6A9DFCDB9C4966F904B2387461C7F411E7C4020ECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0CB8B3BCC8C3ACE8E39E2AA5CFFFFFFF6F3F0E5B67CE4B67CE3
+        B37CC38241E6C096FFFFFFDEB58ED5A77DD0A37CA66637904B228A471E86451C
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCD8D38CF8F38D09037E3AB5BFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFC58542DFAC75FFFFFFFFFFFFFFFFFFFFFFFF
+        BC835398512A934D268F4B22EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0CF
+        8F36D09037D09037D29237D8993ED59741D39442D19344CE9045C1803EC07F40
+        C38343BE7D42B97840B5723EA862309F582D9B5429985128EBE0DE8F4539FFFF
+        FF00FFFFFF8F4539ECE2DFD09036D09037CF8F38CE8E38CD8D39CA8A3BC8873D
+        C6853EC3833EBF7E3FBC7A3EB9773DB6733CB26F3AAE6937AA6533A55F30A25B
+        2C9F582CECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCF8F38CF8F38CE8E39
+        CD8D3ACB8B3CC8883DC6863DC5843EC3823FC07F3FBD7B3FBA783DB8763DB572
+        3CB16E3AAE6937AB6634A86231A6602FEBE0DE8F4539FFFFFF00FFFFFF8F4539
+        EBE0DEEBE0DEEBDFDDEBE0DEEBE0DEEBE0DEEBE0DEEBE0DEEBDFDDEBE0DEEBE0
+        DEEBE0DEEBE0DEEBDFDDEBDFDDEBE0DEEBE0DEEBDFDDEBE0DEEBDFDDEBDFDD8F
+        4539FFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 3
+      ParentColor = False
+      TabColor = 9698447
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label22: TLabel
+        Left = 16
+        Top = 24
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Ve'#237'culo:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label23: TLabel
+        Left = 16
+        Top = 48
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'KM Inicial:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label24: TLabel
+        Left = 16
+        Top = 72
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'KM Final:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label25: TLabel
+        Left = 16
+        Top = 112
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Combust'#237'vel - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label26: TLabel
+        Left = 16
+        Top = 136
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Refei'#231#245'es - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label27: TLabel
+        Left = 16
+        Top = 160
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Hospedagem - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 16
+        Top = 192
+        Width = 100
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Total - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object eveiculo: TDBEdit
+        Left = 130
+        Top = 21
+        Width = 55
+        Height = 21
+        Color = 15916445
+        DataField = 'CODVEICULO'
+        DataSource = dsos
+        TabOrder = 0
+        OnEnter = eveiculoEnter
+        OnExit = eveiculoExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object blocveiculo: TBitBtn
+        Left = 186
+        Top = 20
+        Width = 25
+        Height = 22
+        Glyph.Data = {
+          36030000424D3603000000000000360000002800000010000000100000000100
+          18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFCFDFEE7EEF4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFBFD6494BA2166
+          9C80A8C5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFAFCFD6E9BC1548CBB88B4DC175E96FFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFCFD7AA3C96396C49CC0E36598
+          C63070A4FFFFFFFFFFFFFFFFFFFFFFFFFFFEFEE8CEB9DAB292D2A57FCFA07BD1
+          A684ADA09874A1CBAACAE775A3CD3F7AAEDEE8F1FFFFFFFFFFFFFFFFFFFFFEFE
+          E8C9AFE7C8ADF4E0CCF6E4D2F6E4D0F2DCC7DEB99BC6A79085ADD44F86BAE1EA
+          F3FFFFFFFFFFFFFFFFFFFFFFFFF1DBC7ECCFB6F7E7D8F4DDC7F2D7BCF2D5BAF3
+          DAC1F6E3D1DEBA9C9F9694E3ECF5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEDCDB1
+          F6E6D6F5E0CBF3DAC1F3D9BFF2D7BCF2D6BAF3DAC1F2DDC8D1A787FFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFEFCDAEF8EBDEF4DEC7F4DCC5F3DBC2F3D9C0F2
+          D8BDF2D6BCF7E5D2D2A57FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3D2B4
+          F8ECE0F5E0CBF4DEC8F4DDC6F3DBC3F3DAC1F3D9BFF7E6D5D6AA86FFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFF7DBC0F8EADDF6E6D5F5E0CBF4DFC9F4DDC7F4
+          DCC4F5E0CAF4E1CFDEB898FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBE9D7
+          F7E1CBF9EDE2F6E6D5F5E1CDF5E0CAF5E2CFF8E9DCEBCEB4EBD3BEFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFAE3CDF8E1CCF9EBDDF8EDE1F8ECE1F7
+          E8D9EFD4BCECCFB6FFFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFBEAD9F9DCC2F5D5B8F3D2B4F2D3B7F4E0CDFFFFFEFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        TabOrder = 7
+        OnClick = blocveiculoClick
+      end
+      object enomeveiculo: TDBEdit
+        Left = 211
+        Top = 21
+        Width = 195
+        Height = 21
+        Color = 15916445
+        DataField = 'veiculo'
+        DataSource = dsos
+        TabOrder = 8
+      end
+      object DBEdit12: TDBEdit
+        Left = 130
+        Top = 43
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'KM_INICIAL'
+        DataSource = dsos
+        TabOrder = 1
+        OnEnter = combomarcaEnter
+        OnExit = combomarcaExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit13: TDBEdit
+        Left = 130
+        Top = 67
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'KM_FINAL'
+        DataSource = dsos
+        TabOrder = 2
+        OnEnter = combomarcaEnter
+        OnExit = combomarcaExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit14: TDBEdit
+        Left = 130
+        Top = 107
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'DESLOC_COMBUSTIVEL'
+        DataSource = dsos
+        TabOrder = 3
+        OnEnter = combomarcaEnter
+        OnExit = DBEdit14Exit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit15: TDBEdit
+        Left = 130
+        Top = 131
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'DESLOC_REFEICAO'
+        DataSource = dsos
+        TabOrder = 4
+        OnEnter = combomarcaEnter
+        OnExit = DBEdit14Exit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit16: TDBEdit
+        Left = 130
+        Top = 155
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'DESLOC_HOSPEDAGEM'
+        DataSource = dsos
+        TabOrder = 5
+        OnEnter = combomarcaEnter
+        OnExit = DBEdit14Exit
+        OnKeyPress = DBEdit16KeyPress
+      end
+      object DBEdit17: TDBEdit
+        Left = 130
+        Top = 187
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'DESLOC_TOTAL'
+        DataSource = dsos
+        Enabled = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+        OnChange = DBEdit17Change
+        OnEnter = combomarcaEnter
+        OnExit = combomarcaExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+    end
+    object PageSheet7: TPageSheet
+      Left = 0
+      Top = 19
+      Width = 892
+      Height = 316
+      Caption = 'F6 | Terceiros'
+      Color = clSilver
+      DisplayMode = tdTextOnly
+      Glyph.Data = {
+        DA050000424DDA05000000000000360000002800000019000000130000000100
+        180000000000A4050000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFF8F4539ECE3E0ECE2DFEBE0
+        DEECE2DFECE2DFECE2DFECE3E0ECE2DFEBE0DEECE2DFECE3E0ECE3E0ECE2DFEB
+        E0DEEBE0DEECE2DFECE2DFECE2DFECE2DFECE2DFECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0AE6A37AC6734A66031A25B2D9C552B965028914B238A481D84
+        441C7D411F763E22713D236D3B256838266536276437266438256537266A3A25
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFB16D39AE6A37AA6533A6602FA1
+        5A2C9B542A955026904B2388471D81431C793F22733C256C3B24663826643726
+        6136255E3526613625643825EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFB5
+        723BB36F3AB06C38AC6734A86231A35D2D9D562A985228924D248A481D82441B
+        7940207944227240246537266035275E35275E3527613626EBDFDD8F4539FFFF
+        FF00FFFFFF8F4539ECE3E0B9763CB7753CB5723BCC9158FFFFFFEDE8E1A66030
+        A25B2D9C552B954F2797552ADBD0C3FCFCFCFCFCFCCCBEAD6B3D246136255E35
+        26623626EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE2DFBC7A3EBC7A3EBA783E
+        D1975CFFFFFFEEE8E1B06C39AC6737A86232A25B2DDAC4ABFFFFFFB58965C3A4
+        89FFFFFFAB8C71663726623626633726EBE0DE8F4539FFFFFF00FFFFFF8F4539
+        ECE3E0C17F3DC1803FC17F3FD79E60FFFFFFF1EBE5C28144BF7E42B8763DAE69
+        35F1EDE9FEFDFD9C582BAB764FFFFFFFC5AF9B6F3C236A3A25693925EBDFDD8F
+        4539FFFFFF00FFFFFF8F4539ECE3E0C6853DC6853EC6853EDBA35EFFFFFFFFFF
+        FFFFFFFFFFFFFFE6C29BBA783FFFFFFFFFFFFFDEC8B0E3D9CEFFFFFFAD825F7B
+        4120733D23723D23EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0C8873CC888
+        3EC9893DE0A75BFFFFFFF5F2EEE1AC69E0AA69D29652BC7A3EFAF9F7FAF8F7D6
+        A67BDDC7AEC2946D904B2387461C7F411E7C4020ECE2DF8F4539FFFFFF00FFFF
+        FF8F4539ECE3E0CB8B3BCC8C3ACE8E39E2AA5CFFFFFFF6F3F0E5B67CE4B67CE3
+        B37CC38241E7D1B7FFFFFFC68950D2A176D9BDA0AF7343904B228A471E86451C
+        ECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCD8D38CF8F38D09037E3AB5BFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFC58542CA8C4AECE2D6FFFFFFFFFFFFE5D9CB
+        A5602F98512A934D268F4B22EBE0DE8F4539FFFFFF00FFFFFF8F4539ECE3E0CF
+        8F36D09037D09037D29237D8993ED59741D39442D19344CE9045C1803EBC7A3E
+        BA783DC38448BC7C44AB6634A45E2E9F582D9B5429985128EBE0DE8F4539FFFF
+        FF00FFFFFF8F4539ECE2DFD09036D09037CF8F38CE8E38CD8D39CA8A3BC8873D
+        C6853EC3833EBF7E3FBC7A3EB9773DB6733CB26F3AAE6937AA6533A55F30A25B
+        2C9F582CECE2DF8F4539FFFFFF00FFFFFF8F4539ECE2DFCF8F38CF8F38CE8E39
+        CD8D3ACB8B3CC8883DC6863DC5843EC3823FC07F3FBD7B3FBA783DB8763DB572
+        3CB16E3AAE6937AB6634A86231A6602FEBE0DE8F4539FFFFFF00FFFFFF8F4539
+        EBE0DEEBE0DEEBDFDDEBE0DEEBE0DEEBE0DEEBE0DEEBE0DEEBDFDDEBE0DEEBE0
+        DEEBE0DEEBE0DEEBDFDDEBDFDDEBE0DEEBE0DEEBDFDDEBE0DEEBDFDDEBDFDD8F
+        4539FFFFFF00FFFFFF8F45398F45398F45398F45398F45398F45398F45398F45
+        398F45398F45398F45398F45398F45398F45398F45398F45398F45398F45398F
+        45398F45398F45398F45398F4539FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 4
+      ParentColor = False
+      TabColor = clWindow
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label36: TLabel
+        Left = 8
+        Top = 96
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Comiss'#227'o - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label37: TLabel
+        Left = 8
+        Top = 128
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'L'#237'quido - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label35: TLabel
+        Left = 8
+        Top = 64
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Valor - R$:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label33: TLabel
+        Left = 11
+        Top = 13
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Empresa:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label34: TLabel
+        Left = 11
+        Top = 37
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Contato:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label29: TLabel
+        Left = 8
+        Top = 152
+        Width = 75
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Observa'#231#245'es:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object DBEdit21: TDBEdit
+        Left = 95
+        Top = 58
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'TERCEIRO_VALOR'
+        DataSource = dsos
+        TabOrder = 3
+        OnEnter = combomarcaEnter
+        OnExit = DBEdit21Exit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit22: TDBEdit
+        Left = 95
+        Top = 90
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'TERCEIRO_COMISSAO'
+        DataSource = dsos
+        TabOrder = 4
+        OnEnter = combomarcaEnter
+        OnExit = DBEdit22Exit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object DBEdit23: TDBEdit
+        Left = 95
+        Top = 122
+        Width = 135
+        Height = 21
+        Color = 15916445
+        DataField = 'TERCEIRO_TOTAL'
+        DataSource = dsos
+        Enabled = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        OnChange = DBEdit23Change
+        OnEnter = combomarcaEnter
+        OnExit = combomarcaExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object eobs_terceiro: TDBMemo
+        Left = 96
+        Top = 152
+        Width = 329
+        Height = 129
+        Color = 15916445
+        DataField = 'TERCEIRO_OBS'
+        DataSource = dsos
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Courier New'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+        OnEnter = eobs_terceiroEnter
+        OnExit = eobs_terceiroExit
+      end
+      object eterceiro: TDBEdit
+        Left = 96
+        Top = 8
+        Width = 55
+        Height = 21
+        Color = 15916445
+        DataField = 'CODTERCEIRO'
+        DataSource = dsos
+        TabOrder = 0
+        OnEnter = eveiculoEnter
+        OnExit = eterceiroExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+      object blocterceiro: TBitBtn
+        Left = 152
+        Top = 7
+        Width = 25
+        Height = 22
+        Glyph.Data = {
+          36030000424D3603000000000000360000002800000010000000100000000100
+          18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFCFDFEE7EEF4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFBFD6494BA2166
+          9C80A8C5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFAFCFD6E9BC1548CBB88B4DC175E96FFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFCFD7AA3C96396C49CC0E36598
+          C63070A4FFFFFFFFFFFFFFFFFFFFFFFFFFFEFEE8CEB9DAB292D2A57FCFA07BD1
+          A684ADA09874A1CBAACAE775A3CD3F7AAEDEE8F1FFFFFFFFFFFFFFFFFFFFFEFE
+          E8C9AFE7C8ADF4E0CCF6E4D2F6E4D0F2DCC7DEB99BC6A79085ADD44F86BAE1EA
+          F3FFFFFFFFFFFFFFFFFFFFFFFFF1DBC7ECCFB6F7E7D8F4DDC7F2D7BCF2D5BAF3
+          DAC1F6E3D1DEBA9C9F9694E3ECF5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEDCDB1
+          F6E6D6F5E0CBF3DAC1F3D9BFF2D7BCF2D6BAF3DAC1F2DDC8D1A787FFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFEFCDAEF8EBDEF4DEC7F4DCC5F3DBC2F3D9C0F2
+          D8BDF2D6BCF7E5D2D2A57FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3D2B4
+          F8ECE0F5E0CBF4DEC8F4DDC6F3DBC3F3DAC1F3D9BFF7E6D5D6AA86FFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFF7DBC0F8EADDF6E6D5F5E0CBF4DFC9F4DDC7F4
+          DCC4F5E0CAF4E1CFDEB898FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBE9D7
+          F7E1CBF9EDE2F6E6D5F5E1CDF5E0CAF5E2CFF8E9DCEBCEB4EBD3BEFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFAE3CDF8E1CCF9EBDDF8EDE1F8ECE1F7
+          E8D9EFD4BCECCFB6FFFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFBEAD9F9DCC2F5D5B8F3D2B4F2D3B7F4E0CDFFFFFEFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        TabOrder = 1
+        OnClick = blocterceiroClick
+      end
+      object enometerceiro: TDBEdit
+        Left = 177
+        Top = 8
+        Width = 254
+        Height = 21
+        Color = 15916445
+        DataField = 'terceiro'
+        DataSource = dsos
+        TabOrder = 7
+      end
+      object DBEdit20: TDBEdit
+        Left = 95
+        Top = 33
+        Width = 336
+        Height = 21
+        Color = 15916445
+        DataField = 'TERCEIRO_CONTATO'
+        DataSource = dsos
+        TabOrder = 2
+        OnEnter = combomarcaEnter
+        OnExit = combomarcaExit
+        OnKeyPress = DBDateEdit1KeyPress
+      end
+    end
+  end
+  object pgravar: TFlatPanel
+    Left = 887
+    Top = 46
+    Width = 152
+    Height = 623
+    Color = 5460819
+    ColorHighLight = 5460819
+    ColorShadow = 5460819
+    TabOrder = 1
+    object bgravar: TAdvGlowButton
+      Left = 36
+      Top = 46
+      Width = 77
+      Height = 72
+      Caption = 'Gravar'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ImageIndex = 49
+      FocusType = ftHot
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+        6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+        7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+        1F90000008864944415478DABC99EB5353F919C79F999DEDCC76A6339DDDFE01
+        DDBEEBBEA9BB9D6D5F75A69D76775D47EE8B8ABA8EAE407272218AE215E4A695
+        AB562E2AB99C9344C05557AD1740856C88E2B22C2190730E49B4C072B1545DA4
+        482040027EFB2201091709227DF19D49CE9CCCEF73BECFEF79F27B9E4366A4D3
+        6CDD45269926D388131832B89454D9A1249D2023635732B10E2571ED2AE24419
+        B1A2F4B79C2095B322C37222636205692F2B488759413AACE3A5FD7A87EC2E27
+        32E51C2FDDCB8AD235ACC810C7CB886D5790B15345FA072A323AE464702A48C7
+        337467EC30DD4316CDE5A15001CF75EF25D6A17C9713E407599171B28214D3D2
+        F12F3FCF5CB34B82AF894C17C733C7D876C5AFCF75ED22C3C35D6F06F07C6712
+        E904D9DB7AA732871599219697CC83095D12E804A94FEF909D655DAAF7CE3915
+        2B047C9044951DCA30AD5DD2A1B3278215560217ECAE96970C1A9DCC76836B09
+        400BD283743F7093C12127AD9DC99A7EF2370136D7CD80A3259CC0509D2F8DBE
+        43F63C1E324DA507A97E2A936ABD69A46F67CA356D890BEEAF3729AD5D021D2F
+        A9BDE5394477A7B2E6F190B6337D46BA1F8F92A1EB10E94549C5EAB8B6B8F442
+        82C5D8798074DD478398E8A63B836EBA33A8C69D493746B248D79E9455D612FF
+        7F85630529D4B678687845E5B5E79954E3CEA29BEE74BAE9CE20BAD29F4C97FB
+        93E9DA9314BADAAFFA33CBAF7E58174C1C5E0A9D3D0197FB92B65F7F924297FB
+        93E94A7F325179EF7EAAEC3B485CE7DEB7CE5A137E5A591959A17809CE5AE3C1
+        75EC79AFB2EF1095F7EE27FAE6592A5D194CA78A4E558EC6B6DAA1952C591134
+        B6785474247D7DE5D911FA66309548E3DA431AE7EE77B4BCD4C7AD5A6230E044
+        198A5B37A0C8F6053881012B300BDECB095268ED89D038541F685C7B880C8EDD
+        A4171407593E71F5E00406F9D6B5A8ED52C3D2538E82E6B5D0099200E842BF49
+        0427C8CF181CBB89F4A2823881E95B4DB802EB5A5C72650093000054779C425E
+        F3A7D00989AF80649E73A2E26D6245C56F5613AED0BA0E975C1998F2022FBC80
+        6F02C02450DD598402EBBA57EE574E9487132730AAD500E40419F29BD7E2A22B
+        1D535E003E6078741CC3A3E3989C003005343CAAC4197E0B748BEC7D4E906A48
+        2F32E52C1FDA826AFB0E94D9B7831365AFBE579421AFF9335C741D81CFFB02F0
+        01EED1718C7826E01E1D8767CC1F6B6BF71DE47DB70E06A77CB128D493DE21B3
+        CC3BBBCDFD1B12E538D3F62534FC4E68F80494B6C6412F2A1609AB0CF9B3E126
+        FDCE4DC38D8F4F01009ABA6FE240F5C7385ABB16EAD69D38E74A9A57B8399179
+        48AC207DB4145C695B1C4EB644A267D08127EE1E9C6EDB82225BCC1CC8E96CFD
+        3CC8B9D9706301B81F7AAA9052F53B64D77D8A7C7334724C1128B37D85732EE5
+        DCF5078815A49EA5E122E0FAA91178E1CFC2DE21178A5B37A2B835167A511E94
+        10175C6998F4629E73D370CD3D3548A95A83ECBA4F516889457E7D3472BF8D9C
+        81343A8320475E09A8E177E274DB66389F36020046C77C707B26801740DFD043
+        14D96251D2BA1106518902EBE7B8E04CF5C3CD736E3200571D80FB64066E5A7E
+        C8F0B99023A4E3A5FF592CCD4F58D743786C01008C78BC707BFC8B8E7ABC7EC8
+        FF3E40716B2C321BFF888BAE54F82626170D6B734F35F6557D88AC05E016820C
+        ECC941323865F7B58B24C999B6ADB8E83A8CA1D1416012708F4EF817F64C60D4
+        E3035E00AEA74DB8F4E00846C7BCC161F5CC76AE06FBAA3E4476DDDF16859B0B
+        79B665072A1EAA3A49DFCE7CAD5BE404A317E538D112069DC060D833044CCD86
+        1CC788C7EBAF693E7F010E726ECCEF9CB5F73652AAD620ABF69325E15E424620
+        C71481B3B61D0DC4F1D2FD4B65F14BC8E741902301273D635333DF673BD7D27B
+        27E05CE8703390E608E49BA38CC48A8A0F963C8E8B729C6809072B3070CF7172
+        B6DC9E5945B8F776C8615D4879F55138716F631C71829C58413AB01CC8859C9C
+        1DD696DEDBD857F511B26A5F0FCEAF18EFC9868D3F2743FB2EE204797E28C72D
+        BD28C7096B580072DAC9F1A052E20FEB47C8AAFDEB6BC3E59A2351608EA92CAA
+        8F23D23854A46E57FE4A6B97800BA5FB12E528B4AE072728E0F63C072601CF98
+        0F00D0FAA8CE5F4A5600576089C1F1BA089C34C7FCA1D4BC89E8D2B30374F9D9
+        612AEF506AB4211EF9F5A21C852DEBC10972B83D6E0080ADAF16FBAB7FBFC2B0
+        46E3D89D7094366DB973BD4345573B1444E71F1FA20B8FD3C8D0B3EF1765B6C4
+        89509B26BD28C7496B38FED9F17734765F415ACD9F9055B732B83C7314B26F85
+        A1CCB5FDFDF3FF5690B14F4254D9A9A28A4E155DEC4EA60B5DF24D3A7B0274A1
+        36DBA21C65FC3614FE108E1CF37AE49AA25E1B2EBF3E1A397591286DDA7A5063
+        FF8A4A6D5BE974CB97445543A95435944AB786D2E8C6F323A415151AF5321A77
+        1D2F81C121F79F64EAA371BC2E7CF97096681CBB15863C4B94F9EA4012553FDB
+        43D70676D1F5815D445C4FE64BF51D2363D721E2F8843A9D5D02560CBD9D343A
+        FD47AFFCFA68E498C2971DDA9CDA28A7BA7DDB5B158F7792BE773B19025A7078
+        54E74D238343F6ADA63561593DEFEB40E69822916B8A6CBF3194F2CB86A96C32
+        4DA50569DEB8EB1E32E81EB2A8A243496A9BA47CB9BD88C11122A4390A79E648
+        E49AA36B0A2C1B7E56EB4DA5EF719C2CC80CD2BC81A10519548F74323E5010E7
+        5052C5BF94F15ABBC4EB1F6086E6E434648165E13D996B8A448E2912A7EE6F38
+        50DCB499F2EBBFA0EA91FD741F47979EB0CE00BA1464702AE97C978AB482EC7D
+        BD53C14ECF4F42019D1DEE69C8BCFA28E499A370B221F6EAA9A6B835254D9BA9
+        A4298EF2CC31AF07A87728A9B223C93F44FF712FB10EE5C79C202B6245E67168
+        D9AD804E90A0C012833C73D470BE3946F38F860D7F51B76DA392D6AD54D4B889
+        8ABFDFF466008D9DC9A47324055E43C8DF6145691827484B5881A9E3FC53FFA7
+        D3AF2158413AC089CC4356905ACA5D496A755BFCA67C73F4BB85E6582A6ADC48
+        6ADB562A6AD91C12E0FF0600783C0BEA8110C4080000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 0
+      OnClick = BGRAVARClick
+      Appearance.BorderColor = 14727579
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.BorderColorChecked = clBlack
+      Appearance.Color = 15653832
+      Appearance.ColorTo = 16178633
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 15586496
+      Appearance.ColorMirrorTo = 16245200
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+      Layout = blGlyphTop
+    end
+    object Panel2: TPanel
+      Left = -1
+      Top = 537
+      Width = 155
+      Height = 81
+      BevelOuter = bvNone
+      Color = 9932513
+      Enabled = False
+      ParentBackground = False
+      TabOrder = 1
+      object Label42: TLabel
+        Left = 126
+        Top = 84
+        Width = 69
+        Height = 23
+        Caption = 'TOTAL'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clYellow
+        Font.Height = -19
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RxDBCalcEdit1: TJvDBCalcEdit
+        Left = 10
+        Top = 41
+        Width = 132
+        Height = 31
+        Margins.Left = 2
+        Margins.Top = 1
+        DecimalPlaces = 15
+        DisplayFormat = '###,###,##0.00'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clRed
+        Font.Height = -19
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        NumGlyphs = 2
+        ParentFont = False
+        ShowButton = False
+        TabOrder = 0
+        DecimalPlacesAlwaysShown = False
+        DataField = 'SUBTOTAL'
+        DataSource = dsos
+      end
+      object Panel7: TPanel
+        Left = 0
+        Top = 0
+        Width = 155
+        Height = 25
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'TOTAL'
+        Color = clRed
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+      end
+    end
+  end
+  object FlatPanel2: TFlatPanel
+    Left = -2
+    Top = 47
+    Width = 893
+    Height = 62
+    Color = clSilver
+    ColorHighLight = clSilver
+    ColorShadow = clSilver
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 67
+      Top = 8
+      Width = 41
+      Height = 13
+      Caption = 'N'#250'mero:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Bevel6: TBevel
+      Left = 115
+      Top = 4
+      Width = 97
+      Height = 24
+    end
+    object Label46: TLabel
+      Left = 219
+      Top = 8
+      Width = 41
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Data:'
+    end
+    object Bevel7: TBevel
+      Left = 267
+      Top = 4
+      Width = 97
+      Height = 24
+    end
+    object DBText1: TDBText
+      Left = 115
+      Top = 4
+      Width = 93
+      Height = 20
+      Alignment = taCenter
+      DataField = 'CODIGO'
+      DataSource = dsos
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+    end
+    object DBText2: TDBText
+      Left = 267
+      Top = 8
+      Width = 93
+      Height = 20
+      Alignment = taCenter
+      DataField = 'DATA'
+      DataSource = dsos
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label2: TLabel
+      Left = 379
+      Top = 8
+      Width = 41
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Atend.:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 736
+      Top = 8
+      Width = 36
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Tipo:'
+    end
+    object Label5: TLabel
+      Left = 70
+      Top = 35
+      Width = 37
+      Height = 13
+      Caption = 'Cliente:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 477
+      Top = 39
+      Width = 64
+      Height = 13
+      Caption = 'Solicitante:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+    end
+    object AdvShapeButton1: TAdvShapeButton
+      Left = 4
+      Top = -1
+      Width = 57
+      Height = 65
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Picture.Data = {
+        89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+        6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+        7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+        1F9000000ADC4944415478DAB4D9796C93F71907F047AA36A993264D2DAD364D
+        EBDA4A934A27AD28942B601B5AC6115FAF9D90842325A5D04BEA26ADA52DD558
+        C710C746ABB51B2D4720050A940412878442D2D03C3F2794B6ABA6AD81C4B189
+        138EC47E0F1F8973FA08DFFD61E7242909747F3C4AF2CA7EF5F1F33CBFDFFBF8
+        177A9B4123632B83FEC80324B142391CA0551C242B2BB492232471905670886C
+        AC9295E5E95621BF2C09B9D02694CFAD42BE6E157224197E9F5D28B592508E5A
+        85FC9AC4F20C8915B2B14216D6289BC394CD61CA628D56B0461696E90D8ED3B6
+        3196B719449305AEE62EB271F03E9B503749427159858CC1B08CF87D30CCC23F
+        EABA2414AF24E46D16D61ECEE10ECAE18EBB07E67280D67088ACACFE204B0476
+        5A85D26111FE5B3053098B90E376A1EECDE2F0FD2B3840D97797C120AD1241B3
+        49F89BCDC207EB5DE286917E98853F9425D4FCDB02B73046C57606FD994199AC
+        9245C85B066FF87DC0C622531F78B795657A8B0768E718CB1606D166C6A8D8C2
+        A0B778806C42399A217CE3F6D7F71926E18745F8AB5FE3186D1D63D9CC20CA63
+        501E83D630682D839EE1185985EF98F5FF0CBB35DA9D79DC47CFA62C832EDAC8
+        A08D0C7A9341AF33C82E425B9689B6716F6273CA58FAB91F0BAB7D78FABC1F46
+        96214DB5B44E1996DA5BAF2F176DB008EDF81F18B42965DAC820CAE708ADE508
+        6DE06E5A273A165A44FB846535B38CF55FAA78F64B152B6A152CA8F261E6B9E4
+        EB6DCEDBE3CC176558EA64589D32CC17FD49288FDC9ADA912F42F91BB88BF239
+        42F91C214AA6B58FB2B9E79E25A25DB308FFB859B10819E9553EBCD710063080
+        EEFE18BE527AF0FABF0378F25C3B96D7F827463A6598BE9491794EC1EA431AD6
+        1CD49053A2C07A4181B54E1981F4638968431677DDFF2CF7511EF711BDC4097A
+        8513B44A8477664C50DAC130B21F73AB7C38D912017013C00080017CE80A23ED
+        9C0F56A18C8B337EE5C78AB32AF23F0860ED3F35ACFD50C3BAF782C82A4A66D5
+        563BFC3EA368C32A113AF10A27E8254E1049DC4916EEBCD72CE4B834CE7662E6
+        313D58E3C7AFCFB4E1D0954E0009201E07308037BF519176CE079B531917F7EC
+        0741E47DA822EF8086BC020DF9FB8258B947C6D3152D90BE5060AB55534F1C19
+        26E18385C38F4B1C21CAE530650A6D9345F86EC1653A652CF8CC8785D53E643A
+        87914B3EF7637A451B8E3677E2E6401C00F04D5B18331C5E58EB344829A4F16B
+        3FB2CF6A786E6F18C66DCDB0BF7F1DEB8F7422EF8086E7F684B0FA808A39271B
+        B0E88C17F63A6D0869113ED885BA2787C34499AC9124941BE365CEC4320A3D9D
+        587751C5ECCAF621E48A5A05BF2CBB81CDFF090E6531D61F8574C68327CB5A90
+        F98506D3D732B2CF6A58BF3704D3762F8CBBBC58B35F85FDFDEB78668F860D7B
+        3BB0B4A815734F37625E71239EAA1846A61E0C9D76567F40126B8F8EDF6F32E6
+        57F910EE8942EB89C150EDC3DC4A1FB26A65A49D6DC7E2F37EB445FA31908863
+        A03F06C413C8AF6EC52387EBB1B0A605399501ACDF1B8669BB17197F6BC6BA43
+        6198767961DAEEC5FABD1DC8387115B3CB1BA02B754357EAC6BCE2865B91AC59
+        4812F2EF27DA526657FAC0EDDD00004FB80FFA6A3F7E517603192CA33ED00B20
+        81EE9E283090405BB817734A9A30FD543D969D68C5867D1D30EF18C619777961
+        DEE1C50B059D30165DC3ACF2CB5890C24D8494845C4036A11C9D68DF9B71B61D
+        1FB83A52AB358186402F0ADC1D08F74493B8DE28BA7AA348C41390BBFBB1F453
+        37A6EFF3E2E58311987778611C856BC10BFB2330165FC3ACF2865B70E321336B
+        554176A138CD130C034B6B924F8DE6505F129988277B2E1643574F12D7DD1B45
+        574F3F8004C2BD513C7F2888DF6CF4C0F2AE7754E65E2C88C0587CFD3B712391
+        8B2ABCC8AAD33C641572DB44FB9EDD29636E6572755F0EF4A4F63EA4327A13C0
+        4DF4F54511E91944DE4457771439BBAFC3B05386E5DD9664E60A2230164D0E37
+        8C6CC45315DE005985DCFB5D9B73A653C1BC2A1F0C55ED78EFBF0A2EDC08A351
+        EB46EDF50E545F4D3E5512B1F8086402FD092077F70D3CB1F10A5E3AD8395C56
+        C7E4708331FF94ABFBB6C0C14C2E63054F54DCC0F44F1A9176A2018F1D6FC4B4
+        83F53878490100C40680484F3FBA52FDD9D913C3F31F05317D5F33E69E699812
+        6C44749345C8FEC94E22F63A0D269631FB941B738A1A30B3A811F7175DC5816F
+        7D0080782C914226CB1D8EC6F054B91B3F3D548F450ECF9D00439425D42FCC53
+        9898ED751A24A70C7D6913D2398C5987FE855FE92C38B6FF403293B1C4A89EEC
+        E88FE1B7651EFCECD0A529229BA0735CF1925D2827A634D2B31FF65A0596CBC0
+        A2E24B305B73B138ED493CF4CADFB1DFDB97CC6474644F021D7DC3C885659EA9
+        002F9055C86F4C69F2651FA40640FAAC151669252C73D3B164C7513C511DC203
+        475C3878490580D4C2E91F4276F6C5B0F8F4D432A977B88F90C481C7278DABF1
+        416A04AC952D309AB3619E3B0F8B771E43BAB30B86335731B3A811D30AEB71E0
+        B29A2AF7E84C768EC8E4A2496452EFF0AC243BAB641572E0BB4A6A653FAC5F77
+        436A06AC67AFC068CE8669CE304E57D10A5D890B0B1D6ECC2C76615A613D0A52
+        C87834766BB94F4F0A19D397797E44391C22BBD0768D376E0D95F4EBAEE41874
+        EC228C99CF8CC695277183371E443E58588F03A972C7A2E367F2E787274096B8
+        A12F731F377CDA4C64E610193934CD34DEA85FE383F4ED00AC55ADC8C8DD80E5
+        4B2C302EB560F18EA348777661C118DC48645A910B0F7E548F824BEAF0C2E9EE
+        474F5F2C898C26B0B8CC83C78E37C03072037778A03BD508BDC335DB70DA4DB4
+        9EA3F422472957040B8C6347FEBA00A46F07607CEDAF58FE74064C197664E4BD
+        8CF95532169C6D1B17378CF420ADD885070AEB87174E3C8150670F3CADEDC0CD
+        181A03BD78FC9346CC39D534FCDE538DD09DBEFA99A12A4086CA00D1068ED34B
+        1CA755DCF7E365C2171DDA729C0AA47AC0FCCE712C5BB40C264B0ECCCBAC58BC
+        ED301654C9C94F7A9B265FE870232DD593830B2714EA4045F54574A9C9BF179F
+        F66046D1880F5A7C09864FAF3E62382F93E1333F513687690587693577D24A11
+        C8350F7EED742A90BE1D80F99D4F90314F87E56B7F8785851730BF5A83AEAC19
+        BA92A6496D152317CEBE7A35356B44010045EE201EFDB801F34B52AF3FD9087D
+        79DB2643B54A864A1F192A7D44AF729C5EE5386DE438BDCA03641781FD19A23D
+        99C55A15B62F3B602CAC41FA897AA47F1E4E666E92B8B1C8473FBE8C3F7DD58E
+        F3ED3DD85DAF22ADC88599C54DD00F96D6E162838890A1AE970CCE64D0338CA1
+        58C7A055DC4F46D1767E6891D469B05D0296D4A89877E232164C113712995ED2
+        84878F5CC6C3472EE3A1C39730EB64D3F02A3EE97219AABCF718EA5AC8C0CD43
+        419B52470D9B18F4168336F34DDAC831B209A5C6983A3C929C0A322F04B0B4F2
+        1AD24F36DE3172688C2A710FCF85252EE84A9A1A0C55DD3F31881819448C0C1C
+        1D0ADA9A3A13DCCAA0BF306867EA6726AB6412F2D0D78191C879C5778F4CE29A
+        A02F6D3AA777B87F68A84990A11664E0D131E101A68D15CAE620AD1481F526E1
+        8F99850F9253FE7E90254D495C99F74DC3192FE91D4D64A8EE2783730AC0E411
+        7090D670882CAC3E9229B4424BEAB420F38276E7C89226E81C1E87BEFCCA0C7D
+        792BE9CFB490BED47567C01C0ED22A0E92C40AADE22E923838CBC6EA3F6C4E55
+        1E424ED89363AE39DC9D3A87BB405FEA5E34042B6F217D85F7EE815656289723
+        641BFE37C4BD9290CD591702BB979CBB767EC1A92697AED4ADEA4ADD91540474
+        0E8F47E7F038F50EF77E7DA927575FE6BE4F57E626BDC343FAF2D6246C12C0FF
+        0D008B1F5521D4A9D6030000000049454E44AE426082}
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 6
+      Version = '6.1.0.3'
+    end
+    object enomeatendente: TDBEdit
+      Left = 500
+      Top = 4
+      Width = 237
+      Height = 21
+      Color = 15916445
+      DataField = 'atendente'
+      DataSource = dsos
+      Enabled = False
+      TabOrder = 0
+    end
+    object COMBOTIPO: TwwDBComboBox
+      Left = 788
+      Top = 4
+      Width = 95
+      Height = 21
+      ShowButton = True
+      Style = csDropDownList
+      MapList = False
+      AllowClearKey = False
+      Color = 15916445
+      DataField = 'TIPO'
+      DataSource = dsos
+      DropDownCount = 8
+      ItemHeight = 0
+      Items.Strings = (
+        'INTERNA'
+        'EXTERNA')
+      ItemIndex = 0
+      Sorted = False
+      TabOrder = 1
+      UnboundDataType = wwDefault
+      OnEnter = COMBOTIPOEnter
+      OnExit = COMBOTIPOExit
+      OnKeyPress = COMBOTIPOKeyPress
+    end
+    object eatendent: TRzDBButtonEdit
+      Left = 431
+      Top = 4
+      Width = 66
+      Height = 21
+      DataSource = dsos
+      DataField = 'CODATENDENTE'
+      Color = 15916445
+      FocusColor = 10550008
+      TabOrder = 2
+      OnExit = eatendentExit
+      OnKeyPress = eatendentKeyPress
+      AltBtnWidth = 15
+      ButtonWidth = 15
+      OnButtonClick = eatendentButtonClick
+    end
+    object enomecliente: TDBEdit
+      Left = 183
+      Top = 34
+      Width = 290
+      Height = 21
+      Color = 15916445
+      DataField = 'cliente'
+      DataSource = dsos
+      Enabled = False
+      TabOrder = 3
+    end
+    object DBEdit10: TDBEdit
+      Left = 551
+      Top = 34
+      Width = 332
+      Height = 21
+      Color = 15916445
+      DataField = 'SOLICITANTE'
+      DataSource = dsos
+      TabOrder = 4
+      OnEnter = DBEdit10Enter
+      OnExit = DBEdit10Exit
+      OnKeyPress = DBEdit10KeyPress
+    end
+    object ecliente: TRzDBButtonEdit
+      Left = 115
+      Top = 34
+      Width = 66
+      Height = 21
+      DataSource = dsos
+      DataField = 'CODCLIENTE'
+      Color = 15916445
+      FocusColor = 10550008
+      TabOrder = 5
+      OnExit = eclienteExit
+      OnKeyPress = eatendentKeyPress
+      AltBtnWidth = 15
+      ButtonWidth = 15
+      OnButtonClick = eclienteButtonClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 109
+    Width = 891
+    Height = 171
+    BevelOuter = bvNone
+    Color = clTeal
+    ParentBackground = False
+    TabOrder = 3
+    object Label7: TLabel
+      Left = 35
+      Top = 40
+      Width = 65
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Marca:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 35
+      Top = 67
+      Width = 65
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Modelo:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 35
+      Top = 95
+      Width = 65
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'N'#186' S'#233'rie:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = -89
+      Top = 64
+      Width = 62
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Equipamento'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label47: TLabel
+      Left = 35
+      Top = 122
+      Width = 65
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Atendimento:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label44: TLabel
+      Left = 191
+      Top = 118
+      Width = 65
+      Height = 26
+      AutoSize = False
+      Caption = 'Manuten'#231#227'o '#13#10'Peri'#243'dica?'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label45: TLabel
+      Left = -89
+      Top = 80
+      Width = 62
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'ou Aparelho'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Bevel9: TBevel
+      Left = 429
+      Top = -7
+      Width = 2
+      Height = 192
+    end
+    object Label48: TLabel
+      Left = 437
+      Top = 31
+      Width = 409
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Defeito/Motivo apresentado'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label49: TLabel
+      Left = 429
+      Top = 103
+      Width = 409
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Observa'#231#245'es'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label30: TLabel
+      Left = 291
+      Top = 122
+      Width = 25
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Dias:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object AdvShapeButton2: TAdvShapeButton
+      Left = -95
+      Top = 5
+      Width = 72
+      Height = 65
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
+        DE000000097048597300000B1300000B1301009A9C1800000A4F694343505068
+        6F746F73686F70204943432070726F66696C65000078DA9D53675453E9163DF7
+        DEF4424B8880944B6F5215082052428B801491262A2109104A8821A1D91551C1
+        114545041BC8A088038E8E808C15512C0C8A0AD807E421A28E83A3888ACAFBE1
+        7BA36BD6BCF7E6CDFEB5D73EE7ACF39DB3CF07C0080C9648335135800CA9421E
+        11E083C7C4C6E1E42E40810A2470001008B3642173FD230100F87E3C3C2B22C0
+        07BE000178D30B0800C04D9BC0301C87FF0FEA42995C01808401C07491384B08
+        801400407A8E42A600404601809D98265300A0040060CB6362E300502D006027
+        7FE6D300809DF8997B01005B94211501A09100201365884400683B00ACCF568A
+        450058300014664BC43900D82D00304957664800B0B700C0CE100BB200080C00
+        305188852900047B0060C8232378008499001446F2573CF12BAE10E72A000078
+        99B23CB9243945815B082D710757572E1E28CE49172B14366102619A402EC279
+        99193281340FE0F3CC0000A0911511E083F3FD78CE0EAECECE368EB60E5F2DEA
+        BF06FF226262E3FEE5CFAB70400000E1747ED1FE2C2FB31A803B06806DFEA225
+        EE04685E0BA075F78B66B20F40B500A0E9DA57F370F87E3C3C45A190B9D9D9E5
+        E4E4D84AC4425B61CA577DFE67C25FC057FD6CF97E3CFCF7F5E0BEE22481325D
+        814704F8E0C2CCF44CA51CCF92098462DCE68F47FCB70BFFFC1DD322C44962B9
+        582A14E35112718E449A8CF332A52289429229C525D2FF64E2DF2CFB033EDF35
+        00B06A3E017B912DA85D6303F64B27105874C0E2F70000F2BB6FC1D428080380
+        6883E1CF77FFEF3FFD47A02500806649927100005E44242E54CAB33FC7080000
+        44A0812AB0411BF4C1182CC0061CC105DCC10BFC6036844224C4C24210420A64
+        801C726029AC82422886CDB01D2A602FD4401D34C051688693700E2EC255B80E
+        3D700FFA61089EC128BC81090441C808136121DA8801628A58238E08179985F8
+        21C14804128B2420C9881451224B91354831528A542055481DF23D720239875C
+        46BA913BC8003282FC86BC47319481B2513DD40CB543B9A8371A8446A20BD064
+        74319A8F16A09BD072B41A3D8C36A1E7D0AB680FDA8F3E43C730C0E8180733C4
+        6C302EC6C342B1382C099363CBB122AC0CABC61AB056AC03BB89F563CFB17704
+        128145C0093604774220611E4148584C584ED848A8201C243411DA0937090384
+        51C2272293A84BB426BA11F9C4186232318758482C23D6128F132F107B8843C4
+        37241289433227B9900249B1A454D212D246D26E5223E92CA99B34481A2393C9
+        DA646BB20739942C202BC885E49DE4C3E433E41BE421F25B0A9D624071A4F853
+        E22852CA6A4A19E510E534E5066598324155A39A52DDA8A15411358F5A42ADA1
+        B652AF5187A81334759A39CD8316494BA5ADA295D31A681768F769AFE874BA11
+        DD951E4E97D057D2CBE947E897E803F4770C0D861583C7886728199B18071867
+        197718AF984CA619D38B19C754303731EB98E7990F996F55582AB62A7C1591CA
+        0A954A9526951B2A2F54A9AAA6AADEAA0B55F355CB548FA95E537DAE46553353
+        E3A909D496AB55AA9D50EB531B5367A93BA887AA67A86F543FA47E59FD890659
+        C34CC34F43A451A0B15FE3BCC6200B6319B3782C216B0DAB86758135C426B1CD
+        D97C762ABB98FD1DBB8B3DAAA9A13943334A3357B352F394663F07E39871F89C
+        744E09E728A797F37E8ADE14EF29E2291BA6344CB931655C6BAA96979658AB48
+        AB51AB47EBBD36AEEDA79DA6BD45BB59FB810E41C74A275C2747678FCE059DE7
+        53D953DDA70AA7164D3D3AF5AE2EAA6BA51BA1BB4477BF6EA7EE989EBE5E809E
+        4C6FA7DE79BDE7FA1C7D2FFD54FD6DFAA7F5470C5806B30C2406DB0CCE183CC5
+        35716F3C1D2FC7DBF151435DC34043A561956197E18491B9D13CA3D5468D460F
+        8C69C65CE324E36DC66DC6A326062621264B4DEA4DEE9A524DB9A629A63B4C3B
+        4CC7CDCCCDA2CDD699359B3D31D732E79BE79BD79BDFB7605A785A2CB6A8B6B8
+        6549B2E45AA659EEB6BC6E855A3959A558555A5DB346AD9DAD25D6BBADBBA711
+        A7B94E934EAB9ED667C3B0F1B6C9B6A9B719B0E5D806DBAEB66DB67D61676217
+        67B7C5AEC3EE93BD937DBA7D8DFD3D070D87D90EAB1D5A1D7E73B472143A563A
+        DE9ACE9CEE3F7DC5F496E92F6758CF10CFD833E3B613CB29C4699D539BD34767
+        1767B97383F3888B894B82CB2E973E2E9B1BC6DDC8BDE44A74F5715DE17AD2F5
+        9D9BB39BC2EDA8DBAFEE36EE69EE87DC9FCC349F299E593373D0C3C843E051E5
+        D13F0B9F95306BDFAC7E4F434F8167B5E7232F632F9157ADD7B0B7A577AAF761
+        EF173EF63E729FE33EE33C37DE32DE595FCC37C0B7C8B7CB4FC36F9E5F85DF43
+        7F23FF64FF7AFFD100A78025016703898141815B02FBF87A7C21BF8E3F3ADB65
+        F6B2D9ED418CA0B94115418F82AD82E5C1AD2168C8EC90AD21F7E798CE91CE69
+        0E85507EE8D6D00761E6618BC37E0C2785878557863F8E7088581AD131973577
+        D1DC4373DF44FA449644DE9B67314F39AF2D4A352A3EAA2E6A3CDA37BA34BA3F
+        C62E6659CCD5589D58496C4B1C392E2AAE366E6CBEDFFCEDF387E29DE20BE37B
+        17982FC85D7079A1CEC2F485A716A92E122C3A96404C884E3894F041102AA816
+        8C25F21377258E0A79C21DC267222FD136D188D8435C2A1E4EF2482A4D7A92EC
+        91BC357924C533A52CE5B98427A990BC4C0D4CDD9B3A9E169A76206D323D3ABD
+        31839291907142AA214D93B667EA67E66676CBAC6585B2FEC56E8BB72F1E9507
+        C96BB390AC05592D0AB642A6E8545A28D72A07B267655766BFCD89CA3996AB9E
+        2BCDEDCCB3CADB90379CEF9FFFED12C212E192B6A5864B572D1D58E6BDAC6A39
+        B23C7179DB0AE315052B865606AC3CB88AB62A6DD54FABED5797AE7EBD267A4D
+        6B815EC1CA82C1B5016BEB0B550AE5857DEBDCD7ED5D4F582F59DFB561FA869D
+        1B3E15898AAE14DB1797157FD828DC78E51B876FCABF99DC94B4A9ABC4B964CF
+        66D266E9E6DE2D9E5B0E96AA97E6970E6E0DD9DAB40DDF56B4EDF5F645DB2F97
+        CD28DBBB83B643B9A3BF3CB8BC65A7C9CECD3B3F54A454F454FA5436EED2DDB5
+        61D7F86ED1EE1B7BBCF634ECD5DB5BBCF7FD3EC9BEDB5501554DD566D565FB49
+        FBB3F73FAE89AAE9F896FB6D5DAD4E6D71EDC703D203FD07230EB6D7B9D4D51D
+        D23D54528FD62BEB470EC71FBEFE9DEF772D0D360D558D9CC6E223704479E4E9
+        F709DFF71E0D3ADA768C7BACE107D31F761D671D2F6A429AF29A469B539AFB5B
+        625BBA4FCC3ED1D6EADE7AFC47DB1F0F9C343C59794AF354C969DAE982D39367
+        F2CF8C9D959D7D7E2EF9DC60DBA2B67BE763CEDF6A0F6FEFBA1074E1D245FF8B
+        E73BBC3BCE5CF2B874F2B2DBE51357B8579AAF3A5F6DEA74EA3CFE93D34FC7BB
+        9CBB9AAEB95C6BB9EE7ABDB57B66F7E91B9E37CEDDF4BD79F116FFD6D59E393D
+        DDBDF37A6FF7C5F7F5DF16DD7E7227FDCECBBBD97727EEADBC4FBC5FF440ED41
+        D943DD87D53F5BFEDCD8EFDC7F6AC077A0F3D1DC47F7068583CFFE91F58F0F43
+        058F998FCB860D86EB9E383E3939E23F72FDE9FCA743CF64CF269E17FEA2FECB
+        AE17162F7EF8D5EBD7CED198D1A197F29793BF6D7CA5FDEAC0EB19AFDBC6C2C6
+        1EBEC97833315EF456FBEDC177DC771DEFA3DF0F4FE47C207F28FF68F9B1F553
+        D0A7FB93199393FF040398F3FC63332DDB000000206348524D00007A25000080
+        830000F9FF000080E9000075300000EA6000003A980000176F925FC54600000B
+        E94944415478DACC5B6B6C54551EFF9D735F33D396C5622A2D846A8A62C12DA0
+        5FF04142B5890991D54445610551A2A6C10724020D353186A4350679583F4013
+        5605B266053612D70D046216446457D7A624DB87281FDC02652C6AB7AF997BCF
+        39FFFDE0DCC9EDED9DCEA333B3FB4F4EA6BD73E69EF3FF9DDFFF75EEB96CD1A2
+        4548278CB18CAE798588008073CE6FE59C2FE49C2F648CDDCE399FC5189BC118
+        2B212233712F9B884688E8BA52EA3211F528A53A13ED220095E17869AFF94547
+        1E2531A0C139BFC7308C87354DBB9F735ECB393733BCC55CEF3F4A295B29D52D
+        A5FC4C08714C29750E80930E8C6C84E583014404C658A5AEEB4FE9BAFE94A669
+        75DEEFDDBFFD9FA956CCFFE9FE2DA5BC208438248438444457FD73C885015302
+        20A1F84CC3305E360C633DE7BCC2FBBDB76562364140789B871951C771F63B8E
+        F30E11F5BB73C905006DE6CC9939010040D3757D43381C3E689AE672C6580963
+        0C9CF309CDBD9E700A13C0F103E5FD4D0A204B0CC358AAEBFA6A22B29552FF04
+        40B99800CFD1CEEB2CCB3A150E87DB186355449452F15426904AF9A0CFA07B27
+        D857150E87DB2CCB3A05A02E93159F120388089AA6AD8F44227FD2757D9EABB8
+        A66913144FB7CAA9C60902241570EE9C745DBFD9308CDF4B297F544A7564E324
+        33068088B8699A3B2391480B008B31064DD332523E670F9D020C7F4BACBC659A
+        E6EF8868BA94F224638CF20600809065598742A1D07A3FDD27A36F3EC57FCFA0
+        31890886612C01502B84F80B00918F3C206459D647A669AE504A25577C320F9F
+        8B2D660B46C207249DA63BA69412A669AE04108EC7E32B01C472768244A45996
+        75C0B2AC150002959F2ACDF3611E6E73FD11005896B5C2B2AC0344A4E5640209
+        3AED4C45FB4251DD1DDB711CD8B60D296552A96C4C4429055DD71728A5A64929
+        4FA49A6B4A00344D7B361C0EB7BA142B86F24A298C8D8DC1300CCC9E3D1B73E7
+        CE455555150606062635ABA088E189104BA494FF26A28E6C7CC0825028B4C71B
+        8773C9E8B211DBB66118061E7DF4512C5FBE1CB7DC720B2CCBC2A79F7E8A6FBE
+        F9068661A40DA1AE5F70E7EC6690A15068CFE8E8E8DF01FC6B02007E6489480F
+        85427B1963A5EEEAFB07C8B793B36D1B3366CCC06BAFBD86BBEEBA2B79FDD2A5
+        4B686B6B4BCE219371BD73E49C434A09C658A9699A7B63B1583D634CA4748209
+        CA3C6F18C67DFEB4B5502B2FA5444949095A5A5AC6296FDB36DE7AEB2D0C0D0D
+        05FA00A55446E6E0826718C67DBAAE3FEF0791FB8A8D0AD3345FF752C90F50BE
+        5B2C16C3BA75EB505B5B3B6EACFDFBF7A3A3A303E170784241248480A66929EF
+        19142D8808A669BE0EA0C2DB97FB567F23E7BCC28B5C21439C1002B367CFC68A
+        152BC65D3F77EE1C3EFCF043442291090A398E8369D3A6A1B9B9196565652999
+        E09DBBA7B8AAD0757DA3F79E5E13A8300CE3856CEAF77CD8FEE2C58B118944C6
+        5DFFFCF3CF313838985C04EF22C5E3713CF7DC7358B66C196A6A6A108FC7D39A
+        82F733A163C538001245CED39CF3F254E1A4104D4A89EAEAEA09935FB3660DEA
+        EBEB313434042144B2FFC8C8081E7CF0C12463AAABAB21A54C6B0ABE52BB5CD3
+        B4A7DDEF5D1F60E8BABEAED0940F12D39CB85B56555585B7DF7E1B8D8D8D608C
+        21168B21168B61CE9C39D8B87163B29F655959452457375DD7D7119191F4019C
+        F3BB39E7F3536D7715AA01C0C0C040AA440CCF3CF30C76EEDC99CC09B66CD982
+        1B6EB821D9E7FAF5EB490797090B92B4E77C3EE7FCEE641EA069DA23FE90570C
+        D1340D1D1D1D504A4DB07757EEBCF34EB4B7B7E3975F7EC1AC59B3C685CFDEDE
+        5EE8BA9E15033C1B2C8F0821CEE844A471CE1B72DD539B8A388E839A9A9AB4FD
+        4A4A4A50525232EEDAD75F7F8D8B172FC2308CACE79948921A8848E38CB11A4D
+        D36E2F7665178BC5B060C102BCF4D24B29577FB2E8D1DEDE3EAE24CEB6824CE8
+        5CA333C61603305225128510292542A1109A9A9A2684C04C7EDBDADA8A0B172E
+        04E60993ADBA4F478331B658678C2D0C0A7D8594B1B131BCFAEAAB13B2BF74F2
+        DD77DFE1DD77DFC5D9B367279844B62C48FCBD50678CCDF322E4DD6C2CC426C6
+        F0F030EAEBEBF1E4934FA6EDDFDFDF8F4B972EE1DAB56BF8EAABAF70FEFC790C
+        0D0D65B5F2A9989098CF3C1DC0EC6231201E8F63E6CC99D8BC7973DAB1868787
+        B169D32674777743D33430C6100A85100E87F3B2939490D93A80F262D8BF9BF9
+        6DDEBC1937DD7453DAFE6D6D6DE8E9E941595959DE2253801F28E7004A8B61F7
+        C3C3C378E28927B06CD9B2B47D4F9E3C89A3478FE66CE75948A90EC0F4DB4621
+        42DE1D77DC810D1B36A4ED7BE5CA15ECD8B123B90790CF390530DDE48586584A
+        8970388C6DDBB6A5B55F2925DE7CF34D44A3D1C01AA110C201D885CAFC8808A3
+        A3A3686C6CC4FCF9F3D3F63F78F0204E9F3E3D252F9FC99CBC3995AE941A9E6C
+        47652A32323282071E7800AB56AD4ADBB7B3B313EDEDED4996140200BF9E4AA9
+        614E443F156AB3A3B2B2125BB76ECD28E4B5B4B4201E8F67F40C208F80FCC489
+        A84F2995570628A5A094C2D6AD5B330A797BF6EC4177773742A150A115F6AE3E
+        88A84F574AF5A68891530A796BD7AECD28E49D387102478E1C41494949C1EB10
+        BF7E4AA95E4E449D01CF06A694E7D7D5D5E1C5175F4CDBF7F2E5CBD8B1630774
+        5D2F78161AA42311757222EA90523A3E6AE4BCCB1B0E87D1DCDC9C51C86B6969
+        C1B56BD760184631EC1D5E534FE8DCA113D1F74AA91E22FAADF7A94A2E208C8D
+        8DA1A9A929A390F7C1071FE0F4E9D3282B2B2B4A09EE3F7895D0F97B0E402AA5
+        4E4D76442D9302636464040D0D0D58BD7A7546216FDFBE7D59EF05E443790F1B
+        4E01903CE10C3E763D772E1BA1B1580C959595686A6A4A6BCB434343D8BE7D3B
+        E2F1F8B80798C568DE08A594FA18483C1D26A22F85105D9CF3F9936D504E56E5
+        3535356514F276EDDA85AEAEAEA251DF477B101184105D44F4A59B0A0380A394
+        7A3F17FA8F8E8E62F5EAD5A8AFAF47341AC5B163C7F0C5175F04F63D7EFC380E
+        1F3E8CD2D2A214A029CD4029F53E000700D86DB7DDE6F6A9300CA3DB308CF2A0
+        0350A9BCFE8D37DE88A3478FA2BFBF1F8D8D8DE8EBEB03630CAB56AD42737373
+        924D7D7D7D58B3660D0607078BE2F583565F2905C7717E721CA716401418FF74
+        382A84D8E7D2C4FF19D4E2F138162D5A84D2D2521C3870003FFCF003CACACA10
+        894470E4C811F4F4F42443DEF6EDDB118D46A1EB7AD16C3E481721C43E228A4E
+        783A9C7010BBA594D14C4D2171FA221902BD4F94A594B0ED5F0BCDF7DE7B0F67
+        CE9C29C606C7A4D49752469552BBFDE5B057A24288375CBAA403C2300CF4F6F6
+        02001E7FFC714422110C0E0EE2E79F7FC6D2A54B51575787CECE4EECDDBBB768
+        212F85CDBBABFF864B7D57B4F2F272FF0F3B88E87ECEF99C7483689A86AB57AF
+        A2B2B2120D0D0DB8F7DE7B317DFA743CF4D043D8B2650B868787F1CA2BAF6060
+        6000A66916CDEB07D9BE6DDB67A5942F031877A080CD9D3B37E8F70B4CD33C6F
+        184669D021297F4AABEB3A366DDA84C71E7B2CE9E0BABABAD0DADA8A8E8E8E82
+        6E706412F61CC719B66D7B09020E49A502008CB1672DCBDA9FEA64A81F04DBB6
+        515D5D8D59B36661747414DF7EFB2DC6C6C60A5EE2A62B79A59488C7E3EB89E8
+        0F817AA6022041F15DA6696E9CEC5CB0776021048410608CC134CDAC9FF9E539
+        D777A9BF5B4AB929A58E7E1FE0BBE92922AAE59C2F48575E02BF9EC5D175BD28
+        E5ED64CABB00D8B67D584AF90226799922DD124929E55ADBB63F09DA352AA65D
+        E7A0FC2752CAB50064BA5DE1B4DBFA428895B66D7FF4FF06C224CA7F2484487B
+        523CAD09781CA2504AFD5929F51BC6D89254F42E16ED53BD549570C6BBA594CF
+        33C69C4CEE95110009E588884E4829FB002C638C5999F88562292F84F88F6DDB
+        1B88A835D3B745B202C09B284929FF4A44B58CB19BD36D94E47B3F2F28DF771C
+        E76F8EE3AC04703CDB31B3062021D7A4948794523F32C61631C6CA82CE15041D
+        5BCD45E154E9AD94F28A6DDBDBA4942F33C6FA73013D570090A0D93FA4947F54
+        4A3900E6012829C48AFBE3BB1022EA38CE3B4288F5003EF3523E5B00264D8432
+        D95EF64825636CDCABB35339691E64EBEEABB3447408C0D57C985D3E0170BF37
+        1863F770CE1FE69C275F9ECE14081FCD6DA554B752EA33A5D431223A97CEBBFF
+        CF01F0F5E1006E658C2D4CB4E4EBF30973719F81DB00C6BD3E9F7860D309E0A2
+        5BC165A25CB600FC77004AE5B4D60580252A0000000049454E44AE426082}
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 8
+      Version = '6.1.0.3'
+    end
+    object combomarca: TwwDBLookupCombo
+      Left = 107
+      Top = 35
+      Width = 243
+      Height = 21
+      DropDownAlignment = taLeftJustify
+      Selected.Strings = (
+        'NOME'#9'40'#9'MARCA'#9'F')
+      DataField = 'MARCA'
+      DataSource = dsos
+      LookupTable = frmmodulo.qrmarca
+      LookupField = 'NOME'
+      Color = 15916445
+      TabOrder = 0
+      AutoDropDown = True
+      ShowButton = True
+      PreciseEditRegion = False
+      AllowClearKey = False
+      OnEnter = combomarcaEnter
+      OnExit = combomarcaExit
+      OnKeyPress = DBDateEdit1KeyPress
+    end
+    object DBEdit2: TDBEdit
+      Left = 107
+      Top = 62
+      Width = 246
+      Height = 21
+      Color = 15916445
+      DataField = 'MODELO'
+      DataSource = dsos
+      TabOrder = 1
+      OnEnter = combomarcaEnter
+      OnExit = combomarcaExit
+      OnKeyPress = DBDateEdit1KeyPress
+    end
+    object DBEdit3: TDBEdit
+      Left = 107
+      Top = 90
+      Width = 246
+      Height = 21
+      Color = 15916445
+      DataField = 'SERIAL'
+      DataSource = dsos
+      TabOrder = 2
+      OnEnter = combomarcaEnter
+      OnExit = DBEdit3Exit
+      OnKeyPress = DBEdit3KeyPress
+    end
+    object wwDBComboBox1: TwwDBComboBox
+      Left = 104
+      Top = 118
+      Width = 81
+      Height = 21
+      ShowButton = True
+      Style = csDropDownList
+      MapList = False
+      AllowClearKey = False
+      Color = 15916445
+      DataField = 'ATENDIMENTO'
+      DataSource = dsos
+      DropDownCount = 8
+      ItemHeight = 0
+      Items.Strings = (
+        'AVULSO'
+        'GARANTIA'
+        'CONTRATO'
+        'REINCID.')
+      ItemIndex = 0
+      Sorted = False
+      TabOrder = 3
+      UnboundDataType = wwDefault
+      OnEnter = COMBOTIPOEnter
+      OnExit = COMBOTIPOExit
+      OnKeyPress = wwDBComboBox1KeyPress
+    end
+    object bperiodico: TComboBox
+      Left = 253
+      Top = 118
+      Width = 32
+      Height = 21
+      Color = 15916445
+      ItemIndex = 1
+      TabOrder = 4
+      Text = 'N'
+      OnKeyPress = bperiodicoKeyPress
+      Items.Strings = (
+        'S'
+        'N')
+    end
+    object EDEFEITO: TDBMemo
+      Left = 446
+      Top = 49
+      Width = 435
+      Height = 49
+      Color = 15916445
+      DataField = 'DEFEITO'
+      DataSource = dsos
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Courier New'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      OnEnter = edefeitoEnter
+      OnExit = edefeitoExit
+      OnKeyPress = edefeitoKeyPress
+    end
+    object EOBS: TDBMemo
+      Left = 446
+      Top = 122
+      Width = 435
+      Height = 45
+      Color = 15916445
+      DataField = 'OBS'
+      DataSource = dsos
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Courier New'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+      OnEnter = eobsEnter
+      OnExit = eobsExit
+      OnKeyPress = eobsKeyPress
+    end
+    object bdias: TJvCalcEdit
+      Left = 325
+      Top = 118
+      Width = 28
+      Height = 21
+      Margins.Left = 4
+      Margins.Top = 1
+      AutoSize = False
+      Color = 15916445
+      DecimalPlaces = 0
+      DisplayFormat = ',0'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      ShowButton = False
+      TabOrder = 5
+      DecimalPlacesAlwaysShown = False
+      OnEnter = COMBOTIPOEnter
+      OnExit = COMBOTIPOExit
+      OnKeyPress = wwDBComboBox1KeyPress
+    end
+    object Panel5: TPanel
+      Left = -1
+      Top = 0
+      Width = 432
+      Height = 25
+      BevelOuter = bvNone
+      Caption = 'Equipamento ou Aparelho'
+      Color = 33023
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 9
+    end
+    object Panel6: TPanel
+      Left = 430
+      Top = 0
+      Width = 461
+      Height = 25
+      BevelOuter = bvNone
+      Caption = 'Defeitos'
+      Color = 7456876
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 10
+    end
+  end
+  object AdvSmoothExpanderPanel1: TAdvSmoothExpanderPanel
+    Left = 0
+    Top = 0
+    Width = 1042
+    Height = 48
+    Cursor = crDefault
+    Caption.HTMLFont.Charset = DEFAULT_CHARSET
+    Caption.HTMLFont.Color = clWindowText
+    Caption.HTMLFont.Height = -11
+    Caption.HTMLFont.Name = 'Tahoma'
+    Caption.HTMLFont.Style = []
+    Caption.Font.Charset = DEFAULT_CHARSET
+    Caption.Font.Color = clWindowText
+    Caption.Font.Height = -16
+    Caption.Font.Name = 'Tahoma'
+    Caption.Font.Style = []
+    Caption.Line = False
+    Fill.Color = clBlack
+    Fill.ColorTo = clNone
+    Fill.ColorMirror = clNone
+    Fill.ColorMirrorTo = clNone
+    Fill.GradientType = gtSolid
+    Fill.GradientMirrorType = gtSolid
+    Fill.BorderColor = clNone
+    Fill.BorderWidth = 0
+    Fill.Rounding = 0
+    Fill.ShadowColor = clNone
+    Fill.ShadowOffset = 0
+    Fill.Glow = gmNone
+    Version = '1.1.1.0'
+    Align = alTop
+    TabOrder = 4
+    ShowExpander = False
+    ExpanderColor = 16445929
+    ExpanderDownColor = 15587527
+    ExpanderHoverColor = 11196927
+    TMSStyle = 0
+    OldHeight = 48.000000000000000000
+    object Label31: TLabel
+      Left = 59
+      Top = 14
+      Width = 237
+      Height = 23
+      Caption = 'O.S. | Ordem de Servi'#231'o'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+    end
+    object bcancelar: TAdvMetroButton
+      Left = 2
+      Top = 2
+      Width = 49
+      Height = 45
+      Appearance.PictureColor = clWhite
+      Caption = ''
+      Picture.Data = {
+        89504E470D0A1A0A0000000D494844520000002A0000002A0806000000C5C3C9
+        5B0000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A3445414132443945303444303131453538344545414445343436
+        3535353531312220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A344541413244394630344430313145353834454541444534343635353535
+        3131223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A3445414132443943303444303131
+        453538344545414445343436353535353131222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A344541413244394430344430313145353834
+        4545414445343436353535353131222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3E4B533802000004B14944415478DAD499
+        7968554714C65F1215778D2651A352637109C605036EE082A2455C6A5D506825
+        54105C402B05A960ABE03F820A2AA2E082FE218A2888FB52975A49085151DBB8
+        15375C316AAAC625C6C4EB77E01B3D0EBEF7665EDE7BE0811FF7BE3B73CF7C77
+        EEDC9973E6A5044110FA1AAC4E2DEF6F023A806EA02B680B9A8306A012FC0F1E
+        82CBE02AB8092A40902CA11DC170F03DE80D5A39DCF3045C007BC1617003BC77
+        6D30C5F3D54BEF4D063F832EEAFA6B50069E9337A03E7BB729C8028D54FD5B60
+        0BD806AEC75BE838301FF457D72E82425002AEF135BF0255A02E878688EC0CF2
+        C1401E8D9D03CBC0CEA8BD2B42A3D0002C02CF824F560C6680AE0EF76BBE05D3
+        C029E5EB25580A9A45BA379AE3266003A8A15311FB07E8E029D0A61D980FCA94
+        E0ED202B16A10DC13AE5A8147C07D26A29D220C36E083867894DF715BA44F564
+        09E81E2781369DC009B6F31E2CE74338099DA8C6E4BF0914A9C76E09DB7B0D0A
+        5C84760467D5981C9A6091867EE0A11A66B99184A682DF59B986033E25494285
+        59E01DDB972150279CD0CEE0162BFE0D32922832C429EA00DB9719A1A7294B55
+        53AA9C8FE6EAF3166CE0B2974C93556D13780932C1789066C4196BCAB55BEC3C
+        38E2D140373EE0974C0295EE1EBE8E83629E8F0119F6CAD417BC61B72FF6785D
+        23C04D5008BA7C6128FDC5E134CEC3E7AF9CAA64BC0EB3C7E84C8A7C0C463A3A
+        1C4691C644540ECB72F8DBD87D30D6D1EF60D617FBCD1EA33D787CC000C3C546
+        821CF57B3058CDC065357F1BCBE6AB743169FF2ECFF3EC576FBEB683A091E393
+        4BAF1D0E3EB76A50C1A3B6427B6E8C804C4B3BD4ECF3598F9AE0F71143351793
+        B8723A38A6AEC957DAD87CADB462C6B0571CFD56333BF8A84B0B35816D95E794
+        22AFA8001C0D537E1AFC08FEF3F45BC163335B688A09516398FF5E71EE0D5716
+        CB7C1C685DA9563A116264EE6312C16F06A3C2940F67DA91E5E9B7318F2F6CA1
+        8FD49868E8E84CEAAE053F58BE6A548FA4B17C9D63126874A5F3BCCC167A57AD
+        24998E0EE78109D635F970268193D675590E173AFA95D5E81B9EDFB18596F2D8
+        0674727458C47957FB98037683B9E08C2A7BCAFA2E26EDB7E3F9257B1E1D08AA
+        F46AE0882C8DF7C025D0DF2AEBC55443E2CC9F3C7CFEC279B8DAAC92BA5042BA
+        220A952CB18587E301202F4C9964AA833C7C49AEB65F05D0D9B650099A17A814
+        765292635183F46039752C35C1B35D294FA50387A2E5DA094096EE9D6CFF29C8
+        0F17E1A7F129028658B3922C742AA864FB6B22A52221060EA5AC2CBDDB274922
+        25D3BDCD76AFF3438C9A2E17A820BA280E3B23D16803FE54B9FD6C3BA90C77A3
+        7C582B7993D8B1048A6D0BF6A8707023A8EFB353D2925B2C3A9E1C106791BDD5
+        2E49C098383B964D32D9B4DAA51CDDE36BC9AAA540E984E9E086F22DB34CFB58
+        77F38CD3556ACC1AA753406B4F81999C9FF7295F32BBAC0FD79306D78DDCBA0C
+        7E6523375705D812809C026719183F61C05BCD6D7709D55A70773A9F39543FEE
+        F187B8DBBC826160653CB7C6257F9FCA88BEB5BA5ECE30F131838F777C3811D9
+        927533ACFA5B19C75E48C41EBEE9DD5CEEAA08BD540F4532C900FE0187F88743
+        6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
+        65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
+      TabOrder = 0
+      Version = '1.1.2.0'
+      OnClick = bcancelar1Click
+    end
+  end
+  object Panel4: TPanel
+    Left = -1
+    Top = 280
+    Width = 892
+    Height = 51
+    BevelOuter = bvNone
+    Color = 5460819
+    ParentBackground = False
+    TabOrder = 5
+    object btos_001_menu: TAdvGlowButton
+      Left = 10
+      Top = 5
+      Width = 115
+      Height = 39
+      Caption = 'Laudo'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4331433935383734313433393131453538383333393345443632
+        3645333446362220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A433143393538373531343339313145353838333339334544363236453334
+        4636223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4331433935383732313433393131
+        453538383333393345443632364533344636222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A433143393538373331343339313145353838
+        3333393345443632364533344636222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3E7306DC5F000005A54944415478DAA497
+        7B6C53551CC77FB7EFADDB606CD910110393818E84A1644671468D8E05790483
+        125F046378982C44602A89311AD48846893AA31213987F1843D048505E135103
+        0A82A01B8A050604F760D960EFAD5BB7B67E7FE37BEB6DD76D054EF269EFBD3D
+        F79CDFF9BD6B3CB8B952AE6278C01DE06E30198C0206E804E7C011F03B684E74
+        414782F36E05CBC03C70CB08731BC04EF019F8ED7A05180BD6737373D4815FC1
+        69700984A90915EC4E900B9E25DF8057C0DFD722C063E07D7003EFBF031F81C3
+        A06D88775CA0809B3F0D1682F9E079BE3B68D88658E865B0959BEB690B0C43E6
+        F983A1BD9D7DA13620B1E037C19C00E61E04CF5013AA013B28039B1215E025F0
+        06AF3F04B39C36E368634FBFB8EC361997E28C8BFE76A0B547423088610CBCAB
+        4EF9084FAF6339F864241314830DBC5E8585CAFAB062754740329C76292B9E24
+        133392E2AAECFC65BF941FBB287B6B3AC4036146392367FB009C05DF8295E014
+        4D3B30EC93163C675E8F073F0137D888CD5FEFEE0F49536F48A6A4B965CB825C
+        C9CDF28A138BC7232BD52545B9199209410FD5B64B2BCC92EAB49B6B9F6674CC
+        05B3C11E3A73940954EDA90C9DB5785F2E0782F2EA5D37CAF627F2863C79EC78
+        343F4B763E95274537A5CAFE16BF690EA10F7CCEBC51663E34988826514D3AF2
+        C0C9166C3E0D9B962F9A6A5D5F432D0704197EC205D59417C03FE6C4204C57BA
+        AB5A7E8049B23D114BA7818B20193C04F6991A58C9EFEF757395FA9CBF4F96E2
+        34E1E803BE43F5E9BC7D44AF77330BCE8DD8D666C886E21CF883213DFD9155DA
+        2DE1F882690295E671CB06905E24C36193F464A7188985AD8E14B0032C311FB8
+        B1C6EA99E3A4A1B7DF3AEF63A0E1FA806A5E179C4E076C04BFE88CCAAE5E593A
+        3553A68D4D89DDA47B041750794BA3727876B254FB038250361F5DA09FA95D8A
+        F5E31EFEF033F0EB051C5F3C0823BBCD88DD403DB19EC9C9C367FACE6DF41DA1
+        7F44C684748F94E466CABEBA76199FE4341FFF080AC14C9BA5B89C8A2407E38A
+        130D71C21AE00367185E2741AB654EC0FAC21898716A6692F8025172F9CC9F55
+        03E9BC694AB0327AF94E32EF33C09F74C485CC2351A30B9B8F8ED6A629B0C39A
+        09C3090AE0A7379BA168F03BD9723DD2085B537187A98E045EEC672CDF0C9C96
+        0DF5BB8765B92D8175D2CCF51C2C1AC2EA75E56958E239A05836EAA0AAC3DC30
+        C408C98B17AA5E975D5AA37D6AB2690A073D5A180D7AAA3E3796E8412E56478C
+        11C4A0AA93A93D0F4BAF751CB1DE9C69EA961DD5CD52E075591F17F2FB844A7B
+        9C0E3881FD9E4CF7BAA5DC7749FE6AE88CD7136A51D1FC7D82DEDC113327CA09
+        EBDB7BA5024264B82285497B8C59D45E85832ADCCEB66B35588CE226B5A8849D
+        3DC15801FA287DE130F60D596FB2535C92829CD2F7BF0996306B1ED243382CE9
+        7119DBB0B5E1B0D4CE80CAD61FA8914F47B9AD95F06DB09FB11E8EE31F490CC9
+        C8A8AAEF944CBBCDEAF46B78BDD15A0DCD9EEF61360EF3EDA848E7BB02928462
+        F2E5C22948A95EB9DAF1C5B1065979B0460A52DD42577A0BACA3E3E7C4169752
+        AA585BEF3541A82107EAF307C3F2E2DEF3B21B3E110A25962AFE456BB6E970DD
+        C0E6D3BD4EA102E670731D25F15A3275A8156033784F532EECB66D224C7119D5
+        6CCECEB35272AA45525D3679323F3B6E83B2C7D72C4791F38F37764B45B35FEE
+        1FED1948EB388B3ADD579CF62EB3A6C49AC01C6516095799DD8B56333589AF37
+        38B070BADB3E4880B3F0F84A7FBF144073EAF5743C35EBD78C8E5DBC97E10430
+        DBA7E5BCDECACEB661E0059C487BC56068F04BEA2F0E100E47FA83756CF18591
+        B628B65A0ED560ACE0E9752C66D553D5E5EBE24930AA86562C9AB4F0FB646EEC
+        B36CFE260BD5A0B83646F8737A3B3DB7C8F24C3BE7A3ECFF1A198E6398CA0B38
+        D74C9F7F80D7D8295DD37FC3E36CA38BD837EA29EE23C30DED13B7806D2C60D7
+        FDEFB882E829EF0533401653B38D054AFF9257B1B3AA4A3457FC27C0000404C9
+        2E2180A6960000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 0
+      OnClick = btos_001_menuClick
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+    end
+    object btos_002_menu: TAdvGlowButton
+      Left = 131
+      Top = 5
+      Width = 115
+      Height = 39
+      Caption = 'Servi'#231'os'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4141423430324233313433393131453538413631443241433331
+        3039373831372220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A414142343032423431343339313145353841363144324143333130393738
+        3137223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4141423430324231313433393131
+        453538413631443241433331303937383137222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A414142343032423231343339313145353841
+        3631443241433331303937383137222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3E1B8D48FF000005644944415478DAA497
+        6B6C145514C7CFCCBE5A76DB6E69A5A55D5A4BEB03A2521489961A5B12AC9048
+        3481A8899A823168C05722221F243E1223283EC004A3143544D47E68A2C41A1A
+        03186C809A4AA936140302D52EB465DDBE9676B7DB19FF6738DBCE36DDED6E7B
+        935F66677666CE9973FFE79C7B950D756729C971077818DC0AB2800AFAC179F0
+        23F8158C26FA326B82F7CD054F89E17BE2DCB7199C11476A40FB4C1D4803AF82
+        4DC02DD782E0183807BC4007378012B0042C105E067BC1BBE0E2741CB85F5E50
+        22E727C087E024B814E399D9E06EB0113C043680C7C4992F267B408DF1A267C1
+        5131DE061E0165A0368E711EFF814360B5DCFF33C800FBC08E4423B01EEC91DF
+        5FCB794851A02C8DA827300285E9313D48B1AA943DCB469AA61FC7E90AF01678
+        5DF4A1C831A603CB443C3CDE86D16DFDC1511A086914D67472DA14AA2A71935D
+        55623AE01D0C51933740F96936D2AFFBB94D32E44BF08A08B3663207DC12621E
+        FBD8F8DF7D415A35DF4D15C599FC45E4C0D72DCC75C655AD06ABDB8F74D0A10B
+        BD342FDD4169760B3FFB9508F53DF0B9E8A96DA2031CAA3C4E23187FCE3714A6
+        158519B4B1CC43568B92709150F1F096CA42CA75D9E864E720F50D8729DD61E1
+        68BC8FBF9782B5E01350691661B6A41AE1F9EA60580F755F0BD3DA453949191F
+        778268DDD23CDA5A514021082734AA9BC5CD271522D231073689401A4734BD29
+        A469F45A591E7932EC9107F324B78BE2701328303B52989942CB3CE9D40DE15A
+        14259225BBE5EF2D9129B080C7E5E2CE5058A73CA78D1E5C906D7E17CF613918
+        9EA2A8F580F9E68BCF977BC83B10A473FE20E5B80C61EEC2E517C04A308F2370
+        3BB819F8C11123DD70D7D088667E0F0B2845841A0B9744E2333160544E0BE663
+        F5C26CB25B154274493282FB858DEB852AA9C7A311F4F294F722F5F4E8541F4C
+        42025C373E060722535C5EE4A682343B717465FC22C73B55995B9226424310CC
+        A21CE7B4C4275390219A5A291131A2C95155C65FF9A71C3355092F8FCBC6A706
+        355A85F9B74FCF01FEC4003805FA8023C67D7E39A6AA22421E619AF98808274B
+        2231D550549337FC10B91C2AD59FB96ACEDD64C66C11589D4CE905E3336DAA91
+        86265DA5465ABB6AEA6EC5C63F08FDE9AE0085A31D501374800B473EF8413AE8
+        90217BDF90216CEB780F2996638073B7494E78A5630DA3EFE43AAD34CB1E65D3
+        99C414144DBC58D7DA4D9D685205E80D128548E6B5B3156E9B3EE9FD8BD94BF6
+        96BD36BF234107764DBCF053BB8F4E755DA37CD798719EA6E591BF390203E020
+        A8E6958CC3AA5477F4070DAF37A3A9C87813FC266BC391490CDBE43DB5E68BE8
+        2974E074B7117A0B3E551C785404DA0A9A155915974AEA188D0905CBD71F1AA5
+        F58BE7D003B764D174F371C7E14BD4D213A00C7BD4B2E35FD1C933BCE48B4C74
+        0B9761F9BD9BBD7542B91F9DF0D2C1B6AB491966F1369CF5D1D6FAF3D48876EC
+        7644197F498C7B658112B51EE0FAFD07372684EA300AD1DE5CA79D3E6DBE42C3
+        A864F7A19CE68E77C74947877F98761EFB873AD1FD3438E249B71B0B1919F7CA
+        A2966465149EE80097C717A58EEF81135EE8A13E1F35BCA6A58B8E5EECA3BBE6
+        C64F86DFAF04E872204459293663CE4DC66F03DFCB6FFEF26FC62AD1243BA3FD
+        E009F9CD82A95521A20034E11F8E5F2C3353ACE4BCBE04335F5E221B953922BC
+        529148CC55F193121ECE8AEF387478E13BA956B527D5659FBA108C1B4F9515D0
+        76C9125EE6AF311B8F57E1D681374CC2699579F324A043973CCF05EE0331CE9B
+        922AA937D1CD608ACD69952CABCBE47C40361EC7A57B86E48B6C12E252293237
+        462A1DAFB2648735ADBD211B6B104D3C2DDBB53542BCD10CBE95F55F70A6BB63
+        5D84B95FFA45A56CD1DDF2E524DBF15EF0976C5C1B12AD1BFF0B30002078BEBA
+        1311E5B80000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 1
+      OnClick = btos_002_menuClick
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+    end
+    object btos_003_menu: TAdvGlowButton
+      Left = 252
+      Top = 5
+      Width = 115
+      Height = 39
+      Caption = 'Produtos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4233454344383532313433393131453538423733383146424530
+        3135364136412220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A423345434438353331343339313145353842373338314642453031353641
+        3641223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4233454344383530313433393131
+        453538423733383146424530313536413641222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A423345434438353131343339313145353842
+        3733383146424530313536413641222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3EEDDD6825000005E94944415478DAAC97
+        696C545514C7CF6CEDD076289D2965AD38CAD220105011014550D6A8C816115C
+        88C4252CEE8A1AA3C1F849DCC05D50341A013F880650103770098A880BA50865
+        6B4BDA0243E94A67A6D319FFE7F5FFEA9B6737D093FCF2F67BCF3DF76CCF317B
+        ED5E394B190E6680FEA03348807A70106C06DF834847077377F0BD5C300FDC00
+        2E6DE3BD074121155909F6FE5705BA80C7C02290C17BD56007D80F4ED20259A0
+        2FB80CF4238BC1DBE05970F85C149804DE00415EAB699773F2B23614560B2D04
+        D3C15D602EB81FBCD3D207CE5606BA076CE1E4BF836BC118B0DE9CFC4C435C6A
+        4134961087A3F9BB4AF0157D6404C7C8A02596755401D5FA659EBFCF157DEE74
+        3AE4447D4C0E5747E4586D54B23BB9A55B9A4752DC0E29AC8C481C1B61514465
+        27980296F2FA11F05C7B5BA0AB7C8BE74F9B1FEBC047AB2232B6B74FB2D33D92
+        E171C94D4373C4E3764AD1E9B0ACFBE3846C2BAEC67B0EF17B5D92E2724822D1
+        3CA68EB30F7C041EA693AE341F3A2C6118000520872FDCEDC6AA4F871BA500AB
+        9EDB374B9E991414A76D99A6FC595A2B1B0B42B2ADA45AD45A5D61A1583C617D
+        E501F0229D7608C8B72BF03A58A063818B41635D342E8134B70CEF91210B46F5
+        6A7572ABEC29AB95C7B71E91BAC684744F775B2D21B4C28D603B186BF5811C4E
+        AE325F27D7B9765485655C9F4C5934BAB77DF234E0035EBB0283A1EC6B53FB49
+        568A4BCAEB62A256B4C8025AE02A30CAAAC0624BA8FDAA1F1DAE8ECAC2FE7E99
+        39A4AB7580DE601D38CD7C50029EB72BD127CB2BCB260725806DA8C2165AA402
+        BCC2F3474D05DC8C5531BDB4B4AE41C6F5F4C9D28941C9486DF6D3AE74A6D934
+        E543BCD6E31ABB127DB3D3645A3FBF1C0FC7EC8FCC08D308C9550586810B4148
+        F7462DAD1F75F7A5D8CDBE9A317D25B88D0E35869E3D87693849AE1F1490817E
+        AF912F2C7208FC003C60AA2A30920F7E52B3D63724E4A22E5E999CE7B77E743E
+        B80E3CC98FADF202B764A15D8134F881CD074CD9CEE33055208F171A82D280D0
+        0978DD9297936EDF7B6184B42447581993248648B045812966E8F955816C5E94
+        B6115D87781CDFC2330717B1FF2C4A7A258F294E4B24181BE581C94EC2070A43
+        67AC1F94D179B446DC67B9EF65BA4E63D54B125D7D65246664C8D64427AFE2B9
+        9654E9E471C85164BE35BB8F4B637226536FDFC68A98CFA2530E6EB1E48FA4D4
+        9E8A543D332F2025B511BB2F98F923EEE4FE096BB8A1F5059D53E56BE4F6A2CA
+        70D2968271B4829745EA1756BE1F597EBF0099E6072E4C3A01B964209CBA3A92
+        940F0698BD8593554BE57273052EDC75A3A07C082BD446FE15C7AFB2F9D03099
+        003E01D3A8C4D56093EE6D73F2C84891F1C12C2939D3601D63048FFB9C6C304E
+        71D0A1A615BAA106ACD81792F57B42AD6D9F35B8435442BDFB0AF02DE8653E8C
+        34C6C5F38F1F04684995CDAA400DD8684BC986122333BDB2A1B0420E263B646B
+        126292FA99797EB4DE543FAA8FC50DAB526EE63669A3F39B797B398FF3A8A121
+        99A8EDA7D0842CD972448E56D47744094D485335099A8B2A46BFF0E9810AC94D
+        6FDE9527787C49D7E91A344BFB4D39CEB41A6407FCB1616358C187480DA1A0EC
+        3A562305E575528310CDED926AD47A258A64A3EF59BCBC0E1C50A7ADC0BEAFDE
+        5526453551631C7645BA55C5E0767B3F3048CB39CFEF641FD7D4366170F5E262
+        14A9EEC892BD7CCDAB91683C8EC1DD321755B3330AD7909E4DCDF386FC90ACDA
+        5D2E113CD7AA882D1D6349C1B3CC453A6C3F26F782150C39D5F4B3A494E7684A
+        D5E158222991A8BF94861BC4878D9E31A0A9866C3A58692435AEFC12B09591B3
+        8A7DA7B4A480D988DECAF339ACFFED8A2A0767972234AC464F80F053C78372A3
+        189A9AE876F1DF21D15657ACA5F65D9EAFA54572DA5340ADA06E10C4F6048D52
+        2EE9B8B7048FBEE3E49AA4AEB14EDED67FC17C965E735BF2D9C19CD70163F8E9
+        433B591F5C6C72A7B08B4AB65C3B3FA79AE99E627231FE47B812F3EFA89E2B4A
+        A595B4B999087A58CAAEB66CEF9DEBBFE197445BB63B98C1A693B6446BC407E0
+        4D6D31FE8FBFE3356438F3FD60FE077AD90F4459E3FF6263FB4D471B83BF0518
+        00B872DA9E2F05C0FC0000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 2
+      OnClick = btos_003_menuClick
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+    end
+    object btos_004_menu: TAdvGlowButton
+      Left = 373
+      Top = 5
+      Width = 115
+      Height = 39
+      Caption = 'Deslocamento'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4146363446343135313433393131453542384535453037374641
+        3942303634332220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A414636344634313631343339313145354238453545303737464139423036
+        3433223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4146363446343133313433393131
+        453542384535453037374641394230363433222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A414636344634313431343339313145354238
+        4535453037374641394230363433222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3EFA58C310000006964944415478DAA497
+        096C54551486CF2C6DA71B336D41A085A42DA5A0022E54647121822282612968
+        8A468880B2090A319A1464138D0AA8A028861A372091250441AC42C105C12AA2
+        95166469CB522874DFDBE9CCD4FF0CFF6B1E4D810A37F9326FB9EF9E73EF59C7
+        F2E4C66CF99FE31E301AF4004ED0046A412EF80EFC081ADABA98BD8DF3BA8049
+        601448BAC6BC97C049F02DF80464DFAC022EF02A9809C2F8AC0AFC0A8E8322E0
+        05912081A7A3BFB3C12C9006DE02A76E4481A1DC451CEFF7839556ABE560614D
+        E3F91A8FEF8AC9A176AB740A0D70FA7C4D7D713B032483A92005CCE35A6D5640
+        77FC01AFB3406ABDA76947A9DB2317EA3D323ECE25D1E141577C70BEAA4136E5
+        95577476D8332203ED190EBBA51F1E2F068F82B5A02798DB1605A69A847F65B1
+        C8A4923A8F370C3B9C93D4593A8505CA8038A758F1C23C7C4D4D3222AF420AAB
+        DDB23EEB929CAB6ECC7406DA8747386C0B3DBEA645F40F1B9863FECED2220A1E
+        04FB78BD043216669737C818EC78F6A018890A0D34CFED00BA72D14270D67851
+        52E3962D5945B23BBF428AEA3C308D3D19FA6DE66B35CF47AD29A00E97033A83
+        75103EF56859833C1EEB94458FC489CD6A314E6C26EDEBA4F3794023B8047EE7
+        B197EBE4FCD27A49FD214F6A1ABDE2B05BD531DFA7ACDEE0885E584D3B5A42E1
+        47207CBAEE7C446C3B593CAC59F840700E8C053F8169E059DA753243AF3B380D
+        26EA07B1910E99D9AFB36496D50BD65C85471B286BAD21D450A03D7881D79361
+        73CF68EC7CE9B078C3D6298C82CFC18BE00BF02F773A08FC0CDE0013C07CF019
+        784F3FEC131D26531223454F134BCDE089E966069B1598C5DF5FE0ED990156AB
+        A40E8D35840FA4E663C02B8CF5F94C4A36E602236C3513AE067782E99A0FC282
+        EC7E132627B8A4B4DE5B6132C3CB860236EE50C78AF2068F4CBEABA304D9FCBA
+        A9D76D011F826D9C93C66BDD8103BCCDE77AFC2B79FD377886C2127523C9BD3A
+        486E955BEC56CB1ACE19A65652297D741228C3CBBD05F0DAC40EC1868974C735
+        CC66BABBE799F9B632E7DFCF5A20F46CF5F45B347C4125D80596E9CBE0009BF4
+        EB1022950DDE5C9A4C373E5215E8CF050E9CAF69AC18DFCD2531CEE624339282
+        CF3225EB89182FFF04E340488B3C924C3B678277402F8DB0B8A8601912EB92B3
+        B51A30B29773FBAA02B7F226A7CCED95EE512112111CA0F7D120DC9494FEA27D
+        1B4DC7DC40DF308FF52C5C258C9658F090BEA84538065E8EA81CCE75AA021D8D
+        6CAA2F6BDC5E63A144DAB81D788D8E1AAA498FEFF5E8CBC02AE60463E8D1DFC7
+        88D04DE431BCCDA3CC282186130A8FCD3C0228BC9236D323AD6B31A784C928AE
+        C5F34E208AD76E93D2CD99DB4803762EE24FAD6E5F9384061AFAF8352FA7131A
+        36D3454B4D8EA755EE5D9AC33C369BAE7BB061310FA3B4D759294847B708083F
+        51522B65757E336B63A171FB186B7C3A186E12AEE302D3AFF9D953CC8EBA9378
+        D6098D18094124E8265516E7565BB9808EFED1A101819B4E954B4145734795C5
+        784E6091FABA0DDD530E151D4CBFC957F24AEA644F7EB9740DF13BF820CE3D66
+        A56DB590C4A36CF68D09B6CBF1A266532F6026D4F07B93F6BCDE380C1E06C52C
+        C1FEE4548708C82CAA957641B648232A344F58D9626D374AA50BA933EDF04569
+        F0FAFDE41CEBF72670DBFF685C6DFC46B3E837D5C8AEDBB28B253E3C50B0C914
+        468D9EEE21A316ACE6EFD3E864DA37FA7CB26C77BEBFC960986D618339B00DC2
+        D5EE67E8BC9AA864EB3FC5B232A758221D36E3548569DA6735D9FA7B23A546C1
+        0CDBD04C2C48CF359498C0729D4E06B37F686E09C11DAC96BFB1726A4B0673D6
+        CAF613A532C0E9102C358F79A78073AFE807E6323EC761E2B4DB5D41B233BF52
+        16A6E789F7B2E72E6401D154B68EC9E418336435154B60C3F204BE69CC38592A
+        4BF79D119477713A6CEA78CB4DB2BCADB5645A42D7F0E52814B19D5769C9BAD2
+        933BB24B2AA6F365192DD9AAFD059276BC44925C0E14226B6F6C2A837D8756D3
+        2957EB0985CDC4445E4F80121B7507DA948EED1925831322A58B2BA855E39F83
+        B2FBB0EBADC74AA41A6DBB9A1282EFC5AB1D147E88A6F15DAB2B9EC413D0766B
+        03161818E9B02F45A37269F91F85B20B7962404C78AB0A1C28A8926CB45FB1E8
+        9CF14D30BE9DC5721C401F1BDF322D5BAEF1DF3015BCCE6B4DBF2BD02FAC473D
+        3F7DB1DED3EA071D1D768DF30884DA38B66E46E87E0A9E33ECDE5605740C6125
+        7CC0C8DDEC0F0E6AF5E47D137B046D44EE666B16CDF9D9AC156937FADF700F49
+        61E73B84F57FCC75BED3F4FE25F8D8D43FDCD4BFE38D248969B437F34030C3D2
+        CDC27594A53BA3AD29F33F010600AF1F38F5319EBB8E0000000049454E44AE42
+        6082}
+      Transparent = True
+      TabOrder = 3
+      OnClick = btos_004_menuClick
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+    end
+    object btos_005_menu: TAdvGlowButton
+      Left = 494
+      Top = 5
+      Width = 115
+      Height = 39
+      Caption = 'Terceiros'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4136344132454330313433393131453539363534384635423335
+        4342413034432220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A413634413245433131343339313145353936353438463542333543424130
+        3443223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4136344132454245313433393131
+        453539363534384635423335434241303443222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A413634413245424631343339313145353936
+        3534384635423335434241303443222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3E825AB2CD0000056D4944415478DAAC97
+        796C147514C7DFCC76777BED767BD196D296604B136B3D008F72444449448336
+        680C1A8FA04614E34589C198D423466AE2F5874724A2A889428C2615418DA0C1
+        4AA941B1B188A545432B48B1DBA6DB4ADB3DC7EFDBBED9CE4E67B75BF4977C32
+        33BFF9CDFBBDDFFBBDDF7B6F948DBBBA6806CD0D2E034B40252896FE7ED0030E
+        8243E074AA02D3521CB700DC035683B269C60E815D602BF8FEBF2A50019E03B7
+        1BFAD8646DA01B9C0411B1C47C70315808EE10F68046F0D3B92870277805E4C9
+        F34EF0864C1E48F2DD15F2ED3A709DF01878D56AB09A40C8F3E03D99FC1B7021
+        580BBED327F787351A0F4D805B5226BF650537888FEC903E5EC8B6541578063C
+        21F74DE06AD0A1BFE4897C8108B91D36F2A44F301A8C50FF5808C214A39C53E0
+        5670AF3CDF2D8B4ABA05F5B267244EF78E71627F98E8846F9C56CEF3D0BA4525
+        64B74DE8DFD6E3A3FD7F0C51BB7794E66439C86923D226656E1365F6C8D61C05
+        2FC4E41A8E6185BCCC942D78529F38AC29D43BE2A72A8F93EACF2FA44BCBDD64
+        53E3561B9DB0ED848F9A8FF653F7909FCA5D4EB2299A5191BBC076B9E763DC6A
+        B640934CBEDF3839AC4B63A1302D2F73D3F53505342F2FC3D269786CDDDC1C2A
+        723B68F7AF5EEAE81FA58C3495EC6ACC1A6CFEC5E03EF03AB8C468013E42C744
+        56B51C358A60E523C130ADAD2DA06BAAF26712B0686FF700EDE8F092CB6E2355
+        89D9211BF4812C391D5FE84EF8A05C77EB93F38ACE9C0D506D61A6D5E48A38D5
+        67E00331695CE36F1697BA69602C68ECFE4756CFAD413F052E708B74BEA88F64
+        872BCAB2537D4DA1D5025F12E75A2D418A23DE95E641A188467E1CD3786F892A
+        1090F195AA44AF6289DF3F183F76C39D2BF2D213051B735B61EE985F98413938
+        A6212DAEBB171C10FFBB563598AF058CC5028432A1C4387B617C73805C0B052E
+        30772CAFCCA5926C7BD40AA6D6A2E71856A04A1E3ACDA3C211CD6AF521306AD1
+        3F60EE60E5FDA108994EAC9E4FB879741F982280D79D6EB78CD4FC6A93A96F10
+        3C6E35986544122BEB54ADE3B3427DA3415A559D9F48896FC15386E70649C353
+        2667192C4B25C54A8EC6D2CFCA436C5F07710496CD76516D7176A2635E6BD83A
+        6E2BC14556D99565B02C9669681EB9065981E3BAD3C6F62E10A68ADC74CA44C2
+        31B46C8917FB24BF1B6B84DBA412E24CB819CCD25FB00C96C5320DAD5AAEBE34
+        3D26A32D150F0FA8F09AB178EFB7834F65A5899A5D8A91859201EBA4548BCA52
+        E33D71A95CDBD902878117948345D18D81F39B924DD934939BDB79C6E8C8B2B4
+        C9035522CAB149BE640BF8C02760BD542EADAA4A660BF098CF0187C5F1692667
+        4B04A55CA348341AB20562EFD74B2EE0E2A653779AD7E4C5CD6C89FC0C7B6FEB
+        A9619A7BDC492B2AF3F463C361D7269A276BAA1CD568FB6B3840FB7A86A82083
+        F5D238953E2AAF5E3656444740B3DCBFC5793C0BA974EBA13EFAEAB7B8F0104E
+        C1FCB1C9F7760DD2FB3F9E862C5BB436903A2347825EB3B91EE040B28AE33386
+        6EC6116E2ACCB4D3F65FCE20F769948F4A67C11C17A29A927C766CF6E1932334
+        804CFA6EFBDFA88E149A85D547485B6358FD06AB92AC4BCA304EAF5BA0C4EFC8
+        451FCF4646FCE8889786C7C3B4A4CC850CE948AA00A7F0037F8E901B49A81479
+        40899A4463AFFF50863C2B816C4A49664CB51BE57E933C4723D9A03F44819096
+        5401479A4279CE349E54EF5A23D5B17E946F9AEEBFA041063F24F5016BFF0804
+        F67AB8DA74A6E2049A1E591B0D66DF2955724AFF050FCB3E85A452EE929F92CB
+        5370C21A31739761F246F9AFD066F267F4A614A85BC00DE001E1A084E26372D6
+        59C952C90DFC0F7995410647D9A7C1D7E7FA6FC865FA8D6019B85FAC5127246B
+        1CB4DE969A51FB3FFE8E5B847209B1FC8B5E24094A918CCA71FF67597567AA31
+        FB5F010600CFE99C1A70FD8DFE0000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 4
+      OnClick = btos_005_menuClick
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+    end
+  end
+  object dsos: TDataSource
+    DataSet = frmmodulo.CDSos
+    Left = 539
+    Top = 270
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 443
+    Top = 302
+    object Laudo1: TMenuItem
+      Caption = 'Laudo'
+      ShortCut = 113
+      OnClick = Laudo1Click
+    end
+    object Servios1: TMenuItem
+      Caption = 'Servi'#231'os'
+      ShortCut = 114
+      OnClick = Servios1Click
+    end
+    object Produtos1: TMenuItem
+      Caption = 'Produtos'
+      ShortCut = 115
+      OnClick = Produtos1Click
+    end
+    object Deslocamento1: TMenuItem
+      Caption = 'Deslocamento'
+      ShortCut = 116
+      OnClick = Deslocamento1Click
+    end
+    object erceiros1: TMenuItem
+      Caption = 'Terceiros'
+      ShortCut = 117
+      OnClick = erceiros1Click
+    end
+    object Oramento1: TMenuItem
+      Caption = 'Or'#231'amento'
+      ShortCut = 118
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Cancelar1: TMenuItem
+      Caption = 'Gravar'
+      ShortCut = 121
+      OnClick = BGRAVARClick
+    end
+    object Cancelar2: TMenuItem
+      Caption = 'Cancelar'
+      ShortCut = 27
+      OnClick = bcancelar1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object ExcluirServio1: TMenuItem
+      Caption = 'Excluir Servi'#231'o / Produto'
+      ShortCut = 122
+      OnClick = bexcluir_produtoClick
+    end
+    object IncluirProduto1: TMenuItem
+      Caption = 'Incluir Produto'
+      ShortCut = 120
+      OnClick = bincluir_produtoClick
+    end
+  end
+  object dsos_servico: TDataSource
+    DataSet = qros_servico
+    Left = 507
+    Top = 270
+  end
+  object qros_servico: TZQuery
+    Connection = frmmodulo.Conexao
+    BeforeInsert = qros_servicoBeforeInsert
+    BeforeEdit = qros_servicoBeforeEdit
+    BeforePost = qros_servicoBeforePost
+    AfterPost = qros_servicoAfterPost
+    OnPostError = qros_servicoPostError
+    SQL.Strings = (
+      'SELECT * FROM C000053')
+    Params = <>
+    WhereMode = wmWhereAll
+    Left = 507
+    Top = 334
+    object qros_servicoCODSERVICO: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      DisplayWidth = 7
+      FieldName = 'CODSERVICO'
+      Required = True
+      Size = 6
+    end
+    object qros_servicoSERVICO: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o do Servi'#231'o'
+      DisplayWidth = 40
+      FieldName = 'SERVICO'
+      Required = True
+      Size = 50
+    end
+    object qros_servicoCOMPLEMENTO: TWideStringField
+      DisplayWidth = 50
+      FieldName = 'COMPLEMENTO'
+      Size = 50
+    end
+    object qros_servicoVALOR: TFloatField
+      DisplayLabel = 'Valor-R$'
+      DisplayWidth = 10
+      FieldName = 'VALOR'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object qros_servicoCODTECNICO: TWideStringField
+      DisplayLabel = 'Cd.T'#233'cnico'
+      DisplayWidth = 9
+      FieldName = 'CODTECNICO'
+      Size = 6
+    end
+    object qros_servicoTECNICO: TStringField
+      DisplayLabel = 'Nome do T'#233'cnico'
+      DisplayWidth = 16
+      FieldKind = fkLookup
+      FieldName = 'TECNICO'
+      LookupDataSet = frmmodulo.qrfunci
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CODTECNICO'
+      Lookup = True
+    end
+    object dtfld_servicoDATA: TDateField
+      FieldName = 'DATA'
+      Visible = False
+    end
+    object qros_servicoCODOS: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODOS'
+      Required = True
+      Visible = False
+      Size = 6
+    end
+    object qros_servicoCODCLIENTE: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODCLIENTE'
+      Visible = False
+      Size = 6
+    end
+    object qros_servicoQTDE: TFloatField
+      DisplayWidth = 10
+      FieldName = 'QTDE'
+      Visible = False
+    end
+    object qros_servicoUNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'UNITARIO'
+      Visible = False
+    end
+  end
+  object dsos_produto: TDataSource
+    DataSet = qros_produtos
+    Left = 443
+    Top = 270
+  end
+  object qrproduto_grade: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      'select * from c000021')
+    Params = <>
+    Left = 475
+    Top = 334
+    object qrproduto_gradeCODIGO: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Required = True
+      Size = 6
+    end
+    object qrproduto_gradeCODPRODUTO: TWideStringField
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qrproduto_gradeNUMERACAO: TWideStringField
+      DisplayLabel = 'N'#186'.'
+      DisplayWidth = 11
+      FieldName = 'NUMERACAO'
+      Size = 10
+    end
+    object qrproduto_gradeCODBARRA: TWideStringField
+      FieldName = 'CODBARRA'
+      Size = 13
+    end
+    object qrproduto_gradeESTOQUE: TFloatField
+      FieldName = 'ESTOQUE'
+    end
+    object qrproduto_gradeCOR: TWideStringField
+      FieldName = 'COR'
+      Size = 15
+    end
+  end
+  object qrproduto_serial: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      'select * from c000022')
+    Params = <>
+    Left = 571
+    Top = 334
+    object qrproduto_serialCODIGO: TWideStringField
+      FieldName = 'CODIGO'
+      Required = True
+      Size = 6
+    end
+    object qrproduto_serialCODPRODUTO: TWideStringField
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qrproduto_serialSERIAL: TWideStringField
+      FieldName = 'SERIAL'
+      Size = 30
+    end
+    object qrproduto_serialESTOQUE: TFloatField
+      FieldName = 'ESTOQUE'
+    end
+    object qrproduto_serialCODCLIENTE: TWideStringField
+      FieldName = 'CODCLIENTE'
+      Size = 6
+    end
+    object qrproduto_serialPRECOCUSTO: TFloatField
+      FieldName = 'PRECOCUSTO'
+    end
+    object qrproduto_serialPRECOVENDA: TFloatField
+      FieldName = 'PRECOVENDA'
+    end
+    object dtfld_serialDATAVENDA: TDateField
+      FieldName = 'DATAVENDA'
+    end
+    object qrproduto_serialSITUACAO: TIntegerField
+      FieldName = 'SITUACAO'
+    end
+    object qrproduto_serialCLIENTE: TWideStringField
+      FieldName = 'CLIENTE'
+      Size = 80
+    end
+    object qrproduto_serialCODNOTA: TWideStringField
+      FieldName = 'CODNOTA'
+      Size = 6
+    end
+    object qrproduto_serialCODITEM: TWideStringField
+      FieldName = 'CODITEM'
+      Size = 6
+    end
+    object dtfld_serialDATACOMPRA: TDateField
+      FieldName = 'DATACOMPRA'
+    end
+    object qrproduto_serialNUMERONOTA: TWideStringField
+      FieldName = 'NUMERONOTA'
+      Size = 6
+    end
+    object qrproduto_serialCODFORNECEDOR: TWideStringField
+      FieldName = 'CODFORNECEDOR'
+      Size = 6
+    end
+    object qrproduto_serialCODVENDA_ITEM: TWideStringField
+      FieldName = 'CODVENDA_ITEM'
+      Size = 6
+    end
+    object qrproduto_serialFILTRO: TIntegerField
+      FieldName = 'FILTRO'
+    end
+    object qrproduto_serialCODVENDA: TWideStringField
+      FieldName = 'CODVENDA'
+      Size = 6
+    end
+  end
+  object qrOS_contasreceber: TZQuery
+    Connection = frmmodulo.ConexaoLocal
+    BeforeInsert = qrOS_contasreceberBeforeInsert
+    BeforeEdit = qrOS_contasreceberBeforeEdit
+    BeforePost = qrOS_contasreceberBeforePost
+    SQL.Strings = (
+      'select * from cl00002')
+    Params = <>
+    Left = 539
+    Top = 334
+    object qrOS_contasreceberPRESTACAO: TIntegerField
+      DisplayLabel = 'N'#186
+      DisplayWidth = 3
+      FieldName = 'PRESTACAO'
+    end
+    object dtfldOS_contasreceberVENCIMENTO: TDateField
+      FieldName = 'VENCIMENTO'
+    end
+    object qrOS_contasreceberVALOR: TFloatField
+      DisplayLabel = 'Valor-R$'
+      DisplayWidth = 13
+      FieldName = 'VALOR'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object qrOS_contasreceberDOCUMENTO: TWideStringField
+      DisplayLabel = 'Documento'
+      DisplayWidth = 18
+      FieldName = 'DOCUMENTO'
+    end
+    object qrOS_contasreceberTIPO: TWideStringField
+      DisplayLabel = 'Tipo'
+      DisplayWidth = 16
+      FieldName = 'TIPO'
+    end
+    object qrOS_contasreceberTERMINAL: TWideStringField
+      FieldName = 'TERMINAL'
+      Size = 4
+    end
+  end
+  object dsservicos_periodicos: TDataSource
+    DataSet = frmmodulo.qrservicos_periodicos
+    Left = 475
+    Top = 270
+  end
+  object qros_produto: TJvMemoryData
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODPRODUTO'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'produto'
+        DataType = ftString
+        Size = 80
+      end
+      item
+        Name = 'UNIDADE'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'CST'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'SERIAL'
+        DataType = ftString
+        Size = 25
+      end
+      item
+        Name = 'QTDE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'UNITARIO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TOTAL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ALIQUOTA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CODIGO'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'CODNOTA'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'ICMS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'IPI'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CFOP'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'DATA'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'NUMERONOTA'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'CODCLIENTE'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'DESCONTO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ACRESCIMO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MOVIMENTO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODVENDEDOR'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'CODGRADE'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'MOVIMENTO_ESTOQUE'
+        DataType = ftFloat
+      end>
+    Left = 571
+    Top = 270
+    object qros_produtoCODPRODUTO: TStringField
+      DisplayLabel = 'C'#243'digo'
+      DisplayWidth = 6
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qros_produtoproduto: TStringField
+      DisplayLabel = 'Produto'
+      DisplayWidth = 46
+      FieldName = 'produto'
+      Size = 80
+    end
+    object qros_produtoUNIDADE: TStringField
+      DisplayLabel = 'UN.'
+      DisplayWidth = 4
+      FieldName = 'UNIDADE'
+      Size = 3
+    end
+    object qros_produtoCST: TStringField
+      DisplayWidth = 3
+      FieldName = 'CST'
+      Size = 3
+    end
+    object qros_produtoSERIAL: TStringField
+      DisplayLabel = 'N'#186'. de S'#233'rie'
+      DisplayWidth = 25
+      FieldName = 'SERIAL'
+      Size = 25
+    end
+    object qros_produtoQTDE: TFloatField
+      DisplayLabel = 'Qtde.'
+      DisplayWidth = 7
+      FieldName = 'QTDE'
+    end
+    object qros_produtoUNITARIO: TFloatField
+      DisplayLabel = 'Pre'#231'o'
+      DisplayWidth = 8
+      FieldName = 'UNITARIO'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object qros_produtoTOTAL: TFloatField
+      DisplayLabel = 'Total'
+      DisplayWidth = 9
+      FieldName = 'TOTAL'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object qros_produtoALIQUOTA: TFloatField
+      DisplayLabel = 'ICMS'
+      DisplayWidth = 10
+      FieldName = 'ALIQUOTA'
+    end
+    object qros_produtoCODIGO: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODIGO'
+      Required = True
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoCODNOTA: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODNOTA'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoICMS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ICMS'
+      Visible = False
+    end
+    object qros_produtoIPI: TFloatField
+      DisplayWidth = 10
+      FieldName = 'IPI'
+      Visible = False
+    end
+    object qros_produtoCFOP: TStringField
+      DisplayWidth = 6
+      FieldName = 'CFOP'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoDATA: TDateTimeField
+      DisplayWidth = 18
+      FieldName = 'DATA'
+      Visible = False
+    end
+    object qros_produtoNUMERONOTA: TStringField
+      DisplayWidth = 6
+      FieldName = 'NUMERONOTA'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoCODCLIENTE: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODCLIENTE'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoDESCONTO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'DESCONTO'
+      Visible = False
+    end
+    object qros_produtoACRESCIMO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ACRESCIMO'
+      Visible = False
+    end
+    object qros_produtoMOVIMENTO: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'MOVIMENTO'
+      Visible = False
+    end
+    object qros_produtoCODVENDEDOR: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODVENDEDOR'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoCODGRADE: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODGRADE'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtoMOVIMENTO_ESTOQUE: TFloatField
+      FieldName = 'MOVIMENTO_ESTOQUE'
+      Visible = False
+    end
+  end
+  object qrproduto: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      'select * from c000025')
+    Params = <>
+    Left = 443
+    Top = 334
+    object qrprodutoCODIGO: TWideStringField
+      FieldName = 'CODIGO'
+      Required = True
+      Size = 6
+    end
+    object qrprodutoCODBARRA: TWideStringField
+      FieldName = 'CODBARRA'
+      Size = 13
+    end
+    object qrprodutoPRODUTO: TWideStringField
+      FieldName = 'PRODUTO'
+      Size = 100
+    end
+    object qrprodutoUNIDADE: TWideStringField
+      FieldName = 'UNIDADE'
+      Size = 2
+    end
+    object CDSosDATA_CADASTRO: TDateField
+      FieldName = 'DATA_CADASTRO'
+    end
+    object qrprodutoCODGRUPO: TWideStringField
+      FieldName = 'CODGRUPO'
+      Size = 6
+    end
+    object qrprodutoCODSUBGRUPO: TWideStringField
+      FieldName = 'CODSUBGRUPO'
+      Size = 6
+    end
+    object qrprodutoCODFORNECEDOR: TWideStringField
+      FieldName = 'CODFORNECEDOR'
+      Size = 6
+    end
+    object qrprodutoCODMARCA: TWideStringField
+      FieldName = 'CODMARCA'
+      Size = 6
+    end
+    object CDSosDATA_ULTIMACOMPRA: TDateField
+      FieldName = 'DATA_ULTIMACOMPRA'
+    end
+    object qrprodutoNOTAFISCAL: TWideStringField
+      FieldName = 'NOTAFISCAL'
+      Size = 7
+    end
+    object qrprodutoPRECOCUSTO: TFloatField
+      FieldName = 'PRECOCUSTO'
+    end
+    object qrprodutoPRECOVENDA: TFloatField
+      FieldName = 'PRECOVENDA'
+    end
+    object CDSosDATA_ULTIMAVENDA: TDateField
+      FieldName = 'DATA_ULTIMAVENDA'
+    end
+    object qrprodutoESTOQUE: TFloatField
+      FieldName = 'ESTOQUE'
+    end
+    object qrprodutoESTOQUEMINIMO: TFloatField
+      FieldName = 'ESTOQUEMINIMO'
+    end
+    object qrprodutoCODALIQUOTA: TWideStringField
+      FieldName = 'CODALIQUOTA'
+      Size = 5
+    end
+    object qrprodutoAPLICACAO: TWideMemoField
+      FieldName = 'APLICACAO'
+      BlobType = ftWideMemo
+    end
+    object qrprodutoLOCALICAZAO: TWideStringField
+      FieldName = 'LOCALICAZAO'
+      Size = 50
+    end
+    object qrprodutoPESO: TFloatField
+      FieldName = 'PESO'
+    end
+    object qrprodutoVALIDADE: TWideStringField
+      FieldName = 'VALIDADE'
+    end
+    object qrprodutoCOMISSAO: TFloatField
+      FieldName = 'COMISSAO'
+    end
+    object qrprodutoUSA_BALANCA: TIntegerField
+      FieldName = 'USA_BALANCA'
+    end
+    object qrprodutoUSA_SERIAL: TIntegerField
+      FieldName = 'USA_SERIAL'
+    end
+    object qrprodutoUSA_GRADE: TIntegerField
+      FieldName = 'USA_GRADE'
+    end
+    object qrprodutoCODRECEITA: TWideStringField
+      FieldName = 'CODRECEITA'
+      Size = 6
+    end
+    object qrprodutoFOTO: TWideStringField
+      FieldName = 'FOTO'
+      Size = 80
+    end
+    object CDSosDATA_ULTIMACOMPRA_ANTERIOR: TDateField
+      FieldName = 'DATA_ULTIMACOMPRA_ANTERIOR'
+    end
+    object qrprodutoNOTAFISCAL_ANTERIOR: TWideStringField
+      FieldName = 'NOTAFISCAL_ANTERIOR'
+      Size = 6
+    end
+    object qrprodutoCODFORNECEDOR_ANTERIOR: TWideStringField
+      FieldName = 'CODFORNECEDOR_ANTERIOR'
+      Size = 6
+    end
+    object qrprodutoPRECOCUSTO_ANTERIOR: TFloatField
+      FieldName = 'PRECOCUSTO_ANTERIOR'
+    end
+    object qrprodutoPRECOVENDA_ANTERIOR: TFloatField
+      FieldName = 'PRECOVENDA_ANTERIOR'
+    end
+    object qrprodutoCUSTOMEDIO: TFloatField
+      FieldName = 'CUSTOMEDIO'
+    end
+    object qrprodutoAUTO_APLICACAO: TWideStringField
+      FieldName = 'AUTO_APLICACAO'
+      Size = 60
+    end
+    object qrprodutoAUTO_COMPLEMENTO: TWideStringField
+      FieldName = 'AUTO_COMPLEMENTO'
+      Size = 60
+    end
+    object CDSosDATA_REMARCACAO_CUSTO: TDateField
+      FieldName = 'DATA_REMARCACAO_CUSTO'
+    end
+    object CDSosDATA_REMARCACAO_VENDA: TDateField
+      FieldName = 'DATA_REMARCACAO_VENDA'
+    end
+    object qrprodutoPRECO_PROMOCAO: TFloatField
+      FieldName = 'PRECO_PROMOCAO'
+    end
+    object CDSosDATA_PROMOCAO: TDateField
+      FieldName = 'DATA_PROMOCAO'
+    end
+    object CDSosFIM_PROMOCAO: TDateField
+      FieldName = 'FIM_PROMOCAO'
+    end
+    object qrprodutoCST: TWideStringField
+      FieldName = 'CST'
+      Size = 10
+    end
+    object qrprodutoCLASSIFICACAO_FISCAL: TWideStringField
+      FieldName = 'CLASSIFICACAO_FISCAL'
+    end
+    object qrprodutoNBM: TWideStringField
+      FieldName = 'NBM'
+    end
+    object qrprodutoNCM: TWideStringField
+      FieldName = 'NCM'
+    end
+    object qrprodutoALIQUOTA: TFloatField
+      FieldName = 'ALIQUOTA'
+    end
+    object qrprodutoIPI: TFloatField
+      FieldName = 'IPI'
+    end
+    object qrprodutoREDUCAO: TFloatField
+      FieldName = 'REDUCAO'
+    end
+    object qrprodutoQTDE_EMBALAGEM: TFloatField
+      FieldName = 'QTDE_EMBALAGEM'
+    end
+    object qrprodutoTIPO: TWideStringField
+      FieldName = 'TIPO'
+      Size = 30
+    end
+    object qrprodutoPESO_LIQUIDO: TFloatField
+      FieldName = 'PESO_LIQUIDO'
+    end
+    object qrprodutoFARMACIA_CONTROLADO: TWideStringField
+      FieldName = 'FARMACIA_CONTROLADO'
+      Size = 1
+    end
+    object qrprodutoFARMACIA_APRESENTACAO: TIntegerField
+      FieldName = 'FARMACIA_APRESENTACAO'
+    end
+    object qrprodutoFARMACIA_REGISTRO_MEDICAMENTO: TWideStringField
+      FieldName = 'FARMACIA_REGISTRO_MEDICAMENTO'
+    end
+    object qrprodutoFARMACIA_PMC: TFloatField
+      FieldName = 'FARMACIA_PMC'
+    end
+    object CDSosULTIMA_ALTERACAO: TDateField
+      FieldName = 'ULTIMA_ALTERACAO'
+    end
+    object CDSosULTIMA_CARGA: TDateField
+      FieldName = 'ULTIMA_CARGA'
+    end
+    object CDSosDATA_INVENTARIO: TDateField
+      FieldName = 'DATA_INVENTARIO'
+    end
+    object qrprodutoCUSTO_INVENTARIO: TFloatField
+      FieldName = 'CUSTO_INVENTARIO'
+    end
+    object qrprodutoESTOQUE_INVENTARIO: TFloatField
+      FieldName = 'ESTOQUE_INVENTARIO'
+    end
+    object qrprodutoESTOQUE_ANTERIOR: TFloatField
+      FieldName = 'ESTOQUE_ANTERIOR'
+    end
+    object qrprodutoPRECOVENDA_NOVO: TFloatField
+      FieldName = 'PRECOVENDA_NOVO'
+    end
+    object qrprodutoUSA_RENTABILIDADE: TIntegerField
+      FieldName = 'USA_RENTABILIDADE'
+    end
+    object qrprodutoQUANTIDADE_MINIMA_FAB: TFloatField
+      FieldName = 'QUANTIDADE_MINIMA_FAB'
+    end
+    object qrprodutoAPRESENTACAO: TWideStringField
+      FieldName = 'APRESENTACAO'
+      Size = 60
+    end
+    object qrprodutoSITUACAO: TIntegerField
+      FieldName = 'SITUACAO'
+    end
+    object qrprodutoPRECOVENDA1: TFloatField
+      FieldName = 'PRECOVENDA1'
+    end
+    object qrprodutoPRECOVENDA2: TFloatField
+      FieldName = 'PRECOVENDA2'
+    end
+    object qrprodutoPRECOVENDA3: TFloatField
+      FieldName = 'PRECOVENDA3'
+    end
+    object qrprodutoPRECOVENDA4: TFloatField
+      FieldName = 'PRECOVENDA4'
+    end
+    object qrprodutoPRECOVENDA5: TFloatField
+      FieldName = 'PRECOVENDA5'
+    end
+    object qrprodutoDESCONTO_PRECOVENDA: TFloatField
+      FieldName = 'DESCONTO_PRECOVENDA'
+    end
+    object CDSosDATA_INVENTARIO_ATUAL: TDateField
+      FieldName = 'DATA_INVENTARIO_ATUAL'
+    end
+    object qrprodutoCUSTO_INVENTARIO_ATUAL: TFloatField
+      FieldName = 'CUSTO_INVENTARIO_ATUAL'
+    end
+    object qrprodutoESTOQUE_INVENTARIO_ATUAL: TFloatField
+      FieldName = 'ESTOQUE_INVENTARIO_ATUAL'
+    end
+    object qrprodutoMARGEM_MINIMA: TFloatField
+      FieldName = 'MARGEM_MINIMA'
+    end
+    object qrprodutoPISCOFINS: TWideStringField
+      FieldName = 'PISCOFINS'
+      Size = 1
+    end
+    object qrprodutoREFERENCIA_FORNECEDOR: TWideStringField
+      FieldName = 'REFERENCIA_FORNECEDOR'
+      Size = 30
+    end
+    object qrprodutoCOMISSAO1: TFloatField
+      FieldName = 'COMISSAO1'
+    end
+    object qrprodutoMARGEM_DESCONTO: TFloatField
+      FieldName = 'MARGEM_DESCONTO'
+    end
+    object qrprodutoTAMANHO: TWideStringField
+      FieldName = 'TAMANHO'
+      Size = 6
+    end
+    object qrprodutoCOR: TWideStringField
+      FieldName = 'COR'
+      Size = 6
+    end
+    object qrprodutoINCIDENCIA_PISCOFINS: TWideStringField
+      FieldName = 'INCIDENCIA_PISCOFINS'
+      Size = 30
+    end
+    object qrprodutoVEIC_CHASSI: TWideStringField
+      FieldName = 'VEIC_CHASSI'
+      Size = 50
+    end
+    object qrprodutoVEIC_SERIE: TWideStringField
+      FieldName = 'VEIC_SERIE'
+      Size = 50
+    end
+    object qrprodutoVEIC_POTENCIA: TWideStringField
+      FieldName = 'VEIC_POTENCIA'
+      Size = 50
+    end
+    object qrprodutoVEIC_PESO_LIQUIDO: TWideStringField
+      FieldName = 'VEIC_PESO_LIQUIDO'
+      Size = 15
+    end
+    object qrprodutoVEIC_PESO_BRUTO: TWideStringField
+      FieldName = 'VEIC_PESO_BRUTO'
+      Size = 15
+    end
+    object qrprodutoVEIC_TIPO_COMBUSTIVEL: TWideStringField
+      FieldName = 'VEIC_TIPO_COMBUSTIVEL'
+    end
+    object qrprodutoVEIC_RENAVAM: TWideStringField
+      FieldName = 'VEIC_RENAVAM'
+      Size = 50
+    end
+    object qrprodutoVEIC_ANO_FABRICACAO: TIntegerField
+      FieldName = 'VEIC_ANO_FABRICACAO'
+    end
+    object qrprodutoVEIC_ANO_MODELO: TIntegerField
+      FieldName = 'VEIC_ANO_MODELO'
+    end
+    object qrprodutoVEIC_TIPO: TWideStringField
+      FieldName = 'VEIC_TIPO'
+      Size = 50
+    end
+    object qrprodutoVEIC_TIPO_PINTURA: TWideStringField
+      FieldName = 'VEIC_TIPO_PINTURA'
+      Size = 15
+    end
+    object qrprodutoVEIC_COD_COR: TWideStringField
+      FieldName = 'VEIC_COD_COR'
+      Size = 15
+    end
+    object qrprodutoVEIC_COR: TWideStringField
+      FieldName = 'VEIC_COR'
+      Size = 30
+    end
+    object qrprodutoVEIC_VIN: TWideStringField
+      FieldName = 'VEIC_VIN'
+      Size = 10
+    end
+    object qrprodutoVEIC_NUMERO_MOTOR: TWideStringField
+      FieldName = 'VEIC_NUMERO_MOTOR'
+      Size = 50
+    end
+    object qrprodutoVEIC_CMKG: TWideStringField
+      FieldName = 'VEIC_CMKG'
+      Size = 15
+    end
+    object qrprodutoVEIC_CM3: TWideStringField
+      FieldName = 'VEIC_CM3'
+      Size = 15
+    end
+    object qrprodutoVEIC_DISTANCIA_EIXO: TWideStringField
+      FieldName = 'VEIC_DISTANCIA_EIXO'
+      Size = 15
+    end
+    object qrprodutoVEIC_COD_MARCA: TWideStringField
+      FieldName = 'VEIC_COD_MARCA'
+      Size = 15
+    end
+    object qrprodutoVEIC_ESPECIE: TWideStringField
+      FieldName = 'VEIC_ESPECIE'
+      Size = 50
+    end
+    object qrprodutoVEIC_CONDICAO: TWideStringField
+      FieldName = 'VEIC_CONDICAO'
+      Size = 50
+    end
+    object qrprodutoLOTE_FABRICACAO: TWideStringField
+      FieldName = 'LOTE_FABRICACAO'
+    end
+    object CDSosLOTE_VALIDADE: TDateField
+      FieldName = 'LOTE_VALIDADE'
+    end
+    object qrprodutoMARGEM_AGREGADA: TFloatField
+      FieldName = 'MARGEM_AGREGADA'
+    end
+    object qrprodutoCODBARRA_NOVARTIS: TWideStringField
+      FieldName = 'CODBARRA_NOVARTIS'
+      Size = 13
+    end
+    object qrprodutoFARMACIA_DCB: TWideStringField
+      FieldName = 'FARMACIA_DCB'
+    end
+    object qrprodutoFARMACIA_ABCFARMA: TWideStringField
+      FieldName = 'FARMACIA_ABCFARMA'
+      Size = 10
+    end
+    object qrprodutoFARMACIA_APRESENTACAO_CAIXA: TWideStringField
+      FieldName = 'FARMACIA_APRESENTACAO_CAIXA'
+      Size = 10
+    end
+    object qrprodutoFARMACIA_PRINCIPIOATIVO: TWideStringField
+      FieldName = 'FARMACIA_PRINCIPIOATIVO'
+      Size = 30
+    end
+    object CDSosULTIMA_COMPRA: TDateField
+      FieldName = 'ULTIMA_COMPRA'
+    end
+    object CDSosFARMACIA_DATAVIGENCIA: TDateField
+      FieldName = 'FARMACIA_DATAVIGENCIA'
+    end
+    object qrprodutoFARMACIA_TIPO: TWideStringField
+      FieldName = 'FARMACIA_TIPO'
+      Size = 1
+    end
+    object qrprodutoUSA_COMBUSTIVEL: TWideStringField
+      FieldName = 'USA_COMBUSTIVEL'
+      Size = 1
+    end
+    object qrprodutoREFERENCIA: TWideStringField
+      FieldName = 'REFERENCIA'
+      Size = 30
+    end
+    object qrprodutoPERDA: TFloatField
+      FieldName = 'PERDA'
+    end
+    object qrprodutoCOMPOSICAO1: TWideStringField
+      FieldName = 'COMPOSICAO1'
+      Size = 30
+    end
+    object qrprodutoCOMPOSICAO2: TWideStringField
+      FieldName = 'COMPOSICAO2'
+      Size = 30
+    end
+    object qrprodutoIAT: TWideStringField
+      FieldName = 'IAT'
+      Size = 1
+    end
+    object qrprodutoIPPT: TWideStringField
+      FieldName = 'IPPT'
+      Size = 1
+    end
+    object qrprodutoSITUACAO_TRIBUTARIA: TWideStringField
+      FieldName = 'SITUACAO_TRIBUTARIA'
+      Size = 1
+    end
+    object qrprodutoFLAG_SIS: TWideStringField
+      FieldName = 'FLAG_SIS'
+      Size = 1
+    end
+    object qrprodutoFLAG_ACEITO: TWideStringField
+      FieldName = 'FLAG_ACEITO'
+      Size = 3
+    end
+    object qrprodutoFLAG_EST: TWideStringField
+      FieldName = 'FLAG_EST'
+      Size = 1
+    end
+    object qrprodutoCSOSN: TWideStringField
+      FieldName = 'CSOSN'
+      Size = 60
+    end
+    object qrprodutoCODORIGINAL: TWideStringField
+      FieldName = 'CODORIGINAL'
+    end
+    object qrprodutoCUSTO_ATACADO: TFloatField
+      FieldName = 'CUSTO_ATACADO'
+    end
+    object qrprodutoUNIDADE_ATACADO: TWideStringField
+      FieldName = 'UNIDADE_ATACADO'
+      Size = 2
+    end
+    object qrprodutoQTDE_EMBALAGEMATACADO: TFloatField
+      FieldName = 'QTDE_EMBALAGEMATACADO'
+    end
+    object qrprodutoPMARGEM1: TFloatField
+      FieldName = 'PMARGEM1'
+    end
+    object qrprodutoPMARGEM2: TFloatField
+      FieldName = 'PMARGEM2'
+    end
+    object qrprodutoPMARGEM3: TFloatField
+      FieldName = 'PMARGEM3'
+    end
+    object qrprodutoPMARGEM4: TFloatField
+      FieldName = 'PMARGEM4'
+    end
+    object qrprodutoPMARGEM5: TFloatField
+      FieldName = 'PMARGEM5'
+    end
+    object qrprodutoPMARGEMATACADO1: TFloatField
+      FieldName = 'PMARGEMATACADO1'
+    end
+    object qrprodutoPMARGEMATACADO2: TFloatField
+      FieldName = 'PMARGEMATACADO2'
+    end
+    object qrprodutoPMARGEMATACADO3: TFloatField
+      FieldName = 'PMARGEMATACADO3'
+    end
+    object qrprodutoPMARGEMATACADO4: TFloatField
+      FieldName = 'PMARGEMATACADO4'
+    end
+    object qrprodutoPMARGEMATACADO5: TFloatField
+      FieldName = 'PMARGEMATACADO5'
+    end
+    object qrprodutoPMARGEMATACADO6: TFloatField
+      FieldName = 'PMARGEMATACADO6'
+    end
+    object qrprodutoPRECOATACADO1: TFloatField
+      FieldName = 'PRECOATACADO1'
+    end
+    object qrprodutoPRECOATACADO2: TFloatField
+      FieldName = 'PRECOATACADO2'
+    end
+    object qrprodutoPRECOATACADO3: TFloatField
+      FieldName = 'PRECOATACADO3'
+    end
+    object qrprodutoPRECOATACADO4: TFloatField
+      FieldName = 'PRECOATACADO4'
+    end
+    object qrprodutoPRECOATACADO5: TFloatField
+      FieldName = 'PRECOATACADO5'
+    end
+    object qrprodutoIND_CFOP: TWideStringField
+      FieldName = 'IND_CFOP'
+      Size = 6
+    end
+    object qrprodutoCFOP_DESC: TWideStringField
+      FieldName = 'CFOP_DESC'
+      Size = 30
+    end
+    object qrprodutoUSA_LOTE: TIntegerField
+      FieldName = 'USA_LOTE'
+    end
+    object qrprodutoIND_CFOP_VENDA_DENTRO: TWideStringField
+      FieldName = 'IND_CFOP_VENDA_DENTRO'
+      Size = 6
+    end
+    object qrprodutoCODCONTA: TWideStringField
+      FieldName = 'CODCONTA'
+      Size = 6
+    end
+    object qrprodutoIND_CFOP_VENDA_FORA: TWideStringField
+      FieldName = 'IND_CFOP_VENDA_FORA'
+      Size = 6
+    end
+    object qrprodutoIND_CFOP_DEVOLUCAO_DENTRO: TWideStringField
+      FieldName = 'IND_CFOP_DEVOLUCAO_DENTRO'
+      Size = 6
+    end
+    object qrprodutoIND_CFOP_DEVOLUCAO_FORA: TWideStringField
+      FieldName = 'IND_CFOP_DEVOLUCAO_FORA'
+      Size = 6
+    end
+    object qrprodutoIND_CFOP_GARANTIA_DENTRO: TWideStringField
+      FieldName = 'IND_CFOP_GARANTIA_DENTRO'
+      Size = 6
+    end
+    object qrprodutoIND_CFOP_GARANTIA_FORA: TWideStringField
+      FieldName = 'IND_CFOP_GARANTIA_FORA'
+      Size = 6
+    end
+    object qrprodutoUSA_TB_PC: TWideStringField
+      FieldName = 'USA_TB_PC'
+      Size = 4
+    end
+    object qrprodutoATIVA: TWideStringField
+      FieldName = 'ATIVA'
+      Size = 10
+    end
+    object qrprodutoCEST: TWideStringField
+      FieldName = 'CEST'
+      Required = True
+      Size = 7
+    end
+  end
+  object query: TZQuery
+    Connection = frmmodulo.Conexao
+    Params = <>
+    Left = 475
+    Top = 302
+  end
+  object qrcontasreceber: TZQuery
+    Connection = frmmodulo.Conexao
+    Params = <>
+    Left = 571
+    Top = 302
+  end
+  object qrcliente: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      'select * from C000007')
+    Params = <>
+    Left = 539
+    Top = 302
+    object qrclienteCODIGO: TWideStringField
+      FieldName = 'CODIGO'
+      Required = True
+      Size = 6
+    end
+    object qrclienteNOME: TWideStringField
+      FieldName = 'NOME'
+      Size = 80
+    end
+    object qrclienteAPELIDO: TWideStringField
+      FieldName = 'APELIDO'
+      Size = 50
+    end
+    object qrclienteENDERECO: TWideStringField
+      FieldName = 'ENDERECO'
+      Size = 80
+    end
+    object qrclienteBAIRRO: TWideStringField
+      FieldName = 'BAIRRO'
+      Size = 30
+    end
+    object qrclienteCIDADE: TWideStringField
+      FieldName = 'CIDADE'
+      Size = 40
+    end
+    object qrclienteUF: TWideStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object qrclienteCEP: TWideStringField
+      FieldName = 'CEP'
+      Size = 10
+    end
+    object qrclienteCOMPLEMENTO: TWideStringField
+      FieldName = 'COMPLEMENTO'
+      Size = 80
+    end
+    object qrclienteMORADIA: TIntegerField
+      FieldName = 'MORADIA'
+    end
+    object qrclienteTIPO: TIntegerField
+      FieldName = 'TIPO'
+    end
+    object qrclienteSITUACAO: TIntegerField
+      FieldName = 'SITUACAO'
+    end
+    object qrclienteTELEFONE1: TWideStringField
+      FieldName = 'TELEFONE1'
+    end
+    object qrclienteTELEFONE2: TWideStringField
+      FieldName = 'TELEFONE2'
+    end
+    object qrclienteTELEFONE3: TWideStringField
+      FieldName = 'TELEFONE3'
+    end
+    object qrclienteCELULAR: TWideStringField
+      FieldName = 'CELULAR'
+    end
+    object qrclienteEMAIL: TWideStringField
+      FieldName = 'EMAIL'
+      Size = 50
+    end
+    object qrclienteRG: TWideStringField
+      FieldName = 'RG'
+      Size = 25
+    end
+    object qrclienteCPF: TWideStringField
+      FieldName = 'CPF'
+      Size = 18
+    end
+    object qrclienteFILIACAO: TWideStringField
+      FieldName = 'FILIACAO'
+      Size = 80
+    end
+    object qrclienteESTADOCIVIL: TWideStringField
+      FieldName = 'ESTADOCIVIL'
+      Size = 15
+    end
+    object qrclienteCONJUGE: TWideStringField
+      FieldName = 'CONJUGE'
+      Size = 60
+    end
+    object qrclientePROFISSAO: TWideStringField
+      FieldName = 'PROFISSAO'
+      Size = 30
+    end
+    object qrclienteEMPRESA: TWideStringField
+      FieldName = 'EMPRESA'
+      Size = 40
+    end
+    object qrclienteRENDA: TFloatField
+      FieldName = 'RENDA'
+    end
+    object qrclienteLIMITE: TFloatField
+      FieldName = 'LIMITE'
+    end
+    object qrclienteREF1: TWideStringField
+      FieldName = 'REF1'
+      Size = 50
+    end
+    object qrclienteREF2: TWideStringField
+      FieldName = 'REF2'
+      Size = 50
+    end
+    object qrclienteCODVENDEDOR: TWideStringField
+      FieldName = 'CODVENDEDOR'
+      Size = 6
+    end
+    object dtfldDATA_CADASTRO: TDateField
+      FieldName = 'DATA_CADASTRO'
+    end
+    object dtfldDATA_ULTIMACOMPRA: TDateField
+      FieldName = 'DATA_ULTIMACOMPRA'
+    end
+    object qrclienteOBS1: TWideStringField
+      FieldName = 'OBS1'
+      Size = 80
+    end
+    object qrclienteOBS2: TWideStringField
+      FieldName = 'OBS2'
+      Size = 80
+    end
+    object qrclienteOBS3: TWideStringField
+      FieldName = 'OBS3'
+      Size = 80
+    end
+    object qrclienteOBS4: TWideStringField
+      FieldName = 'OBS4'
+      Size = 80
+    end
+    object qrclienteOBS5: TWideStringField
+      FieldName = 'OBS5'
+      Size = 80
+    end
+    object qrclienteOBS6: TWideStringField
+      FieldName = 'OBS6'
+      Size = 80
+    end
+    object qrclienteNASCIMENTO: TWideStringField
+      FieldName = 'NASCIMENTO'
+      Size = 10
+    end
+    object qrclienteCODREGIAO: TWideStringField
+      FieldName = 'CODREGIAO'
+      Size = 6
+    end
+    object qrclienteCODCONVENIO: TWideStringField
+      FieldName = 'CODCONVENIO'
+      Size = 6
+    end
+    object qrclienteCODUSUARIO: TWideStringField
+      FieldName = 'CODUSUARIO'
+      Size = 6
+    end
+    object qrclienteNUMERO: TWideStringField
+      FieldName = 'NUMERO'
+      Size = 10
+    end
+    object qrclienteRG_ORGAO: TWideStringField
+      FieldName = 'RG_ORGAO'
+      Size = 5
+    end
+    object qrclienteRG_ESTADO: TWideStringField
+      FieldName = 'RG_ESTADO'
+      Size = 2
+    end
+    object dtfldRG_EMISSAO: TDateField
+      FieldName = 'RG_EMISSAO'
+    end
+    object qrclienteSEXO: TWideStringField
+      FieldName = 'SEXO'
+      Size = 1
+    end
+    object qrclienteHISTORICO: TBlobField
+      FieldName = 'HISTORICO'
+    end
+    object dtfldPREVISAO: TDateField
+      FieldName = 'PREVISAO'
+    end
+    object qrclienteCNAE: TWideStringField
+      FieldName = 'CNAE'
+      Size = 10
+    end
+    object qrclienteCOD_MUNICIPIO_IBGE: TWideStringField
+      FieldName = 'COD_MUNICIPIO_IBGE'
+      Size = 10
+    end
+    object qrclienteIBGE: TWideStringField
+      FieldName = 'IBGE'
+      Size = 5
+    end
+    object qrclienteTAMANHO_CALCA: TWideStringField
+      FieldName = 'TAMANHO_CALCA'
+      Size = 5
+    end
+    object qrclienteTAMANHO_BLUSA: TWideStringField
+      FieldName = 'TAMANHO_BLUSA'
+      Size = 5
+    end
+    object qrclienteTAMANHO_SAPATO: TWideStringField
+      FieldName = 'TAMANHO_SAPATO'
+      Size = 5
+    end
+    object qrclienteCORRESP_ENDERECO: TWideStringField
+      FieldName = 'CORRESP_ENDERECO'
+      Size = 80
+    end
+    object qrclienteCORRESP_BAIRRO: TWideStringField
+      FieldName = 'CORRESP_BAIRRO'
+      Size = 30
+    end
+    object qrclienteCORRESP_CIDADE: TWideStringField
+      FieldName = 'CORRESP_CIDADE'
+      Size = 40
+    end
+    object qrclienteCORRESP_UF: TWideStringField
+      FieldName = 'CORRESP_UF'
+      Size = 2
+    end
+    object qrclienteCORRESP_CEP: TWideStringField
+      FieldName = 'CORRESP_CEP'
+      Size = 10
+    end
+    object qrclienteCORRESP_COMPLEMENTO: TWideStringField
+      FieldName = 'CORRESP_COMPLEMENTO'
+      Size = 40
+    end
+    object qrclienteRG_PRODUTOR: TWideStringField
+      FieldName = 'RG_PRODUTOR'
+      Size = 30
+    end
+    object qrclienteRESP1_NOME: TWideStringField
+      FieldName = 'RESP1_NOME'
+      Size = 80
+    end
+    object qrclienteRESP1_CPF: TWideStringField
+      FieldName = 'RESP1_CPF'
+      Size = 25
+    end
+    object qrclienteRESP1_RG: TWideStringField
+      FieldName = 'RESP1_RG'
+      Size = 25
+    end
+    object qrclienteRESP1_PROFISSAO: TWideStringField
+      FieldName = 'RESP1_PROFISSAO'
+      Size = 50
+    end
+    object qrclienteRESP1_ESTADO_CIVIL: TWideStringField
+      FieldName = 'RESP1_ESTADO_CIVIL'
+      Size = 30
+    end
+    object qrclienteRESP1_ENDERECO: TWideStringField
+      FieldName = 'RESP1_ENDERECO'
+      Size = 80
+    end
+    object qrclienteRESP1_BAIRRO: TWideStringField
+      FieldName = 'RESP1_BAIRRO'
+      Size = 40
+    end
+    object qrclienteRESP1_CIDADE: TWideStringField
+      FieldName = 'RESP1_CIDADE'
+      Size = 40
+    end
+    object qrclienteRESP1_UF: TWideStringField
+      FieldName = 'RESP1_UF'
+      Size = 2
+    end
+    object qrclienteRESP1_CEP: TWideStringField
+      FieldName = 'RESP1_CEP'
+      Size = 15
+    end
+    object qrclienteRESP2_NOME: TWideStringField
+      FieldName = 'RESP2_NOME'
+      Size = 80
+    end
+    object qrclienteRESP2_CPF: TWideStringField
+      FieldName = 'RESP2_CPF'
+      Size = 25
+    end
+    object qrclienteRESP2_RG: TWideStringField
+      FieldName = 'RESP2_RG'
+      Size = 25
+    end
+    object qrclienteRESP2_PROFISSAO: TWideStringField
+      FieldName = 'RESP2_PROFISSAO'
+      Size = 50
+    end
+    object qrclienteRESP2_ESTADO_CIVIL: TWideStringField
+      FieldName = 'RESP2_ESTADO_CIVIL'
+      Size = 30
+    end
+    object qrclienteRESP2_ENDERECO: TWideStringField
+      FieldName = 'RESP2_ENDERECO'
+      Size = 80
+    end
+    object qrclienteRESP2_BAIRRO: TWideStringField
+      FieldName = 'RESP2_BAIRRO'
+      Size = 40
+    end
+    object qrclienteRESP2_CIDADE: TWideStringField
+      FieldName = 'RESP2_CIDADE'
+      Size = 40
+    end
+    object qrclienteRESP2_UF: TWideStringField
+      FieldName = 'RESP2_UF'
+      Size = 2
+    end
+    object qrclienteRESP2_CEP: TWideStringField
+      FieldName = 'RESP2_CEP'
+      Size = 15
+    end
+    object qrclienteFOTO: TWideStringField
+      FieldName = 'FOTO'
+      Size = 80
+    end
+    object qrclienteCONDPGTO: TWideStringField
+      FieldName = 'CONDPGTO'
+      Size = 100
+    end
+  end
+  object qros_produtos: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      'select * from c000032')
+    Params = <>
+    Left = 507
+    Top = 302
+    object qros_produtosCODPRODUTO: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      DisplayWidth = 6
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qros_produtosPRODUTO: TWideStringField
+      DisplayWidth = 55
+      FieldName = 'PRODUTO'
+      Size = 200
+    end
+    object qros_produtosSERIAL: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'SERIAL'
+      Size = 30
+    end
+    object qros_produtosALIQUOTA: TFloatField
+      DisplayLabel = 'ALIQ'
+      DisplayWidth = 6
+      FieldName = 'ALIQUOTA'
+    end
+    object qros_produtosUNIDADE: TWideStringField
+      DisplayLabel = 'UN'
+      DisplayWidth = 3
+      FieldName = 'UNIDADE'
+      Size = 3
+    end
+    object qros_produtosUNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'UNITARIO'
+    end
+    object qros_produtosQTDE: TFloatField
+      DisplayWidth = 3
+      FieldName = 'QTDE'
+    end
+    object qros_produtosTOTAL: TFloatField
+      DisplayWidth = 8
+      FieldName = 'TOTAL'
+    end
+    object qros_produtosDESCONTO: TFloatField
+      DisplayLabel = 'DESC'
+      DisplayWidth = 8
+      FieldName = 'DESCONTO'
+    end
+    object qros_produtosACRESCIMO: TFloatField
+      DisplayLabel = 'ACRES'
+      DisplayWidth = 8
+      FieldName = 'ACRESCIMO'
+    end
+    object qros_produtosCST: TWideStringField
+      DisplayWidth = 3
+      FieldName = 'CST'
+      Size = 3
+    end
+    object qros_produtosCODIGO: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'CODIGO'
+      Required = True
+      Visible = False
+      Size = 10
+    end
+    object qros_produtosCODNOTA: TWideStringField
+      DisplayWidth = 15
+      FieldName = 'CODNOTA'
+      Visible = False
+      Size = 15
+    end
+    object qros_produtosICMS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ICMS'
+      Visible = False
+    end
+    object qros_produtosIPI: TFloatField
+      DisplayWidth = 10
+      FieldName = 'IPI'
+      Visible = False
+    end
+    object dtfld_produtosDATA: TDateField
+      FieldName = 'DATA'
+      Visible = False
+    end
+    object qros_produtosCFOP: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CFOP'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosNUMERONOTA: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'NUMERONOTA'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosCODCLIENTE: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODCLIENTE'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosMOVIMENTO: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'MOVIMENTO'
+      Visible = False
+    end
+    object qros_produtosCODVENDEDOR: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODVENDEDOR'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosCODGRADE: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODGRADE'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosVALOR_ICMS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'VALOR_ICMS'
+      Visible = False
+    end
+    object qros_produtosICMS_REDUZIDO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ICMS_REDUZIDO'
+      Visible = False
+    end
+    object qros_produtosBASE_CALCULO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'BASE_CALCULO'
+      Visible = False
+    end
+    object qros_produtosVALOR_IPI: TFloatField
+      DisplayWidth = 10
+      FieldName = 'VALOR_IPI'
+      Visible = False
+    end
+    object qros_produtosSITUACAO: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'SITUACAO'
+      Visible = False
+    end
+    object qros_produtosECF_SERIE: TWideStringField
+      DisplayWidth = 20
+      FieldName = 'ECF_SERIE'
+      Visible = False
+    end
+    object qros_produtosECF_CAIXA: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'ECF_CAIXA'
+      Visible = False
+      Size = 10
+    end
+    object qros_produtosCODALIQUOTA: TWideStringField
+      DisplayWidth = 5
+      FieldName = 'CODALIQUOTA'
+      Visible = False
+      Size = 5
+    end
+    object qros_produtosCUPOM_NUMERO: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'CUPOM_NUMERO'
+      Visible = False
+      Size = 10
+    end
+    object qros_produtosCUPOM_MODELO: TWideStringField
+      DisplayWidth = 5
+      FieldName = 'CUPOM_MODELO'
+      Visible = False
+      Size = 5
+    end
+    object qros_produtosCUPOM_ITEM: TWideStringField
+      DisplayWidth = 5
+      FieldName = 'CUPOM_ITEM'
+      Visible = False
+      Size = 5
+    end
+    object qros_produtosLOTE_FABRICACAO: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'LOTE_FABRICACAO'
+      Visible = False
+      Size = 10
+    end
+    object qros_produtosMOVIMENTO_ESTOQUE: TFloatField
+      DisplayWidth = 10
+      FieldName = 'MOVIMENTO_ESTOQUE'
+      Visible = False
+    end
+    object qros_produtosLANCADO: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'LANCADO'
+      Visible = False
+    end
+    object dtfld_produtosVENCIMENTO: TDateField
+      FieldName = 'VENCIMENTO'
+      Visible = False
+    end
+    object qros_produtosCODBARRA: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'CODBARRA'
+      Visible = False
+      Size = 25
+    end
+    object qros_produtosMARGEM_DESCONTO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'MARGEM_DESCONTO'
+      Visible = False
+    end
+    object qros_produtosCREDITO_ICMS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'CREDITO_ICMS'
+      Visible = False
+    end
+    object qros_produtosPIS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'PIS'
+      Visible = False
+    end
+    object qros_produtosCOFINS: TFloatField
+      DisplayWidth = 10
+      FieldName = 'COFINS'
+      Visible = False
+    end
+    object qros_produtosLOJA: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'LOJA'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosCODSUBGRUPO: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODSUBGRUPO'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosTIPO: TWideStringField
+      DisplayWidth = 1
+      FieldName = 'TIPO'
+      Visible = False
+      Size = 1
+    end
+    object qros_produtosCODUSUARIO: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODUSUARIO'
+      Visible = False
+      Size = 6
+    end
+    object qros_produtosORIGEM: TWideStringField
+      DisplayWidth = 40
+      FieldName = 'ORIGEM'
+      Visible = False
+      Size = 40
+    end
+    object qros_produtosDESTINO: TWideStringField
+      DisplayWidth = 40
+      FieldName = 'DESTINO'
+      Visible = False
+      Size = 40
+    end
+    object qros_produtosCODFILIAL: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODFILIAL'
+      Visible = False
+      Size = 6
+    end
+  end
+end

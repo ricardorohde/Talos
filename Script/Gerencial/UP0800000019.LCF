@@ -1,0 +1,21 @@
+create table ciot_mdfe (
+  id integer not null,
+  idmdfe integer ,
+  ciot varchar(12) ,
+  tipo_doc integer ,
+  cpfcnpj_responsavel varchar(20) );
+
+alter table ciot_mdfe add constraint pk_ciot_mdfe primary key (id);
+--alter table ciot_mdfe add constraint fk_ciot_mdfe_idmdfe foreign key (idmdfe) references cabecalho_mdfe (id);
+
+
+create generator inc_ciot_mdfe;
+set generator inc_ciot_mdfe to 0;
+
+create or alter trigger in_ciot_mdfe for ciot_mdfe
+active before insert position 0
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(inc_ciot_mdfe,1);
+end;

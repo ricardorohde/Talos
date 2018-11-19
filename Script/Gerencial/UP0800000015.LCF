@@ -1,0 +1,24 @@
+CREATE TABLE seguro_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  RESP_SEG integer ,
+  TIPO_DOC integer ,
+  CNPJCPF_RESP_SEG varchar(20) ,
+  NOME_SEG varchar(60) ,
+  CNPJ_SEG varchar(20) ,
+  N_APOLICE varchar(20));
+
+ALTER TABLE seguro_mdfe add constraint pk_seguro_mdfe primary key (ID);
+--ALTER TABLE seguro_mdfe add CONSTRAINT FK_SEGMDFE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+
+CREATE GENERATOR inc_seguro_mdfe;
+SET GENERATOR inc_seguro_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_seguro_mdfe FOR seguro_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_seguro_mdfe,1);
+END;

@@ -1,0 +1,2 @@
+alter table estoque add CODIGO_ANP varchar(10);
+

@@ -1,0 +1,3 @@
+alter table c000025 add INFORMA_CODIGO_BARRA_XML varchar(1) default 'N';
+update c000025 set INFORMA_CODIGO_BARRA_XML = 'N';
+

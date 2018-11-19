@@ -1,0 +1,5 @@
+alter table c000004 add RNTRC varchar(45);
+alter table c000004 add serie_mdfe integer;
+alter table c000004 add numero_mdfe integer;
+
+

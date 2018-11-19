@@ -1,0 +1,16 @@
+alter table CLIENTE add
+    OBS           blob;
+alter table CLIENTE add
+    LIMITE        NUMERIC(15,2);
+alter table CLIENTE add
+    UTILIZADO     NUMERIC(15,2);
+alter table CLIENTE add
+    DISPONIVEL    NUMERIC(15,2);
+alter table CLIENTE add
+    ATUALIZADO    VARCHAR(30);
+alter table CLIENTE add
+    PRECOAPRAZO   INTEGER;
+alter table CLIENTE add
+    PRECOAVISTA   INTEGER;
+
+

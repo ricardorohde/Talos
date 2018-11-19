@@ -1,0 +1,2 @@
+alter table c000007 add tipo_ie varchar(20);
+

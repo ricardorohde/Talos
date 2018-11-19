@@ -1,0 +1,20 @@
+CREATE TABLE motorista_cte (
+  ID integer not null,
+  IDCTE integer ,
+  NOME varchar(60) ,
+  CPF varchar(15));
+
+ALTER TABLE motorista_cte add constraint pk_motorista_cte primary key (ID);
+--ALTER TABLE motorista_cte add CONSTRAINT FK_MOTORISTA_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_motorista_cte;
+SET GENERATOR inc_motorista_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_motorista_cte FOR motorista_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_motorista_cte,1);
+END;

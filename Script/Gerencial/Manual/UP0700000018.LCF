@@ -1,0 +1,25 @@
+create table tipo_impressora(
+  id integer not null,
+  descricao varchar(30));
+alter table tipo_impressora add constraint fk_tpimp primary key (id);
+
+CREATE GENERATOR INC_TPIMP;
+SET GENERATOR INC_TPIMP TO 0;
+
+CREATE OR ALTER TRIGGER in_tipo_impressora FOR tipo_impressora
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_TPIMP,1);
+END;
+
+
+alter table c000017 add
+  id_tp_impressora integer;
+
+alter table c000017 add constraint fk_tp_imp foreign key (id_tp_impressora) references tipo_impressora (id);
+
+
+
+

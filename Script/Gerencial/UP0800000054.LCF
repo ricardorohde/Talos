@@ -1,0 +1,42 @@
+CREATE VIEW vveiculo_cte (
+        TID,
+        IDCTE,
+        IDVEICULO,
+        VID,
+        RENAVAM,
+        PLACA,
+        TARA,
+        CAPKG,
+        CAPM3,
+        TPROP,
+        TPVEIC,
+        TPROD,
+        TPCAR,
+        IDPROPIETARIO,
+        RNTRC,
+        TTPROPIO,
+        DESCRICAO,
+        UF
+) AS
+    SELECT
+        c.ID AS TID,
+        c.IDCTE AS IDCTE,
+        c.IDVEICULO AS IDVEICULO,
+        v.codigo AS VID,
+        v.renavam AS RENAVAM,
+        v.PLACA AS PLACA,
+        v.TARA AS TARA,
+        v.CAPKG AS CAPKG,
+        v.CAPM3 AS CAPM3,
+        v.TPROP AS TPROP,
+        v.TPVEIC AS TPVEIC,
+        v.TPROD AS TPROD,
+        v.TPCAR AS TPCAR,
+        v.cod_cli_proprietario AS IDPROPIETARIO,
+        v.rntrc AS RNTRC,
+        v.ttpropio AS TTPROPIO,
+        v.nome AS DESCRICAO,
+        v.ufplaca AS UF
+    FROM
+        veiculo_cte c
+        LEFT JOIN c000054 v ON v.codigo = c.IDVEICULO

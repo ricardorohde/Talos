@@ -1,0 +1,21 @@
+alter table C000001 add v_exibe_barra_atalho varchar(1);
+alter table C000001 add v_cor_fundo_barra_titulo varchar(10);
+alter table C000001 add v_cor_fonte_barra_titulo varchar(10);
+alter table C000001 add v_cor_fundo_barra_rodape varchar(10);
+alter table C000001 add v_cor_fonte_barra_rodape varchar(10);
+alter table C000001 add v_men_cad_fundo varchar(10);
+alter table C000001 add v_men_cad_fonte varchar(10);
+alter table C000001 add v_men_est_fundo varchar(10);
+alter table C000001 add v_men_est_fonte varchar(10);
+alter table C000001 add v_men_mov_fundo varchar(10);
+alter table C000001 add v_men_mov_fonte varchar(10);
+alter table C000001 add v_men_fin_fundo varchar(10);
+alter table C000001 add v_men_fin_fonte varchar(10);
+alter table C000001 add v_men_rel_fundo varchar(10);
+alter table C000001 add v_men_rel_fonte varchar(10);
+alter table C000001 add v_men_con_fundo varchar(10);
+alter table C000001 add v_men_con_fonte varchar(10);
+alter table C000001 add v_imagem_fundo varchar(255);
+
+
+

@@ -1,0 +1,21 @@
+create table vale_pedagio_mdfe (
+   id integer not null,
+   idmdfe integer,
+   cnpj_fornecedora varchar(45),
+   cnpj_responsavel varchar(45),
+   numero_vale varchar(45),
+   valor_vale decimal(13,2));
+alter table vale_pedagio_mdfe add constraint pk_vale_pedagio_mdfe primary key (id);
+alter table vale_pedagio_mdfe add constraint fk_vale_pedagio_mdfe_idmdfe foreign key (idmdfe) references cabecalho_mdfe (id);
+
+create generator inc_vale_pedagio_mdfe;
+set generator inc_vale_pedagio_mdfe to 0;
+
+create or alter trigger in_vale_pedagio_mdfe for vale_pedagio_mdfe
+active before insert position 0
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(inc_vale_pedagio_mdfe,1);
+end;
+

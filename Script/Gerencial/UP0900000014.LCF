@@ -1,0 +1,3 @@
+create table anp (
+ codigo varchar(10),
+ descricao varchar(100));

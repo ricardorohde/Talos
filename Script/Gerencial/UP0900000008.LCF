@@ -1,0 +1,4 @@
+alter table c000001 add nao_exibe_fech_atend varchar(1);
+alter table c000001 add nao_informa_cli_atend varchar(1);
+
+

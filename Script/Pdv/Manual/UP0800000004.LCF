@@ -1,0 +1,12 @@
+alter table estoque add usa_tb_pc varchar(3);
+
+create table tabela_preco(
+  id integer,
+  cod_produto integer,
+  tipo_tabela varchar(1),
+  quantidade_inicial numeric(15,2),
+  quantidade_final numeric(15,2),
+  valor_venda numeric(15,2),
+  validade_inicio date,
+  validade_fim date);
+

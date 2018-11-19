@@ -1,0 +1,57 @@
+create table delivery (
+  id integer not null, 
+  codigo integer,
+  cliente varchar(6),
+  status varchar(1),
+  id_entregador integer, 
+  tipo_entrega varchar(1),
+  id_taxa integer,
+  data_emissao date,
+  hora_emissao varchar(8),
+  data_entrega date, 
+  hora_entrega varchar(8),
+  valor_total decimal(15,2),
+  valor_taxa_entrega decimal(15,2),
+  valor_liquido decimal(15,2),
+  levar_maq_cartao varchar(1),
+  obs blob);
+alter table delivery add constraint fk_delivery primary key (id);
+
+
+CREATE GENERATOR inc_delivery;
+SET GENERATOR inc_delivery TO 0;
+
+CREATE OR ALTER TRIGGER in_delivery FOR delivery
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_delivery,1);
+END;
+
+create table item_delivery (
+  id integer not null,
+  id_delivery integer not null,
+  codproduto varchar(10),
+  quantidade decimal(15,3),
+  unitario decimal(15,3),
+  total decimal(15,2),
+  extra blob);
+alter table item_delivery add constraint pk_item_delivery primary key (id);
+
+CREATE GENERATOR num_pedido;
+SET GENERATOR num_pedido TO 0;
+
+
+CREATE GENERATOR inc_item_delivery;
+SET GENERATOR inc_item_delivery TO 0;
+
+CREATE OR ALTER TRIGGER in_item_delivery FOR item_delivery
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_item_delivery,1);
+END;
+
+

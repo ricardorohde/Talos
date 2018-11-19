@@ -1,0 +1,20 @@
+CREATE TABLE observacao_contribuinte_cte (
+  ID integer not null,
+  IDCTE integer ,
+  IDENTIFICADOR varchar(45) ,
+  OBSERVACAO varchar(60));
+
+ALTER TABLE observacao_contribuinte_cte add constraint pk_observacao_contribuinte_cte primary key (ID);
+--ALTER TABLE observacao_contribuinte_cte add CONSTRAINT FK_OBS_CONT_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_observacao_contribuinte_cte;
+SET GENERATOR inc_observacao_contribuinte_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_observacao_contribuinte_cte FOR observacao_contribuinte_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_observacao_contribuinte_cte,1);
+END;

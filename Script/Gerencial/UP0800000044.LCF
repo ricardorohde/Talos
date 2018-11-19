@@ -1,0 +1,11 @@
+CREATE VIEW v_percurso (
+        ID,
+        IDMDFE,
+        IDUF
+) AS
+    SELECT
+        ufp.ID AS ID,
+        ufp.IDMDFE AS IDMDFE,
+        ufp.IDUF AS IDUF
+    FROM
+        uf_percurso_mdfe ufp

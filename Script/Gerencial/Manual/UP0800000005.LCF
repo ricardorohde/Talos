@@ -1,0 +1,20 @@
+alter table C000054 add RENAVAM varchar(11);
+alter table C000054 add TARA varchar(6);
+alter table C000054 add CAPKG varchar(6);
+alter table C000054 add CAPM3 varchar(3);
+alter table C000054 add TPROP integer;
+alter table C000054 add TPVEIC integer;
+alter table C000054 add TPROD integer;
+alter table C000054 add TPCAR integer;
+alter table C000054 add cod_cli_proprietario varchar(6);
+alter table C000054 add RNTRC varchar(10);
+alter table C000054 add TTPROPIO integer;
+alter table C000054 add PROPIETARIO integer;
+
+
+
+
+
+
+
+    

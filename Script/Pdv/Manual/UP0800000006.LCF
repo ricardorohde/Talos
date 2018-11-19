@@ -1,0 +1,10 @@
+create table atualizadb(
+versao varchar(20),
+data date,
+hora varchar(8));
+
+create table atualizadb_arquivos(
+  nome varchar(16),
+  caminho varchar(255),
+  status varchar(1),
+  script blob);

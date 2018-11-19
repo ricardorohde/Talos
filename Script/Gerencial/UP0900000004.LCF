@@ -1,0 +1,2 @@
+alter table C000045 add fechamento_cego varchar(1);
+

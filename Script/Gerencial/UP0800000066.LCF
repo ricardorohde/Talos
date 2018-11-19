@@ -1,0 +1,2 @@
+alter table c000001 add utiliza_leitor_codigo_barra varchar(1);
+

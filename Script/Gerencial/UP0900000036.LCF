@@ -1,0 +1,2 @@
+alter table c000001 add iniciar_nova_venda varchar(1);
+

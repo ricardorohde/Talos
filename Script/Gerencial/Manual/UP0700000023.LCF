@@ -1,0 +1,1 @@
+alter table c000001 add PRODUTO_TAXA_ENTREGA varchar(6);

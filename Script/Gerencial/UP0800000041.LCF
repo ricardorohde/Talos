@@ -1,0 +1,22 @@
+CREATE TABLE seguro_cte (
+  ID integer not null,
+  IDCTE integer ,
+  RESP_SEG integer ,
+  NOME_SEG varchar(30) ,
+  N_APOLICE varchar(20) ,
+  N_AVERBACAO varchar(20));
+
+ALTER TABLE seguro_cte add constraint pk_seguro_cte primary key (ID);
+--ALTER TABLE seguro_cte add CONSTRAINT FK_SEG_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_seguro_cte;
+SET GENERATOR inc_seguro_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_seguro_cte FOR seguro_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_seguro_cte,1);
+END;

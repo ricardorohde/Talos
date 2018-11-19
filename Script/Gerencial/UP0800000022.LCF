@@ -1,0 +1,21 @@
+CREATE TABLE emissor_docant (
+  ID integer not null,
+  IDCTE integer ,
+  IDEMISSOR RDB$382);
+
+ALTER TABLE emissor_docant add constraint pk_emissor_docant primary key (ID);
+--ALTER TABLE emissor_docant add CONSTRAINT FK_IDCTE_EMISSORANT FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+--ALTER TABLE emissor_docant add CONSTRAINT FK_PESSOA_DOCANT FOREIGN KEY (IDEMISSOR) REFERENCES c000007 (codigo);
+
+
+CREATE GENERATOR inc_emissor_docant;
+SET GENERATOR inc_emissor_docant TO 0;
+
+CREATE OR ALTER TRIGGER in_emissor_docant FOR emissor_docant
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_emissor_docant,1);
+END;
+

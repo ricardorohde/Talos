@@ -1,0 +1,2 @@
+alter table estoque add informa_codigo_barra_xml varchar(1);
+

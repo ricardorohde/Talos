@@ -1,0 +1,24 @@
+CREATE TABLE doc_cte_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  CHAVE_CTE varchar(60) ,
+  VALOR decimal(13,2) ,
+  IDMUNICIPIO RDB$375 ,
+  PESO decimal(11,4) ,
+  SEG_CHAVE varchar(45));
+
+ALTER TABLE doc_cte_mdfe add constraint pk_doc_cte_mdfe primary key (ID);
+--ALTER TABLE doc_cte_mdfe add CONSTRAINT FK_MUNICIPIODESC_DOCCTE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+--ALTER TABLE doc_cte_mdfe add CONSTRAINT FK_MUNICIPIO_ESTADO_DESC FOREIGN KEY (IDMUNICIPIO) REFERENCES c000006 (codigo);
+
+
+CREATE GENERATOR inc_doc_cte_mdfe;
+SET GENERATOR inc_doc_cte_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_doc_cte_mdfe FOR doc_cte_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_doc_cte_mdfe,1);
+END;

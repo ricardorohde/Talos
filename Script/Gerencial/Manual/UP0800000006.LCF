@@ -1,0 +1,17 @@
+create table seguradora (
+  id integer not null,
+  razao_social varchar(120),
+  cnpj varchar(20));
+alter table seguradora add constraint pk_seguradora primary key (id);
+
+create generator inc_seguradora;
+set generator inc_seguradora to 0;
+
+create or alter trigger in_seguradora for seguradora
+active before insert position 0
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(inc_seguradora,1);
+end;
+

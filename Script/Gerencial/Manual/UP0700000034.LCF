@@ -1,0 +1,2 @@
+alter table r000002 add acrescimo decimal(15,2);
+

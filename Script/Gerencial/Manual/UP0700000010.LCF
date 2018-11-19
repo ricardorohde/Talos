@@ -1,0 +1,20 @@
+alter table R000002 add impresso varchar(1);
+alter table R000002 add extra blob;
+
+create or alter procedure ST_LANCTO_CONSUMO (
+    COD_PRODUTO varchar(10),
+    COD_MESA integer,
+    QTDE double precision,
+    UNITARIO double precision,
+    TOTAL double precision,
+    extra blob)
+as
+BEGIN
+  if (unitario = 0)  then
+    select p.precovenda  from c000025 p where p.codigo = :cod_produto  into :unitario ;
+  total = :qtde * :unitario ;
+
+  INSERT INTO r000002   (cod_mesa, cod_produto, qtde, unitario, total, cancelado, impresso, extra)
+  values   (:cod_mesa, :cod_produto, :qtde, :unitario, :total, 0, 'N',:extra);
+END;
+

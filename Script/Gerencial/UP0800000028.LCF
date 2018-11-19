@@ -1,0 +1,22 @@
+CREATE TABLE documentos_cte (
+  ID integer not null,
+  IDCTE integer ,
+  CHAVE varchar(45) ,
+  PIN varchar(45) ,
+  MODELO integer ,
+  DATA_ENTREGA date);
+
+ALTER TABLE documentos_cte add constraint pk_documentos_cte primary key (ID);
+--ALTER TABLE documentos_cte add CONSTRAINT FK_CTE_DOC_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_documentos_cte;
+SET GENERATOR inc_documentos_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_documentos_cte FOR documentos_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_documentos_cte,1);
+END;

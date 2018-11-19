@@ -1,0 +1,1 @@
+alter table config add desconto_maximo_venda numeric(15,5);

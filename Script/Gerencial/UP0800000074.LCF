@@ -1,0 +1,4 @@
+alter table sat add cupom varchar(12);
+alter table sat add total decimal(15,2);
+
+

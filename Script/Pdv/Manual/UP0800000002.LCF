@@ -1,0 +1,135 @@
+alter table cupom add impresso varchar(1);
+alter table cupom add senha integer;
+alter table cupom_item add extra blob;
+alter table cupom_item_temp add extra blob;
+
+create or alter procedure ST_CUPOM_INSERT (
+    CODIGO varchar(50),
+    NUMERO varchar(12),
+    CCF varchar(12),
+    ECF varchar(30),
+    DATA date,
+    HORA time,
+    QTDE_ITEM integer,
+    VALOR_PRODUTO numeric(15,2),
+    VALOR_DESCONTO numeric(15,2),
+    VALOR_ACRESCIMO numeric(15,2),
+    VALOR_TOTAL numeric(15,2),
+    VALOR_PAGO numeric(15,2),
+    VALOR_TROCO numeric(15,2),
+    COD_CLIENTE integer,
+    CANCELADO integer,
+    CPF_CONSUMIDOR varchar(20),
+    NOME_CONSUMIDOR varchar(40),
+    COD_VENDEDOR integer,
+    COD_CAIXA integer,
+    ECF_CAIXA varchar(3),
+    CONTINGENCIA varchar(1),
+    GERADO_NFCE varchar(1),
+    PEGO_PORQUEM varchar(60),
+    SAT integer,
+    NAOFISC varchar(1),
+    COUVERT decimal(17,2),
+    TAXA_GARCON decimal(17,2),
+    impresso varchar(1),
+    senha integer)
+as
+begin
+  Insert into CUPOM
+    (codigo, numero, ccf, ecf, data, hora, qtde_item, valor_produto,
+     valor_desconto, valor_acrescimo, valor_total, valor_pago,
+     valor_troco, cod_cliente, cancelado, cpf_consumidor, NOME_CONSUMIDOR,
+     cod_vendedor, cod_caixa, ecf_caixa, contingencia, gerado_nfce, PEGO_PORQUEM,SAT,NAOFISC,couvert,taxa_garcon,
+     impresso, senha)
+  values
+    (:codigo, :numero, :ccf,  :ecf, :data, :hora, :qtde_item, :valor_produto,
+     :valor_desconto, :valor_acrescimo, :valor_total, :valor_pago,
+     :valor_troco, :cod_cliente, :cancelado, :cpf_consumidor, :nome_consumidor,
+     :cod_vendedor, :cod_caixa, :ecf_caixa, :contingencia, :gerado_nfce,:PEGO_PORQUEM,:SAT,:NAOFISC,:couvert,:taxa_garcon,
+     :impresso,:senha);
+  suspend;
+
+end;
+
+
+
+create or alter procedure ST_CUPOM_ITEM_INSERT (
+    CODIGO varchar(50),
+    COD_CUPOM varchar(50),
+    ITEM integer,
+    COD_PRODUTO integer,
+    UNIDADE varchar(10),
+    QTDE numeric(15,4),
+    VALOR_UNITARIO numeric(15,3),
+    VALOR_SUBTOTAL numeric(15,2),
+    VALOR_DESCONTO numeric(15,2),
+    VALOR_ACRESCIMO numeric(15,2),
+    VALOR_TOTAL numeric(15,2),
+    CST varchar(3),
+    ALIQUOTA numeric(15,2),
+    CANCELADO integer,
+    COD_TOTALIZADOR varchar(7),
+    TAMANHO char(5),
+    COR char(5),
+    CSOSN varchar(3),
+    CLASSIFICACAO_FISCAL varchar(20),
+    BASE_SUB numeric(15,2),
+    ICMS_SUB numeric(15,2),
+    ISENTAS_ICMS numeric(15,2),
+    OUTRAS_ICMS numeric(15,2),
+    CFOP varchar(4),
+    extra blob)
+as
+begin
+  Insert into CUPOM_ITEM
+    (codigo, cod_cupom, item, cod_produto, unidade, qtde,
+     valor_unitario, valor_subtotal, valor_desconto, valor_acrescimo,
+     valor_total, cst, aliquota, cancelado, cod_totalizador, tamanho, cor,csosn,
+     classificacao_fiscal,BASE_SUB,ICMS_SUB,isentas_icms,outras_icms,cfop,extra)
+  values
+    (:codigo, :cod_cupom, :item, :cod_produto, :unidade, :qtde,
+     :valor_unitario, :valor_subtotal, :valor_desconto, :valor_acrescimo,
+     :valor_total, :cst, :aliquota, :cancelado, :cod_totalizador,
+     :tamanho, :cor,:csosn,:classificacao_fiscal,:BASE_SUB,:ICMS_SUB,:isentas_icms,
+     :outras_icms,:cfop,:extra);
+  suspend;
+
+end;
+
+
+create or alter procedure ST_CUPOM_ITEM_TEMP_INSERT (
+    CODIGO varchar(50),
+    COD_CUPOM varchar(50),
+    ITEM integer,
+    COD_PRODUTO integer,
+    UNIDADE varchar(10),
+    QTDE numeric(15,4),
+    VALOR_UNITARIO numeric(15,3),
+    VALOR_SUBTOTAL numeric(15,2),
+    VALOR_DESCONTO numeric(15,2),
+    VALOR_ACRESCIMO numeric(15,2),
+    VALOR_TOTAL numeric(15,2),
+    CST varchar(3),
+    ALIQUOTA numeric(15,2),
+    CANCELADO integer,
+    COD_TOTALIZADOR varchar(7),
+    TAMANHO char(5),
+    COR char(5),
+    extra blob)
+as
+begin
+  Insert into cupom_item_temp
+    (codigo, cod_cupom, item, cod_produto, unidade, qtde,
+     valor_unitario, valor_subtotal, valor_desconto, valor_acrescimo,
+     valor_total, cst, aliquota, cancelado, cod_totalizador, tamanho, cor,extra)
+  values
+    (:codigo, :cod_cupom, :item, :cod_produto, :unidade, :qtde,
+     :valor_unitario, :valor_subtotal, :valor_desconto, :valor_acrescimo,
+     :valor_total, :cst, :aliquota, :cancelado, :cod_totalizador,
+     :tamanho, :cor, :extra);
+  suspend;
+
+end;
+
+
+

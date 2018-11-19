@@ -1,0 +1,2 @@
+alter table c000025 add pizza varchar(1);
+

@@ -1,0 +1,19 @@
+create view v_municipio_desc (
+        id,
+        idmdfe,
+        idmunicipio,
+        mid,
+        municipio,
+        cod_ibge
+
+) as
+    select
+        d.id as id,
+        d.idmdfe as idmdfe,
+        d.idmunicipio as idmunicipio,
+        m.codigo as mid,
+        m.municipio as municipio,
+        m.ibge as cod_ibge
+    from
+        mdfe_municipio_descarregamento d
+        left join c000006 m on m.codigo = d.idmunicipio

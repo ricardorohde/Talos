@@ -1,0 +1,24 @@
+CREATE TABLE cte_outros_docs (
+  ID integer not null,
+  IDCTE integer ,
+  TIPO_DOC integer ,
+  DESCRICAO varchar(100) ,
+  NUMERO_DOC varchar(60) ,
+  DATA_EMISSAO date ,
+  VALOR_DOC decimal(13,2) ,
+  DATA_ENTREGA date);
+
+ALTER TABLE cte_outros_docs add constraint pk_cte_outros_docs primary key (ID);
+--ALTER TABLE cte_outros_docs add CONSTRAINT FK_IDCTE_OUTROSDOCS FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_cte_outros_docs;
+SET GENERATOR inc_cte_outros_docs TO 0;
+
+CREATE OR ALTER TRIGGER in_cte_outros_docs FOR cte_outros_docs
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_cte_outros_docs,1);
+END;

@@ -1,0 +1,11 @@
+alter table c000032 add nfce varchar(1) default 'N';
+alter table c000032 add classificacao_fiscal varchar(20);
+alter table c000032 add BASE_SUB numeric(15,2);
+alter table c000032 add ICMS_SUB numeric(15,2);
+alter table c000032 add isentas_icms numeric(15,2);
+alter table c000032 add outras_icms numeric(15,2);
+
+
+
+update c000032 set nfce = 'N';
+

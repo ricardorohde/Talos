@@ -1,0 +1,27 @@
+CREATE TABLE doc_nfa_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  IDMUNICIPIO RDB$375,
+  CNPJ_EMITENTE varchar(14) ,
+  NUMERO_NF varchar(10) ,
+  SERIE_NF varchar(3) ,
+  UF_DESTINATARIO varchar(2) ,
+  DATA_EMISSAO date ,
+  VALOR_NF decimal(13,2) ,
+  PESO decimal(11,4));
+
+ALTER TABLE doc_nfa_mdfe add constraint pk_doc_nfa_mdfe primary key (ID);
+--ALTER TABLE doc_nfa_mdfe add CONSTRAINT FK_doc_nfa_mdfe_IDMUNICIPIO FOREIGN KEY (IDMUNICIPIO) REFERENCES c000006 (codigo);
+--ALTER TABLE doc_nfa_mdfe add CONSTRAINT FK_doc_nfa_mdfe_MDFE FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+
+CREATE GENERATOR inc_doc_nfa_mdfe;
+SET GENERATOR inc_doc_nfa_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_doc_nfa_mdfe FOR doc_nfa_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_doc_nfa_mdfe,1);
+END;

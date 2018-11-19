@@ -1,0 +1,2 @@
+alter table c000025 add pesagem_auotmatica varchar(1) default 'N';
+

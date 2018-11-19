@@ -1,0 +1,21 @@
+create or alter procedure ST_CUPOM_FORMA_INSERT (
+    CODIGO varchar(50),
+    COD_CUPOM varchar(50),
+    FORMA varchar(30),
+    VALOR numeric(15,2),
+    PRESTACAO integer,
+    TIPO varchar(30),
+    BANCO varchar(3),
+    TIPOCARTAO varchar(1),
+    troco numeric(15,2))
+as
+begin
+  Insert into CUPOM_FORMA
+    (codigo, cod_cupom, forma, valor, prestacao, tipo, banco,tipocartao,troco)
+  values
+    (:codigo, :cod_cupom, :forma, :valor, :prestacao, :tipo, :banco, :tipocartao,:troco);
+
+  suspend;
+
+end;
+

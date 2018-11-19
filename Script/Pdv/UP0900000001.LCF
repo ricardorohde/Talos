@@ -1,0 +1,21 @@
+create table convenio (
+  codigo varchar(6),
+  nome varchar(80),
+  limite numeric(15,2),
+  utilizado numeric(15,2),
+  saldo numeric(15,2),
+  atu_data date,
+  atu_hora varchar(8));
+
+
+CREATE TABLE CUPOM_CONVENIO (
+  CODIGO       COD_EXTENDIDO NOT NULL,
+  COD_CUPOM    COD_EXTENDIDO NOT NULL,
+  DATA         DATA NOT NULL,
+  HORA         HORA NOT NULL,
+  COD_CLIENTE  CODIGO_PRIMARIO NOT NULL,
+  VENCIMENTO   DATA NOT NULL,
+  VALOR        VALOR_2_DECIMAIS NOT NULL,
+  EX           INTEGER DEFAULT 0 NOT NULL);
+
+alter table cliente add cod_convenio varchar(6);

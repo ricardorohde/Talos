@@ -1,0 +1,2 @@
+alter table delivery add impresso varchar(1) default 'N';
+

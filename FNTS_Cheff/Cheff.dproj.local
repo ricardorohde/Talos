@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/04/20 00:11:59.000.603,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comanda\Comanda.dproj=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comanda\Cheff.dproj</Transaction>
+    <Transaction>2017/12/06 16:46:32.000.159,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2017/12/06 16:46:41.000.633,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Consumo.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2017/12/06 16:46:41.000.633,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Consumo.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.dfm</Transaction>
+    <Transaction>2017/12/06 20:29:01.000.159,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit2.pas</Transaction>
+    <Transaction>2017/12/06 20:35:49.000.752,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Extra.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit2.pas</Transaction>
+    <Transaction>2017/12/06 20:35:49.000.752,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Extra.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit2.dfm</Transaction>
+    <Transaction>2017/12/08 12:15:34.000.764,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2017/12/08 12:15:55.000.527,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\CharPrinter.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2017/12/08 12:26:36.000.778,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\CharPrinter.pas=</Transaction>
+    <Transaction>2017/12/08 12:37:23.000.643,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\CharPrinter.pas</Transaction>
+    <Transaction>2017/12/08 12:38:15.000.651,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\CharPrinter.pas=</Transaction>
+    <Transaction>2018/03/02 09:57:11.000.128,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2018/03/02 09:57:16.000.725,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Config.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2018/03/02 09:57:16.000.725,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Config.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.dfm</Transaction>
+    <Transaction>2018/10/02 11:42:24.000.958,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas</Transaction>
+    <Transaction>2018/10/02 11:42:39.000.266,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\MontaPizza.dfm</Transaction>
+    <Transaction>2018/10/02 11:42:39.000.266,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\MontaPizza.pas</Transaction>
+  </Transactions>
+</BorlandProject>

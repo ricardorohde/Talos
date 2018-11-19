@@ -1,0 +1,34 @@
+alter table c000044 add
+    CODVENDA                VARCHAR(20);
+alter table c000044 add
+    SERIAL_POS              VARCHAR(100);
+alter table c000044 add
+    CARTAO_NOME_CONSUMIDOR  VARCHAR(200);
+alter table c000044 add
+    CARTAO_BIN              VARCHAR(30);
+alter table c000044 add
+    CARTAO_VALIDADE         VARCHAR(10);
+alter table c000044 add
+    CARTAO_PARCELAS         INTEGER;
+alter table c000044 add
+    CARTAO_4DIGITOS         INTEGER;
+alter table c000044 add
+    CARTAO_N_AUTORIZACAO    VARCHAR(20);
+alter table c000044 add
+    CARTAO_NSU              VARCHAR(30);
+alter table c000044 add
+    CARTAO_INSTITUICAO      VARCHAR(50);
+alter table c000044 add
+    CARTAO_ID_PAGAMENTO     VARCHAR(20);
+alter table c000044 add
+    CHAVE                   VARCHAR(100);
+alter table c000044 add
+    NUMERO_CFE              VARCHAR(20);
+alter table c000044 add
+    CARTAO_BANDEIRA         VARCHAR(100);
+alter table c000044 add
+    CARTAO_RF               VARCHAR(20);
+alter table c000044 add
+    CARTAO_MENSAGEM         VARCHAR(200);
+
+

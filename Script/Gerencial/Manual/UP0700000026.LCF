@@ -1,0 +1,2 @@
+alter table c000001 add tip_imp_delivery integer;
+

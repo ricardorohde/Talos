@@ -1,0 +1,2 @@
+alter table fechamento_cego add verificado varchar(1) default 'N;'
+

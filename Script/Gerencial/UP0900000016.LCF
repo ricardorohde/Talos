@@ -1,0 +1,149 @@
+create or alter procedure SINTEGRA50 (
+    DATAHORA_INI date,
+    DATAHORA_FIM date)
+returns (
+    CPFCNPJ varchar(14),
+    INSCRICAO varchar(15),
+    DATADOCUMENTO date,
+    UF varchar(2),
+    MODELO varchar(2),
+    SERIE varchar(3),
+    NUMERO integer,
+    CFOP integer,
+    EMISSORDOCUMENTO varchar(1),
+    VALORCONTABIL double precision,
+    BASECALCULO double precision,
+    ICMS double precision,
+    ISENTAS double precision,
+    OUTRAS double precision,
+    ALIQUOTA double precision,
+    SITUACAO varchar(1))
+as
+declare variable VCODIGO varchar(6);
+declare variable VEMITENTE varchar(10);
+BEGIN
+  -- ENTRADAS
+  FOR SELECT
+    I.CODNOTA,
+    LEFT(TRIM(I.CFOP), 4),
+    I.ICMS_ALIQUOTA,
+    COALESCE(SUM(COALESCE(I.SUBTOTAL, 0)  +
+                 COALESCE(I.FRETE, 0)     +
+                 COALESCE(I.IPI_VALOR, 0) +
+                 COALESCE(I.SUB_VALOR, 0) +
+                 COALESCE(I.OUTRAS, 0)    -
+                 COALESCE(I.DESCONTO, 0)), 0),
+    COALESCE(SUM(I.ICMS_BASE), 0),
+    COALESCE(SUM(I.ICMS_VALOR), 0),
+    COALESCE(SUM(I.ICMS_ISENTO), 0),
+    COALESCE(SUM(I.OUTRAS), 0)
+  FROM C000088 I
+  JOIN C000087 E ON (I.CODNOTA = E.CODIGO)
+  WHERE
+    (E.DATA_LANCAMENTO BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2, 3
+  INTO
+    :VCODIGO,
+    :CFOP,
+    :ALIQUOTA,
+    :VALORCONTABIL,
+    :BASECALCULO,
+    :ICMS,
+    :ISENTAS,
+    :OUTRAS
+  DO
+  BEGIN
+    EMISSORDOCUMENTO = 'T';
+    SITUACAO         = 'N';
+
+    SELECT FIRST 1
+      E.CODFORNECEDOR,
+      E.DATA_LANCAMENTO,
+      LEFT(TRIM(E.MODELO), 2),
+      LEFT(TRIM(E.SERIE), 3),
+      E.NUMERO 
+    FROM C000087 E
+    WHERE
+      (E.CODIGO = :VCODIGO)
+    INTO
+      :VEMITENTE,
+      :DATADOCUMENTO,
+      :MODELO,
+      :SERIE,
+      :NUMERO;
+
+    SELECT FIRST 1
+      LEFT((SELECT RETORNO FROM EXTRACT_ONLY_NUMBER(F.CNPJ)), 14),
+      LEFT(TRIM(F.IE), 14),
+      F.UF
+    FROM C000009 F
+    WHERE
+      (F.CODIGO = :VEMITENTE)
+    INTO
+      :CPFCNPJ,
+      :INSCRICAO,
+      :UF;
+      
+    SUSPEND;
+  END
+
+  -- SAIDAS
+  FOR SELECT
+    I.CODNOTA,
+    LEFT(TRIM(I.CFOP), 4),
+    I.ICMS,
+    COALESCE(SUM(I.TOTAL), 0),
+    COALESCE(SUM(I.BASE_CALCULO), 0),
+    COALESCE(SUM(I.VALOR_ICMS), 0),
+    COALESCE(SUM(I.ISENTO), 0),
+    COALESCE(SUM(I.OUTRAS), 0)
+  FROM C000062 I
+  JOIN C000061 S ON (I.CODNOTA = S.CODIGO)
+  WHERE
+    (S.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2, 3
+  INTO
+    :VCODIGO,
+    :CFOP,
+    :ALIQUOTA,
+    :VALORCONTABIL,
+    :BASECALCULO,
+    :ICMS,
+    :ISENTAS,
+    :OUTRAS
+  DO
+  BEGIN
+    EMISSORDOCUMENTO = 'P';
+    SITUACAO         = 'N';
+
+    SELECT FIRST 1
+      S.CODCLIENTE,
+      S.DATA,
+      S.MODELO_NF,
+      S.SERIE_NF,
+      S.NUMERO
+    FROM C000061 S
+    WHERE
+      (S.CODIGO = :VCODIGO)
+    INTO
+      :VEMITENTE,
+      :DATADOCUMENTO,
+      :MODELO,
+      :SERIE,
+      :NUMERO;
+
+    SELECT FIRST 1
+      LEFT((SELECT RETORNO FROM EXTRACT_ONLY_NUMBER(C.CPF)), 14),
+      COALESCE(LEFT(TRIM(C.RG), 14), 'ISENTO'),
+      C.UF
+    FROM C000007 C
+    WHERE
+      (C.CODIGO = :VEMITENTE)
+    INTO
+      :CPFCNPJ,
+      :INSCRICAO,
+      :UF;
+
+    SUSPEND;
+  END
+END

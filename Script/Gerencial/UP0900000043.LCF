@@ -1,0 +1,7 @@
+create table item_delivery_sub (
+ id_item integer, 
+ codigo integer, 
+ codpro varchar(10),
+ qtde numeric(15,3));
+
+

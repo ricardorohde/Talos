@@ -1,0 +1,26 @@
+create table impressoras(
+  id integer not null,
+  descricao varchar(60),
+  porta varchar(200),
+  ativa varchar(1));
+alter table impressoras add constraint fk_imp primary key (id);
+
+CREATE GENERATOR INC_IMP;
+SET GENERATOR INC_IMP TO 0;
+
+CREATE OR ALTER TRIGGER in_impressoras FOR impressoras
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_IMP,1);
+END;
+
+
+alter table c000017 add
+  id_impressora integer;
+
+alter table c000017 add constraint fk_17_imp foreign key (id_impressora) references impressoras (id);
+
+
+

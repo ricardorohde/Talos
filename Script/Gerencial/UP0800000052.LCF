@@ -1,0 +1,40 @@
+CREATE VIEW vreboque_mdfe (
+        IDMDFE,
+        IDVEICULO,
+        IDR,
+        RENAVAM,
+        PLACA,
+        TARA,
+        CAPKG,
+        CAPM3,
+        TPROP,
+        TPVEIC,
+        TPROD,
+        TPCAR,
+        IDPROPIETARIO,
+        RNTRC,
+        TTPROPIO,
+        DESCRICAO,
+        UF
+) AS
+    SELECT
+        m.IDMDFE AS IDMDFE,
+        m.IDVEICULO AS IDVEICULO,
+        r.codigo AS IDR,
+        r.renavam AS RENAVAM,
+        r.placa AS PLACA,
+        r.tara AS TARA,
+        r.capkg AS CAPKG,
+        r.capkg AS CAPM3,
+        r.tprop AS TPROP,
+        r.tpveic AS TPVEIC,
+        r.TPROD AS TPROD,
+        r.TPCAR AS TPCAR,
+        r.cod_cli_proprietario AS IDPROPIETARIO,
+        r.RNTRC AS RNTRC,
+        r.TTPROPIO AS TTPROPIO,
+        r.nome AS DESCRICAO,
+        r.ufplaca AS UF
+    FROM
+        reboque_mdfe m
+        LEFT JOIN C000054 r ON r.codigo = m.idveiculo

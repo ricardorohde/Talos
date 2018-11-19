@@ -1,0 +1,4 @@
+alter table sat add ex integer default 0;
+alter table sat add cupom cod_extendido;
+alter table sat add total decimal(15,2);
+

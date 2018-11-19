@@ -1,0 +1,24 @@
+alter table c000048 add
+    HORA                        TIME;
+alter table c000048 add
+    CHAVE                       VARCHAR(100);
+alter table c000048 add
+    XML_CFE                     VARCHAR(240);
+alter table c000048 add
+    XML_CFE_CANCELADO           VARCHAR(240);
+alter table c000048 add
+    CHAVE_CANCELADO             VARCHAR(100);
+alter table c000048 add
+    NUMERO_CUPOM_FISCAL_CANCEL  VARCHAR(20);
+alter table c000048 add
+    troco NUMERIC(15,2);
+alter table c000048 add
+    total_pago NUMERIC(15,2);
+
+alter table c000032 add
+    AIDF               VARCHAR(20);
+alter table c000032 add
+    VALIDADE           VARCHAR(20);
+alter table c000032 add
+    CSOSN              VARCHAR(10);
+

@@ -1,0 +1,6 @@
+create table R000004 (
+ codigo integer, 
+ codpro varchar(10),
+ qtde numeric(15,3));
+
+

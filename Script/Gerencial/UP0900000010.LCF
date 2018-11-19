@@ -1,0 +1,2 @@
+alter table c000001 add nao_utiliza_extra varchar(1);
+

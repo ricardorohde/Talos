@@ -1,0 +1,44 @@
+CREATE TABLE cabecalho_mdfe (
+  ID integer not null,
+  CUF varchar(2) ,
+  MODELO integer ,
+  SERIE integer ,
+  NUMERO integer ,
+  MODAL integer ,
+  DATA_HORA timestamp,
+  DATA date ,
+  TIPO_EMISSAO integer ,
+  CHAVE_MDFE varchar(50) ,
+  PROTOCOLO varchar(45) ,
+  RECIBO varchar(45) ,
+  STATUS integer ,
+  CANCELADA integer ,
+  IDVEICULO varchar(6),
+  QCTE integer ,
+  QNFE integer ,
+  QNFA integer ,
+  VALOR_CARGA decimal(13,2) ,
+  PESO_CARGA decimal(11,4) ,
+  CUNIDADE varchar(10) ,
+  TIPO_EMITENTE integer ,
+  UFINI varchar(2) ,
+  UFFIM varchar(2) ,
+  ENCERRADA integer,
+  OBS_CONTRIBUINTE blob,
+  OBS_FISCO blob,
+  TP_TRANSP integer ,
+  ENVIO_EMAIL integer);
+ALTER TABLE cabecalho_mdfe add constraint pk_cabecalho_mdfe primary key (ID);
+
+
+CREATE GENERATOR inc_cabecalho_mdfe;
+SET GENERATOR inc_cabecalho_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_cabecalho_mdfe FOR cabecalho_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_cabecalho_mdfe,1);
+END;
+

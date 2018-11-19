@@ -1,0 +1,36 @@
+DROP TABLE nf_cte;
+CREATE TABLE nf_cte (
+  ID integer not null,
+  IDCTE integer ,
+  SERIE varchar(10) ,
+  NUMERO_PEDIDO varchar(10) ,
+  DATA_EMISSAO date ,
+  CFOP varchar(4) ,
+  MODELO integer ,
+  NUMERO_ROMANEIO varchar(10) ,
+  NUMERO_NF varchar(10) ,
+  DATA_ENTREGA date ,
+  BICMS decimal(13,2) ,
+  VICMS decimal(13,2) ,
+  BICMSST decimal(13,2) ,
+  VICMSST decimal(13,2) ,
+  PESO_KG decimal(12,3) ,
+  PIN varchar(9) ,
+  VPRODUTOS decimal(13,2) ,
+  VNOTA decimal(13,2));
+
+ALTER TABLE nf_cte add constraint pk_nf_cte primary key (ID);
+--ALTER TABLE nf_cte add CONSTRAINT FK_CTE_NF FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_nf_cte;
+SET GENERATOR inc_nf_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_nf_cte FOR nf_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_nf_cte,1);
+END;
+

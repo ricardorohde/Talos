@@ -1,0 +1,40 @@
+CREATE OR ALTER VIEW VLOCAL_CARREGAMENTO(
+    ID,
+    IDMDFE,
+    IDMUNICIPIO,
+    MID,
+    MUNICIPIO,
+    COD_IBGE)
+AS
+SELECT
+        l.ID AS ID,
+        l.IDMDFE AS IDMDFE,
+        l.IDMUNICIPIO AS IDMUNICIPIO,
+        m.codigo AS MID,
+        m.cidade AS MUNICIPIO,
+        m.municipio AS COD_IBGE
+    FROM
+        local_carregamento_mdfe l
+        LEFT JOIN c000006 m ON m.codigo = l.idmunicipio;
+
+
+CREATE OR ALTER VIEW V_MUNICIPIO_DESC(
+    ID,
+    IDMDFE,
+    IDMUNICIPIO,
+    MID,
+    MUNICIPIO,
+    COD_IBGE)
+AS
+select
+        d.id as id,
+        d.idmdfe as idmdfe,
+        d.idmunicipio as idmunicipio,
+        m.codigo as mid,
+        m.municipio as municipio,
+        m.municipio as cod_ibge
+    from
+        mdfe_municipio_descarregamento d
+        left join c000006 m on m.codigo = d.idmunicipio
+;
+

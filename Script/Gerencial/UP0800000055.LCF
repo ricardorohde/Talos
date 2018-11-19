@@ -1,0 +1,11 @@
+alter table c000004 add MAIL_SERVER varchar(120);
+alter table c000004 add MAIL_PORTA varchar(15);
+alter table c000004 add MAIL_USERNAME varchar(120);
+alter table c000004 add MAIL_PASSWORD varchar(120);
+alter table c000004 add MAIL_CABECALHO varchar(120);
+alter table c000004 add MAIL_ASSUNTO varchar(120);
+alter table c000004 add MAIL_MENSAGEM blob;
+alter table c000004 add MAIL_SSL varchar(1);
+alter table c000004 add MAIL_TLS varchar(1);
+
+

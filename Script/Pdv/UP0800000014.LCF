@@ -1,0 +1,2 @@
+alter table sat add alterado varchar(1);
+

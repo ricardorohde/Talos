@@ -1,0 +1,19 @@
+create table etiquetas (
+  id integer not null,
+  descricao varchar (100),
+  caminho varchar(250));
+alter table etiquetas add constraint pk_etiquetas primary key (id);
+
+
+create generator inc_etiquetas;
+set generator inc_etiquetas to 0;
+
+create or alter trigger in_etiquetas for etiquetas
+active before insert position 0
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(inc_etiquetas,1);
+end;
+
+

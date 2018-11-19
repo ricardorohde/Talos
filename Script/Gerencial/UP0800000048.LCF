@@ -1,0 +1,24 @@
+CREATE VIEW vdoc_mdfe_cte (
+        ID,
+        IDMDFE,
+        CHAVE_CTE,
+        VALOR,
+        IDMUNICIPIO,
+        PESO,
+        MID,
+        MUNICIPIO,
+        COD_IBGE
+)AS
+    SELECT
+        d.ID AS ID,
+        d.IDMDFE AS IDMDFE,
+        d.CHAVE_CTE AS CHAVE_CTE,
+        d.VALOR AS VALOR,
+        d.IDMUNICIPIO AS IDMUNICIPIO,
+        d.PESO AS PESO,
+        m.codigo AS MID,
+        m.cidade AS MUNICIPIO,
+        m.ibge AS COD_IBGE
+    FROM
+        doc_cte_mdfe d
+        LEFT JOIN c000006 m ON m.codigo = d.idmunicipio

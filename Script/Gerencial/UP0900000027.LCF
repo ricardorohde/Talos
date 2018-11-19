@@ -1,0 +1,4 @@
+alter table dfe_configuracoes add cte_modelo integer;
+alter table dfe_configuracoes add cte_versao integer;
+
+

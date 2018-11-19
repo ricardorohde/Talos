@@ -1,0 +1,2 @@
+alter table adm add fechamento_cego varchar(1);
+

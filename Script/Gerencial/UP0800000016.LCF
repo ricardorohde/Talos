@@ -1,0 +1,18 @@
+CREATE TABLE averbacao_seguro (
+  ID integer not null,
+  IDSEGURO integer ,
+  N_AVERBACAO varchar(40));
+
+ALTER TABLE averbacao_seguro add constraint pk_averbacao_seguro primary key (ID);
+--ALTER TABLE averbacao_seguro add CONSTRAINT FK_AVERBSEGURO FOREIGN KEY (IDSEGURO) REFERENCES seguro_mdfe (ID);
+
+CREATE GENERATOR inc_averbacao_seguro;
+SET GENERATOR inc_averbacao_seguro TO 0;
+
+CREATE OR ALTER TRIGGER in_averbacao_seguro FOR averbacao_seguro
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_averbacao_seguro,1);
+END;

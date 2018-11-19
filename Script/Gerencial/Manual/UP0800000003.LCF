@@ -1,0 +1,40 @@
+CREATE OR ALTER TRIGGER C000017_INS FOR C000017
+ACTIVE AFTER INSERT POSITION 0
+AS
+BEGIN
+  INSERT INTO c000058
+    (tiporegistro,movimento,codregistro,situacao,c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+    (17,1,new.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+END;
+
+
+CREATE OR ALTER TRIGGER C000017_UPD FOR C000017
+ACTIVE AFTER UPDATE POSITION 0
+AS
+BEGIN
+  if ((new.GRUPO <> old.GRUPO) OR
+      (new.FOTO <> old.FOTO)) then
+  BEGIN
+    INSERT INTO c000058
+      (tiporegistro,movimento,codregistro,situacao,
+       c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+    values
+      (17,2,old.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+  END
+END;
+
+CREATE OR ALTER TRIGGER C000017_DEL FOR C000017
+ACTIVE AFTER DELETE POSITION 0
+AS
+BEGIN
+  INSERT INTO c000058
+    (tiporegistro,movimento,codregistro,situacao,c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+    (17,3,old.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+END;
+
+
+
+
+

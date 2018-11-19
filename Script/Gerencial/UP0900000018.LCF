@@ -1,0 +1,131 @@
+create or alter procedure SINTEGRA53 (
+    DATAHORA_INI date,
+    DATAHORA_FIM date)
+returns (
+    CPFCNPJ varchar(14),
+    INSCRICAO varchar(15),
+    DATADOCUMENTO date,
+    ESTADO varchar(2),
+    MODELO varchar(2),
+    SERIE varchar(3),
+    NUMERO integer,
+    CFOP integer,
+    EMITENTE varchar(1),
+    BASEST double precision,
+    ICMSRETIDO double precision,
+    DESPESAS double precision,
+    SITUACAO varchar(1))
+as
+declare variable VCODIGO varchar(6);
+declare variable VEMITENTE varchar(10);
+BEGIN
+  -- ENTRADAS
+  FOR SELECT
+    I.CODNOTA,
+    LEFT(TRIM(I.CFOP), 4)                CFOP,
+    COALESCE(SUM(I.SUB_BASE), 0)         BASEST,
+    COALESCE(SUM(I.ICMS_VALORRETIDO), 0) ICMSRETIDO,
+    COALESCE(SUM(I.OUTRAS), 0)           DESPESAS
+  FROM C000088 I
+  JOIN C000087 E ON (I.CODNOTA = E.CODIGO)
+  WHERE
+    (I.SUB_BASE > 0) AND
+    (E.DATA_LANCAMENTO BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2
+  INTO
+    :VCODIGO,
+    :CFOP,
+    :BASEST,
+    :ICMSRETIDO,
+    :DESPESAS
+  DO
+  BEGIN
+    SITUACAO = 'N';
+    EMITENTE = 'T';
+
+    SELECT FIRST 1
+      E.CODFORNECEDOR,
+      E.DATA_LANCAMENTO       DATADOCUMENTO,
+      LEFT(TRIM(E.MODELO), 2) MODELO,
+      LEFT(TRIM(E.SERIE), 3)  SERIE,
+      LEFT(TRIM(E.NUMERO), 6) NUMERO
+    FROM C000087 E
+    WHERE
+      (E.CODIGO = :VCODIGO)
+    INTO
+      :VEMITENTE,
+      :DATADOCUMENTO,
+      :MODELO,
+      :SERIE,
+      :NUMERO;
+
+    SELECT FIRST 1
+      LEFT((SELECT RETORNO FROM EXTRACT_ONLY_NUMBER(F.CNPJ)), 14),
+      LEFT(TRIM(F.IE), 14),
+      F.UF
+    FROM C000009 F
+    WHERE
+      (F.CODIGO = :VEMITENTE)
+    INTO
+      :CPFCNPJ,
+      :INSCRICAO,
+      :ESTADO;
+      
+    SUSPEND;
+  END
+
+  -- SAIDAS
+  FOR SELECT
+    I.CODNOTA,
+    LEFT(TRIM(I.CFOP), 4)        CFOP,
+    COALESCE(SUM(I.BASE_SUB), 0) BASEST,
+    COALESCE(SUM(I.ICMS_SUB), 0) ICMSRETIDO,
+    COALESCE(SUM(I.OUTRAS), 0)   DESPESAS
+  FROM C000062 I
+  JOIN C000061 S ON (I.CODNOTA = S.CODIGO)
+  WHERE
+    (S.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+    AND (I.ICMS_SUB > 0)
+  GROUP BY 1, 2
+  INTO
+    :VCODIGO,
+    :CFOP,
+    :BASEST,
+    :ICMSRETIDO,
+    :DESPESAS
+  DO
+  BEGIN
+    SITUACAO = 'N';
+    EMITENTE = 'P';
+
+    SELECT FIRST 1
+      S.CODCLIENTE,
+      S.DATA,
+      S.MODELO_NF,
+      S.SERIE_NF,
+      S.NUMERO
+    FROM C000061 S
+    WHERE
+      (S.CODIGO = :VCODIGO)
+    INTO
+      :VEMITENTE,
+      :DATADOCUMENTO,
+      :MODELO,
+      :SERIE,
+      :NUMERO;
+
+    SELECT FIRST 1
+      LEFT((SELECT RETORNO FROM EXTRACT_ONLY_NUMBER(C.CPF)), 14),
+      COALESCE(LEFT(TRIM(C.RG), 14), 'ISENTO'),
+      C.UF
+    FROM C000007 C
+    WHERE
+      (C.CODIGO = :VEMITENTE)
+    INTO
+      :CPFCNPJ,
+      :INSCRICAO,
+      :ESTADO;
+
+    SUSPEND;
+  END
+END

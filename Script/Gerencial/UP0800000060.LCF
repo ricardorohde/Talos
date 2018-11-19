@@ -1,0 +1,10 @@
+alter table c000001 add v_ata_bot_cor_fundo varchar(10);
+alter table c000001 add v_ata_bot_cor_fonte varchar(10);
+alter table c000001 add v_ata_exibe_imagem varchar(1);
+alter table c000001 add v_ata_exibe_resumo_caixa varchar(1);
+alter table c000001 add v_ata_caixa_cor_fundo varchar(10);
+alter table c000001 add v_ata_caixa_cor_fonte varchar(10);
+
+
+
+

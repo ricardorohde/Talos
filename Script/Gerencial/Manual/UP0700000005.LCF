@@ -1,0 +1,2 @@
+alter table c000001 add carta_cobranca_texto blob;
+

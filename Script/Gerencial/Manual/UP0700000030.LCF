@@ -1,0 +1,43 @@
+CREATE OR ALTER TRIGGER C000032_DEL FOR C000032
+ACTIVE AFTER DELETE POSITION 0
+AS
+BEGIN
+ if ((select coalesce(nao_movimenta_estoque,'N') from c000025 where codigo = old.codproduto) <> 'S') then begin
+  if (old.lancado = 1) then
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial - old.movimento_estoque,
+        estoque_atual =  estoque_inicial + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial  - (old.movimento_estoque*(-1)),
+        estoque_atual = estoque_inicial + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+  END
+  else
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET entradas = entradas - old.movimento_estoque,
+        estoque_atual =  estoque_atual - old.movimento_estoque
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100 SET
+          saidas = saidas + old.movimento_estoque,
+          estoque_atual = estoque_atual - old.movimento_estoque
+        WHERE codproduto = old.codproduto;
+     END
+   END
+ END
+END;
+
+

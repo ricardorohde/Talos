@@ -1,0 +1,20 @@
+CREATE TABLE vale_pedagio_cte (
+  ID integer not null,
+  IDCTE integer,
+  CNPJ_FORNECEDORA varchar(45),
+  CNPJ_RESPONSAVEL varchar(45),
+  NUMERO_VALE varchar(45),
+  VALOR_VALE decimal(13,2));
+ALTER TABLE vale_pedagio_cte add constraint pk_vale_pedagio_cte primary key (ID);
+ALTER TABLE vale_pedagio_cte add constraint fk_vale_pedagio_cte_id_cte foreign key (IDCTE) references cabecalho_cte(id);
+
+CREATE GENERATOR inc_vale_pedagio_cte;
+SET GENERATOR inc_vale_pedagio_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_vale_pedagio_cte FOR vale_pedagio_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_vale_pedagio_cte,1);
+END;

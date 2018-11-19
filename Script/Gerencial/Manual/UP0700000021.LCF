@@ -1,0 +1,24 @@
+create table mesas_fechadas(
+  id integer not null,
+  data_abertura date, 
+  hora_abertura varchar(8),
+  data_fechamento date,
+  hora_fechamento varchar(8),
+  tempo_uso varchar(8),
+  cod_funcionario varchar(10),
+  num_mesa integer,
+  valor_fechamento numeric(15,2),
+  valor_comissao numeric(15,2),
+  cliente_autorizou varchar(1));
+alter table mesas_fechadas add constraint fk_mesas_fechadas primary key (id);
+
+CREATE GENERATOR INC_FEC_MESA;
+SET GENERATOR INC_FEC_MESA TO 0;
+
+CREATE OR ALTER TRIGGER in_mesas_fechadas FOR mesas_fechadas
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_FEC_MESA,1);
+END;

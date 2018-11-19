@@ -1,0 +1,18 @@
+alter table c000001 add ativa_campo_pedido_cliente varchar(1);
+
+alter table c000057 add xped varchar(12);
+alter table c000057 add xitem varchar(30);
+
+
+alter table CL00001 add xped varchar(12);
+alter table CL00001 add xitem varchar(30);
+
+alter table c000032 add xped varchar(12);
+alter table c000032 add xitem varchar(30);
+
+alter table C000062 add xped varchar(12);
+alter table C000062 add xitem varchar(30);
+
+
+
+

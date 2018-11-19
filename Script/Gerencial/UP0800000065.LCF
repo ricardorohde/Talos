@@ -1,0 +1,9 @@
+alter table dfe_configuracoes add cte_caminho_log varchar(255);
+alter table dfe_configuracoes add cte_caminho_inutilizacao varchar(255);
+alter table dfe_configuracoes add cte_caminho_xml varchar(255);
+alter table dfe_configuracoes add cte_caminho_pdf varchar(255);
+alter table dfe_configuracoes add cte_danfe_padrao varchar(255);
+alter table dfe_configuracoes add cte_danfe_eventos varchar(255);
+alter table dfe_configuracoes add cte_danfe_email varchar(255);
+
+

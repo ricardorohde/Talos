@@ -1,0 +1,2 @@
+alter table c000007 add consumidor_final varchar(1);
+

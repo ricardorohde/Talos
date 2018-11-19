@@ -1,0 +1,18 @@
+CREATE TABLE uf_percurso_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  IDUF varchar(2));
+
+ALTER TABLE uf_percurso_mdfe add constraint pk_uf_percurso_mdfe primary key (ID);
+--ALTER TABLE uf_percurso_mdfe add CONSTRAINT FK_IDMDFE_UFPERCURSO FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+CREATE GENERATOR inc_uf_percurso_mdfe;
+SET GENERATOR inc_uf_percurso_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_uf_percurso_mdfe FOR uf_percurso_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_uf_percurso_mdfe,1);
+END;

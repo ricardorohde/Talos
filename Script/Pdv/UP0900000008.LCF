@@ -1,0 +1,14 @@
+alter table config add
+  men_cup_simples varchar(1) default 'N';
+alter table config add
+  men_cup_nfce varchar(1) default 'N';
+alter table config add
+  men_cup_sat varchar(1) default 'N';
+alter table config add
+  men_cup_cozinha varchar(1) default 'N';
+update config set
+  men_cup_simples = 'N',
+  men_cup_nfce = 'N',
+  men_cup_sat = 'N',
+  men_cup_cozinha = 'N';
+

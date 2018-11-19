@@ -1,0 +1,20 @@
+CREATE TABLE observacao_fisco_cte (
+  ID integer not null,
+  IDCTE integer ,
+  IDENTIFICADOR varchar(45) ,
+  OBSERVACAO varchar(60));
+
+ALTER TABLE observacao_fisco_cte add constraint pk_observacao_fisco_cte primary key (ID);
+--ALTER TABLE observacao_fisco_cte add CONSTRAINT FK_OBSERVACAO_IDCTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_observacao_fisco_cte;
+SET GENERATOR inc_observacao_fisco_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_observacao_fisco_cte FOR observacao_fisco_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_observacao_fisco_cte,1);
+END;

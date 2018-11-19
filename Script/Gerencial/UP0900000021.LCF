@@ -1,0 +1,41 @@
+create or alter procedure SINTEGRA61R (
+    DATAHORA_INI date,
+    DATAHORA_FIM date)
+returns (
+    MESANO varchar(6),
+    CODIGO varchar(14),
+    QTD double precision,
+    VALOR double precision,
+    BASEDECALCULO double precision,
+    ALIQUOTA double precision)
+as
+declare variable VMES smallint;
+declare variable VANO smallint;
+BEGIN
+  FOR SELECT
+    EXTRACT(MONTH FROM I.DATA),
+    EXTRACT(YEAR FROM I.DATA),
+    LEFT(TRIM(I.CODPRODUTO), 14),
+    COALESCE(I.ALIQUOTA, 0),
+    SUM(COALESCE(I.QTDE, 0)),
+    SUM(COALESCE(I.TOTAL, 0)),
+    SUM(COALESCE(I.BASE_CALCULO, 0))
+  FROM C000032 I
+  WHERE
+    (I.NFCE = 'S') AND
+    (I.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+  GROUP BY 1, 2, 3, 4
+  INTO
+    :VMES,
+    :VANO,
+    :CODIGO,
+    :ALIQUOTA,
+    :QTD,
+    :VALOR,
+    :BASEDECALCULO
+  DO
+  BEGIN
+    MESANO = LPAD(:VMES, 2, '0') || :VANO;
+    SUSPEND;
+  END
+END

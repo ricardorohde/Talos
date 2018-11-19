@@ -1,0 +1,27 @@
+CREATE TABLE mdfe_encerramento (
+  ID integer not null,
+  IDMDFE integer ,
+  CUF integer ,
+  MUNICIPIO varchar(80) ,
+  IBGE integer ,
+  PROTOCOLO_MDFE varchar(45) ,
+  CHAVE_MDFE varchar(60) ,
+  TIPO_EVENTO varchar(60) ,
+  PROTOCOLO_EVENTO varchar(45) ,
+  STATUS integer ,
+  DATA date ,
+  DATA_HORA timestamp);
+
+ALTER TABLE mdfe_encerramento add constraint pk_mdfe_encerramento primary key (ID);
+--ALTER TABLE mdfe_encerramento add CONSTRAINT FK_IDMDFE_ENCERRAMENTO FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+
+CREATE GENERATOR inc_mdfe_encerramento;
+SET GENERATOR inc_mdfe_encerramento TO 0;
+
+CREATE OR ALTER TRIGGER in_mdfe_encerramento FOR mdfe_encerramento
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_mdfe_encerramento,1);
+END;

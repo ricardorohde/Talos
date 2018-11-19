@@ -1,0 +1,19 @@
+alter table NFE_MANIFESTACAO add ciencia varchar(1) default 'N';
+alter table NFE_MANIFESTACAO add desconhecimento varchar(1) default 'N';
+alter table NFE_MANIFESTACAO add naorealizada varchar(1) default 'N';
+
+create table EVE_NFE_MANIFESTACAO (
+  chavenfe varchar(44) not null,
+  data date,
+  hora varchar(8),
+  evento varchar(30),
+  ambiente integer,
+  nSeqEvento integer,
+  cstat integer,
+  xmotivo blob, 
+  xevento blob,
+  nprot varchar(50),
+  xml blob);
+
+
+

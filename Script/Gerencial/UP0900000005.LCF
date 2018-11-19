@@ -1,0 +1,9 @@
+create table fechamento_cego(
+  Data date,
+  hora varchar(8),
+  operador integer,
+  dinheiro decimal(15,2),
+  cheque decimal(15,2),
+  conciliado varchar(1));
+
+

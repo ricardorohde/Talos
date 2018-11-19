@@ -1,0 +1,2 @@
+alter table c000017 add foto blob;
+

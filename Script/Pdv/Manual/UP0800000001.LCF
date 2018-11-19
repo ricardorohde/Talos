@@ -1,0 +1,9 @@
+CREATE TABLE GRUPO (
+    CODIGO                 VARCHAR(6) NOT NULL,
+    GRUPO                  VARCHAR(30),
+    FOTO                   BLOB
+);
+
+alter table estoque add grupo varchar(6);
+
+

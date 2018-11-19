@@ -1,0 +1,3 @@
+alter table ESTOQUE add usa_balanca integer;
+alter table config add pesagem_automatica varchar(1);
+

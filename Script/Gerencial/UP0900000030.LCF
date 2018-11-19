@@ -1,0 +1,19 @@
+alter table c000001 add
+  ind_cfop_dev_compra_dentro varchar(6);
+alter table c000001 add
+  ind_cfop_dev_compra_fora varchar(6);
+alter table c000001 add
+  ind_cfop_garantia_dentro varchar(6);
+alter table c000001 add
+  ind_cfop_garantia_fora varchar(6);
+
+
+alter table c000001 add
+  ind_cfop_dev_compra_dentro_desc varchar(6);
+alter table c000001 add
+  ind_cfop_dev_compra_fora_desc varchar(6);
+alter table c000001 add
+  ind_cfop_garantia_dentro_desc varchar(6);
+alter table c000001 add
+  ind_cfop_garantia_fora_desc varchar(6);
+

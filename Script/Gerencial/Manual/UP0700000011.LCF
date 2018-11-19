@@ -1,0 +1,12 @@
+create table fechamento_mesas (
+  id integer,
+  mesa integer,
+  data_fechamento date,
+  hora_fechamento varchar(8),
+  cod_funcionario varchar(10),
+  total decimal(15,2),
+  valor_couvert decimal(15,2),
+  valor_comissao decimal(15,2));
+
+
+

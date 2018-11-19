@@ -1,0 +1,92 @@
+create or alter procedure SINTEGRA75 (
+    DATAHORA_INI date,
+    DATAHORA_FIM date,
+    GERA_INVENTARIO smallint = 0)
+returns (
+    DATAINICIAL date,
+    DATAFINAL date,
+    CODIGO varchar(14),
+    NCM varchar(8),
+    DESCRICAO varchar(53),
+    UNIDADE varchar(6),
+    ALIQUOTAIPI double precision,
+    ALIQUOTAICMS double precision,
+    REDUCAO double precision,
+    BASEST double precision)
+as
+BEGIN
+  IF (:GERA_INVENTARIO NOT IN (0, 1)) THEN
+    GERA_INVENTARIO = 0;
+
+  FOR WITH REG75 AS
+  (
+    -- ENTRADA
+    SELECT DISTINCT
+      I.CODPRODUTO CODIGO
+    FROM C000088 I
+    JOIN C000087 E ON (I.CODNOTA = E.CODIGO)
+    WHERE
+      (E.DATA_LANCAMENTO BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+
+    UNION ALL
+
+    SELECT DISTINCT
+      I.CODPRODUTO
+      FROM C000062 I
+      JOIN C000061 S ON (I.CODNOTA = S.CODIGO)
+      WHERE
+        (S.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+
+    
+    UNION ALL
+
+    SELECT DISTINCT
+      LEFT(TRIM(I.CODPRODUTO), 14)
+    FROM C000032 I
+    WHERE
+      (I.NFCE = 'S') AND
+      (I.DATA BETWEEN :DATAHORA_INI AND :DATAHORA_FIM)
+
+    UNION ALL
+
+    SELECT DISTINCT
+      IIF(:GERA_INVENTARIO = 1, I.CODPRODUTO, NULL)
+    FROM INVENTARIO I
+    WHERE
+      (I.DATA_POSTERIOR = :DATAHORA_INI)
+  )
+  SELECT DISTINCT
+    CODIGO
+  FROM REG75
+  WHERE
+    (CODIGO IS NOT NULL)
+  INTO
+    :CODIGO
+  DO
+  BEGIN
+    DATAINICIAL = :DATAHORA_INI;
+    DATAFINAL   = :DATAHORA_FIM;
+
+    SELECT
+      LEFT(TRIM(P.NCM), 8),
+      LEFT(TRIM(P.PRODUTO), 53),
+      P.UNIDADE,
+      COALESCE(P.IPI, 0),
+      COALESCE(P.ALIQUOTA, 0),
+      COALESCE(P.REDUCAO, 0),
+      0
+    FROM C000025 P
+    WHERE
+      (P.CODIGO = :CODIGO)
+    INTO
+      :NCM,
+      :DESCRICAO,
+      :UNIDADE,
+      :ALIQUOTAIPI,
+      :ALIQUOTAICMS,
+      :REDUCAO,
+      :BASEST;
+
+    SUSPEND;
+  END 
+END

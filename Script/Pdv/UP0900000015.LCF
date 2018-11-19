@@ -1,0 +1,38 @@
+alter table CUPOM_ITEM_TEMP add complemento varchar(50);
+
+create or alter procedure ST_CUPOM_ITEM_TEMP_INSERT (
+    CODIGO varchar(50),
+    COD_CUPOM varchar(50),
+    ITEM integer,
+    COD_PRODUTO integer,
+    UNIDADE varchar(10),
+    QTDE numeric(15,4),
+    VALOR_UNITARIO numeric(15,3),
+    VALOR_SUBTOTAL numeric(15,2),
+    VALOR_DESCONTO numeric(15,2),
+    VALOR_ACRESCIMO numeric(15,2),
+    VALOR_TOTAL numeric(15,2),
+    CST varchar(3),
+    ALIQUOTA numeric(15,2),
+    CANCELADO integer,
+    COD_TOTALIZADOR varchar(7),
+    TAMANHO char(5),
+    COR char(5),
+    EXTRA blob sub_type 0 segment size 80,
+    complemento varchar(50))
+as
+begin
+  Insert into cupom_item_temp
+    (codigo, cod_cupom, item, cod_produto, unidade, qtde,
+     valor_unitario, valor_subtotal, valor_desconto, valor_acrescimo,
+     valor_total, cst, aliquota, cancelado, cod_totalizador, tamanho, cor,extra,complemento)
+  values
+    (:codigo, :cod_cupom, :item, :cod_produto, :unidade, :qtde,
+     :valor_unitario, :valor_subtotal, :valor_desconto, :valor_acrescimo,
+     :valor_total, :cst, :aliquota, :cancelado, :cod_totalizador,
+     :tamanho, :cor, :extra,:complemento);
+  suspend;
+
+end;
+
+

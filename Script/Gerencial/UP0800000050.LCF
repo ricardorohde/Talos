@@ -1,0 +1,38 @@
+CREATE VIEW vemitente (
+        ID,
+        RNTRC,
+        RAZAO_SOCIAL,
+        NOME_FANTASIA,
+        CNPJ_CPF,
+        INSCRICAO,
+        LOGRADOURO,
+        NUMERO,
+        COMPLEMENTO,
+        BAIRRO,
+        CEP,
+        TELEFONE,
+        MUNICIPIO,
+        COD_IBGE,
+        UF,
+        COD_PAIS
+
+) AS
+    SELECT
+        e.codigo AS ID,
+        e.rntrc AS RNTRC,
+        e.filial AS RAZAO_SOCIAL,
+        e.fantasia AS NOME_FANTASIA,
+        e.cnpj AS CNPJ_CPF,
+        e.ie AS INSCRICAO,
+        e.endereco AS LOGRADOURO,
+        e.numero AS NUMERO,
+        e.complemento AS COMPLEMENTO,
+        e.bairro AS BAIRRO,
+        e.cep AS CEP,
+        e.telefone AS TELEFONE,
+        e.cidade AS MUNICIPIO,
+        e.ibge AS COD_IBGE,
+        e.uf AS UF,
+        e.cod_pais AS COD_PAIS
+    FROM
+        c000004 e

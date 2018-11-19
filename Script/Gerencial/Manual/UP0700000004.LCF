@@ -1,0 +1,38 @@
+
+CREATE OR ALTER TRIGGER C000070_DEL FOR C000070
+ACTIVE AFTER DELETE POSITION 0
+AS
+ BEGIN
+  INSERT INTO c000058
+  (tiporegistro,movimento,codregistro,situacao,
+  c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+  (70,3, old.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+ END;
+
+
+CREATE OR ALTER TRIGGER C000070_INS FOR C000070
+ACTIVE AFTER INSERT POSITION 0
+AS
+ BEGIN
+  INSERT INTO c000058
+  (tiporegistro,movimento,codregistro,situacao,
+  c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+  (70,1, new.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+ END;
+
+
+CREATE OR ALTER TRIGGER C000070_UPD FOR C000070
+ACTIVE AFTER UPDATE POSITION 0
+AS
+ BEGIN
+  INSERT INTO c000058
+  (tiporegistro,movimento,codregistro,situacao,
+  c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+  (70,2, old.codigo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+ END;
+
+
+

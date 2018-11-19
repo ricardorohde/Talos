@@ -1,0 +1,45 @@
+alter table CUPOM_ITEM add complemento varchar(50);
+
+create or alter procedure ST_CUPOM_ITEM_INSERT (
+    CODIGO varchar(50),
+    COD_CUPOM varchar(50),
+    ITEM integer,
+    COD_PRODUTO integer,
+    UNIDADE varchar(10),
+    QTDE numeric(15,4),
+    VALOR_UNITARIO numeric(15,3),
+    VALOR_SUBTOTAL numeric(15,2),
+    VALOR_DESCONTO numeric(15,2),
+    VALOR_ACRESCIMO numeric(15,2),
+    VALOR_TOTAL numeric(15,2),
+    CST varchar(3),
+    ALIQUOTA numeric(15,2),
+    CANCELADO integer,
+    COD_TOTALIZADOR varchar(7),
+    TAMANHO char(5),
+    COR char(5),
+    CSOSN varchar(3),
+    CLASSIFICACAO_FISCAL varchar(20),
+    BASE_SUB numeric(15,2),
+    ICMS_SUB numeric(15,2),
+    ISENTAS_ICMS numeric(15,2),
+    OUTRAS_ICMS numeric(15,2),
+    CFOP varchar(4),
+    EXTRA blob sub_type 0 segment size 80,
+    complemento varchar(50))
+as
+begin
+  Insert into CUPOM_ITEM
+    (codigo, cod_cupom, item, cod_produto, unidade, qtde,
+     valor_unitario, valor_subtotal, valor_desconto, valor_acrescimo,
+     valor_total, cst, aliquota, cancelado, cod_totalizador, tamanho, cor,csosn,
+     classificacao_fiscal,BASE_SUB,ICMS_SUB,isentas_icms,outras_icms,cfop,extra,complemento)
+  values
+    (:codigo, :cod_cupom, :item, :cod_produto, :unidade, :qtde,
+     :valor_unitario, :valor_subtotal, :valor_desconto, :valor_acrescimo,
+     :valor_total, :cst, :aliquota, :cancelado, :cod_totalizador,
+     :tamanho, :cor,:csosn,:classificacao_fiscal,:BASE_SUB,:ICMS_SUB,:isentas_icms,
+     :outras_icms,:cfop,:extra,:complemento);
+  suspend;
+
+end;

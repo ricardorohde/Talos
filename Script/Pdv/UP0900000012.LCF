@@ -1,0 +1,9 @@
+alter table estoque add combo varchar(1) default 'N';
+update estoque set combo = 'N';
+
+create table estoque_combo (
+  produto varchar(6),
+  codigo varchar(6),
+  descricao varchar(80),
+  unidade varchar (3),
+  quantidade decimal(15,4));

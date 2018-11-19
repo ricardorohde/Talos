@@ -1,0 +1,18 @@
+create table nfe_manifestacao (
+  chave varchar(44),
+  cnpj varchar (25),
+  nome varchar(50),
+  ie varchar(14),
+  emissao date,
+  tipo varchar(1),
+  valor numeric(15,2),
+  situacao varchar(1),
+  nsu varchar(50),
+  dataevento date,
+  manifesto varchar(1),
+  protocolo varchar(50),
+  importada varchar(1),
+  caminho_xml varchar(200),
+  xml blob);
+  alter table c000001 add ultimaverificaoxml timestamp;
+

@@ -1,0 +1,21 @@
+create table entregador (
+  id integer not null, 
+  nome varchar(40),
+  celular varchar(16),
+  placa varchar(8));
+alter table entregador add constraint fk_entregador primary key (id);
+
+
+CREATE GENERATOR inc_entregador;
+SET GENERATOR inc_entregador TO 0;
+
+CREATE OR ALTER TRIGGER in_entregador FOR entregador
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_entregador,1);
+END;
+
+
+

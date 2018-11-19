@@ -1,0 +1,6 @@
+alter table C000008 add abrir_caixa varchar(1);
+alter table C000008 add fecha_caixa varchar(1);
+alter table C000008 add configuracoes varchar(1);
+alter table C000008 add cancelar_venda varchar(1);
+alter table C000008 add cancelar_item varchar(1);
+

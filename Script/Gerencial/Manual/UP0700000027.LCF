@@ -1,0 +1,2 @@
+alter table c000025 add nao_movimenta_estoque varchar(1);
+update c000025 set nao_movimenta_estoque = 'N';

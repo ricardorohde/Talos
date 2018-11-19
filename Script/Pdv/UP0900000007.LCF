@@ -1,0 +1,7 @@
+alter table SUPERVISOR add abrir_caixa varchar(1);
+alter table SUPERVISOR add fecha_caixa varchar(1);
+alter table SUPERVISOR add configuracoes varchar(1);
+alter table SUPERVISOR add cancelar_venda varchar(1);
+alter table SUPERVISOR add cancelar_item varchar(1);
+
+

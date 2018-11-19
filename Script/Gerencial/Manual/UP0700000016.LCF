@@ -1,0 +1,2 @@
+alter table c000001 add qtd_mesas_mobile integer;
+

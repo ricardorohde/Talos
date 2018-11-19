@@ -1,0 +1,22 @@
+
+CREATE TABLE quantidade_carga_cte (
+  ID integer not null,
+  IDCTE integer ,
+  UNIDADE varchar(2) ,
+  TIPO_MEDIDA varchar(20) ,
+  QTD_CARGA decimal(11,4));
+
+ALTER TABLE quantidade_carga_cte add constraint pk_quantidade_carga_cte primary key (ID);
+--ALTER TABLE quantidade_carga_cte add CONSTRAINT FK_IDUNIDADE_CTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+
+CREATE GENERATOR inc_quantidade_carga_cte;
+SET GENERATOR inc_quantidade_carga_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_quantidade_carga_cte FOR quantidade_carga_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_quantidade_carga_cte,1);
+END;

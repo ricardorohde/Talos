@@ -1,0 +1,26 @@
+CREATE TABLE carta_correcao_cte (
+  ID integer not null,
+  IDCTE integer,
+  CHAVE_CTE varchar(45) ,
+  GRUPO_ALTERADO varchar(45) ,
+  CAMPO_ALTERADO varchar(45) ,
+  VALOR_ALTERADO varchar(45) ,
+  DATA_HORA timestamp,
+  PROTOCOLO varchar(45) ,
+  STATUS varchar(80) ,
+  SEQUENCIA integer
+);
+
+alter table carta_correcao_cte add constraint PK_carta_correcao_cte PRIMARY KEY (ID);
+--alter table carta_correcao_cte add CONSTRAINT FK_IDCTE FOREIGN KEY (IDCTE) REFERENCES cabecalho_cte (ID);
+
+CREATE GENERATOR inc_carta_correcao_cte;
+SET GENERATOR inc_carta_correcao_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_carta_correcao_cte FOR carta_correcao_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_carta_correcao_cte,1);
+END;

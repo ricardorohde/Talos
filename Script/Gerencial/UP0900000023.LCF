@@ -1,0 +1,42 @@
+create or alter procedure SINTEGRA74 (
+    DATAHORA_INI date)
+returns (
+    DATA date,
+    CODIGO varchar(14),
+    QUANTIDADE double precision,
+    VALORPRODUTO double precision,
+    CODIGOPOSSE varchar(1),
+    CNPJPOSSUIDOR varchar(14),
+    INSCRICAOPOSSUIDOR varchar(14),
+    UFPOSSUIDOR varchar(2))
+as
+BEGIN
+  FOR SELECT
+    I.DATA,
+    I.CODPRODUTO,
+    I.ESTOQUE,
+    I.CUSTO,
+    '1',
+    '00000000000000',
+    '',
+    NULL
+  FROM INVENTARIO I
+  WHERE
+    (I.DATA_POSTERIOR = :DATAHORA_INI)
+  ORDER BY
+    I.CODPRODUTO
+  INTO
+    :DATA              ,
+    :CODIGO            ,
+    :QUANTIDADE        ,
+    :VALORPRODUTO      ,
+    :CODIGOPOSSE       ,
+    :CNPJPOSSUIDOR     ,
+    :INSCRICAOPOSSUIDOR,
+    :UFPOSSUIDOR
+  DO
+  BEGIN
+    SELECT FIRST 1 UF FROM C000004 INTO :UFPOSSUIDOR;
+    SUSPEND;
+  END
+END

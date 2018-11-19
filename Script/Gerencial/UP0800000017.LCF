@@ -1,0 +1,85 @@
+CREATE TABLE cabecalho_cte (
+  ID integer not null,
+  CUF varchar(2),
+  NUMERO integer ,
+  IDCFOP RDB$1003,
+  GLOBALIZADO integer,
+  MODELO integer ,
+  SERIE integer ,
+  DATA_HORA_EMISSAO timestamp,
+  DATA_CTE date ,
+  TIPO_IMPRESSAO integer ,
+  FORMA_EMISSAO integer ,
+  TIPO_CTE integer ,
+  CHAVE_REFERENCIADA varchar(44) ,
+  TIPO_MODAL integer ,
+  TIPO_SERVICO integer ,
+  IDMUNICIPIOINICIO RDB$375,
+  IDMUNICIPIOFIM RDB$375,
+  RETIRA integer ,
+  OBS_RETIRA blob,
+  VALOR_PRESTACAO decimal(13,2) ,
+  VALOR_RECEBER decimal(13,2) ,
+  VALOR_TRIBUTO decimal(13,2) ,
+  CHAVE_CTE varchar(44) ,
+  PROTOCOLO varchar(45) ,
+  RECIBO varchar(45) ,
+  SITUACAO_TRIBUTARIA integer ,
+  PROD_PRED varchar(80) ,
+  PRED_CARACTERISTICAS varchar(80) ,
+  RNTRC varchar(8) ,
+  VALOR_PRODUTOS decimal(13,2) ,
+  IDREMETENTE RDB$382,
+  IDDESTINATARIO RDB$382,
+  OBSERVACAO blob,
+  TOMADOR integer ,
+  PICMS decimal(13,2) ,
+  VBC decimal(13,2) ,
+  VICMS decimal(13,2) ,
+  PREDBC decimal(13,2) ,
+  VBCSTRET decimal(13,2) ,
+  PICMSSTRET decimal(13,2) ,
+  VICMSSTRET decimal(13,2) ,
+  VCRED decimal(13,2) ,
+  ALIQNBS decimal(13,2) ,
+  STATUS integer ,
+  CANCELADA integer ,
+  CHAVE_COMPLEMENTAR varchar(45) ,
+  SELECIONADO integer ,
+  MOTIVO_CONTIGENCIA blob,
+  IDRECEBEDOR RDB$382,
+  IDTOMADOR RDB$382,
+  IDEXPEDIDOR RDB$382,
+  TIPO_TOMADOR integer,
+  vBCUFDest decimal(15,2) ,
+  pFCPUFDest decimal(5,2) ,
+  pICMSUFDest decimal(5,2) ,
+  pICMSInter decimal(5,2) ,
+  pICMSInterPart decimal(5,2) ,
+  vFCPUFDest decimal(15,2) ,
+  vICMSUFDest decimal(15,2) ,
+  vICMSUFRemet decimal(15,2) ,
+  partilhaIcms integer ,
+  ENVIO_EMAIL integer );
+
+ALTER TABLE cabecalho_cte add constraint pk_cabecalho_cte primary key (ID);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_CTE_FIM FOREIGN KEY (IDMUNICIPIOFIM) REFERENCES c000006 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_CTE_IDCFOP FOREIGN KEY (IDCFOP) REFERENCES c000030 (cfop);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_CTE_IDDESTINATARIO FOREIGN KEY (IDDESTINATARIO) REFERENCES c000007 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_CTE_IDREMETENTE FOREIGN KEY (IDREMETENTE) REFERENCES c000007 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_CTE_INICIO FOREIGN KEY (IDMUNICIPIOINICIO) REFERENCES c000006 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_IDEXPEDIDOR_CTE FOREIGN KEY (IDEXPEDIDOR) REFERENCES c000007 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_IDRECEBEDOR_CTE FOREIGN KEY (IDRECEBEDOR) REFERENCES c000007 (codigo);
+--ALTER TABLE cabecalho_cte add CONSTRAINT FK_IDTOMADOR_CTE FOREIGN KEY (IDTOMADOR) REFERENCES c000007 (codigo);
+
+CREATE GENERATOR inc_cabecalho_cte;
+SET GENERATOR inc_cabecalho_cte TO 0;
+
+CREATE OR ALTER TRIGGER in_cabecalho_cte FOR cabecalho_cte
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_cabecalho_cte,1);
+END;
+	

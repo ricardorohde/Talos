@@ -1,0 +1,4 @@
+update RDB$FIELDS set
+RDB$FIELD_SCALE = -4
+where RDB$FIELD_NAME = 'RDB$966'
+

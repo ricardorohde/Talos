@@ -1,0 +1,21 @@
+CREATE OR ALTER procedure ST_BAIXACOMPOSICAO (
+    COD_PRODUTO varchar(10),
+    QTDE double precision)
+as
+declare variable CODPROD varchar(10);
+declare variable QTDPROD float;
+begin
+  for select comp.codproduto, comp.qtde from c000027 comp where comp.produto = :cod_produto
+    into :codprod, :qtdprod
+  DO begin
+    if ((select count(*) from c000100 est where est.codproduto = :codprod) > 0) then begin
+       update c000100
+         set saidas = saidas + (:qtde * :qtdprod),
+         estoque_atual = estoque_inicial + entradas - saidas  - (:qtde * :qtdprod),
+         ultima_saida = current_timestamp
+       where codproduto = :codprod;
+       execute procedure st_baixacomposicao(:codprod, (:qtde * :qtdprod));
+    end
+  end
+  suspend;
+end

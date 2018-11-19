@@ -1,0 +1,17 @@
+alter table c000057 drop xped;
+alter table c000057 add xped varchar(15);
+
+alter table cl00001 drop xped;
+alter table cl00001 add xped varchar(15);
+
+alter table c000032 drop xped;
+alter table c000032 add xped varchar(15);
+
+alter table c000062 drop xped;
+alter table c000062 add xped varchar(15);
+
+
+
+
+
+

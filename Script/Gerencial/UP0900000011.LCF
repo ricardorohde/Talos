@@ -1,0 +1,2 @@
+alter table c000001 add ativa_cad_produto_simples varchar(1);
+

@@ -1,0 +1,19 @@
+CREATE TABLE local_carregamento_mdfe (
+  ID integer not null,
+  IDMDFE integer ,
+  IDMUNICIPIO RDB$375);
+
+ALTER TABLE local_carregamento_mdfe add constraint pk_local_carregamento_mdfe primary key (ID);
+--ALTER TABLE local_carregamento_mdfe add CONSTRAINT FK_IDMDFE_LCARREGAMENTO FOREIGN KEY (IDMDFE) REFERENCES cabecalho_mdfe (ID);
+--ALTER TABLE local_carregamento_mdfe add CONSTRAINT FK_IDMUNICIPIO_LCARREGAMENTO FOREIGN KEY (IDMUNICIPIO) REFERENCES c000006 (codigo);
+
+CREATE GENERATOR inc_local_carregamento_mdfe;
+SET GENERATOR inc_local_carregamento_mdfe TO 0;
+
+CREATE OR ALTER TRIGGER in_local_carregamento_mdfe FOR local_carregamento_mdfe
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_local_carregamento_mdfe,1);
+END;

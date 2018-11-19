@@ -1,0 +1,6 @@
+alter table c000048 add gerou_sat varchar(1) default 'N';
+alter table c000048 add numero_sat integer default 0;
+
+update c000048 set
+  gerou_sat = 'N',
+  numero_sat = 0;

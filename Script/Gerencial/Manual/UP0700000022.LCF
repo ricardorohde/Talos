@@ -1,0 +1,20 @@
+create table tipo_servico(
+  id integer not null,
+  codigo varchar(5),
+  descricao blob);
+alter table tipo_servico add constraint pk_tipo_servico primary key (id);
+
+CREATE GENERATOR INC_TIPO_SERVICO;
+SET GENERATOR INC_TIPO_SERVICO TO 0;
+
+CREATE OR ALTER TRIGGER in_tipo_servico FOR tipo_servico
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_TIPO_SERVICO,1);
+END;
+
+alter table c000025 add id_tipo_servico integer;
+alter table c000025 add constraint fk_tipo_servico foreign key (id_tipo_servico) references tipo_servico (id);
+

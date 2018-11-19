@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/09/03 09:48:47.000.409,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Boletos\Unit1.pas</Transaction>
+    <Transaction>2017/09/03 09:49:05.000.616,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Boletos\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Boletos\form\BaixaAutomatica.dfm</Transaction>
+    <Transaction>2017/09/03 09:49:05.000.616,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Boletos\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Boletos\form\BaixaAutomatica.pas</Transaction>
+  </Transactions>
+</BorlandProject>

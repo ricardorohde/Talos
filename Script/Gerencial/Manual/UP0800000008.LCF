@@ -1,0 +1,63 @@
+create table tabela_preco(
+  id integer not null,
+  cod_produto varchar(6),
+  tipo_tabela varchar(1),
+  quantidade_inicial numeric(15,2),
+  quantidade_final numeric(15,2),
+  valor_venda numeric(15,2),
+  validade_inicio date,
+  validade_fim date);
+
+alter table tabela_preco add constraint pk_tabela_preco primary key (id);
+
+create generator inc_tabela_preco;
+set generator inc_tabela_preco to 0;
+
+create or alter trigger in_tabela_preco for tabela_preco
+active before insert position 0
+as
+begin
+  if (new.id is null) then
+    new.id = gen_id(inc_tabela_preco,1);
+end;
+
+
+CREATE OR ALTER TRIGGER a_tabela_preco_ins FOR tabela_preco
+ACTIVE AFTER INSERT POSITION 0
+AS
+BEGIN
+  INSERT INTO c000058
+    (tiporegistro,movimento,codregistro,situacao,c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+    (18,1,new.id,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+END;
+
+
+CREATE OR ALTER TRIGGER A_tabela_preco_upd FOR tabela_preco
+ACTIVE AFTER UPDATE POSITION 0
+AS
+BEGIN
+  INSERT INTO c000058
+    (tiporegistro,movimento,codregistro,situacao,
+      c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+    values
+      (18,2,old.id,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+END;
+
+CREATE OR ALTER TRIGGER a_tabela_preco_del FOR tabela_preco
+ACTIVE AFTER DELETE POSITION 0
+AS
+BEGIN
+  INSERT INTO c000058
+    (tiporegistro,movimento,codregistro,situacao,c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,data,codigo)
+  values
+    (18,3,old.id,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,current_timestamp,null);
+END;
+
+
+
+
+
+
+
+

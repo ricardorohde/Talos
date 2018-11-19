@@ -1,0 +1,7 @@
+alter table c000004 add AIDF varchar(20);
+alter table c000004 add NINICIAL varchar(20);
+alter table c000004 add NFINAL varchar(20);
+alter table c000004 add N_NF_D varchar(20);
+alter table c000004 add VALIDADE varchar(20);
+
+

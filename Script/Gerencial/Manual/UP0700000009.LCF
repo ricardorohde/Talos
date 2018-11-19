@@ -1,0 +1,38 @@
+create table extras (
+  id integer not null, 
+  descricao varchar(30),
+  valor numeric(15,2));
+alter table extras add constraint fk_extras primary key (id);
+
+CREATE GENERATOR INC_EXT;
+SET GENERATOR INC_EXT TO 0;
+
+CREATE OR ALTER TRIGGER in_extras FOR extras
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_EXT,1);
+END;
+
+
+create table extra_produtos (
+  id integer not null, 
+  cod_prod varchar(6),
+  id_extra integer, 
+  valor numeric(15,2));
+alter table extra_produtos add constraint pk_extra_produtos primary key (id);
+alter table extra_produtos add constraint fk_extra foreign key (id_extra) references extras (id);
+
+
+CREATE GENERATOR INC_EXT_PRO;
+SET GENERATOR INC_EXT_PRO TO 0;
+
+CREATE OR ALTER TRIGGER in_extra_produtos FOR extra_produtos
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(INC_EXT_PRO,1);
+END;
+

@@ -1,0 +1,25 @@
+CREATE TABLE cte_docoriginario (
+  ID integer not null,
+  IDEMISSOR integer ,
+  MODELO_DOC integer ,
+  TIPO_DOC integer ,
+  SERIE varchar(3) ,
+  SUB_SERIE varchar(2) ,
+  NDOC varchar(30) ,
+  DATA_EMISSAO date ,
+  CHCTE varchar(45));
+
+ALTER TABLE cte_docoriginario add constraint pk_cte_docoriginario primary key (ID);
+--ALTER TABLE cte_docoriginario add CONSTRAINT FK_IDEMISSOR FOREIGN KEY (IDEMISSOR) REFERENCES emissor_docant (ID);
+
+
+CREATE GENERATOR inc_cte_docoriginario;
+SET GENERATOR inc_cte_docoriginario TO 0;
+
+CREATE OR ALTER TRIGGER in_cte_docoriginario FOR cte_docoriginario
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  IF (NEW.id IS NULL) THEN
+    NEW.id = GEN_ID(inc_cte_docoriginario,1);
+END;
