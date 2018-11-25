@@ -12,6 +12,9 @@ https://prezi.com/view/1zC78loOcTA51AxaQ1dC/
 ### Bugs ou Sugestões de Funcionalidades? Utilize o "issues" acima para submeter as informações. ###
 Basta clicar no issues, new issue e selecionar qual tipo de informação você deseja enviar.
 
+### ID do Sistema ###
+A ID do sistema mudou. Agora é 291304
+
 **Sistema Talos 1.0 - 
 Módulos do Sistema:**
 
