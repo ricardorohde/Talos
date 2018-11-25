@@ -1427,7 +1427,7 @@ object frmVenda: TfrmVenda
           02BDFA9959ED6306174FF9AED7EE64DEC1F283D82F0106008690EEE7FB647FE2
           0000000049454E44AE426082}
         TabOrder = 5
-        Version = '1.1.1.0'
+        Version = '1.1.2.0'
         OnClick = AdvMetroButton2Click
       end
       object AdvMetroButton1: TAdvMetroButton
@@ -1506,7 +1506,7 @@ object frmVenda: TfrmVenda
           6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
           65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
         TabOrder = 6
-        Version = '1.1.1.0'
+        Version = '1.1.2.0'
         OnClick = AdvMetroButton1Click
       end
       object cpBarra: TdxStatusBar
@@ -1968,7 +1968,7 @@ object frmVenda: TfrmVenda
             PanelStyle.Font.Style = [fsBold]
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
-            Text = 'F5 - Cancelar Item'
+            Text = 'F5 - Cacnelar Item'
             Width = 110
           end
           item
@@ -4239,7 +4239,7 @@ object frmVenda: TfrmVenda
   end
   object pop_principal: TAdvPopupMenu
     MenuStyler = frmModulo.estilo_menu
-    Version = '2.6.1.0'
+    Version = '2.6.1.1'
     Left = 560
     Top = 243
     object Opes1: TMenuItem
@@ -4617,7 +4617,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C010102000500080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF
@@ -4763,7 +4763,7 @@ object frmVenda: TfrmVenda
   end
   object frComprovanteDebito: TfrxReport
     Tag = 1
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -5351,7 +5351,7 @@ object frmVenda: TfrmVenda
   end
   object RelCupomNF: TfrxReport
     Tag = 1
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -6854,7 +6854,7 @@ object frmVenda: TfrmVenda
   end
   object RelCupomNFRestaurante: TfrxReport
     Tag = 1
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -8035,7 +8035,7 @@ object frmVenda: TfrmVenda
     end
   end
   object frComanda: TfrxReport
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -8511,7 +8511,7 @@ object frmVenda: TfrmVenda
   end
   object RelFicha: TfrxReport
     Tag = 1
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
