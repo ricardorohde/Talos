@@ -188,7 +188,6 @@ object frmModulo: TfrmModulo
     Database = 'C:\TALOS\PDV\BD\NFCE_DATPDV.FDB'
     Username = 'sysdba'
     Server = 'localhost'
-    Connected = True
     LoginPrompt = False
     Left = 48
     Top = 24
@@ -3654,7 +3653,6 @@ object frmModulo: TfrmModulo
   end
   object query: TUniQuery
     Connection = conexao
-    Debug = True
     Left = 424
     Top = 136
   end
@@ -5207,7 +5205,6 @@ object frmModulo: TfrmModulo
     IncorporarBackgroundPdf = True
     IncorporarFontesPdf = True
     ImprimirDadosDocReferenciados = True
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
     Left = 441
     Top = 477
   end
