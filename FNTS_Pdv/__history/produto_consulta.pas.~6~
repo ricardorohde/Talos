@@ -104,7 +104,6 @@ begin
     end;
 
     ed_barra.SetFocus();
-    ed_barra.SelStart:= Length(ed_barra.Text);
 
   //end;
 end;

@@ -51,7 +51,6 @@ object frmProduto_consulta: TfrmProduto_consulta
         Color = 6960384
         ParentBackground = False
         TabOrder = 0
-        OnClick = pnFundoClick
         object img_cliente: TAdvOfficeImage
           Left = 933
           Top = 129
@@ -237,6 +236,7 @@ object frmProduto_consulta: TfrmProduto_consulta
           ParentFont = False
           TabOrder = 0
           OnEnter = ed_barraEnter
+          OnKeyPress = ed_barraKeyPress
           OnKeyUp = ed_barraKeyUp
         end
         object grid: TNextGrid

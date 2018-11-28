@@ -44,6 +44,7 @@ type
     Panel9: TPanel;
     Panel10: TPanel;
     procedure ed_barraEnter(Sender: TObject);
+    procedure ed_barraKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -51,8 +52,6 @@ type
     procedure Estoque1Click(Sender: TObject);
     procedure LocalizarProduto(referencia: string);
     procedure PreencherGrid;
-    procedure ed_barraKeyUp(Sender: TObject; var Key: Char; Shift: TShiftState);
-    procedure pnFundoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,11 +74,13 @@ begin
 end;
 
 // -------------------------------------------------------------------------- //
-procedure TfrmProduto_consulta.ed_barraKeyUp(Sender: TObject; var Key: Char; Shift: TShiftState);
+procedure TfrmProduto_consulta.ed_barraKeyPress(Sender: TObject;
+  var Key: Char);
 begin
- //if key = #13 then
+  //if key = #13 then
   //begin
     //Key := #0;
+
     if ed_barra.Text <> '' then
     begin
 //      if bVenda then
@@ -104,7 +105,6 @@ begin
     end;
 
     ed_barra.SetFocus();
-    ed_barra.SelStart:= Length(ed_barra.Text);
 
   //end;
 end;
@@ -278,11 +278,6 @@ begin
       //ed_barra.SelectAll;
     end;
   end
-end;
-
-procedure TfrmProduto_consulta.pnFundoClick(Sender: TObject);
-begin
-
 end;
 
 // -------------------------------------------------------------------------- //

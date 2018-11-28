@@ -1,0 +1,312 @@
+BDE/IBX/ADO/ODAC/SDAC/MyDAC/IBDAC/PgDAC/LiteDAC/AnyDAC/FireDAC/FIBPlus Migration Wizard log
+
+Created at: 25/11/2018 20:48:42
+
+Initializing unit list
+
+Creating backup folder
+
+Allocating temporary folder
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\caixa_abertura.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\caixa_fechamento.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\cliente_consulta.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Comanda.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Config.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\config_balanca.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Constantes.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\consulta_estoque.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\consumidor.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\contasreceber.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\contasreceber_banco.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\contasreceber_boleto_achado.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\contasreceber_pgto.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\cupom_impressao.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\CuponsSAT.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\dllcompanytec.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\extenso1.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Extra.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\fabricacao.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\FechamentoCego.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\frmNatOperacao.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\frmNFCEs.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\funcoes.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Identifica.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\impDelivery.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\justificativa.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns\JustificativaInutilizacaoNFCe.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Lista_Vendas_Periodo.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\loc_cfop.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\s7\loc_contacorrent.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\loc_filial.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns\LoginWindow_U.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\MD5.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\mensagem.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\MensagemAdicional.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\menu_cupom.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\mesas.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\modulo.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\MontaPizza.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\msg_Operador.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\notafiscal.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\NotaFiscal_Item_grade.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\NotaFiscal_Item_Serial.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\notafiscal_item2.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\notafiscal_menu.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Orcamento.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Orcamento_Abrir.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Orcamento_Item.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\os.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Parcelas.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\pre_venda.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\preco_consulta.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\prevenda_conciliar.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\principal.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\produto_consulta.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\produto_consulta_normal.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\protetor_tela.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Receber_Valor.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\Recebimento.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\ResultadoWebService.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\sangria.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns PDV\senha.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\statusNFCE.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\suprimento.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\tabela_indice.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\tabela_preco.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns\Thread.CheckConnection.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\uBandeira.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\UFuncoes.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\UImpressao.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Sintegra\Validacao_Sintegra\Unit_Validacao_Sintegra.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Sintegra\unSintegra.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns PDV\UtiSplash.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Sintegra\Validacao_CFOP\Valida_CFOP.pas
+
+No changes
+
+Processing file: C:\Users\empresa\Documents\GitHub\Talos\FNTS_Sintegra\Validacao_NCM\Valida_NCM.pas
+
