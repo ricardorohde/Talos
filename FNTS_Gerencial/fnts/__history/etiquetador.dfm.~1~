@@ -1255,7 +1255,7 @@ object frmetiquetador: Tfrmetiquetador
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 12
     ShowExpander = False
@@ -1353,7 +1353,7 @@ object frmetiquetador: Tfrmetiquetador
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -1479,10 +1479,6 @@ object frmetiquetador: Tfrmetiquetador
       FieldName = 'GRADE'
       Size = 25
     end
-    object qretiqUNIDADE: TWideStringField
-      FieldName = 'UNIDADE'
-      Size = 2
-    end
   end
   object PopupMenu1: TPopupMenu
     Left = 413
@@ -1516,7 +1512,7 @@ object frmetiquetador: Tfrmetiquetador
     Top = 189
   end
   object fxproduto: TfrxReport
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]

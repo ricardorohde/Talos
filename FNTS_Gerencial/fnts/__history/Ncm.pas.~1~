@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus,
   Grids, Wwdbigrd, Wwdbgrid, StdCtrls, Wwkeycb, AdvGlowButton, ExtCtrls,
-  RzPanel, Vcl.Mask, vcl.Wwdbedit, vcl.Wwdotdot, vcl.Wwdbcomb;
+  RzPanel;
 
 type
   TfrmNcm = class(TForm)
@@ -24,8 +24,6 @@ type
     qrNcmNCM: TWideStringField;
     qrNcmDESCRICAO: TWideStringField;
     qrNcmUNIDADE: TWideStringField;
-    lbl2: TLabel;
-    wwDBComboBox1: TwwDBComboBox;
     procedure bretornarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Retornar1Click(Sender: TObject);
@@ -38,7 +36,6 @@ type
     procedure LOCKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure LOCExit(Sender: TObject);
-    procedure LOCChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,14 +86,6 @@ procedure TfrmNcm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   if voltar then loc.setfocus else
     close;
-end;
-
-procedure TfrmNcm.LOCChange(Sender: TObject);
-begin
-         LOC.FindValue();
-
-
-
 end;
 
 procedure TfrmNcm.LOCEnter(Sender: TObject);
