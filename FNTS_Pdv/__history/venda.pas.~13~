@@ -23,7 +23,20 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, AdvSmoothTouchKeyBoard, Recebimento, cxButtonEdit, Vcl.Touch.GestureMgr,
   cxContainer, cxLabel, frxDesgn, ACBrSAT, ACBrBase, ACBrSATExtratoClass,
-  ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr, cxMemo, MontaPizza;
+  ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr, cxMemo, MontaPizza,
+  dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel,
+  dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -303,7 +316,8 @@ type
     qrLancaProdutosQTDE: TFloatField;
     cdsLancaProdutosCOD_ITEM: TStringField;
     qrANP: TUniQuery;
-    StringField1: TStringField;
+    qrANPCODIGO: TStringField;
+    qrANPDESCRICAO: TStringField;
     procedure Cancela_cupom_aberto();
     procedure Cancela_Item(sItem: string; Acao: string);
     procedure Registra_Item();
@@ -408,6 +422,7 @@ type
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
   public
     { Public declarations }
+    ItemCancelamento: string;
     procedure CorEditTotaL;
     function Localizar_Produto(referencia: string): Boolean;
     procedure EnviaContingencia;
@@ -417,6 +432,7 @@ type
     procedure ConfiguraSAT;
     function EnviaSAT(Cupom: string): Boolean;
     procedure PrepararImpressao;
+
   end;
 
 const
@@ -508,7 +524,7 @@ uses
   protetor_tela, consumidor, venda_crediario, Identifica, caixa_fechamento,
   sangria, suprimento, senha, menu_cupom, pre_venda, msg_Operador,
   Orcamento_Abrir, IniFiles, contasreceber, os, caixa_abertura, mesas,
-  fabricacao, senha_supervisor, ComObj, Constantes, Vendedor, UFuncoes, Comanda,
+  fabricacao, senha_supervisor, item_cancelamento, ComObj, Constantes, Vendedor, UFuncoes, Comanda,
   MensagemAdicional, impDelivery, frmNFCEs, Vcl.Printers, FechamentoCego,
   ACBrSATClass, CuponsSAT;
 
@@ -2157,6 +2173,8 @@ end;
 // -------------------------------------------------------------------------- //
 
 procedure TfrmVenda.CancelarItem1Click(Sender: TObject);
+var
+ItemCancelamento: string;
 begin
   if bVenda then begin
     if iTotal_Itens > 0 then begin
@@ -2167,6 +2185,12 @@ begin
         if not bSupervisor_autenticado then
           Exit;
       end;
+      frmItem_Cancelamento := TfrmItem_Cancelamento.Create(self);
+
+      frmItem_Cancelamento.ShowModal;
+
+
+
       if btnCancelaItem.Caption = 'Descancelar Item' then
         Cancela_Item(Zerar(frmModulo.qrItensITEM.AsString, 3), 'D')
       else
@@ -2438,6 +2462,10 @@ begin
                   NomeArquivo := NomeArquivo + '\NFCe';
                 NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
 
+
+
+
+
                 qrNFCEInsert.Open;
                 qrNFCEInsert.Insert;
                 qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
@@ -2460,7 +2488,10 @@ begin
                   qrNFCEInsertMOTIVOCONTIGENCIA.AsString := '';
                 end;
                 qrNFCEInsertENVIADOCONTINGENCIA.AsString := 'N';
+
                 qrNFCEInsertXMLENVIO.LoadFromFile(NomeArquivo);
+
+
                 qrNFCEInsertEX.AsInteger := 0;
 
                 qrNFCEInsertALTERADO.AsString := 'N';
@@ -3262,8 +3293,14 @@ begin
               Prod.vOutro := qrItensVALOR_ACRESCIMO.asfloat; // RoundTo((Prod.vProd / (rTotal_Venda - rTotal_Acrescimo)) * rTotal_Acrescimo, -2);
               Prod.vDesc := qrItensVALOR_DESCONTO.asfloat; // RoundTo(Prod.vDesc + ((Prod.vProd / rTotal_Venda) * rTotal_Desconto), -2);
               if trim(qrProdNCFE.FieldByName('CODIGO_ANP').AsString) <> '' then begin
-                Prod.comb.cProdANP := qrProdNCFE.FieldByName('CODIGO_ANP').AsInteger;
-                Prod.comb.UFcons := Dest.EnderDest.UF;
+                qrANP.close;
+                qrANP.Params.Items[0].Value := qrProdNCFE.FieldByName('CODIGO_ANP').AsString;
+                qrANP.Open;
+                if not qrANP.IsEmpty then begin
+                  Prod.comb.cProdANP := qrProdNCFE.FieldByName('CODIGO_ANP').AsInteger;
+                  Prod.comb.descANP := qrANPDESCRICAO.AsString;
+                  Prod.comb.UFcons := Dest.EnderDest.UF;
+                end;
               end;
 
               QRCSOSN.close;
@@ -3706,6 +3743,8 @@ begin
       GerarNFCe(vAux);
 
       Imprime_display('AGUARDE...  ASSINANDO NFC-E', clWhite, tiLivre);
+      //resolve o bug de não salvar o XML quando está desmarcada algumas opções no configurações
+      ACBRNFCe.Configuracoes.Arquivos.Salvar := True;
       ACBRNFCe.NotasFiscais.Assinar;
 
       Imprime_display('AGUARDE...  VALIDANDO NFC-E', clWhite, tiLivre);

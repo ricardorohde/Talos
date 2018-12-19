@@ -92,8 +92,7 @@ uses
   JustificativaInutilizacaoNFCe in '..\FNTS_Comuns\JustificativaInutilizacaoNFCe.pas' {frmJustificativaInutilizacaoNFCe},
   FechamentoCego in 'FechamentoCego.pas' {frmFechamentoCego},
   CuponsSAT in 'CuponsSAT.pas' {frmCuponsSAT},
-  MontaPizza in 'MontaPizza.pas' {frmMontaPizza},
-  item_cancelamento in 'item_cancelamento.pas' {frmItem_Cancelamento};
+  MontaPizza in 'MontaPizza.pas' {frmMontaPizza};
 
 var
   Hand : THandle;

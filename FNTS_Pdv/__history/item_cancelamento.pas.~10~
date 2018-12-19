@@ -1,0 +1,103 @@
+unit item_cancelamento;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, RzEdit, AdvOfficeImage, ExtCtrls,
+  pngimage, JvGIF, Vcl.Touch.Keyboard, AdvSmoothTouchKeyBoard;
+
+type
+  TfrmItem_Cancelamento = class(TForm)
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel1: TPanel;
+    ed_item: TRzEdit;
+    Label1: TLabel;
+    AdvOfficeImage3: TAdvOfficeImage;
+    Teclado: TAdvSmoothTouchKeyBoard;
+    procedure ed_itemKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+    procedure ed_itemEnter(Sender: TObject);
+    procedure ed_itemExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    ValidaDesconto, AbrirCaixa, FechaCaixa, Configuracoes, CancelarVenda, CancelarItem :Boolean;
+
+  end;
+
+var
+  frmItem_Cancelamento: TfrmItem_Cancelamento;
+
+implementation
+
+uses principal, funcoes, venda;
+
+{$R *.dfm}
+
+procedure TfrmItem_Cancelamento.ed_itemKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then begin
+   bSair_campo := true;
+      close;
+
+  end else begin
+    if key = #27 then begin
+      // aborta o cancelamento do item
+      bSair_campo := true;
+      close;
+    end;
+  end;
+end;
+
+procedure TfrmItem_Cancelamento.FormCreate(Sender: TObject);
+begin
+
+  CancelarItem := False;
+
+  if AtivaTouch then begin
+    if not ExibeTecladoVirtual then begin
+      Teclado.Visible := False;
+      ClientHeight := 173;
+      ClientWidth := 342;
+    end else
+      Teclado.Visible := True;
+  end else begin
+    Teclado.Visible := False;
+    ClientHeight := 173;
+    ClientWidth := 342;
+  end;
+
+end;
+
+procedure TfrmItem_Cancelamento.FormShow(Sender: TObject);
+begin
+  bsupervisor_autenticado := false;
+  Update;
+end;
+
+procedure TfrmItem_Cancelamento.ed_itemEnter(Sender: TObject);
+begin
+  PopupMenu := nil;
+  // controlar a saida do edit de cancelamento de item
+  bSair_campo := false;
+end;
+
+procedure TfrmItem_Cancelamento.ed_itemExit(Sender: TObject);
+begin
+  // nao permitir a saida do campo clicando com o mouse em outro lugar
+  // ou pressionando tab
+  if not bsair_campo then ed_item.setfocus;
+end;
+
+
+function SetaCancelamento(qrItensItem: Integer)
+begin
+return qrItensITEM := ed_item.text;
+end;
+
+end.

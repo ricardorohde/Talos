@@ -339,6 +339,10 @@
             <Form>frmMontaPizza</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="item_cancelamento.pas">
+            <Form>frmItem_Cancelamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

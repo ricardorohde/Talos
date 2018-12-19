@@ -139,7 +139,7 @@ type
     QRPRODUTOREFERENCIA: TWideStringField;
     QRPRODUTOCOMPOSICAO1: TWideStringField;
     QRPRODUTOCOMPOSICAO2: TWideStringField;
-    qretiqUNIDADE: TWideStringField;
+    qretiqUNIDADE: TStringField;
     procedure FormShow(Sender: TObject);
     procedure bfecharClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

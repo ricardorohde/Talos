@@ -2,7 +2,7 @@ object frmPrincipal: TfrmPrincipal
   Left = 403
   Top = 97
   BorderStyle = bsNone
-  Caption = 'TALOS - Ponto de Vendas | Versão: '
+  Caption = 'TALOS 1.0.0.0 - Ponto de Vendas'
   ClientHeight = 894
   ClientWidth = 1391
   Color = clOlive
@@ -5703,7 +5703,7 @@ object frmPrincipal: TfrmPrincipal
     SimplePanel = False
     Visible = False
     OnClick = pstatusClick
-    Version = '1.6.1.1'
+    Version = '1.6.1.5'
   end
   object AdvSmoothExpanderPanel1: TAdvSmoothExpanderPanel
     Left = 0
@@ -5734,7 +5734,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 10
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 1
     ShowExpander = False
@@ -5749,7 +5749,7 @@ object frmPrincipal: TfrmPrincipal
       Width = 1230
       Height = 32
       AutoSize = False
-      Caption = 'TALOS 1.0.1.0 - Ponto de Vendas'
+      Caption = 'TALOS 1.0.0.0 - Ponto de Vendas'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27
@@ -5830,7 +5830,7 @@ object frmPrincipal: TfrmPrincipal
         02BDFA9959ED6306174FF9AED7EE64DEC1F283D82F0106008690EEE7FB647FE2
         0000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
     object AdvMetroButton2: TAdvMetroButton
@@ -5909,7 +5909,7 @@ object frmPrincipal: TfrmPrincipal
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 1
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton2Click
     end
   end
@@ -5946,7 +5946,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     TabOrder = 2
     ShowExpander = False
     ExpanderColor = 16445929
@@ -5957,9 +5957,9 @@ object frmPrincipal: TfrmPrincipal
     object Label1: TLabel
       Left = 22
       Top = 16
-      Width = 114
+      Width = 172
       Height = 19
-      Caption = 'TALOS 1.0.1.0'
+      Caption = 'TALOS 1.0.0.0'
       Color = clWhite
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -6003,7 +6003,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     TabOrder = 3
     ShowExpander = False
     ExpanderColor = 16445929
@@ -6113,7 +6113,7 @@ object frmPrincipal: TfrmPrincipal
       AFF0BF30B95911FB1985A292DDA4705B7B9BDB8E649244FDBF39D52B921FF94F
       800100863F1D025DE7B3A60000000049454E44AE426082}
     TabOrder = 4
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     TMSStyle = 23
   end
   object AdvSmoothButton6: TAdvSmoothButton
@@ -6196,7 +6196,7 @@ object frmPrincipal: TfrmPrincipal
       7227B4E03AF6D8CCFF7C601116611116619104EA578001002012607728684BD1
       0000000049454E44AE426082}
     TabOrder = 5
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     TMSStyle = 23
   end
   object AdvSmoothButton7: TAdvSmoothButton
@@ -6322,14 +6322,14 @@ object frmPrincipal: TfrmPrincipal
       839BD2A16EF2666FF82F010600DE95EC56A4E7F7500000000049454E44AE4260
       82}
     TabOrder = 6
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     TMSStyle = 23
   end
   object ImageList1: TImageList
     Left = 649
     Top = 417
     Bitmap = {
-      494C010108000D000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108000D00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -6835,7 +6835,7 @@ object frmPrincipal: TfrmPrincipal
       OnExecute = venderExecute
     end
     object configuracoes: TAction
-      Caption = 'Configura'#231#245'es'
+      Caption = 'configuracoes'
       OnExecute = configuracoesExecute
     end
     object menu_fiscal: TAction

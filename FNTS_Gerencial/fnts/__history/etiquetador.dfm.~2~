@@ -1479,7 +1479,7 @@ object frmetiquetador: Tfrmetiquetador
       FieldName = 'GRADE'
       Size = 25
     end
-    object qretiqUNIDADE: TWideStringField
+    object qretiqUNIDADE: TStringField
       FieldName = 'UNIDADE'
       Size = 2
     end
