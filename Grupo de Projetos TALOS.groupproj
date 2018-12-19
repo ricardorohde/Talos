@@ -1,0 +1,168 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5A2D6BD9-E402-424B-B7F0-4D15D6A8A526}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FNTS_Atendimento\Atendimento.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Backup\Backup.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Boletos\Boleto.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Cheff\Cheff.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Config\Config.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Config_Pdv\Config_Pdv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Emissor_Nfe\Emissor_Nfe.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Gerencial\Gerencial.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Migrador\Migrador.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Pdv\Pdv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Server_PDV\Server_PDV.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FNTS_Sped\Sped.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Atendimento">
+        <MSBuild Projects="FNTS_Atendimento\Atendimento.dproj"/>
+    </Target>
+    <Target Name="Atendimento:Clean">
+        <MSBuild Projects="FNTS_Atendimento\Atendimento.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Atendimento:Make">
+        <MSBuild Projects="FNTS_Atendimento\Atendimento.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Backup">
+        <MSBuild Projects="FNTS_Backup\Backup.dproj"/>
+    </Target>
+    <Target Name="Backup:Clean">
+        <MSBuild Projects="FNTS_Backup\Backup.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Backup:Make">
+        <MSBuild Projects="FNTS_Backup\Backup.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Boleto">
+        <MSBuild Projects="FNTS_Boletos\Boleto.dproj"/>
+    </Target>
+    <Target Name="Boleto:Clean">
+        <MSBuild Projects="FNTS_Boletos\Boleto.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Boleto:Make">
+        <MSBuild Projects="FNTS_Boletos\Boleto.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Cheff">
+        <MSBuild Projects="FNTS_Cheff\Cheff.dproj"/>
+    </Target>
+    <Target Name="Cheff:Clean">
+        <MSBuild Projects="FNTS_Cheff\Cheff.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Cheff:Make">
+        <MSBuild Projects="FNTS_Cheff\Cheff.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Config">
+        <MSBuild Projects="FNTS_Config\Config.dproj"/>
+    </Target>
+    <Target Name="Config:Clean">
+        <MSBuild Projects="FNTS_Config\Config.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Config:Make">
+        <MSBuild Projects="FNTS_Config\Config.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Config_Pdv">
+        <MSBuild Projects="FNTS_Config_Pdv\Config_Pdv.dproj"/>
+    </Target>
+    <Target Name="Config_Pdv:Clean">
+        <MSBuild Projects="FNTS_Config_Pdv\Config_Pdv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Config_Pdv:Make">
+        <MSBuild Projects="FNTS_Config_Pdv\Config_Pdv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Emissor_Nfe">
+        <MSBuild Projects="FNTS_Emissor_Nfe\Emissor_Nfe.dproj"/>
+    </Target>
+    <Target Name="Emissor_Nfe:Clean">
+        <MSBuild Projects="FNTS_Emissor_Nfe\Emissor_Nfe.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Emissor_Nfe:Make">
+        <MSBuild Projects="FNTS_Emissor_Nfe\Emissor_Nfe.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Gerencial">
+        <MSBuild Projects="FNTS_Gerencial\Gerencial.dproj"/>
+    </Target>
+    <Target Name="Gerencial:Clean">
+        <MSBuild Projects="FNTS_Gerencial\Gerencial.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gerencial:Make">
+        <MSBuild Projects="FNTS_Gerencial\Gerencial.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Migrador">
+        <MSBuild Projects="FNTS_Migrador\Migrador.dproj"/>
+    </Target>
+    <Target Name="Migrador:Clean">
+        <MSBuild Projects="FNTS_Migrador\Migrador.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Migrador:Make">
+        <MSBuild Projects="FNTS_Migrador\Migrador.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Pdv">
+        <MSBuild Projects="FNTS_Pdv\Pdv.dproj"/>
+    </Target>
+    <Target Name="Pdv:Clean">
+        <MSBuild Projects="FNTS_Pdv\Pdv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pdv:Make">
+        <MSBuild Projects="FNTS_Pdv\Pdv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Server_PDV">
+        <MSBuild Projects="FNTS_Server_PDV\Server_PDV.dproj"/>
+    </Target>
+    <Target Name="Server_PDV:Clean">
+        <MSBuild Projects="FNTS_Server_PDV\Server_PDV.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Server_PDV:Make">
+        <MSBuild Projects="FNTS_Server_PDV\Server_PDV.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Sped">
+        <MSBuild Projects="FNTS_Sped\Sped.dproj"/>
+    </Target>
+    <Target Name="Sped:Clean">
+        <MSBuild Projects="FNTS_Sped\Sped.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Sped:Make">
+        <MSBuild Projects="FNTS_Sped\Sped.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Atendimento;Backup;Boleto;Cheff;Config;Config_Pdv;Emissor_Nfe;Gerencial;Migrador;Pdv;Server_PDV;Sped"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Atendimento:Clean;Backup:Clean;Boleto:Clean;Cheff:Clean;Config:Clean;Config_Pdv:Clean;Emissor_Nfe:Clean;Gerencial:Clean;Migrador:Clean;Pdv:Clean;Server_PDV:Clean;Sped:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Atendimento:Make;Backup:Make;Boleto:Make;Cheff:Make;Config:Make;Config_Pdv:Make;Emissor_Nfe:Make;Gerencial:Make;Migrador:Make;Pdv:Make;Server_PDV:Make;Sped:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

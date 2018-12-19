@@ -4261,7 +4261,7 @@ object frmVenda: TfrmVenda
             PanelStyle.Font.Style = [fsBold]
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
-            Text = 'F5 - Cacnelar Item'
+            Text = 'F5 - Cancelar Item'
             Width = 110
           end
           item
@@ -6910,6 +6910,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
+
       494C0101020005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
