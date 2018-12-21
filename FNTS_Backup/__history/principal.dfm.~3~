@@ -41,8 +41,8 @@ object Fprincipal: TFprincipal
     Top = 110
     Width = 650
     Height = 362
-    ActivePage = PageSheet1
-    ActivePageIndex = 0
+    ActivePage = PageSheet2
+    ActivePageIndex = 1
     AdaptiveColors = True
     BackgroundColor = 13230308
     BackgroundKind = bkSolid
@@ -1988,7 +1988,7 @@ object Fprincipal: TFprincipal
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = ' TALOS 1.0.1.0 - Backup'
+    Caption = ' TALOS 1.0.0.0 - Backup'
     Color = 12223546
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite

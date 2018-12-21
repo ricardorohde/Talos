@@ -86,8 +86,7 @@ procedure TForm_sobre.FormKeyUp(Sender: TObject; var Key: Word;
                 if (tecla=65) and (sequencia=9) then
                 begin
                 AboutTalos := TAboutBox.Create(self);
-                AboutTalos.Tocar;
-                AboutTalos.ShowModal;
+                 AboutTalos.ShowModal;
                 end;
 
 end;

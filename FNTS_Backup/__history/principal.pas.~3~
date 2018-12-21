@@ -526,25 +526,15 @@ begin
 end;
 procedure TFprincipal.EnviaFTP();
 begin
-ListBox1.Items.Add('----Conectando na Nuvem----');
-ListBox1.Update;
-ListBox1.ItemIndex := ListBox1.Items.Count - 1;
 IdFTP1.Host := 'backup.novatecnologia.eti.br';
 IdFTP1.Port := 21;
-//IdFTP1.ReadTimeout := 50000;
+IdFTP1.ReadTimeout := 50000;
 IdFTP1.Username := tbagendaLOGINFTP.Value;
 IdFTP1.Password := tbagendaSENHAFTP.Value;
-IdFTP1.Passive := true;
 IdFTP1.Connect;
-ListBox1.Items.Add(IdFTP1.SystemDesc);
-ListBox1.Items.Add('Enviando o arquivo ' + Backup.BackupFile[0]);
-ListBox1.Update;
-ListBox1.ItemIndex := ListBox1.Items.Count - 1;
+
 try
-  IdFTP1.Put(Backup.BackupFile[0]);
-  ListBox1.Items.Add('Arquivo enviado com sucesso!');
-  ListBox1.Update;
-  ListBox1.ItemIndex := ListBox1.Items.Count - 1;
+  IdFTP1.Put(Backup.BackupFile.
 except
   ShowMessage('Problema ao enviar arquivo de backup para a nuvem');
 end;
@@ -608,14 +598,13 @@ begin
           qrmestre.close;
         end;
       finally
-        EnviaFTP();
         Screen.Cursor := CrDefault;
         econexao.Connected := true;
         listbox1.visible := false;
       end;
 
     end;
-
+    EnviaFTP();
   except
     //
   end;

@@ -34,6 +34,7 @@ object Fprincipal: TFprincipal
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    ExplicitTop = 477
     ExplicitWidth = 6
   end
   object PageView1: TPageView
@@ -638,7 +639,7 @@ object Fprincipal: TFprincipal
           Left = 9
           Top = 28
           Width = 300
-          Height = 269
+          Height = 237
           BevelOuter = bvNone
           Color = clWhite
           ParentBackground = False
@@ -714,32 +715,6 @@ object Fprincipal: TFprincipal
             Width = 46
             Height = 13
             Caption = 'Descri'#231#227'o'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label9: TLabel
-            Left = 13
-            Top = 223
-            Width = 46
-            Height = 13
-            Caption = 'Login FTP'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label10: TLabel
-            Left = 165
-            Top = 223
-            Width = 51
-            Height = 13
-            Caption = 'Senha FTP'
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -914,49 +889,6 @@ object Fprincipal: TFprincipal
             AltBtnWidth = 15
             ButtonWidth = 24
             OnButtonClick = DBEdit2ButtonClick
-          end
-          object DBEdit4: TDBEdit
-            Left = 14
-            Top = 242
-            Width = 145
-            Height = 19
-            Color = 15916445
-            Ctl3D = False
-            DataField = 'LOGINFTP'
-            DataSource = ds_agendamento
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            TabOrder = 6
-            OnEnter = DBEdit5Enter
-            OnExit = DBEdit1Exit
-            OnKeyPress = DBEdit5KeyPress
-          end
-          object DBEdit7: TDBEdit
-            Left = 165
-            Top = 242
-            Width = 124
-            Height = 19
-            Color = 15916445
-            Ctl3D = False
-            DataField = 'SENHAFTP'
-            DataSource = ds_agendamento
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentCtl3D = False
-            ParentFont = False
-            PasswordChar = '*'
-            TabOrder = 7
-            OnEnter = DBEdit5Enter
-            OnExit = DBEdit1Exit
-            OnKeyPress = DBEdit5KeyPress
           end
         end
       end
@@ -1988,7 +1920,7 @@ object Fprincipal: TFprincipal
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = ' TALOS 1.0.1.0 - Backup'
+    Caption = ' TALOS 1.0.0.0 - Backup'
     Color = 12223546
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
@@ -1998,6 +1930,7 @@ object Fprincipal: TFprincipal
     ParentBackground = False
     ParentFont = False
     TabOrder = 3
+    ExplicitWidth = 794
     object AdvMetroButton2: TAdvMetroButton
       Left = 749
       Top = 0
@@ -2074,8 +2007,9 @@ object Fprincipal: TFprincipal
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = bvoltarClick
+      ExplicitLeft = 734
     end
   end
   object Panel4: TPanel
@@ -2414,7 +2348,6 @@ object Fprincipal: TFprincipal
     ControlsCodePage = cCP_UTF16
     Catalog = ''
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = 'localhost'
     Port = 0
     Database = 'C:\TALOS\Server\BD\BASE.FDB'
@@ -2461,12 +2394,6 @@ object Fprincipal: TFprincipal
     object tbagendaDESTINO: TWideStringField
       FieldName = 'DESTINO'
       Size = 50
-    end
-    object tbagendaLOGINFTP: TWideStringField
-      FieldName = 'LOGINFTP'
-    end
-    object tbagendaSENHAFTP: TWideStringField
-      FieldName = 'SENHAFTP'
     end
   end
   object qragendado: TZQuery
@@ -3527,16 +3454,5 @@ object Fprincipal: TFprincipal
     object qrconfigAVISA_ESTOQUE_MINIMO: TIntegerField
       FieldName = 'AVISA_ESTOQUE_MINIMO'
     end
-  end
-  object IdFTP1: TIdFTP
-    IPVersion = Id_IPv4
-    ConnectTimeout = 0
-    NATKeepAlive.UseKeepAlive = False
-    NATKeepAlive.IdleTimeMS = 0
-    NATKeepAlive.IntervalMS = 0
-    ProxySettings.ProxyType = fpcmNone
-    ProxySettings.Port = 0
-    Left = 448
-    Top = 302
   end
 end

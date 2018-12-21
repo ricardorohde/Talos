@@ -1988,7 +1988,7 @@ object Fprincipal: TFprincipal
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    Caption = ' TALOS 1.0.1.0 - Backup'
+    Caption = ' TALOS 1.0.0.0 - Backup'
     Color = 12223546
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite

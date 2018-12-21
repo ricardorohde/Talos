@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, AdvReflectionImage, ExtCtrls, StdCtrls, AdvMetroButton,
-  AdvSmoothPanel, AdvSmoothExpanderPanel, dxGDIPlusClasses, RzLabel, AboutTalos;
+  AdvSmoothPanel, AdvSmoothExpanderPanel, dxGDIPlusClasses, RzLabel;
 
 type
   TForm_sobre = class(TForm)
@@ -59,7 +59,6 @@ procedure TForm_sobre.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
   var
   tecla: Integer;
-  AboutTalos: TAboutBox;
 
   begin
  tecla:=ord(key);
@@ -84,12 +83,7 @@ procedure TForm_sobre.FormKeyUp(Sender: TObject; var Key: Word;
               if (tecla=66) and (sequencia=8) then
                Inc(sequencia);
                 if (tecla=65) and (sequencia=9) then
-                begin
-                AboutTalos := TAboutBox.Create(self);
-                AboutTalos.Tocar;
-                AboutTalos.ShowModal;
-                end;
-
+         showmessage('teste konami');
 end;
 
 end.

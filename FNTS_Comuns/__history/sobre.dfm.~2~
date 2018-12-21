@@ -12,10 +12,8 @@ object Form_sobre: TForm_sobre
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnKeyUp = FormKeyUp
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -1404,7 +1402,7 @@ object Form_sobre: TForm_sobre
       Top = 4
       Width = 270
       Height = 13
-      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 716 e 717'
+      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 622 e 623'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1442,7 +1440,7 @@ object Form_sobre: TForm_sobre
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
@@ -1456,7 +1454,7 @@ object Form_sobre: TForm_sobre
       Top = 13
       Width = 301
       Height = 23
-      Caption = 'Sobre o sistema TALOS 1.0.1.0'
+      Caption = 'Sobre o sistema TALOS 1.0.0.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -1540,7 +1538,7 @@ object Form_sobre: TForm_sobre
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -1671,7 +1669,7 @@ object Form_sobre: TForm_sobre
       Top = 6
       Width = 85
       Height = 13
-      Caption = 'TALOS 1.0.1.0'
+      Caption = 'TALOS 1.0.0.0'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11

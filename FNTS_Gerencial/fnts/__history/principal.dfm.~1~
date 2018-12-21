@@ -71,7 +71,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 9
     TMSStyle = 4
@@ -108,7 +108,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -144,7 +144,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton23: TAdvSmoothButton
@@ -178,7 +178,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton24: TAdvSmoothButton
@@ -213,7 +213,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton25: TAdvSmoothButton
@@ -247,7 +247,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton26: TAdvSmoothButton
@@ -282,7 +282,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton27: TAdvSmoothButton
@@ -316,7 +316,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton28: TAdvSmoothButton
@@ -350,7 +350,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton29: TAdvSmoothButton
@@ -384,7 +384,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton44: TAdvSmoothButton
@@ -418,7 +418,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton80: TAdvSmoothButton
@@ -452,7 +452,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton81: TAdvSmoothButton
@@ -486,7 +486,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 4432722
       ParentFont = False
       TabOrder = 11
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -524,7 +524,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 8
     TMSStyle = 4
@@ -561,7 +561,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -597,7 +597,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton9: TAdvSmoothButton
@@ -631,7 +631,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton10: TAdvSmoothButton
@@ -665,7 +665,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton11: TAdvSmoothButton
@@ -699,7 +699,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton12: TAdvSmoothButton
@@ -734,7 +734,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton13: TAdvSmoothButton
@@ -768,7 +768,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton14: TAdvSmoothButton
@@ -802,7 +802,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton15: TAdvSmoothButton
@@ -836,7 +836,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton16: TAdvSmoothButton
@@ -870,7 +870,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton17: TAdvSmoothButton
@@ -904,7 +904,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 12
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton18: TAdvSmoothButton
@@ -939,7 +939,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton19: TAdvSmoothButton
@@ -973,7 +973,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 11
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton20: TAdvSmoothButton
@@ -1007,7 +1007,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 13
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton21: TAdvSmoothButton
@@ -1041,7 +1041,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 14
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton1: TAdvSmoothButton
@@ -1075,7 +1075,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 15
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton2: TAdvSmoothButton
@@ -1109,7 +1109,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 3552822
       ParentFont = False
       TabOrder = 16
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -1143,7 +1143,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 12
     TMSStyle = 4
@@ -1180,7 +1180,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -1216,7 +1216,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton72: TAdvSmoothButton
@@ -1250,7 +1250,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton73: TAdvSmoothButton
@@ -1285,7 +1285,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton74: TAdvSmoothButton
@@ -1320,7 +1320,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton75: TAdvSmoothButton
@@ -1355,7 +1355,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton76: TAdvSmoothButton
@@ -1389,7 +1389,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton77: TAdvSmoothButton
@@ -1423,7 +1423,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton78: TAdvSmoothButton
@@ -1457,7 +1457,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton79: TAdvSmoothButton
@@ -1491,7 +1491,7 @@ object frmPrincipal: TfrmPrincipal
       Color = clOlive
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -1525,7 +1525,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 11
     TMSStyle = 4
@@ -1562,7 +1562,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -1598,7 +1598,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton50: TAdvSmoothButton
@@ -1632,7 +1632,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton51: TAdvSmoothButton
@@ -1666,7 +1666,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton52: TAdvSmoothButton
@@ -1700,7 +1700,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton53: TAdvSmoothButton
@@ -1734,7 +1734,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton54: TAdvSmoothButton
@@ -1768,7 +1768,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton55: TAdvSmoothButton
@@ -1802,7 +1802,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton56: TAdvSmoothButton
@@ -1836,7 +1836,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton57: TAdvSmoothButton
@@ -1870,7 +1870,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object advsmthbtnavulso: TAdvSmoothButton
@@ -1904,7 +1904,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 33023
       ParentFont = False
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -11223,7 +11223,7 @@ object frmPrincipal: TfrmPrincipal
       TabOrder = 3
       UseDockManager = True
       Visible = False
-      Version = '2.4.1.0'
+      Version = '2.4.2.0'
       AutoHideChildren = False
       BorderColor = clGray
       Caption.Color = 14059353
@@ -11270,7 +11270,7 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
         TabOrder = 0
         UseDockManager = True
-        Version = '2.4.1.0'
+        Version = '2.4.2.0'
         AutoHideChildren = False
         BorderColor = clGray
         Caption.Color = 14059353
@@ -11369,7 +11369,7 @@ object frmPrincipal: TfrmPrincipal
     SimplePanel = False
     SizeGrip = False
     Visible = False
-    Version = '1.6.1.1'
+    Version = '1.6.1.5'
     object Image1: TImage
       Left = 0
       Top = 3
@@ -12731,7 +12731,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 10
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     TabOrder = 18
     TMSStyle = 0
     object lbNomeEmpresa: TLabel
@@ -13138,7 +13138,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Align = alBottom
     TabOrder = 19
     TMSStyle = 0
@@ -13172,7 +13172,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 10
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
@@ -13184,9 +13184,9 @@ object frmPrincipal: TfrmPrincipal
     object lbTitulo: TLabel
       Left = 11
       Top = 13
-      Width = 195
+      Width = 293
       Height = 32
-      Caption = 'TALOS 1.0.1.0'
+      Caption = 'TALOS 1.0.0.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27
@@ -13369,7 +13369,7 @@ object frmPrincipal: TfrmPrincipal
         02BDFA9959ED6306174FF9AED7EE64DEC1F283D82F0106008690EEE7FB647FE2
         0000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = btnMinimizaClick
     end
     object btnFechar: TAdvMetroButton
@@ -13448,7 +13448,7 @@ object frmPrincipal: TfrmPrincipal
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 1
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = btnFecharClick
     end
   end
@@ -14030,7 +14030,7 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
         TabOrder = 0
         UseDockManager = True
-        Version = '2.4.1.0'
+        Version = '2.4.2.0'
         AutoHideChildren = False
         BorderColor = clGray
         Caption.Color = 14059353
@@ -14142,7 +14142,7 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
         TabOrder = 0
         UseDockManager = True
-        Version = '2.4.1.0'
+        Version = '2.4.2.0'
         AutoHideChildren = False
         BorderColor = clGray
         Caption.Color = 14059353
@@ -14207,7 +14207,7 @@ object frmPrincipal: TfrmPrincipal
     Color = 3552822
     ParentFont = False
     TabOrder = 1
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnCadastroClick
     TMSStyle = 23
   end
@@ -14242,7 +14242,7 @@ object frmPrincipal: TfrmPrincipal
     Color = 4432722
     ParentFont = False
     TabOrder = 2
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnEstoqueClick
     TMSStyle = 23
   end
@@ -14277,7 +14277,7 @@ object frmPrincipal: TfrmPrincipal
     Color = 12223546
     ParentFont = False
     TabOrder = 3
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnMovimentoClick
     TMSStyle = 23
   end
@@ -14312,7 +14312,7 @@ object frmPrincipal: TfrmPrincipal
     Color = 33023
     ParentFont = False
     TabOrder = 4
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnFinanceiroClick
     TMSStyle = 23
   end
@@ -14347,7 +14347,7 @@ object frmPrincipal: TfrmPrincipal
     Color = 16711808
     ParentFont = False
     TabOrder = 5
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnRelatorioClick
     TMSStyle = 23
   end
@@ -14382,7 +14382,7 @@ object frmPrincipal: TfrmPrincipal
     Color = clOlive
     ParentFont = False
     TabOrder = 6
-    Version = '2.1.0.1'
+    Version = '2.1.1.1'
     OnClick = btnConfiguracaoClick
     TMSStyle = 23
   end
@@ -14420,7 +14420,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     TabOrder = 15
     TMSStyle = 4
     object AdvReflectionImage1: TAdvReflectionImage
@@ -18301,7 +18301,7 @@ object frmPrincipal: TfrmPrincipal
         50F568A7FFEE6132C423014B3063BD8375FC57800100B4B148E74C01516B0000
         000049454E44AE426082}
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 20
     end
     object AdvSmoothButton32: TAdvSmoothButton
@@ -18418,7 +18418,7 @@ object frmPrincipal: TfrmPrincipal
         8E6BFBEFA03647DA1C8968FF0A30008234A38404B5CC350000000049454E44AE
         426082}
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 20
     end
     object AdvSmoothButton33: TAdvSmoothButton
@@ -18516,7 +18516,7 @@ object frmPrincipal: TfrmPrincipal
         92C26ED3AC6C3A54B0350336F9E479A3924F3629CA3D7FBF11DA09693513A225
         FEAFE532FB23C000A57DF0755940FFEF0000000049454E44AE426082}
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton34: TAdvSmoothButton
@@ -18610,7 +18610,7 @@ object frmPrincipal: TfrmPrincipal
         630179A3FB9996DFD5647ADF6B6996FE0A30004435AF028EE7B4180000000049
         454E44AE426082}
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton35: TAdvSmoothButton
@@ -18728,7 +18728,7 @@ object frmPrincipal: TfrmPrincipal
         8BE377790987FF9BD36143E233FE15600057C3B24E80A0D6380000000049454E
         44AE426082}
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton36: TAdvSmoothButton
@@ -18825,7 +18825,7 @@ object frmPrincipal: TfrmPrincipal
         8DF73C39271F615BFF5BE165FFE69415E24DF92BC0003915DAD05E180E6A0000
         000049454E44AE426082}
       TabOrder = 11
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton37: TAdvSmoothButton
@@ -18929,7 +18929,7 @@ object frmPrincipal: TfrmPrincipal
         AFF0BF30B95911FB1985A292DDA4705B7B9BDB8E649244FDBF39D52B921FF94F
         800100863F1D025DE7B3A60000000049454E44AE426082}
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton38: TAdvSmoothButton
@@ -19030,7 +19030,7 @@ object frmPrincipal: TfrmPrincipal
         18F1FF1D14171217E2D37E0B3000B85FFF1F1D1C0AE60000000049454E44AE42
         6082}
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton39: TAdvSmoothButton
@@ -19114,7 +19114,7 @@ object frmPrincipal: TfrmPrincipal
         3AB42B0439B284D0096031B8E06AA5DA11D08CA4717FDA0EC74C9AFA4F355A88
         16F23F847C093000605B85C52E61C8480000000049454E44AE426082}
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton40: TAdvSmoothButton
@@ -19231,7 +19231,7 @@ object frmPrincipal: TfrmPrincipal
         8337C89726BF40FD2C57F7AF000300905A0B7F80B3D23F0000000049454E44AE
         426082}
       TabOrder = 0
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton41: TAdvSmoothButton
@@ -19321,7 +19321,7 @@ object frmPrincipal: TfrmPrincipal
         790C9672E2B323562E4137336C05EBFE03E04DC59BD33FD5A44252215343C86F
         010600F862BC9D5BFE9B610000000049454E44AE426082}
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object barra_caixa: TAdvSmoothPanel
@@ -19358,7 +19358,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 5
       TMSStyle = 4
       object update_corp01: TcySpeedButton
@@ -19499,7 +19499,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 16
     TMSStyle = 0
@@ -19812,7 +19812,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 0
       TMSStyle = 0
       object bt_adm_fechar: TAdvMetroButton
@@ -19890,7 +19890,7 @@ object frmPrincipal: TfrmPrincipal
           6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
           65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
         TabOrder = 0
-        Version = '1.1.1.0'
+        Version = '1.1.2.0'
         OnClick = bt_adm_fecharClick
       end
     end
@@ -19928,7 +19928,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 1
       TMSStyle = 0
     end
@@ -19967,7 +19967,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 2
       TMSStyle = 0
       object Image4: TImage
@@ -20143,7 +20143,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 3
       TMSStyle = 0
     end
@@ -20182,7 +20182,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 5
       TMSStyle = 0
       object Image17: TImage
@@ -20358,7 +20358,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 4
       TMSStyle = 0
     end
@@ -20396,7 +20396,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 6
       TMSStyle = 0
     end
@@ -20435,7 +20435,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 7
       TMSStyle = 0
       object Image11: TImage
@@ -20611,7 +20611,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 8
       TMSStyle = 0
       object ltcaixa: TLabel
@@ -20666,7 +20666,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 9
       TMSStyle = 0
       object Image15: TImage
@@ -20842,7 +20842,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 10
       TMSStyle = 0
       object ltvenda: TLabel
@@ -20896,7 +20896,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 14
       TMSStyle = 0
       object ltos: TLabel
@@ -20951,7 +20951,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 13
       TMSStyle = 0
       object Image16: TImage
@@ -21127,7 +21127,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 12
       TMSStyle = 0
       object ltpagar: TLabel
@@ -21182,7 +21182,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 11
       TMSStyle = 0
       object Image13: TImage
@@ -21359,7 +21359,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 15
       TMSStyle = 0
       object Image14: TImage
@@ -21535,7 +21535,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 16
       TMSStyle = 0
       object ltreceber: TLabel
@@ -21590,7 +21590,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 17
       TMSStyle = 0
       object Image18: TImage
@@ -21766,7 +21766,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 18
       TMSStyle = 0
       object ltfinal: TLabel
@@ -21820,7 +21820,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 19
       TMSStyle = 0
     end
@@ -21891,7 +21891,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       TabOrder = 21
       TMSStyle = 0
     end
@@ -21930,7 +21930,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 10
     TMSStyle = 4
@@ -21965,7 +21965,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton30: TAdvSmoothButton
@@ -21999,7 +21999,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton45: TAdvSmoothButton
@@ -22033,7 +22033,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton46: TAdvSmoothButton
@@ -22067,7 +22067,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton48: TAdvSmoothButton
@@ -22101,7 +22101,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton49: TAdvSmoothButton
@@ -22136,7 +22136,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothPanel7: TAdvSmoothPanel
@@ -22172,7 +22172,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -22208,7 +22208,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton43: TAdvSmoothButton
@@ -22243,7 +22243,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 12223546
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -22277,7 +22277,7 @@ object frmPrincipal: TfrmPrincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.5.0.0'
+    Version = '1.5.2.1'
     Visible = False
     TabOrder = 7
     TMSStyle = 4
@@ -22314,7 +22314,7 @@ object frmPrincipal: TfrmPrincipal
       Fill.ShadowColor = clNone
       Fill.ShadowOffset = 0
       Fill.Glow = gmNone
-      Version = '1.5.0.0'
+      Version = '1.5.2.1'
       Align = alTop
       TabOrder = 0
       TMSStyle = 4
@@ -22350,7 +22350,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton59: TAdvSmoothButton
@@ -22384,7 +22384,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton60: TAdvSmoothButton
@@ -22418,7 +22418,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton61: TAdvSmoothButton
@@ -22453,7 +22453,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton62: TAdvSmoothButton
@@ -22487,7 +22487,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton63: TAdvSmoothButton
@@ -22521,7 +22521,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton64: TAdvSmoothButton
@@ -22555,7 +22555,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton65: TAdvSmoothButton
@@ -22589,7 +22589,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton66: TAdvSmoothButton
@@ -22623,7 +22623,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton67: TAdvSmoothButton
@@ -22657,7 +22657,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 11
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton68: TAdvSmoothButton
@@ -22691,7 +22691,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 12
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton69: TAdvSmoothButton
@@ -22725,7 +22725,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 13
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton70: TAdvSmoothButton
@@ -22760,7 +22760,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
     object AdvSmoothButton3: TAdvSmoothButton
@@ -22794,7 +22794,7 @@ object frmPrincipal: TfrmPrincipal
       Color = 16711808
       ParentFont = False
       TabOrder = 14
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       TMSStyle = 23
     end
   end
@@ -22822,7 +22822,7 @@ object frmPrincipal: TfrmPrincipal
     Font.Name = 'Tahoma'
     Font.Style = []
     HintHelpText = 'Pressione F1 para obter ajuda...'
-    Version = '1.7.0.0'
+    Version = '1.7.0.1'
     Left = 745
     Top = 353
   end
@@ -22830,7 +22830,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 617
     Top = 417
     Bitmap = {
-      494C010109000D00080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109000D00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -25943,7 +25943,6 @@ object frmPrincipal: TfrmPrincipal
     TableUsers.FieldUserDaysSun = 'UCUserDaysSun'
     TableUsers.FieldUserInative = 'UCInative'
     TableUsers.TableName = 'UCTabUsers'
-    TableUsers.FieldImage = 'UCImage'
     TableRights.FieldUserID = 'UCIdUser'
     TableRights.FieldModule = 'UCModule'
     TableRights.FieldComponentName = 'UCCompName'
@@ -26021,8 +26020,6 @@ object frmPrincipal: TfrmPrincipal
     CommonMessages.UsuarioExiste = 'O Usu'#225'rio "%s" j'#225' est'#225' cadastrado no sistema !!'
     CommonMessages.PasswordExpired = 'Aten'#231#227'o, sua senha expirou, favor troca-la'
     CommonMessages.ForcaTrocaSenha = 'Mudan'#231'a de senha obrigat'#243'ria'
-    CommonMessages.CanNotDeleteUserLogon = 'Imposs'#237'vel excluir usu'#225'rios logados!'
-    CommonMessages.ImageTooLarge = 'Imagem deve ser menor que %s bytes'
     Login.WindowCaption = 'Login'
     Login.LabelUser = 'Usu'#225'rio :'
     Login.LabelPassword = 'Senha :'
@@ -26141,7 +26138,6 @@ object frmPrincipal: TfrmPrincipal
     UsersForm.BtRights = 'A&cessos'
     UsersForm.BtPassword = '&Senha'
     UsersForm.BtClose = '&Fechar'
-    UsersForm.BtApplyFilter = 'Aplicar filtro'
     AddChangeUser.WindowCaption = 'Cadastro de Usu'#225'rios'
     AddChangeUser.LabelAdd = 'Adicionar Usu'#225'rio'
     AddChangeUser.LabelChange = 'Alterar Usu'#225'rio'
@@ -26158,7 +26154,6 @@ object frmPrincipal: TfrmPrincipal
     AddChangeUser.LabelStatus = 'Status'
     AddChangeUser.StatusActive = 'Ativo'
     AddChangeUser.StatusDisabled = 'Inativo'
-    AddChangeUser.LabelImage = 'Imagem'
     AddChangeProfile.WindowCaption = 'Perfil de Usu'#225'rios'
     AddChangeProfile.LabelAdd = 'Adicionar Perfil'
     AddChangeProfile.LabelChange = 'Alterar Perfil'

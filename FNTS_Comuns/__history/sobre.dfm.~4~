@@ -1404,7 +1404,7 @@ object Form_sobre: TForm_sobre
       Top = 4
       Width = 270
       Height = 13
-      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 716 e 717'
+      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 622 e 623'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1456,7 +1456,7 @@ object Form_sobre: TForm_sobre
       Top = 13
       Width = 301
       Height = 23
-      Caption = 'Sobre o sistema TALOS 1.0.1.0'
+      Caption = 'Sobre o sistema TALOS 1.0.0.0'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -1671,7 +1671,7 @@ object Form_sobre: TForm_sobre
       Top = 6
       Width = 85
       Height = 13
-      Caption = 'TALOS 1.0.1.0'
+      Caption = 'TALOS 1.0.0.0'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
