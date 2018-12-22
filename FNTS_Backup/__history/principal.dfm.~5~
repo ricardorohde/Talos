@@ -2395,7 +2395,7 @@ object Fprincipal: TFprincipal
     Left = 351
     Top = 205
     object C1: TMenuItem
-      Caption = 'TALOS 1.0.1.0 - Backup'
+      Caption = 'TALOS 1.0.0.0 - Backup'
       Enabled = False
     end
     object N1: TMenuItem

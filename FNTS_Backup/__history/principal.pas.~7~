@@ -695,7 +695,7 @@ begin
 
       // Escreve a informção na chave
       // NomeDaChave, pode ser qualquer nome que você queira
-    Reg.WriteString('talos_backup', Application.ExeName);
+    Reg.WriteString('store_protheus_backup', Application.ExeName);
 
       // Fecha a chave do registro
     Reg.CloseKey;
@@ -829,7 +829,7 @@ begin
     uCallBackMessage := WM_TRAYICON;
     uFlags := NIF_ICON or NIF_TIP or NIF_MESSAGE;
     hIcon := Application.Icon.Handle;
-    szTip := 'TALOS 1.0.1.0 - Backup';
+    szTip := 'TALOS 1.0.0.0 - Backup';
   end;
   Shell_NotifyIcon(NIM_ADD, @NotifyIconData);
 end;
