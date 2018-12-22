@@ -1,7 +1,5 @@
 program Gerencial;
 
-{$R *.dres}
-
 uses
   Forms,
   Windows,
@@ -378,8 +376,7 @@ uses
   CadastroEtiquetas in 'fnts\CadastroEtiquetas.pas' {frmCadastroEtiquetas},
   ImpressaoEtiquetas in 'fnts\ImpressaoEtiquetas.pas' {frmImpressaoEtiquetas},
   ConsultaCPF in 'fnts\ConsultaCPF.pas' {frmConsultaCPF},
-  ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ},
-  AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox};
+  ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ};
 
 {$R *.res}
 
@@ -401,7 +398,6 @@ begin
   Application.CreateForm(TfrmImpressaoEtiquetas, frmImpressaoEtiquetas);
   Application.CreateForm(TfrmConsultaCPF, frmConsultaCPF);
   Application.CreateForm(TfrmConsultaCNPJ, frmConsultaCNPJ);
-  Application.CreateForm(TAboutBox, AboutBox);
   frmsplash.Close;
   FreeAndNil(frmsplash);
   application.ProcessMessages;
