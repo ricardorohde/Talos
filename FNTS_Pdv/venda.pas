@@ -318,6 +318,7 @@ type
     qrANP: TUniQuery;
     qrANPCODIGO: TStringField;
     qrANPDESCRICAO: TStringField;
+    frxCancelado: TfrxReport;
     procedure Cancela_cupom_aberto();
     procedure Cancela_Item(sItem: string; Acao: string);
     procedure Registra_Item();
@@ -420,6 +421,7 @@ type
     function RetornaSenhaImpressao: Integer;
     procedure LongPress;
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
+    //procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
   public
     { Public declarations }
     procedure CorEditTotaL;
@@ -1282,6 +1284,13 @@ var
   scod_cupom: string;
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
+
+
+  query.SQL.Clear;
+  query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
+  query.ExecSQL;
+
+
   if (bBusca_foto_produto) and not (AtivaTouch) then
     img_produto.Picture := nil;
 
@@ -1322,6 +1331,10 @@ begin
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 0 where item = ' + IntToStr(StrToInt(sItem)));
   end;
   query.ExecSQL;
+  query.SQL.Clear;
+  query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+  query.ExecSQL;
+
 
   with frmModulo do begin
     qrItens.DisableControls;
@@ -1331,12 +1344,21 @@ begin
     qrItens.EnableControls;
   end;
 
+   qrCupomNF.Close;
+   qrCupomNF.Params.Items[0].Value := frmModulo.qrItensITEM.AsString;
+   qrCupomNF.Open;
+   qrCupomNF.First;
+
+   frxCancelado.ShowReport;
+
+
   // atualizar os labels de totais e itens
   lb_item.Caption := IntToStr(iTotal_Itens);
   lb_total.Caption := 'R$ ' + FormatFloat('###,###,##0.00', rTotal_Venda);
 
   if Acao = 'C' then
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' CANCELADO!', clWhite, tiOk)
+
   else
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' DESCANCELADO!', clWhite, tiOk);
   Sleep(1000);

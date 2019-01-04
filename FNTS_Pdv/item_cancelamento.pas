@@ -44,7 +44,7 @@ procedure TfrmItem_Cancelamento.ed_itemKeyPress(Sender: TObject;
 begin
   if key = #13 then begin
    bSair_campo := true;
-   ItemCancelamento :=  ed_item.text;
+   //ItemCancelamento :=  ed_item.text;
       close;
 
   end else begin

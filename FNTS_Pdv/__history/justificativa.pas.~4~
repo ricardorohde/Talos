@@ -49,8 +49,7 @@ end;
 procedure Tfrmjustificativa.edTextoKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if (Key.ToString(Key))='27' then
-  Close;
+ ShowMessage(HelpKeyword.toString(Key));
 end;
 
 end.

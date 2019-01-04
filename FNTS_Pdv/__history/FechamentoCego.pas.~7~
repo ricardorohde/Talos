@@ -98,10 +98,10 @@ procedure TfrmFechamentoCego.edChequeKeyUp(Sender: TObject; var Key: Word;
   var
   aux: String;
   begin
-
+  ShowMessage(Key.ToString(key));
   aux := Key.ToString(key);
   if (aux = '9') or (aux = '13') then
-    AdvMetroButton1.SetFocus;
+  AdvMetroButton1.SetFocus;
 
 
 end;

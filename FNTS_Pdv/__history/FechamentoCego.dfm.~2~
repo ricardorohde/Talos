@@ -200,7 +200,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Color = 15916445
       Ctl3D = False
       ParentCtl3D = False
-      TabOrder = 1
+      TabOrder = 0
     end
     object ed_data: TJvDateEdit
       Left = 112
@@ -213,7 +213,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       NumGlyphs = 2
       ShowButton = False
       ShowNullDate = False
-      TabOrder = 0
+      TabOrder = 1
     end
     object ed_ecf: TRzEdit
       Left = 111
@@ -224,7 +224,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Color = 15916445
       Ctl3D = False
       ParentCtl3D = False
-      TabOrder = 3
+      TabOrder = 2
     end
     object bt_cupom_encerrante: TButton
       Left = 924
@@ -232,7 +232,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Width = 75
       Height = 25
       Caption = 'Cp Encerrante'
-      TabOrder = 2
+      TabOrder = 3
       Visible = False
     end
   end
@@ -281,7 +281,6 @@ object frmFechamentoCego: TfrmFechamentoCego
       Ctl3D = False
       ParentCtl3D = False
       TabOrder = 1
-      OnKeyUp = edChequeKeyUp
       DisplayFormat = ',0.00;(,0.00)'
     end
   end
@@ -330,7 +329,6 @@ object frmFechamentoCego: TfrmFechamentoCego
       Height = 48
       Align = alRight
       Caption = 'Fechar Caixa'
-      Default = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -11

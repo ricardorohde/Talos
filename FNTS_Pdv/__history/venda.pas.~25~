@@ -420,6 +420,7 @@ type
     function RetornaSenhaImpressao: Integer;
     procedure LongPress;
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
+    //procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
   public
     { Public declarations }
     procedure CorEditTotaL;
@@ -1315,6 +1316,7 @@ begin
     Dec(iTotal_Itens);
     rTotal_Venda := rTotal_Venda - frmModulo.qrItensVALOR_TOTAL.AsFloat;
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 1 where item = ' + IntToStr(StrToInt(sItem)));
+    query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
   end
   else begin
     Dec(iTotal_Itens);
@@ -1322,6 +1324,8 @@ begin
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 0 where item = ' + IntToStr(StrToInt(sItem)));
   end;
   query.ExecSQL;
+
+
 
   with frmModulo do begin
     qrItens.DisableControls;
@@ -1331,12 +1335,14 @@ begin
     qrItens.EnableControls;
   end;
 
+
   // atualizar os labels de totais e itens
   lb_item.Caption := IntToStr(iTotal_Itens);
   lb_total.Caption := 'R$ ' + FormatFloat('###,###,##0.00', rTotal_Venda);
 
   if Acao = 'C' then
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' CANCELADO!', clWhite, tiOk)
+
   else
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' DESCANCELADO!', clWhite, tiOk);
   Sleep(1000);
@@ -2181,7 +2187,6 @@ begin
         if not bSupervisor_autenticado then
           Exit;
       end;
-
       if btnCancelaItem.Caption = 'Descancelar Item' then
         Cancela_Item(Zerar(frmModulo.qrItensITEM.AsString, 3), 'D')
       else
@@ -2453,10 +2458,6 @@ begin
                   NomeArquivo := NomeArquivo + '\NFCe';
                 NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
 
-
-
-
-
                 qrNFCEInsert.Open;
                 qrNFCEInsert.Insert;
                 qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
@@ -2479,10 +2480,7 @@ begin
                   qrNFCEInsertMOTIVOCONTIGENCIA.AsString := '';
                 end;
                 qrNFCEInsertENVIADOCONTINGENCIA.AsString := 'N';
-
                 qrNFCEInsertXMLENVIO.LoadFromFile(NomeArquivo);
-
-
                 qrNFCEInsertEX.AsInteger := 0;
 
                 qrNFCEInsertALTERADO.AsString := 'N';
@@ -3734,8 +3732,6 @@ begin
       GerarNFCe(vAux);
 
       Imprime_display('AGUARDE...  ASSINANDO NFC-E', clWhite, tiLivre);
-      //resolve o bug de não salvar o XML quando está desmarcada algumas opções no configurações
-      ACBRNFCe.Configuracoes.Arquivos.Salvar := True;
       ACBRNFCe.NotasFiscais.Assinar;
 
       Imprime_display('AGUARDE...  VALIDANDO NFC-E', clWhite, tiLivre);

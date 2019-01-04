@@ -2007,7 +2007,7 @@ begin
       end;
 
       { : PREÇOS }
-      qritemPRECOCUSTO.ASFLOAT := RoundTo((qritemTOTAL.ASFLOAT + qritemFRETE.ASFLOAT + qritemSEGURO.ASFLOAT + qritemOUTRAS.ASFLOAT + qritemIPI_VALOR.ASFLOAT + qritemSUB_VALOR.ASFLOAT) / (qritemQTDE.ASFLOAT) / qritemFRACAO.ASFLOAT, -2);
+      qritemPRECOCUSTO.ASFLOAT := RoundTo((qritemTOTAL.ASFLOAT + qritemFRETE.ASFLOAT + qritemSEGURO.ASFLOAT + qritemOUTRAS.ASFLOAT + qritemIPI_VALOR.ASFLOAT) / (qritemQTDE.ASFLOAT) / qritemFRACAO.ASFLOAT, -2);
       { adicionar no preço de custo o valor do icms ou o % do simples }
       // Temp
 

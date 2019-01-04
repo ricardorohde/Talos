@@ -142,7 +142,7 @@ object frmFechamentoCego: TfrmFechamentoCego
         927533ACFA5B19C75E48C41EBEE9DD5CEEAA08BD540F4532C900FE0187F88743
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
-      TabOrder = 2
+      TabOrder = 0
       Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
@@ -330,7 +330,6 @@ object frmFechamentoCego: TfrmFechamentoCego
       Height = 48
       Align = alRight
       Caption = 'Fechar Caixa'
-      Default = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -11

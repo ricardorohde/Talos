@@ -110,7 +110,7 @@ object Form1: TForm1
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton2Click
     end
     object AdvMetroButton1: TAdvMetroButton
@@ -185,7 +185,7 @@ object Form1: TForm1
         02BDFA9959ED6306174FF9AED7EE64DEC1F283D82F0106008690EEE7FB647FE2
         0000000049454E44AE426082}
       TabOrder = 1
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -207,7 +207,7 @@ object Form1: TForm1
     Height = 609
     Align = alClient
     TabOrder = 2
-    Properties.ActivePage = cxTabSheet2
+    Properties.ActivePage = cxTabSheet1
     Properties.CustomButtons.Buttons = <>
     Properties.Style = 9
     LookAndFeel.Kind = lfUltraFlat

@@ -23,7 +23,20 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, AdvSmoothTouchKeyBoard, Recebimento, cxButtonEdit, Vcl.Touch.GestureMgr,
   cxContainer, cxLabel, frxDesgn, ACBrSAT, ACBrBase, ACBrSATExtratoClass,
-  ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr, cxMemo, MontaPizza;
+  ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr, cxMemo, MontaPizza,
+  dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel,
+  dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -407,6 +420,7 @@ type
     function RetornaSenhaImpressao: Integer;
     procedure LongPress;
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
+    //procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
   public
     { Public declarations }
     procedure CorEditTotaL;
@@ -1309,6 +1323,10 @@ begin
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 0 where item = ' + IntToStr(StrToInt(sItem)));
   end;
   query.ExecSQL;
+  query.SQL.Clear;
+  query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+  query.ExecSQL;
+
 
   with frmModulo do begin
     qrItens.DisableControls;
@@ -1318,12 +1336,14 @@ begin
     qrItens.EnableControls;
   end;
 
+
   // atualizar os labels de totais e itens
   lb_item.Caption := IntToStr(iTotal_Itens);
   lb_total.Caption := 'R$ ' + FormatFloat('###,###,##0.00', rTotal_Venda);
 
   if Acao = 'C' then
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' CANCELADO!', clWhite, tiOk)
+
   else
     Imprime_display('ITEM ' + Zerar(frmModulo.qrItensITEM.AsString, 4) + ' DESCANCELADO!', clWhite, tiOk);
   Sleep(1000);

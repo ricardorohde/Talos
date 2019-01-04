@@ -3,7 +3,7 @@
         <ProjectGuid>{B7813071-C883-4C24-850E-DF517700427C}</ProjectGuid>
         <MainSource>Backup.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>

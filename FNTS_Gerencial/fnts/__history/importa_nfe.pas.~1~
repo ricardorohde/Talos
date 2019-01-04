@@ -14,19 +14,7 @@ uses
   AdvSmoothExpanderPanel, inifiles, System.ImageList, ACBrDFe, JvExStdCtrls,
   JvEdit, JvValidateEdit, cxGraphics, cxLookAndFeels, System.Math,
   cxLookAndFeelPainters, cxButtons, JvExMask, JvToolEdit, JvBaseEdits, ACBrUtil,
-  ListaNfeBaixar, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
-  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
-  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
-  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
-  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
-  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
-  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
-  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
-  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
-  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
-  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
-  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue;
+  ListaNfeBaixar;
 
 type
   Tfrmimporta_nfe = class(TForm)
@@ -2007,7 +1995,7 @@ begin
       end;
 
       { : PREÇOS }
-      qritemPRECOCUSTO.ASFLOAT := RoundTo((qritemTOTAL.ASFLOAT + qritemFRETE.ASFLOAT + qritemSEGURO.ASFLOAT + qritemOUTRAS.ASFLOAT + qritemIPI_VALOR.ASFLOAT + qritemSUB_VALOR.ASFLOAT) / (qritemQTDE.ASFLOAT) / qritemFRACAO.ASFLOAT, -2);
+      qritemPRECOCUSTO.ASFLOAT := RoundTo((qritemTOTAL.ASFLOAT + qritemFRETE.ASFLOAT + qritemSEGURO.ASFLOAT + qritemOUTRAS.ASFLOAT + qritemIPI_VALOR.ASFLOAT) / (qritemQTDE.ASFLOAT) / qritemFRACAO.ASFLOAT, -2);
       { adicionar no preço de custo o valor do icms ou o % do simples }
       // Temp
 

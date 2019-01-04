@@ -77,7 +77,7 @@
     <Transaction>2018/12/19 00:30:03.000.184,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns\AboutTalos.pas=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Gerencial\ABOUT.pas</Transaction>
     <Transaction>2018/12/19 09:31:45.000.795,=C:\Intro.mp3</Transaction>
     <Transaction>2018/12/19 09:37:46.000.956,C:\Intro.mp3=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Comuns\Intro.mp3</Transaction>
-    <Transaction>2018/12/19 17:48:42.620,=C:\Intro.mp3</Transaction>
+    <Transaction>2018/12/19 17:48:42.000.620,=C:\Intro.mp3</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Talos"/>

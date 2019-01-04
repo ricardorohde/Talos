@@ -21,18 +21,19 @@ type
     procedure ed_itemEnter(Sender: TObject);
     procedure ed_itemExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+
   private
     { Private declarations }
   public
     { Public declarations }
-    ValidaDesconto, AbrirCaixa, FechaCaixa, Configuracoes, CancelarVenda, CancelarItem :Boolean;
-
-  end;
+end;
 
 var
   frmItem_Cancelamento: TfrmItem_Cancelamento;
 
 implementation
+
+
 
 uses principal, funcoes, venda;
 
@@ -42,10 +43,10 @@ procedure TfrmItem_Cancelamento.ed_itemKeyPress(Sender: TObject;
   var Key: Char);
 begin
   if key = #13 then begin
-
-      bSair_campo := true;
+   bSair_campo := true;
+   ItemCancelamento :=  ed_item.text;
       close;
-    end;
+
   end else begin
     if key = #27 then begin
       // aborta o cancelamento do item
@@ -58,7 +59,7 @@ end;
 procedure TfrmItem_Cancelamento.FormCreate(Sender: TObject);
 begin
 
-  CancelarItem := False;
+  ;
 
   if AtivaTouch then begin
     if not ExibeTecladoVirtual then begin
@@ -96,9 +97,6 @@ begin
 end;
 
 
-function SetaCancelamento(qrItensItem: Integer)
-begin
-return qrItensITEM := ed_item.text;
-end;
+
 
 end.
