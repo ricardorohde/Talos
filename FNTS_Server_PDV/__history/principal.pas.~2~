@@ -513,7 +513,7 @@ begin
                     qrServidor.SQL.Add(') values (');
                     qrServidor.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, :DATA, :HORA, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                     qrServidor.SQL.Add(')');
-                    qrServidor.Params.ParamByName('CODIGO').AsString := qrpdv.FieldByName('CODIGO').AsString;
+                    qrServidor.Params.ParamByName('CODIGO').AsString := qrpdv.FieldByName('OPERADOR').AsString + qrpdv.FieldByName('COD_CUPOM').AsString + '_' + qrpdv.FieldByName('ITEM').AsString;
                     qrServidor.Params.ParamByName('COD_CUPOM').AsString := qrpdv.FieldByName('COD_CUPOM').AsString;
                     qrServidor.Params.ParamByName('OPERADOR').AsFloat := qrpdv.FieldByName('OPERADOR').AsFloat;
                     qrServidor.Params.ParamByName('DATA').AsDateTime := qrpdv.FieldByName('DATA').AsDateTime;
@@ -534,7 +534,7 @@ begin
                     qrServidor.ExecSQL;
                     qrPDV_Tabela.close;
                     qrPDV_Tabela.SQL.clear;
-                    qrPDV_Tabela.sql.Add('update CUPOM_ITEM_CANCELADO set EXPORTADO = 1 where CODIGO = ' + qrpdv.fieldbyname('codigo').AsString);
+                    qrPDV_Tabela.sql.Add('update CUPOM_ITEM_CANCELADO set EXPORTADO = 1 where NUMERO = ' + qrpdv.fieldbyname('NUMERO').asstring + ' AND ECF = ' +qrPDV.FieldByName('ECF').AsString);
                     qrPDV_Tabela.ExecSQL;
                     qrpdv.Next;
               end;
