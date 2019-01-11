@@ -26,12 +26,10 @@ object frmetiquetador: Tfrmetiquetador
     Height = 425
     ControlType.Strings = (
       'CODPRODUTO;CustomEdit;COMBOCODIGO;F'
-      'CODBARRA;CustomEdit;COMBOCODIGO;F'
       'PRODUTO;CustomEdit;COMBOPRODUTO;F'
       'VALOR;CustomEdit;RVALOR;F')
     Selected.Strings = (
       'CODPRODUTO'#9'6'#9'CODPRODUTO'#9#9
-      'CODBARRA'#9'10'#9'CODBARRA'#9#9
       'QTDE'#9'10'#9'QTDE'#9#9
       'PRODUTO'#9'80'#9'PRODUTO'#9#9
       'VALOR'#9'10'#9'VALOR'#9#9
@@ -273,7 +271,7 @@ object frmetiquetador: Tfrmetiquetador
     end
   end
   object COMBOPRODUTO: TwwDBLookupCombo
-    Left = 270
+    Left = 144
     Top = 56
     Width = 121
     Height = 21
@@ -290,7 +288,7 @@ object frmetiquetador: Tfrmetiquetador
     OnExit = COMBOPRODUTOExit
   end
   object COMBOCODIGO: TwwDBLookupComboDlg
-    Left = 8
+    Left = 16
     Top = 56
     Width = 121
     Height = 21
@@ -353,7 +351,7 @@ object frmetiquetador: Tfrmetiquetador
     end
   end
   object RVALOR: TwwDBEdit
-    Left = 397
+    Left = 328
     Top = 56
     Width = 121
     Height = 21
@@ -1358,26 +1356,6 @@ object frmetiquetador: Tfrmetiquetador
       Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
-  end
-  object COMBOCODBARRAS: TwwDBLookupComboDlg
-    Left = 143
-    Top = 103
-    Width = 121
-    Height = 21
-    GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
-    GridColor = clWhite
-    GridTitleAlignment = taLeftJustify
-    Caption = 'Lookup'
-    MaxWidth = 0
-    MaxHeight = 209
-    DataField = 'codbarra'
-    DataSource = dsetiq
-    LookupTable = frmmodulo.qrproduto
-    LookupField = 'CODBARRA'
-    TabOrder = 13
-    AutoDropDown = False
-    ShowButton = True
-    AllowClearKey = False
   end
   object dsetiq: TwwDataSource
     DataSet = qretiq

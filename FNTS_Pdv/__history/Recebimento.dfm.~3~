@@ -1599,6 +1599,7 @@ object frmRecebimento: TfrmRecebimento
       Rounded = False
       Transparent = True
       TabOrder = 2
+      OnClick = btnChequeClick
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
       Appearance.BorderColorDown = 4548219
@@ -3839,7 +3840,7 @@ object frmRecebimento: TfrmRecebimento
     object Action6: TAction
       Caption = 'Cheque (F6)'
       ShortCut = 117
-      OnExecute = btnChequeClick
+      OnExecute = btnCheque
     end
     object Action7: TAction
       Caption = 'TEF (F7)'

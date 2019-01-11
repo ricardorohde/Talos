@@ -413,6 +413,10 @@ begin
   Valor := RetornaValorRecebimento(Saldo, False, tmCrediario, tvRecebimento);
   if Valor.Confirma then begin
     with frmVenda do begin
+      bContinua := False;
+      if not bContinua then begin
+        Exit;
+      end;
 
       cdsRecebimento.Append;
       cdsRecebimentoTipo.AsString :=  StRecCheque ;

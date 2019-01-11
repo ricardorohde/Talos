@@ -370,11 +370,6 @@ type
     qrProdutividadeDATA: TDateField;
     qrProdutividadeTotaldeVendas: TFloatField;
     qrProdutividadeClientes: TIntegerField;
-    qrCaixas: TZQuery;
-    fsCaixas: TfrxDBDataset;
-    qrCaixasCODIGO: TWideStringField;
-    qrCaixasNOME: TWideStringField;
-    qrProdutividadeNOME: TWideStringField;
     procedure combo_clienteChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -836,8 +831,7 @@ begin
 
     qrProdutividade.CLOSE;
     qrProdutividade.SQL.CLEAR;
-    qrProdutividade.SQL.Add('select codcaixa, data, sum(total) as "Total de Vendas", count(numero_cupom_fiscal) as "Clientes" from c000048 where ' + periodo + SITUACAO + cliente + VENDEDOR + caixa + FORMA + TIPO);
-    qrProdutividade.SQL.Add('group by data, codcaixa order by data');
+    qrProdutividade.SQL.Add('select * from c000048 where ' + periodo + SITUACAO + cliente + VENDEDOR + caixa + FORMA + TIPO + ' order by ' + ordem);
     qrProdutividade.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     qrProdutividade.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrProdutividade.OPEN;
@@ -848,7 +842,7 @@ begin
     else
       fxProdutividade.LoadFromFile('\TALOS\server\rel\123.fr3');
 
-    fxProdutividade.ShowReport;
+    fxvenda.ShowReport;
   end;
 
   if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
