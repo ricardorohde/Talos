@@ -1318,6 +1318,7 @@ end;
 
 procedure TfrmVenda.Cancela_Item(sItem: string; Acao: string);
 begin
+
   Application.ProcessMessages;
   query.SQL.Clear;
   if Acao = 'C' then begin
@@ -1331,9 +1332,33 @@ begin
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 0 where item = ' + IntToStr(StrToInt(sItem)));
   end;
   query.ExecSQL;
+  query1.sql.clear;
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where item = ' + inttoStr(StrtoInt(sItem)));
+  query1.ExecSQL;
+
   query.SQL.Clear;
-  query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+  QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
+                    query.SQL.Add(') values (');
+                    query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
+                    query.SQL.Add(')');
+                    query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
+                    query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
+                    query.Params.ParamByName('OPERADOR').AsFloat := StrToInt(sCaixa);
+                    query.Params.ParamByName('PDV').AsString := sCaixa;
+                    query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
+                    query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
+                    query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
+                    query.Params.ParamByName('QTDE').AsFloat := query1.FieldByName('QTDE').AsFloat;
+                    query.Params.ParamByName('VALOR_UNITARIO').AsFloat := query1.FieldByName('VALOR_UNITARIO').AsFloat;
+                    query.Params.ParamByName('VALOR_SUBTOTAL').AsFloat := query1.FieldByName('VALOR_SUBTOTAL').AsFloat;
+                    query.Params.ParamByName('VALOR_DESCONTO').AsFloat := query1.FieldByName('VALOR_DESCONTO').AsFloat;
+                    query.Params.ParamByName('VALOR_ACRESCIMO').AsFloat := query1.FieldByName('VALOR_ACRESCIMO').AsFloat;
+                    query.Params.ParamByName('VALOR_TOTAL').AsFloat := query1.FieldByName('VALOR_TOTAL').AsFloat;
+                    query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
+                    query.Params.ParamByName('COMPLEMENTO').AsString := 'ITEM CANCELADO';
+  //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
   query.ExecSQL;
+
 
 
   with frmModulo do begin
@@ -1349,7 +1374,7 @@ begin
    qrCupomNF.Open;
    qrCupomNF.First;
 
-   frxCancelado.ShowReport;
+
 
 
   // atualizar os labels de totais e itens
@@ -3935,6 +3960,11 @@ end;
 procedure TfrmVenda.ed_qtdeKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then begin
+    if  (ed_qtde.Value >= 100) then begin
+  ShowMessage('Digitado valor de quantidade maior do que o aceito pela SEFAZ');
+  ed_qtde.Value := 1.00;
+
+  end;
     if rProd_qtde <> ed_qtde.value then begin
       rProd_preco := frmModulo.PrecoDeVenda(iProd_codigo, ed_qtde.value);
       ed_unitario.Value := rProd_preco;
@@ -3988,12 +4018,24 @@ begin
     Teclado.Top := RoundDiv((Screen.Height - Teclado.Height), 2);
     Teclado.Visible := True;
   end;
+
 end;
 
 procedure TfrmVenda.ed_qtdeExit(Sender: TObject);
 begin
-  if (AtivaTouch) and (ExibeTecladoVirtual) then
+  if (AtivaTouch) and (ExibeTecladoVirtual) then begin
+
     Teclado.Visible := False;
+
+  end;
+
+
+
+
+
+
+
+
 end;
 
 // -------------------------------------------------------------------------- //

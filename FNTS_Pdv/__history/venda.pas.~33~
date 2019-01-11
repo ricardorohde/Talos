@@ -318,6 +318,7 @@ type
     qrANP: TUniQuery;
     qrANPCODIGO: TStringField;
     qrANPDESCRICAO: TStringField;
+    frxCancelado: TfrxReport;
     procedure Cancela_cupom_aberto();
     procedure Cancela_Item(sItem: string; Acao: string);
     procedure Registra_Item();
@@ -420,7 +421,7 @@ type
     function RetornaSenhaImpressao: Integer;
     procedure LongPress;
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
-    procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
+    //procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
   public
     { Public declarations }
     procedure CorEditTotaL;
@@ -1283,6 +1284,13 @@ var
   scod_cupom: string;
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
+
+
+  query.SQL.Clear;
+  query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
+  query.ExecSQL;
+
+
   if (bBusca_foto_produto) and not (AtivaTouch) then
     img_produto.Picture := nil;
 
@@ -1310,6 +1318,7 @@ end;
 
 procedure TfrmVenda.Cancela_Item(sItem: string; Acao: string);
 begin
+
   Application.ProcessMessages;
   query.SQL.Clear;
   if Acao = 'C' then begin
@@ -1323,6 +1332,34 @@ begin
     query.SQL.Add('update CUPOM_ITEM_TEMP set cancelado = 0 where item = ' + IntToStr(StrToInt(sItem)));
   end;
   query.ExecSQL;
+  query1.sql.clear;
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where item = ' + inttoStr(StrtoInt(sItem)));
+  query1.ExecSQL;
+
+  query.SQL.Clear;
+  QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
+                    query.SQL.Add(') values (');
+                    query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
+                    query.SQL.Add(')');
+                    query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
+                    query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
+                    query.Params.ParamByName('OPERADOR').AsFloat := StrToInt(sCaixa);
+                    query.Params.ParamByName('PDV').AsString := sCaixa;
+                    query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
+                    query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
+                    query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
+                    query.Params.ParamByName('QTDE').AsFloat := query1.FieldByName('QTDE').AsFloat;
+                    query.Params.ParamByName('VALOR_UNITARIO').AsFloat := query1.FieldByName('VALOR_UNITARIO').AsFloat;
+                    query.Params.ParamByName('VALOR_SUBTOTAL').AsFloat := query1.FieldByName('VALOR_SUBTOTAL').AsFloat;
+                    query.Params.ParamByName('VALOR_DESCONTO').AsFloat := query1.FieldByName('VALOR_DESCONTO').AsFloat;
+                    query.Params.ParamByName('VALOR_ACRESCIMO').AsFloat := query1.FieldByName('VALOR_ACRESCIMO').AsFloat;
+                    query.Params.ParamByName('VALOR_TOTAL').AsFloat := query1.FieldByName('VALOR_TOTAL').AsFloat;
+                    query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
+                    query.Params.ParamByName('COMPLEMENTO').AsString := 'ITEM CANCELADO';
+  //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+  query.ExecSQL;
+
+
 
   with frmModulo do begin
     qrItens.DisableControls;
@@ -1331,6 +1368,14 @@ begin
     qrItens.Last;
     qrItens.EnableControls;
   end;
+
+   qrCupomNF.Close;
+   qrCupomNF.Params.Items[0].Value := frmModulo.qrItensITEM.AsString;
+   qrCupomNF.Open;
+   qrCupomNF.First;
+
+
+
 
   // atualizar os labels de totais e itens
   lb_item.Caption := IntToStr(iTotal_Itens);

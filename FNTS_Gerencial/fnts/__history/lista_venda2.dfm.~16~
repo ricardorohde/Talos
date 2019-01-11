@@ -3467,12 +3467,10 @@ object frmlista_venda2: Tfrmlista_venda2
     Active = True
     SQL.Strings = (
       
-        'select vendas.codcaixa, usuarios.nome, vendas.data, sum(vendas.t' +
-        'otal) as "Total de Vendas", count(vendas.numero_cupom_fiscal) as' +
-        ' "Clientes"'
-      'from c000048 vendas, c000008 usuarios'
-      'join c000045 as caixas on vendas.codcaixa = caixas.codigo'
-      'group by data, codcaixa, nome'
+        'select codcaixa, data, sum(total) as "Total de Vendas", count(nu' +
+        'mero_cupom_fiscal) as "Clientes"'
+      'from c000048'
+      'group by data, codcaixa'
       'order by data;')
     Params = <>
     Left = 495
@@ -3492,10 +3490,6 @@ object frmlista_venda2: Tfrmlista_venda2
       FieldName = 'Clientes'
       ReadOnly = True
     end
-    object qrProdutividadeNOME: TWideStringField
-      FieldName = 'NOME'
-      Size = 80
-    end
   end
   object fsProdutividade: TfrxDBDataset
     UserName = 'fsProdutividade'
@@ -3504,8 +3498,7 @@ object frmlista_venda2: Tfrmlista_venda2
       'CODCAIXA=CODCAIXA'
       'DATA=DATA'
       'Total de Vendas=Total de Vendas'
-      'Clientes=Clientes'
-      'NOME=NOME')
+      'Clientes=Clientes')
     DataSet = qrProdutividade
     BCDToCurrency = False
     Left = 495
@@ -3520,7 +3513,7 @@ object frmlista_venda2: Tfrmlista_venda2
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39181.615094942100000000
-    ReportOptions.LastChange = 43471.985824768500000000
+    ReportOptions.LastChange = 43471.926684606480000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3566,13 +3559,13 @@ object frmlista_venda2: Tfrmlista_venda2
         Top = 98.267780000000000000
         Width = 740.409927000000000000
         object Line1: TfrxLineView
-          Top = 15.118120000000000000
+          Top = 15.118120000000010000
           Width = 740.787880000000000000
           Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Line2: TfrxLineView
-          Top = 32.015770000000000000
+          Top = 32.015769999999990000
           Width = 740.787880000000000000
           Color = clBlack
           Frame.Typ = [ftTop]
@@ -3591,6 +3584,20 @@ object frmlista_venda2: Tfrmlista_venda2
             'DATA')
           ParentFont = False
         end
+        object Memo9: TfrxMemoView
+          Left = 140.047310000000000000
+          Top = 16.118120000000000000
+          Width = 64.252010000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'PDV')
+          ParentFont = False
+        end
         object Memo10: TfrxMemoView
           Left = 400.953000000000000000
           Top = 16.118120000000000000
@@ -3607,7 +3614,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object Memo2: TfrxMemoView
           Left = 623.622450000000000000
-          Top = 0.779529999999994000
+          Top = 0.779529999999994100
           Width = 113.385900000000000000
           Height = 15.118120000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -3639,7 +3646,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object Memo26: TfrxMemoView
           Left = 493.559370000000000000
-          Top = 15.118120000000000000
+          Top = 15.118120000000010000
           Width = 71.811070000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -3654,7 +3661,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object Memo27: TfrxMemoView
           Left = 572.929500000000000000
-          Top = 15.118120000000000000
+          Top = 15.118120000000010000
           Width = 71.811070000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -3669,7 +3676,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object Memo28: TfrxMemoView
           Left = 662.638220000000000000
-          Top = 15.118120000000000000
+          Top = 15.118120000000010000
           Width = 71.811070000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -3685,7 +3692,7 @@ object frmlista_venda2: Tfrmlista_venda2
         object Memo32: TfrxMemoView
           Left = 82.370130000000000000
           Top = 16.118120000000000000
-          Width = 79.370130000000000000
+          Width = 52.913420000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -3703,7 +3710,7 @@ object frmlista_venda2: Tfrmlista_venda2
         Top = 396.850650000000000000
         Width = 740.409927000000000000
         object Line3: TfrxLineView
-          Top = 3.779530000000020000
+          Top = 3.779530000000022000
           Width = 740.787880000000000000
           Color = clBlack
           Frame.Typ = [ftTop]
@@ -3904,8 +3911,8 @@ object frmlista_venda2: Tfrmlista_venda2
         DataSetName = 'fsProdutividade'
         RowCount = 0
         object fsProdutividadeCODCAIXA: TfrxMemoView
-          Left = 83.149660000000000000
-          Top = 3.779530000000000000
+          Left = 120.944960000000000000
+          Top = 3.779529999999994000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataField = 'CODCAIXA'
@@ -3923,7 +3930,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeTotaldeVendas: TfrxMemoView
           Left = 207.874150000000000000
-          Top = 3.779529999999990000
+          Top = 3.779529999999994000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade
@@ -3949,23 +3956,6 @@ object frmlista_venda2: Tfrmlista_venda2
             '[fsProdutividade."Clientes"]')
           ParentFont = False
         end
-        object fsProdutividadeNOME: TfrxMemoView
-          Left = 132.283550000000000000
-          Top = 3.779530000000000000
-          Width = 86.929190000000000000
-          Height = 18.897650000000000000
-          DataField = 'NOME'
-          DataSet = fsProdutividade
-          DataSetName = 'fsProdutividade'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[fsProdutividade."NOME"]')
-          ParentFont = False
-        end
       end
       object GroupFooter1: TfrxGroupFooter
         FillType = ftBrush
@@ -3974,14 +3964,14 @@ object frmlista_venda2: Tfrmlista_venda2
         Width = 740.409927000000000000
         object Line4: TfrxLineView
           Left = 3.779530000000000000
-          Top = 22.677180000000000000
+          Top = 22.677180000000020000
           Width = 733.228820000000000000
           Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Memo3: TfrxMemoView
           Left = 7.559060000000000000
-          Top = 3.779530000000020000
+          Top = 3.779530000000022000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -3995,7 +3985,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeClientes: TfrxMemoView
           Left = 657.638220000000000000
-          Top = 3.779530000000020000
+          Top = 3.779530000000022000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade
@@ -4011,7 +4001,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeTotaldeVendas1: TfrxMemoView
           Left = 207.874150000000000000
-          Top = 3.779530000000020000
+          Top = 3.779530000000022000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade

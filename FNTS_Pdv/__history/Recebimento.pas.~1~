@@ -103,7 +103,6 @@ type
     procedure Action1Execute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Action3Execute(Sender: TObject);
-    procedure btnChequeClick(Sender: TObject);
   private
     { Private declarations }
     RecDinheiro, RecCrediario, RecConvenio, RecCartaoCR, RecCartaoDE,
@@ -401,33 +400,6 @@ begin
   Saldo := TotalReceber;
   MostraDados;
 end;
-
-procedure TfrmRecebimento.btnChequeClick(Sender: TObject);
-var
-  Valor:tValorReceber;
-begin
-  if Saldo <= 0 then begin
-    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
-    Exit;
-  end;
-  Valor := RetornaValorRecebimento(Saldo, False, tmCrediario, tvRecebimento);
-  if Valor.Confirma then begin
-    with frmVenda do begin
-
-      cdsRecebimento.Append;
-      cdsRecebimentoTipo.AsString :=  StRecCheque ;
-      cdsRecebimentovalor.AsFloat := Valor.Valor;
-      cdsRecebimentocliente.AsString := sCli_codigo;
-      cdsRecebimento.Post;
-    end;
-    Saldo := Roundto(Saldo - Valor.Valor,-2);
-    Recebido := Roundto(Recebido + Valor.Valor,-2);
-  end;
-  MostraDados;
-  if Saldo = 0 then
-    btnFinalizar.SetFocus;
-end;
-
 
 procedure TfrmRecebimento.FormCreate(Sender: TObject);
 begin
