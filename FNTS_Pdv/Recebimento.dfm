@@ -57,7 +57,7 @@ object frmRecebimento: TfrmRecebimento
       Left = 0
       Top = 0
       Width = 16
-      Height = 26
+      Height = 14
       Align = alLeft
       AutoSize = True
       Center = True
@@ -169,12 +169,13 @@ object frmRecebimento: TfrmRecebimento
         84F3365F5E7091E4C57E4BCF93A501D58DDC4D26DB02D2947C4AF9848D28F8A0
         99B69350D216143F39426515F9B57F03CC6F9CFEE8B19B7F51D0000000004945
         4E44AE426082}
+      ExplicitHeight = 26
     end
     object Image2: TImage
       Left = 128
       Top = 0
       Width = 12
-      Height = 26
+      Height = 19
       Align = alLeft
       AutoSize = True
       Center = True
@@ -282,12 +283,13 @@ object frmRecebimento: TfrmRecebimento
         0F17B350499DA648D428604A619376A01BB117717DD95F8588E21F9CF42FB09A
         03221B0000000049454E44AE426082}
       ExplicitLeft = 161
+      ExplicitHeight = 26
     end
     object Image3: TImage
       Left = 764
       Top = 0
       Width = 8
-      Height = 26
+      Height = 16
       Align = alLeft
       AutoSize = True
       Center = True
@@ -394,13 +396,12 @@ object frmRecebimento: TfrmRecebimento
         D0798BEFFFE4D7FEF45EFEA5B28872EB2BCEC7135263EEBF85CB879A29A4E60B
         9458754CA8E3F096F0A0C7F45A35C0872A030365B94011DABFDAC099B4896BE3
         27FE00E883138977787B5F0000000049454E44AE426082}
-      ExplicitHeight = 16
     end
     object Image4: TImage
       Left = 380
       Top = 0
       Width = 16
-      Height = 26
+      Height = 12
       Align = alLeft
       AutoSize = True
       Center = True
@@ -508,13 +509,12 @@ object frmRecebimento: TfrmRecebimento
         946D7ABBED8CD79AFDDA1A30E7202BC1BDF469EC6CF9F3DC13A30450BF0085A6
         1056240B46E70000000049454E44AE426082}
       ExplicitLeft = 428
-      ExplicitHeight = 12
     end
     object Image5: TImage
       Left = 252
       Top = 0
       Width = 16
-      Height = 26
+      Height = 14
       Align = alLeft
       AutoSize = True
       Center = True
@@ -627,13 +627,12 @@ object frmRecebimento: TfrmRecebimento
         ED71FB4E16382E38C08150FF9F01007DF82332D9D6CC3B0000000049454E44AE
         426082}
       ExplicitLeft = 284
-      ExplicitHeight = 14
     end
     object Image6: TImage
       Left = 636
       Top = 0
       Width = 16
-      Height = 26
+      Height = 8
       Align = alLeft
       AutoSize = True
       Center = True
@@ -733,13 +732,12 @@ object frmRecebimento: TfrmRecebimento
         9E6EBF7FF5D9B67BC8F8E0D9856FF69D9CF76ED7D1D9EF36ED9DFA1EC486E103
         A717BC06008A30906AFD2642DA0000000049454E44AE426082}
       ExplicitLeft = 716
-      ExplicitHeight = 8
     end
     object Image7: TImage
       Left = 508
       Top = 0
       Width = 16
-      Height = 26
+      Height = 10
       Align = alLeft
       AutoSize = True
       Center = True
@@ -843,7 +841,6 @@ object frmRecebimento: TfrmRecebimento
         FE3E0A7E1CBF8E451CCFF40B32E351EC6AA1F2913D2AC336C5A2E9E41342C411
         F85B0607220000000049454E44AE426082}
       ExplicitLeft = 572
-      ExplicitHeight = 10
     end
     object pnDinheiro: TPanel
       Left = 16
@@ -3839,14 +3836,13 @@ object frmRecebimento: TfrmRecebimento
     object Action6: TAction
       Caption = 'Cheque (F6)'
       ShortCut = 117
-      OnExecute = btnChequeClick
     end
     object Action7: TAction
       Caption = 'TEF (F7)'
       ShortCut = 118
     end
     object Action8: TAction
-      Caption = 'Desconto (F8)'
+      Caption = 'Desconto F(8)'
       ShortCut = 119
       OnExecute = Action8Execute
     end

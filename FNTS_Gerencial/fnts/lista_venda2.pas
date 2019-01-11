@@ -363,18 +363,6 @@ type
     qrvenda_produto2CLIENTE: TStringField;
     qrvenda_produto2VENDEDOR: TStringField;
     qrvenda_produto2PRODUTO: TStringField;
-    qrProdutividade: TZQuery;
-    fsProdutividade: TfrxDBDataset;
-    fxProdutividade: TfrxReport;
-    qrProdutividadeCODCAIXA: TWideStringField;
-    qrProdutividadeDATA: TDateField;
-    qrProdutividadeTotaldeVendas: TFloatField;
-    qrProdutividadeClientes: TIntegerField;
-    qrCaixas: TZQuery;
-    fsCaixas: TfrxDBDataset;
-    qrCaixasCODIGO: TWideStringField;
-    qrCaixasNOME: TWideStringField;
-    qrProdutividadeNOME: TWideStringField;
     procedure combo_clienteChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -829,26 +817,6 @@ begin
     FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'PRODUTOS VENDIDOS EM CONDICIONAL';
     fxvenda.LoadFromFile('\TALOS\server\REL\F000158.fr3');
     fxvenda.ShowReport;
-  end;
-
-    if combo_relatorio.Text = 'RELATORIO DE PRODUTIVIDADE' then begin
-//    FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÇÃO: ' + COMBO_SITUACAO.Text;
-
-    qrProdutividade.CLOSE;
-    qrProdutividade.SQL.CLEAR;
-    qrProdutividade.SQL.Add('select codcaixa, data, sum(total) as "Total de Vendas", count(numero_cupom_fiscal) as "Clientes" from c000048 where ' + periodo + SITUACAO + cliente + VENDEDOR + caixa + FORMA + TIPO);
-    qrProdutividade.SQL.Add('group by data, codcaixa order by data');
-    qrProdutividade.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
-    qrProdutividade.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
-    qrProdutividade.OPEN;
-
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÓRIO DE PRODUTIVIDADE';
-    if combo_forma.ItemIndex = 0 then
-      fxProdutividade.LoadFromFile('\TALOS\server\rel\123.fr3')
-    else
-      fxProdutividade.LoadFromFile('\TALOS\server\rel\123.fr3');
-
-    fxProdutividade.ShowReport;
   end;
 
   if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
