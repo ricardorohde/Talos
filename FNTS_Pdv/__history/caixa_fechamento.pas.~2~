@@ -737,12 +737,11 @@ begin
                                       'Deseja efetuar o fechamento do Caixa?'),
                                       'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
 
-     (*********IMPRIME CONFIRMAÇÃO DO RESUMO DO CAIXA***********)
+
         if application.messagebox(pwidechar('Atenção!'+#13+
                                       'Imprimir o RESUMO DO CAIXA?'),
                                       'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
-
-                                      AdvGlowButton2.Click;
+                                      TfrmCaixa_Fechamento.AdvGlowButton2Click(Sender: TObject);
 
                                       end;
 
