@@ -36,7 +36,7 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter;
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -410,8 +410,6 @@ type
     procedure MostraFotoProduto(b: Boolean);
     procedure MostraLogoMarca(b: Boolean);
     procedure CentralizarPanel(p: TPanel);
-    function PrepararNFCE: Boolean;
-    procedure GerarNFCe(NumNFe: string);
     procedure OnInternetChange(LANStatus: TLANStatus; InternetStatus: TInternetStatus; xMsg: string = '');
     procedure MontaTelaTouch;
     procedure MontaGrupos;
@@ -433,6 +431,9 @@ type
     procedure ConfiguraSAT;
     function EnviaSAT(Cupom: string): Boolean;
     procedure PrepararImpressao;
+    //passei para public para poder emitir nfce no menu_cupom
+    function PrepararNFCE: Boolean;
+    procedure GerarNFCe(NumNFe: string);
   end;
 
 const
@@ -516,6 +517,9 @@ var
   cStatus: Integer;
   ChaveNFCE: string;
   NumeroNFCe: Integer;
+
+  //variavel multiplicador
+  multiplicador: string;
 
 implementation
 
@@ -1253,6 +1257,8 @@ begin
           end;
         end;
         iPesquisa_produto := 1;
+
+
         if frmVenda.Localizar_Produto(Zerar(IntToStr(Produto), 6)) then begin
           rProd_preco := rProd_preco + vExtra.valor;
           if (query.fieldbyname('usa_balanca').AsInteger = 1) and (bPesagemAutomatica) then begin
@@ -1317,8 +1323,6 @@ begin
 end;
 
 procedure TfrmVenda.Cancela_Item(sItem: string; Acao: string);
-var
-Hoje: TDateTime;
 begin
 
   Application.ProcessMessages;
@@ -1335,17 +1339,17 @@ begin
   end;
   query.ExecSQL;
   query1.sql.clear;
-  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where item = ' + intotStr(StrtoInt(sItem)));
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where item = ' + inttoStr(StrtoInt(sItem)));
   query1.ExecSQL;
 
   query.SQL.Clear;
   QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
                     query.SQL.Add(') values (');
-                    query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE(), CURRENT_TIME(), :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
+                    query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                     query.SQL.Add(')');
                     query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
                     query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
-                    query.Params.ParamByName('OPERADOR').AsFloat := sCaixa;
+                    query.Params.ParamByName('OPERADOR').AsFloat := StrToInt(sCaixa);
                     query.Params.ParamByName('PDV').AsString := sCaixa;
                     query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                     query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
@@ -1360,7 +1364,7 @@ begin
                     query.Params.ParamByName('COMPLEMENTO').AsString := 'ITEM CANCELADO';
   //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
   query.ExecSQL;
-  query1.sql.close;
+
 
 
   with frmModulo do begin
@@ -1376,7 +1380,7 @@ begin
    qrCupomNF.Open;
    qrCupomNF.First;
 
-   frxCancelado.ShowReport;
+
 
 
   // atualizar os labels de totais e itens
@@ -2039,6 +2043,11 @@ begin
   MostraFotoProduto(bBusca_foto_produto);
   MostraLogoMarca(bHabLogoMarca);
 
+  TrocaResolucao(Screen.Width,Screen.Height,1,1);
+  // ajuste para se a resolucao for muito baixa
+  if Screen.height < 1024 then
+  cxGrid1.width := 400;
+
   Carregando := False;
 
 end;
@@ -2053,7 +2062,19 @@ var
   Jpg: TJPEGImage;
   Bitmap: TBitmap;
   ext: string;
+
 begin
+
+  if Key = '*' then begin
+
+   multiplicador := SplitString(ed_barra.text,'*')[0];
+   Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
+   ed_barra.text := '';
+   Key := ' ';
+
+
+  end ;
+
   if Key = #13 then begin
     sx_barra := Trim(ed_barra.text);
 
@@ -2091,6 +2112,9 @@ begin
     iPesquisa_produto := 1;
     // fazer a busca do produto
     sProd_barra := ed_barra.text;
+
+
+
     if frmVenda.Localizar_Produto(ed_barra.Text) then begin
       if (query.fieldbyname('usa_balanca').AsInteger = 1) and (bPesagemAutomatica) then begin
         ed_qtde.Value := RetornaPesoBalanca;
@@ -2149,6 +2173,13 @@ begin
         else if ed_qtde.Value > 1 then
           rProd_qtde := ed_qtde.Value;
         ed_unitario.Value := rProd_preco;
+
+        if multiplicador <> '' then begin
+        rProd_qtde := StrToFloat(multiplicador);
+        ed_qtde.Value := StrToFloat(multiplicador);
+        multiplicador := '1';
+        end;
+
         rProd_total := Truncar_Valor(rProd_qtde * rProd_preco);
         ed_total_item.Value := rProd_total;
       end;
@@ -2197,6 +2228,7 @@ begin
           Exit;
         end;
         ed_barra.text := '';
+
         Registra_Item;
       end;
     end
@@ -2210,6 +2242,7 @@ begin
   else if Key = #27 then begin
     Teclado.Visible := False;
   end;
+
 end;
 
 procedure TfrmVenda.ed_barraKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -3962,6 +3995,11 @@ end;
 procedure TfrmVenda.ed_qtdeKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then begin
+    if  (ed_qtde.Value >= 100.000) then begin
+  ShowMessage('Digitado valor de quantidade maior do que o aceito pela SEFAZ');
+  ed_qtde.Value := 1.00;
+
+  end;
     if rProd_qtde <> ed_qtde.value then begin
       rProd_preco := frmModulo.PrecoDeVenda(iProd_codigo, ed_qtde.value);
       ed_unitario.Value := rProd_preco;
@@ -4015,12 +4053,24 @@ begin
     Teclado.Top := RoundDiv((Screen.Height - Teclado.Height), 2);
     Teclado.Visible := True;
   end;
+
 end;
 
 procedure TfrmVenda.ed_qtdeExit(Sender: TObject);
 begin
-  if (AtivaTouch) and (ExibeTecladoVirtual) then
+  if (AtivaTouch) and (ExibeTecladoVirtual) then begin
+
     Teclado.Visible := False;
+
+  end;
+
+
+
+
+
+
+
+
 end;
 
 // -------------------------------------------------------------------------- //

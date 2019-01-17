@@ -57,6 +57,7 @@ type
     { Private declarations }
     oldTipoImpressora: TImpressora;
     procedure AbreDados;
+    procedure EmitirNFCe;
   public
     { Public declarations }
   end;
@@ -75,17 +76,23 @@ begin
   close;
 end;
 
+(**Procedure para emitir NFCe a partir de cupom **)
+procedure TfrmCupom_Menu.EmitirNFCe;
+begin
+  close;
+end;
 procedure TfrmCupom_Menu.AbreDados;
 begin
   qrcupom.Close;
   qrcupom.sql.clear;
   qrcupom.sql.add('select cupom.*,');
-  qrcupom.sql.add('       cupom_consumidor.nome Consumidor');
-  qrcupom.sql.add('from cupom, cupom_consumidor');
+  qrcupom.sql.add('       cupom_consumidor.nome Consumidor, cupom_aberto_cancelado.*');
+  qrcupom.sql.add('from cupom, cupom_consumidor, cupom_aberto_cancelado');
   qrcupom.sql.add('where');
   qrcupom.sql.add('  cupom.codigo = cupom_consumidor.codigo');
   qrcupom.sql.add('  and cupom.data = :data');
   qrcupom.sql.add('  and cupom.ecf = '''+sCaixa+'''');
+  qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
   qrcupom.sql.add('order by cupom.numero');
   qrcupom.parambyname('data').asdatetime := ed_data.Date;
   qrcupom.open;

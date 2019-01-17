@@ -102,66 +102,66 @@ begin
     qrEmitirNFCe.SQL.Clear;
 
     {$REGION 'Emitir a NFCe'}
-//     try
-//            //prepara
-//            if not TfrmVenda.PrepararNFCE then
-//              Exit;
-//            //imprime
-//            if nfce_autorizada then begin
-//              vgerado_nfce := 'S';
-//              with frmModulo do begin
-//                NomeArquivo := ACBRNFCe.Configuracoes.Arquivos.PathNFe;
-//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorCNPJ then
-//                  NomeArquivo := NomeArquivo + '\' + edtEmitCNPJ;
-//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorModelo then
-//                  NomeArquivo := NomeArquivo + '\NFCe';
-//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorMes then
-//                  NomeArquivo := NomeArquivo + '\' + FormatDateTime('YYYYMM', Date);
-//                if ACBRNFCe.Configuracoes.Arquivos.AdicionarLiteral then
-//                  NomeArquivo := NomeArquivo + '\NFCe';
-//                NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
-//
-//                qrNFCEInsert.Open;
-//                qrNFCEInsert.Insert;
-//                qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
-//                qrNFCEInsertDATA.AsDateTime := Date;
-//                qrNFCEInsertHORA.AsString := FormatDateTime('HH:MM:SS', Time);
-//                qrNFCEInsertTOTAL.AsFloat := rTotal_Venda;
-//                qrNFCEInsertCLIENTE.AsString := sCli_Nome;
-//                qrNFCEInsertCHAVE.AsString := Copy(ChaveNFCE, 4, 47);
-//                qrNFCEInsertXML.asstring := NomeArquivo;
-//                qrNFCEInsertSITUACAO.AsInteger := 0;
-//                qrNFCEInsertTROCO.AsFloat := vRecebimento.Troco;
-//                if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine then begin
-//                  vcontingencia := 'S';
-//                  qrNFCEInsertCONTINGENCIA.AsString := 'S';
-//                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := MotivoContigencia;
-//                end
-//                else begin
-//                  vcontingencia := 'N';
-//                  qrNFCEInsertCONTINGENCIA.AsString := 'N';
-//                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := '';
-//                end;
-//                qrNFCEInsertENVIADOCONTINGENCIA.AsString := 'N';
-//                qrNFCEInsertXMLENVIO.LoadFromFile(NomeArquivo);
-//                qrNFCEInsertEX.AsInteger := 0;
-//
-//                qrNFCEInsertALTERADO.AsString := 'N';
-//                qrNFCEInsertXMLCACNELAMENTO.Clear;
-//                qrNFCEInsertCUPOM.AsString := sNumero_Venda;
-//                qrNFCEInsert.Post;
-//                qrNFCEInsert.ApplyUpdates;
-//              end;
-//            end
-//            else begin
-//              Imprime_display('ERRO ' + frmModulo.ACBRNFCe.WebServices.Enviar.xMotivo, clWhite, tiLivre);
-//              Exit;
-//            end;
-//          except
-//            on E: Exception do begin
-//              Imprime_display('ERRO NFCE: ' + E.Message, clWhite, tiLivre);
-//              Exit;
-//            end;
+     try
+
+            if not TfrmVenda.PrepararNFCE then
+              Exit;
+            Imprime_display('AGUARDE...  GRAVANDO NFC-E NO BANCO', clWhite, tiLivre);
+            if nfce_autorizada then begin
+              vgerado_nfce := 'S';
+              with frmModulo do begin
+                NomeArquivo := ACBRNFCe.Configuracoes.Arquivos.PathNFe;
+                if ACBRNFCe.Configuracoes.Arquivos.SepararPorCNPJ then
+                  NomeArquivo := NomeArquivo + '\' + edtEmitCNPJ;
+                if ACBRNFCe.Configuracoes.Arquivos.SepararPorModelo then
+                  NomeArquivo := NomeArquivo + '\NFCe';
+                if ACBRNFCe.Configuracoes.Arquivos.SepararPorMes then
+                  NomeArquivo := NomeArquivo + '\' + FormatDateTime('YYYYMM', Date);
+                if ACBRNFCe.Configuracoes.Arquivos.AdicionarLiteral then
+                  NomeArquivo := NomeArquivo + '\NFCe';
+                NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
+
+                qrNFCEInsert.Open;
+                qrNFCEInsert.Insert;
+                qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
+                qrNFCEInsertDATA.AsDateTime := Date;
+                qrNFCEInsertHORA.AsString := FormatDateTime('HH:MM:SS', Time);
+                qrNFCEInsertTOTAL.AsFloat := rTotal_Venda;
+                qrNFCEInsertCLIENTE.AsString := sCli_Nome;
+                qrNFCEInsertCHAVE.AsString := Copy(ChaveNFCE, 4, 47);
+                qrNFCEInsertXML.asstring := NomeArquivo;
+                qrNFCEInsertSITUACAO.AsInteger := 0;
+                qrNFCEInsertTROCO.AsFloat := vRecebimento.Troco;
+                if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine then begin
+                  vcontingencia := 'S';
+                  qrNFCEInsertCONTINGENCIA.AsString := 'S';
+                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := MotivoContigencia;
+                end
+                else begin
+                  vcontingencia := 'N';
+                  qrNFCEInsertCONTINGENCIA.AsString := 'N';
+                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := '';
+                end;
+                qrNFCEInsertENVIADOCONTINGENCIA.AsString := 'N';
+                qrNFCEInsertXMLENVIO.LoadFromFile(NomeArquivo);
+                qrNFCEInsertEX.AsInteger := 0;
+
+                qrNFCEInsertALTERADO.AsString := 'N';
+                qrNFCEInsertXMLCACNELAMENTO.Clear;
+                qrNFCEInsertCUPOM.AsString := sNumero_Venda;
+                qrNFCEInsert.Post;
+                qrNFCEInsert.ApplyUpdates;
+              end;
+            end
+            else begin
+              Imprime_display('ERRO ' + frmModulo.ACBRNFCe.WebServices.Enviar.xMotivo, clWhite, tiLivre);
+              Exit;
+            end;
+          except
+            on E: Exception do begin
+              Imprime_display('ERRO NFCE: ' + E.Message, clWhite, tiLivre);
+              Exit;
+            end;
 
      {$ENDREGION}
 
@@ -179,13 +179,13 @@ begin
   qrcupom.Close;
   qrcupom.sql.clear;
   qrcupom.sql.add('select cupom.*,');
-  qrcupom.sql.add('       cupom_consumidor.nome Consumidor');
-  qrcupom.sql.add('from cupom, cupom_consumidor');
+  qrcupom.sql.add('       cupom_consumidor.nome Consumidor, cupom_aberto_cancelado.*');
+  qrcupom.sql.add('from cupom, cupom_consumidor, cupom_aberto_cancelado');
   qrcupom.sql.add('where');
   qrcupom.sql.add('  cupom.codigo = cupom_consumidor.codigo');
   qrcupom.sql.add('  and cupom.data = :data');
   qrcupom.sql.add('  and cupom.ecf = '''+sCaixa+'''');
-  //qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
+  qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
   qrcupom.sql.add('order by cupom.numero');
   qrcupom.parambyname('data').asdatetime := ed_data.Date;
   qrcupom.open;

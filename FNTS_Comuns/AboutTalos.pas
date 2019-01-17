@@ -32,18 +32,18 @@ var
   fname: string;
 begin
  {this part extracts the mp3 from exe}
- fname:=ExtractFileDir(Paramstr(0))+'Intro.mp3';
+
  rStream := TResourceStream.Create
            (hInstance, 'Intro', RT_RCDATA);
+  fname:=ExtractFilePath(Application.ExeName)+'Intro.mp3';
  try
   fStream := TFileStream.Create(fname, fmCreate);
   try
-   fStream.CopyFrom(rStream, 0);
+   rStream.SaveToStream(fStream);
   finally
    fStream.Free;
   end;
  finally
-  rStream.Free;
  end;
  {this part plays the mp3}
 // MediaPlayer1.Close;

@@ -42,7 +42,7 @@ type
     AdvGlowButton2: TAdvGlowButton;
     N1: TMenuItem;
     ESC: TMenuItem;
-    bt_emitirnfce: TAdvGlowButton;
+    qrEmitirNFCe: TUniQuery;
     procedure bt_fechar1Click(Sender: TObject);
     procedure BitBtn11Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -54,11 +54,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
-    procedure bt_emitirnfceClick(Sender: TObject);
   private
     { Private declarations }
     oldTipoImpressora: TImpressora;
     procedure AbreDados;
+    procedure EmitirNFCe;
   public
     { Public declarations }
   end;
@@ -72,33 +72,50 @@ uses funcoes, modulo, cupom_impressao;
 
 {$R *.dfm}
 
-procedure TfrmCupom_Menu.bt_emitirnfceClick(Sender: TObject);
+procedure TfrmCupom_Menu.bt_fechar1Click(Sender: TObject);
 begin
-   with frmModulo do begin
+  close;
+end;
+
+(**Procedure para emitir NFCe a partir de cupom **)
+procedure TfrmCupom_Menu.EmitirNFCe;
+begin
+  with frmModulo do begin
     qrTemp.Close;
     qrTemp.SQL.Clear;
     qrTemp.SQL.Add('select cancelado, gerado_nfce, GEROU_SAT from cupom where numero = ' + QuotedStr(grid_cupom.Cell[0,grid_cupom.selectedrow].asstring));
     qrTemp.Open;
     if qrTemp.FieldByName('cancelado').AsInteger = 1 then begin
-      Application.MessageBox('Cupom já está Cancelado!','Atenção!',MB_ICONERROR);
+      Application.MessageBox('Cupom Cancelado!','Atenção!',MB_ICONERROR);
       Exit;
     end;
     if qrTemp.FieldByName('gerado_nfce').AsString = 'S' then begin
-      Application.MessageBox('Já foi gerado NFC-e referente a message cupom','Atenção!',MB_ICONERROR);
+      Application.MessageBox('Já foi gerado NFC-e equivalente para este cupom!','Atenção!',MB_ICONERROR);
       Exit;
     end;
     if qrTemp.FieldByName('GEROU_SAT').AsString = 'S' then begin
-      Application.MessageBox('Já foi gerado SAT referente a esse cupom!','Atenção!',MB_ICONERROR);
+      Application.MessageBox('Já foi gerado SAT equivalente para este cupom!','Atenção!',MB_ICONERROR);
       Exit;
     end;
-   end;
-
-
-end;
-
-procedure TfrmCupom_Menu.bt_fechar1Click(Sender: TObject);
-begin
-  close;
+    qrCupomCancelar.Open;
+    qrCupomCancelar.Insert;
+    qrCupomCancelarNUMERO.AsString := grid_cupom.Cell[0,grid_cupom.selectedrow].asstring;
+    qrCupomCancelarDATA.AsDateTime := Date;
+    qrCupomCancelarHORA.AsString := FormatDateTime('HH:MM:SS',Time);
+    qrCupomCancelarUSU_CODIGO.AsInteger := icodigo_Usuario;
+    qrCupomCancelarUSU_NOME.AsString := sNome_Operador;
+    qrCupomCancelarEX.AsString := 'N';
+    qrCupomCancelar.Post;
+    qrCupomCancelar.ApplyUpdates;
+    qrTemp.Close;
+    qrTemp.SQL.Clear;
+    qrTemp.SQL.Add('update cupom set cancelado = 1 where numero = ' + QuotedStr(grid_cupom.Cell[0,grid_cupom.selectedrow].asstring));
+    qrTemp.ExecSQL;
+    conexao.Commit;
+    AdvGlowButton1Click(AdvGlowButton1);
+    Application.MessageBox('Cupom Cancelado com sucesso!','Atenção!',MB_ICONINFORMATION);
+    Exit;
+  end;
 end;
 
 procedure TfrmCupom_Menu.AbreDados;
@@ -112,7 +129,7 @@ begin
   qrcupom.sql.add('  cupom.codigo = cupom_consumidor.codigo');
   qrcupom.sql.add('  and cupom.data = :data');
   qrcupom.sql.add('  and cupom.ecf = '''+sCaixa+'''');
- qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
+  qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
   qrcupom.sql.add('order by cupom.numero');
   qrcupom.parambyname('data').asdatetime := ed_data.Date;
   qrcupom.open;
@@ -129,7 +146,6 @@ begin
     grid_cupom.Cell[3,grid_cupom.LastAddedRow].Asfloat := qrcupom.fieldbyname('valor_total').asfloat;
     grid_cupom.Cell[4,grid_cupom.LastAddedRow].AsString := qrcupom.fieldbyname('codigo').asstring;
     grid_cupom.Cell[5,grid_cupom.LastAddedRow].Asinteger:= qrcupom.fieldbyname('cancelado').asinteger;
-    grid_cupom.Cell[6,grid_cupom.LastAddedRow].AsString:= qrcupom.fieldbyname('gerado_nfce').asstring;
     qrcupom.Next;
   end;
   grid_cupom.SelectedRow := grid_cupom.LastAddedRow;

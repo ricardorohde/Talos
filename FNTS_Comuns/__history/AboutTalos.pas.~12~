@@ -4,17 +4,18 @@ interface
 
 uses WinApi.Windows, System.SysUtils, System.Classes, Vcl.Graphics,
   Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  dxGDIPlusClasses;
+  dxGDIPlusClasses, Vcl.MPlayer;
 
 type
   TAboutBox = class(TForm)
     Panel1: TPanel;
     ProgramIcon: TImage;
     OKButton: TButton;
+    MediaPlayer1: TMediaPlayer;
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+    procedure Tocar();
   end;
 
 var
@@ -26,9 +27,9 @@ implementation
 
 Procedure TAboutBox.Tocar();
 var
- rStream: TResourceStream;
- fStream: TFileStream;
- fname: string;
+  rStream: TResourceStream;
+  fStream: TFileStream;
+  fname: string;
 begin
  {this part extracts the mp3 from exe}
  fname:=ExtractFileDir(Paramstr(0))+'Intro.mp3';
@@ -45,9 +46,10 @@ begin
   rStream.Free;
  end;
  {this part plays the mp3}
- MediaPlayer1.Close;
+// MediaPlayer1.Close;
  MediaPlayer1.FileName:=fname;
  MediaPlayer1.Open;
+
 end;
 
 end.
