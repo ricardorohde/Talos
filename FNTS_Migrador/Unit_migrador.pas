@@ -16,7 +16,20 @@ uses
   FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, dxGDIPlusClasses,
   FireDAC.Comp.Client, FireDAC.Comp.DataSet, acPathDialog, Datasnap.DBClient,
   ACBrBase, ACBrDFe, ACBrNFe, W7Classes, W7ProgressBars, Datasnap.Provider,
-  cxSplitter;
+  cxSplitter, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  dxSkinscxPCPainter;
 
 type
   TForm1 = class(TForm)
@@ -799,13 +812,21 @@ begin
     Diretorio := sPathDialog.Path;
     mmo1.Lines.Add('Diretorio carregado com sucesso....');
     pnlConfig.Visible := True;
+        mmo1.Lines.Add('1');
     dsClienteTemp.CreateDataSet;
+        mmo1.Lines.Add('2');
     dsProdutoTemp.CreateDataSet;
+        mmo1.Lines.Add('3');
     dsNFETemp.CreateDataSet;
+        mmo1.Lines.Add('4');
     dsItens.CreateDataSet;
+        mmo1.Lines.Add('5');
     dsItens.Filtered := True;
+        mmo1.Lines.Add('6');
     Thread  :=  ThreadListar.Create(False);
+        mmo1.Lines.Add('7');
     Thread.Resume;
+        mmo1.Lines.Add('8');
   end;
 end;
 

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  AdvMetroButton, AdvSmoothPanel, AdvSmoothExpanderPanel;
+  AdvMetroButton, AdvSmoothPanel, AdvSmoothExpanderPanel, AdvGlowButton;
 
 type
   Tfrmjustificativa = class(TForm)
@@ -14,7 +14,10 @@ type
     AdvMetroButton1: TAdvMetroButton;
     Panel1: TPanel;
     edTexto: TMemo;
+    AdvGlowButton1: TAdvGlowButton;
+    procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvMetroButton1Click(Sender: TObject);
+    procedure edTextoKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -28,13 +31,25 @@ implementation
 
 {$R *.dfm}
 
-procedure Tfrmjustificativa.AdvMetroButton1Click(Sender: TObject);
+procedure Tfrmjustificativa.AdvGlowButton1Click(Sender: TObject);
 begin
   if Length(edTexto.Lines.Text) <= 15  then begin
     Application.MessageBox('A Justificativa tem que ter pelo menos 15 caracteres','Atenção!',MB_ICONINFORMATION);
     edTexto.SetFocus;
     exit;
   end;
+  Close;
+end;
+
+procedure Tfrmjustificativa.AdvMetroButton1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmjustificativa.edTextoKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key.ToString(Key))='27' then
   Close;
 end;
 

@@ -45,7 +45,7 @@ object frmFechamentoCego: TfrmFechamentoCego
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
@@ -142,8 +142,8 @@ object frmFechamentoCego: TfrmFechamentoCego
         927533ACFA5B19C75E48C41EBEE9DD5CEEAA08BD540F4532C900FE0187F88743
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
-      TabOrder = 0
-      Version = '1.1.2.0'
+      TabOrder = 2
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -200,7 +200,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Color = 15916445
       Ctl3D = False
       ParentCtl3D = False
-      TabOrder = 0
+      TabOrder = 1
     end
     object ed_data: TJvDateEdit
       Left = 112
@@ -213,10 +213,10 @@ object frmFechamentoCego: TfrmFechamentoCego
       NumGlyphs = 2
       ShowButton = False
       ShowNullDate = False
-      TabOrder = 1
+      TabOrder = 0
     end
     object ed_ecf: TRzEdit
-      Left = 112
+      Left = 111
       Top = 28
       Width = 321
       Height = 19
@@ -224,7 +224,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Color = 15916445
       Ctl3D = False
       ParentCtl3D = False
-      TabOrder = 2
+      TabOrder = 3
     end
     object bt_cupom_encerrante: TButton
       Left = 924
@@ -232,7 +232,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Width = 75
       Height = 25
       Caption = 'Cp Encerrante'
-      TabOrder = 3
+      TabOrder = 2
       Visible = False
     end
   end
@@ -270,6 +270,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Ctl3D = False
       ParentCtl3D = False
       TabOrder = 0
+      IntegersOnly = False
       DisplayFormat = ',0.00;(,0.00)'
     end
     object edCheque: TRzNumericEdit
@@ -280,6 +281,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Ctl3D = False
       ParentCtl3D = False
       TabOrder = 1
+      OnKeyUp = edChequeKeyUp
       DisplayFormat = ',0.00;(,0.00)'
     end
   end
@@ -312,7 +314,7 @@ object frmFechamentoCego: TfrmFechamentoCego
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alBottom
     TabOrder = 3
     ShowExpander = False
@@ -328,6 +330,7 @@ object frmFechamentoCego: TfrmFechamentoCego
       Height = 48
       Align = alRight
       Caption = 'Fechar Caixa'
+      Default = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -438,34 +441,22 @@ object frmFechamentoCego: TfrmFechamentoCego
       Transparent = True
       TabOrder = 0
       OnClick = AdvGlowButton1Click
-      Appearance.BorderColor = 12631218
-      Appearance.BorderColorHot = 10079963
-      Appearance.BorderColorDown = 4548219
-      Appearance.Color = 14671574
-      Appearance.ColorTo = 15000283
-      Appearance.ColorChecked = 7915518
-      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorChecked = 16111818
+      Appearance.ColorCheckedTo = 16367008
       Appearance.ColorDisabled = 15921906
       Appearance.ColorDisabledTo = 15921906
-      Appearance.ColorDown = 7778289
-      Appearance.ColorDownTo = 4296947
-      Appearance.ColorHot = 15465983
-      Appearance.ColorHotTo = 11332863
-      Appearance.ColorMirror = 14144974
-      Appearance.ColorMirrorTo = 15197664
-      Appearance.ColorMirrorHot = 5888767
-      Appearance.ColorMirrorHotTo = 10807807
-      Appearance.ColorMirrorDown = 946929
-      Appearance.ColorMirrorDownTo = 5021693
-      Appearance.ColorMirrorChecked = 10480637
-      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorDown = 16111818
+      Appearance.ColorDownTo = 16367008
+      Appearance.ColorHot = 16117985
+      Appearance.ColorHotTo = 16372402
+      Appearance.ColorMirrorHot = 16107693
+      Appearance.ColorMirrorHotTo = 16775412
+      Appearance.ColorMirrorDown = 16102556
+      Appearance.ColorMirrorDownTo = 16768988
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
       Appearance.ColorMirrorDisabled = 11974326
       Appearance.ColorMirrorDisabledTo = 15921906
-      Appearance.GradientHot = ggVertical
-      Appearance.GradientMirrorHot = ggVertical
-      Appearance.GradientDown = ggVertical
-      Appearance.GradientMirrorDown = ggVertical
-      Appearance.GradientChecked = ggVertical
       Layout = blGlyphRight
     end
   end
