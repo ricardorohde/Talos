@@ -14,8 +14,8 @@
 [Setup]
 AppName=Sistema TALOS - Gestão e Vendas Integrado
 AppId=TALOS1
-AppVersion=1.0.0.0
-AppPublisher=Nova Tecnologia Eireli
+AppVersion=1.0.1.0
+AppPublisher=Nova Tecnologia e Inovações
 AppPublisherURL=http://www.novatecnologia.eti.br/
 AppSupportURL=http://www.novatecnologia.eti.br/
 AppUpdatesURL=http://www.novatecnologia.eti.br/
@@ -24,11 +24,11 @@ SetupMutex=InnoSetupCompilerSetupMutex,Global\InnoSetupCompilerSetupMutex
 MinVersion=0,5.0
 DefaultDirName={pf}\TALOS
 DefaultGroupName=TALOS
-AllowNoIcons=yes
-Compression=lzma2/ultra
+AllowNoIcons=true
+Compression=none
 InternalCompressLevel=ultra
-SolidCompression=yes
-Uninstallable=not PortableCheck
+SolidCompression=true
+Uninstallable=true
 UninstallDisplayIcon={app}\Compil32.exe
 AppModifyPath="{app}\Ispack-setup.exe" /modify=1
 WizardImageFile=compiler:WizModernImage-IS.bmp
@@ -38,24 +38,25 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 ;needed for isxdl.dll
 DEPCompatible=no
 ShowLanguageDialog=auto
+AppVerName=1.0.1.0
 
 [Tasks]
-Name: desktopicon; Description: "{cm:CreateDesktopIcon}"
+Name: desktopicon; Description: {cm:CreateDesktopIcon}
 ;Name: fileassoc; Description: "{cm:AssocFileExtension,Inno Setup,.iss}"
 
 [Files]
 ;first the files used by [Code] so these can be quickly decompressed despite solid compression
 ;other files
-Source: "{srcexe}"; DestDir: "{app}"; DestName: "Ispack-setup.exe"; Flags: external ignoreversion; Check: not ModifyingCheck
-Source: "license.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\TALOS\*"; DestDir: "{app}"; Flags: ignoreversion createallsubdirs recursesubdirs
-Source: "isxdlfiles\isxdl.dll"; DestDir: "{app}"
+Source: {srcexe}; DestDir: {app}; DestName: Ispack-setup.exe; Flags: external ignoreversion; Check: not ModifyingCheck
+Source: license.txt; DestDir: {app}; Flags: ignoreversion
+Source: ..\..\..\..\..\..\TALOS\*; DestDir: {app}; Flags: ignoreversion createallsubdirs recursesubdirs
+Source: ..\..\..\..\..\..\Program Files\ISTool\isxdl.dll; DestDir: {app}; Flags: ignoreversion
 
 [InstallDelete]
 ;remove unicode-only files if needed
 #ifndef UNICODE
-Type: files; Name: "{app}\Languages\*.islu"
-Type: files; Name: "{app}\Examples\UnicodeExample1.iss"
+Type: files; Name: {app}\Languages\*.islu
+Type: files; Name: {app}\Examples\UnicodeExample1.iss
 #endif
 ;optional ISPP files (leave ISPP.chm)
 Type: files; Name: {app}\ISPP.dll; Check: not ISPPCheck
@@ -69,35 +70,32 @@ Type: files; Name: {app}\ISCrypt.dll
 Type: files; Name: {commondesktop}\Inno Setup Compiler.lnk
 
 [UninstallDelete]
-Type: files; Name: "{app}\Examples\Output\setup.exe"
-Type: files; Name: "{app}\Examples\Output\setup-*.bin"
-Type: dirifempty; Name: "{app}\Examples\Output"
-Type: dirifempty; Name: "{app}\Examples\MyDll\Delphi"
-Type: dirifempty; Name: "{app}\Examples\MyDll\C#"
-Type: dirifempty; Name: "{app}\Examples\MyDll\C"
-Type: dirifempty; Name: "{app}\Examples\MyDll"
-Type: dirifempty; Name: "{app}\Examples"
+Type: files; Name: {app}\Examples\Output\setup.exe
+Type: files; Name: {app}\Examples\Output\setup-*.bin
+Type: dirifempty; Name: {app}\Examples\Output
+Type: dirifempty; Name: {app}\Examples\MyDll\Delphi
+Type: dirifempty; Name: {app}\Examples\MyDll\C#
+Type: dirifempty; Name: {app}\Examples\MyDll\C
+Type: dirifempty; Name: {app}\Examples\MyDll
+Type: dirifempty; Name: {app}\Examples
 
 [Icons]
-Name: "{group}\Inno Setup Compiler"; Filename: "{app}\Compil32.exe"; WorkingDir: "{app}"; AppUserModelID: "JR.InnoSetup.IDE.5"
-Name: "{group}\Inno Setup Documentation"; Filename: "{app}\ISetup.chm";
-Name: "{group}\Inno Setup Example Scripts"; Filename: "{app}\Examples\";
-Name: "{group}\Inno Setup Preprocessor Documentation"; Filename: "{app}\ISPP.chm";
-Name: "{group}\Inno Setup FAQ"; Filename: "{app}\isfaq.htm";
-Name: "{group}\Inno Setup Revision History"; Filename: "{app}\whatsnew.htm";
-Name: "{commondesktop}\Inno Setup Compiler"; Filename: "{app}\Compil32.exe"; WorkingDir: "{app}"; AppUserModelID: "JR.InnoSetup.IDE.5"; Tasks: desktopicon; Check: not AnyIDECheck
+Name: {group}\Inno Setup Compiler; Filename: {app}\Compil32.exe; WorkingDir: {app}; AppUserModelID: JR.InnoSetup.IDE.5
+Name: {group}\Inno Setup Documentation; Filename: {app}\ISetup.chm
+Name: {group}\Inno Setup Example Scripts; Filename: {app}\Examples\
+Name: {group}\Inno Setup Preprocessor Documentation; Filename: {app}\ISPP.chm
+Name: {group}\Inno Setup FAQ; Filename: {app}\isfaq.htm
+Name: {group}\Inno Setup Revision History; Filename: {app}\whatsnew.htm
+Name: {commondesktop}\Inno Setup Compiler; Filename: {app}\Compil32.exe; WorkingDir: {app}; AppUserModelID: JR.InnoSetup.IDE.5; Tasks: desktopicon; Check: not AnyIDECheck
 
 [Run]
-Filename: "{tmp}\innoide-setup.exe"; StatusMsg: "Installing InnoIDE..."; Parameters: "/verysilent /group=""{groupname}\InnoIDE"" /mergetasks=""desktopicon,file_association"""; Flags: skipifdoesntexist; Check: InnoIDECheck; Tasks: desktopicon
-Filename: "{tmp}\innoide-setup.exe"; StatusMsg: "Installing InnoIDE..."; Parameters: "/verysilent /group=""{groupname}\InnoIDE"" /mergetasks=""!desktopicon,file_association"""; Flags: skipifdoesntexist; Check: InnoIDECheck; Tasks: not desktopicon
-Filename: "{tmp}\isstudio-setup.exe"; StatusMsg: "Installing Inno Script Studio..."; Parameters: {code:GetISStudioCmdLine}; Flags: skipifdoesntexist; Check: ISStudioCheck
-Filename: "{app}\Compil32.exe"; Parameters: "/ASSOC"; StatusMsg: "{cm:AssocingFileExtension,Inno Setup,.iss}"; Check: not AnyIDECheck
-Filename: "{app}\Compil32.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Inno Setup}"; Flags: nowait postinstall skipifsilent; Check: not AnyIDECheck and not ModifyingCheck
-Filename: "{code:GetInnoIDEPath}\InnoIDE.exe"; WorkingDir: "{code:GetInnoIDEPath}"; Description: "{cm:LaunchProgram,InnoIDE}"; Flags: nowait postinstall skipifsilent skipifdoesntexist; Check: InnoIDECheck and not ModifyingCheck
-Filename: "{code:GetISStudioPath}\ISStudio.exe"; WorkingDir: "{code:GetISStudioPath}"; Description: "{cm:LaunchProgram,Inno Script Studio}"; Flags: nowait postinstall skipifsilent skipifdoesntexist; Check: ISStudioCheck and not ModifyingCheck
+Filename: {tmp}\innoide-setup.exe; Parameters: "/verysilent /group=""{groupname}\InnoIDE"" /mergetasks=""desktopicon,file_association"""; Flags: skipifdoesntexist; StatusMsg: Installing InnoIDE...; Tasks: desktopicon; Check: InnoIDECheck
+Filename: {tmp}\innoide-setup.exe; Parameters: "/verysilent /group=""{groupname}\InnoIDE"" /mergetasks=""!desktopicon,file_association"""; Flags: skipifdoesntexist; StatusMsg: Installing InnoIDE...; Tasks: not desktopicon; Check: InnoIDECheck
+Filename: {tmp}\isstudio-setup.exe; Parameters: {code:GetISStudioCmdLine}; Flags: skipifdoesntexist; StatusMsg: Installing Inno Script Studio...; Check: ISStudioCheck
+Filename: {app}\Compil32.exe; Parameters: /ASSOC; StatusMsg: {cm:AssocingFileExtension,Inno Setup,.iss}; Check: not AnyIDECheck
 
 [UninstallRun]
-Filename: "{app}\Compil32.exe"; Parameters: "/UNASSOC"; RunOnceId: "RemoveISSAssoc"
+Filename: {app}\Compil32.exe; Parameters: /UNASSOC; RunOnceId: RemoveISSAssoc
 
 [Code]
 var
@@ -108,7 +106,7 @@ var
   IDEOrg: Boolean;
 
   FilesDownloaded: Boolean;
-  
+
   InnoIDEPath, ISStudioPath: String;
   InnoIDEPathRead, ISStudioPathRead: Boolean;
 
@@ -130,7 +128,7 @@ external 'DestroyIcon@user32.dll stdcall';
 
 const
   DI_NORMAL = 3;
-  
+
 procedure SetInnoIDECheckBoxChecked(Checked: Boolean);
 begin
   if InnoIDECheckBox <> nil then
@@ -152,7 +150,7 @@ begin
   FilesDownloaded := False;
   InnoIDEPathRead := False;
   ISStudioPathRead := False;
-    
+
   Result := True;
 end;
 
@@ -176,7 +174,7 @@ var
   Label1, Label2: TNewStaticText;
 begin
   Page := CreateCustomPage(AAfterID, ACaption, ASubCaption);
-  
+
   try
     AIconFileName := ExpandConstant('{tmp}\' + AIconFileName);
     if not FileExists(AIconFileName) then
@@ -225,7 +223,7 @@ begin
     Parent := Page.Surface;
   end;
   WizardForm.AdjustLabelHeight(Label2);
-  
+
   CreateCustomOption(Page, ACheckCaption, CheckBox, Label2);
 
   Result := Page;
@@ -280,8 +278,8 @@ begin
     CheckCaption := 'D&ownload and install Inno Script Studio';
     CreateCustomOption(IDEPage, CheckCaption, ISStudioCheckBox, InnoIDECheckBox);
 
-    UrlSize := CreateUrlLabel(IDEPage, ISStudioCheckBox, 0, 'http://www.innoide.org/');    
-    CreateUrlLabel(IDEPage, ISStudioCheckBox, UrlSize + ScaleX(12), 'https://www.kymoto.org/inno-script-studio');    
+    UrlSize := CreateUrlLabel(IDEPage, ISStudioCheckBox, 0, 'http://www.innoide.org/');
+    CreateUrlLabel(IDEPage, ISStudioCheckBox, UrlSize + ScaleX(12), 'https://www.kymoto.org/inno-script-studio');
   end else begin
     Caption := 'Inno Script Studio';
     SubCaption1 := 'Would you like to download and install Inno Script Studio?';
@@ -295,7 +293,7 @@ begin
 
     IDEPage := CreateCustomOptionPage(wpSelectProgramGroup, Caption, SubCaption1, IconFileName, Label1Caption, Label2Caption, CheckCaption, ISStudioCheckBox);
 
-    CreateUrlLabel(IDEPage, ISStudioCheckBox, 0, 'https://www.kymoto.org/inno-script-studio');    
+    CreateUrlLabel(IDEPage, ISStudioCheckBox, 0, 'https://www.kymoto.org/inno-script-studio');
 
     InnoIDECheckBox := nil;
   end;
@@ -367,7 +365,7 @@ begin
   isxdl_SetOption('resume', 'false');
 
   hWnd := StrToInt(ExpandConstant('{wizardhwnd}'));
-  
+
   if InnoIDE then begin
     URL := 'http://www.jrsoftware.org/download.php/innoide.exe';
     FileName := ExpandConstant('{tmp}\innoide-setup.exe');
@@ -379,7 +377,7 @@ begin
     FileName := ExpandConstant('{tmp}\isstudio-setup.exe');
     isxdl_AddFile(URL, FileName);
   end;
-  
+
   if ISCrypt then begin
     URL := 'http://www.jrsoftware.org/download.php/iscrypt.dll';
     FileName := ExpandConstant('{tmp}\ISCrypt.dll');

@@ -731,10 +731,21 @@ var
   dData_movto : tdatetime;
 
 begin
+
   // verificar serial do ecf
   if application.messagebox(pwidechar('Atenção!'+#13+
                                       'Deseja efetuar o fechamento do Caixa?'),
                                       'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
+
+     (*********IMPRIME CONFIRMAÇÃO DO RESUMO DO CAIXA***********)
+        if application.messagebox(pwidechar('Atenção!'+#13+
+                                      'Imprimir o RESUMO DO CAIXA?'),
+                                      'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
+
+                                      AdvGlowButton2.Click;
+
+                                      end;
+
     brefaz_pre_venda := false;
 
     (******************* P R E   -   V E N D A S ******************************)
