@@ -731,10 +731,21 @@ var
   dData_movto : tdatetime;
 
 begin
+
   // verificar serial do ecf
   if application.messagebox(pwidechar('Atenção!'+#13+
                                       'Deseja efetuar o fechamento do Caixa?'),
                                       'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
+
+     (*********IMPRIME CONFIRMAÇÃO DO RESUMO DO CAIXA***********)
+        if application.messagebox(pwidechar('Atenção!'+#13+
+                                      'Imprimir o RESUMO DO CAIXA?'),
+                                      'Atenção',mb_yesno+mb_iconwarning+MB_DEFBUTTON2) = idyes then begin
+
+                                      AdvGlowButton2.Click;
+
+                                      end;
+
     brefaz_pre_venda := false;
 
     (******************* P R E   -   V E N D A S ******************************)
@@ -940,8 +951,14 @@ procedure TfrmCaixa_Fechamento.z_fechamento;
 var
   codOperador:string;
   dValor, dSangria, dSuprimento, dTotal, dTroco, dDinheiro:double;
+  dVlrCancProdutos, dVlrCancCupom: double;
+  iQtdClientes, iQtdProdutos, iQtdCancelProdutos, iQtdCancelCupom: integer;
+  sHoraAbertura, sHoraFechamento: string;
+
 begin
-  dValor := 0;  dSangria := 0;  dSuprimento := 0;  dTotal := 0; dDinheiro:=0; dTroco := 0;
+  dValor := 0;  dSangria := 0;  dSuprimento := 0;  dTotal := 0; dDinheiro:=0; dTroco := 0; dVlrCancProdutos := 0; dVlrCancCupom := 0;
+  iQtdClientes := 0; iQtdProdutos :=0; iQtdCancelProdutos :=0; iQtdCancelCupom := 0;
+
 
 
   qrFechamento.close;
@@ -1029,8 +1046,30 @@ begin
   qrFechamento.Open;
   qrFechamento.First;
 
+  query.close;
+  query.SQL.clear;
+  query.sql.add('select sum(VlrCancelado) as VlrCancelado, sum(Qtd) as Qtd from(' +
+                        'select sum(cupom.Valor_Total) as VlrCancelado, ' +
+                        'count(cupom.Valor_Total) as Qtd ' +
+                        'from cupom ' +
+                        'where cupom.cancelado = 1 and cupom.DATA + cupom.Hora >= :data and cupom.cod_vendedor = :codoperador ' +
+                        'union ' +
+                        'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
+                        '(select count(*) from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.Hora >= :data ) as Qtd ' +
+                        'from cupom_item_cancelado, cupom_aberto_cancelado ' +
+                        'where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data and ' +
+                        'cupom_aberto_cancelado.numero = cupom_item_cancelado.cod_cupom and cupom_item_cancelado.operador = :codoperador)');
+  query.Params.ParamByName('data').asstring := fechamento;
+  query.Params.ParamByName('codoperador').AsInteger := StrToInt(codOperador);
+  query.open;
+
+
   while not qrFechamento.Eof do begin
+    query.Close;
     codOperador := qrFechamento.fieldbyname('codoperador').AsString;
+    query.Params.ParamByName('codoperador').AsInteger := StrToInt(codOperador);
+    query.open;
+
     GridFechamento.AddRow(1);
     GridFechamento.Cell[0,GridFechamento.LastAddedRow].AsInteger := qrFechamento.fieldbyname('codoperador').Value;
     GridFechamento.Cell[1,GridFechamento.LastAddedRow].AsString := qrFechamento.fieldbyname('operador').AsString;
@@ -1046,20 +1085,51 @@ begin
     end;
     qrFechamento.Next;
     if codOperador <> qrFechamento.fieldbyname('codoperador').AsString then begin
+
+    dVlrCancProdutos := 0; dVlrCancCupom := 0;
+    iQtdCancelCupom := 0; iQtdCancelProdutos := 0;
+
+    iQtdCancelCupom := query.FieldByName('Qtd').AsInteger;
+    dVlrCancCupom := query.FieldByName('VlrCancelado').AsFloat;
+
+    GridFechamento.AddRow(1);
+    GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd Cancelamento de Cupom';
+    GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelCupom,0,false);
+    GridFechamento.AddRow(1);
+    GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Valor de Cancelamento de Cupom';
+    GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor( dVlrCancCupom ,2,false);
+    GridFechamento.AddRow(1);
+
       GridFechamento.AddRow(1);
       GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Sub-Total';
       GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(dValor + dSuprimento - dSangria ,2,false);
       GridFechamento.Cell[2,GridFechamento.LastAddedRow].FontStyle := [fsBold];
       GridFechamento.Cell[3,GridFechamento.LastAddedRow].FontStyle := [fsBold];
-      dValor := 0;  dSangria := 0;  dSuprimento := 0;  dTotal := 0;
+      dValor := 0;  dSangria := 0;  dSuprimento := 0;  dTotal := 0; dVlrCancProdutos := 0; dVlrCancCupom := 0;
       GridFechamento.AddRow(1);
       GridFechamento.AddRow(1);
     end;
   end;      // cmed62
 
+
+
   GridFechamento.AddRow(1);
   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Troco ';
   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(-dTroco,2,false);
+
+  dVlrCancProdutos := 0; dVlrCancCupom := 0;
+  iQtdCancelCupom := 0; iQtdCancelProdutos := 0;
+
+  iQtdCancelCupom := query.FieldByName('Qtd').AsInteger;
+  dVlrCancCupom := query.FieldByName('VlrCancelado').AsFloat;
+
+  GridFechamento.AddRow(1);
+  GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd Cancelamento de Cupom';
+  GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelCupom,0,false);
+  GridFechamento.AddRow(1);
+  GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Valor de Cancelamento de Cupom';
+  GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor( dVlrCancCupom ,2,false);
+  GridFechamento.AddRow(1);
 
   {totaliza o ultimo usuário}
   begin
@@ -1249,7 +1319,70 @@ begin
 
   end;
 
+    {$REGION 'Cancelamentos'}
+   qrFechamento.Close;
+   qrFechamento.SQL.Clear;
+   qrFechamento.SQL.Add('select sum(VlrCancelado) as VlrCancelado, sum(Qtd) as Qtd from(' +
+                        'select sum(cupom.Valor_Total) as VlrCancelado, ' +
+                        'count(cupom.Valor_Total) as Qtd ' +
+                        'from cupom ' +
+                        'where cupom.cancelado = 1 and cupom.DATA + cupom.Hora >= :data ' +
+                        'union ' +
+                        'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
+                        '(select count(*) from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.Hora >= :data ) as Qtd ' +
+                        'from cupom_item_cancelado, cupom_aberto_cancelado ' +
+                        'where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data and ' +
+                        'cupom_aberto_cancelado.numero = cupom_item_cancelado.cod_cupom)');
+   qrFechamento.Params.ParamByName('data').asstring := fechamento;
+   qrFechamento.Open;
+   dVlrCancCupom := qrFechamento.FieldByName('VlrCancelado').AsFloat;
+   iQtdCancelCupom := qrFechamento.FieldByName('Qtd').AsInteger;
 
+   qrFechamento.Close;
+   qrFechamento.SQL.Clear;
+
+   qrFechamento.SQL.Add('select sum(VlrCancelado) as VlrCancelado, sum(Qtd) as Qtd from(' +
+                        'select sum(cupom_item.Valor_Total) as VlrCancelado, ' +
+                        'count(cupom_item.Valor_Total) as Qtd ' +
+                        'from cupom_item ' +
+                        'where cupom_item.cancelado = 1 and cupom_item.cod_cupom in (' +
+                        'select CODIGO from cupom where cupom.DATA + cupom.Hora >= :data) ' +
+                        'union ' +
+                        'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
+                        'count(cupom_item_cancelado.Valor_Total) as Qtd ' +
+                        'from cupom_item_cancelado ' +
+                        'where cupom_item_cancelado.DATA + cupom_item_cancelado.HORA >= :data and ' +
+                        'cupom_item_cancelado.cod_cupom not in (select cupom_aberto_cancelado.numero ' +
+                        'from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data ))');
+   qrFechamento.Params.ParamByName('data').asstring := fechamento;
+   qrFechamento.Open;
+
+   dVlrCancProdutos := qrFechamento.FieldByName('VlrCancelado').AsFloat;
+   iQtdCancelProdutos := qrFechamento.FieldByName('Qtd').AsInteger;
+
+
+
+
+
+   {$ENDREGION}
+
+
+   GridFechamento.AddRow(1);
+   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd de Cancelamento de Cupom  ';
+   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelCupom,0,false);
+
+   GridFechamento.AddRow(1);
+   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd de Cancelamento de Produtos  ';
+   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelProdutos,0,false);
+
+
+   GridFechamento.AddRow(1);
+   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Cancelamento de Cupom  ';
+   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(dVlrCancCupom,2,false);
+
+   GridFechamento.AddRow(1);
+   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Cancelamento de Produtos  ';
+   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(dVlrCancProdutos,2,false);
 
    GridFechamento.AddRow(1);
    GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Troco ';

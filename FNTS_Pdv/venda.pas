@@ -1291,6 +1291,7 @@ var
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
 
+  if not sNumero_Cupom.Equals('') then begin
 
   query.SQL.Clear;
   query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
@@ -1325,6 +1326,8 @@ begin
     query.ExecSQL;
     Query1.Next;
 end;
+  end;
+
 
   if (bBusca_foto_produto) and not (AtivaTouch) then
     img_produto.Picture := nil;
