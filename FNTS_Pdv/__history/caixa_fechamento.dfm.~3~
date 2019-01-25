@@ -380,6 +380,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Resumo'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_resumo: TNextGrid
         Left = 0
         Top = 0

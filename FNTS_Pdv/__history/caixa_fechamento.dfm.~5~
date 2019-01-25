@@ -461,10 +461,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet2: TTabSheet
       Caption = 'Formas Pagto.'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_forma: TNextGrid
         Left = 0
         Top = 0
@@ -545,10 +541,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet3: TTabSheet
       Caption = 'Al'#237'quotas'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_aliquota: TNextGrid
         Left = 0
         Top = 0
@@ -629,10 +621,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet4: TTabSheet
       Caption = 'Outros'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_outros: TNextGrid
         Left = 0
         Top = 0
@@ -712,10 +700,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet5: TTabSheet
       Caption = 'Pr'#233'-vendas'
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_venda: TNextGrid
         Left = 0
         Top = 0
@@ -914,10 +898,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet6: TTabSheet
       Caption = 'DAVs'
       ImageIndex = 5
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_dav: TNextGrid
         Left = 0
         Top = 0
@@ -1015,10 +995,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet7: TTabSheet
       Caption = 'Abast.Pendentes'
       ImageIndex = 6
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_abastecimento: TNextGrid
         Left = 0
         Top = 0
@@ -1306,10 +1282,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet8: TTabSheet
       Caption = 'Mesas Abert.'
       ImageIndex = 7
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object grid_mesa: TNextGrid
         Left = 0
         Top = 0
@@ -1421,10 +1393,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabFechamento: TTabSheet
       Caption = 'Fechamento'
       ImageIndex = 8
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GridFechamento: TNextGrid
         Left = 0
         Top = 0

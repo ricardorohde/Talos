@@ -990,9 +990,9 @@ begin
                         'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
                         'count(cupom_item_cancelado.Valor_Total) as Qtd ' +
                         'from cupom_item_cancelado ' +
-                        'where cupom_item_cancelado.DATA + cupom_item_cancelado.HORA >= :data and ' +
+                        'where cupom_item_cancelado.DATA + cupom_item_cancelado.HORA >= :data ' +
                         'cupom_item_cancelado.cod_cupom not in (select cupom_aberto_cancelado.numero ' +
-                        'from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data ))');
+                        'from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data )) ');
    qrFechamento.Params.ParamByName('data').asstring := fechamento;
    qrFechamento.Open;
 

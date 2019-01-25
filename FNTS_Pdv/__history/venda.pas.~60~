@@ -2043,6 +2043,11 @@ begin
   MostraFotoProduto(bBusca_foto_produto);
   MostraLogoMarca(bHabLogoMarca);
 
+  //TrocaResolucao(Screen.Width,Screen.Height,1,1);
+  // ajuste para se a resolucao for muito baixa
+  if Screen.width < 1024 then
+   cxGrid1.width := 400;
+
   Carregando := False;
 
 end;

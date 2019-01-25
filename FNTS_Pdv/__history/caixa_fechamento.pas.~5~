@@ -951,63 +951,8 @@ procedure TfrmCaixa_Fechamento.z_fechamento;
 var
   codOperador:string;
   dValor, dSangria, dSuprimento, dTotal, dTroco, dDinheiro:double;
-  dVlrCancProdutos, dVlrCancCupom: double;
-  iQtdClientes, iQtdProdutos, iQtdCancelProdutos, iQtdCancelCupom: integer;
-  sHoraAbertura, sHoraFechamento: string;
-
 begin
   dValor := 0;  dSangria := 0;  dSuprimento := 0;  dTotal := 0; dDinheiro:=0; dTroco := 0;
-
-  {$REGION 'Cancelamentos'}
-   qrFechamento.Close;
-   qrFechamento.SQL.Clear;
-   qrFechamento.SQL.Add('select sum(VlrCancelado) as VlrCancelado, sum(Qtd) as Qtd from(' +
-                        'select sum(cupom.Valor_Total) as VlrCancelado, ' +
-                        'count(cupom.Valor_Total) as Qtd ' +
-                        'from cupom ' +
-                        'where cupom.cancelado = 1 and cupom.DATA + cupom.Hora >= :data ' +
-                        'union ' +
-                        'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
-                        '(select count(*) from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.Hora >= :data ) as Qtd ' +
-                        'from cupom_item_cancelado, cupom_aberto_cancelado ' +
-                        'where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data and ' +
-                        'cupom_aberto_cancelado.numero = cupom_item_cancelado.cod_cupom)');
-   qrFechamento.Params.ParamByName('data').asstring := fechamento;
-   qrFechamento.Open;
-   dVlrCancCupom := qrFechamento.FieldByName('VlrCancelado').AsFloat;
-   iQtdCancelCupom := qrFechamento.FieldByName('Qtd').AsInteger;
-
-   qrFechamento.Close;
-   qrFechamento.SQL.Clear;
-
-   qrFechamento.SQL.Add('select sum(VlrCancelado) as VlrCancelado, sum(Qtd) as Qtd from(' +
-                        'select sum(cupom_item.Valor_Total) as VlrCancelado, ' +
-                        'count(cupom_item.Valor_Total) as Qtd ' +
-                        'from cupom_item ' +
-                        'where cupom_item.cancelado = 1 and cupom_item.cod_cupom in (' +
-                        'select CODIGO from cupom where cupom.DATA + cupom.Hora >= :data) ' +
-                        'union ' +
-                        'select SUM(cupom_item_cancelado.Valor_Total) as VlrCancelado, ' +
-                        'count(cupom_item_cancelado.Valor_Total) as Qtd ' +
-                        'from cupom_item_cancelado ' +
-                        'where cupom_item_cancelado.DATA + cupom_item_cancelado.HORA >= :data and ' +
-                        'cupom_item_cancelado.cod_cupom not in (select cupom_aberto_cancelado.numero ' +
-                        'from cupom_aberto_cancelado where cupom_aberto_cancelado.DATA + cupom_aberto_cancelado.HORA >= :data ))');
-   qrFechamento.Params.ParamByName('data').asstring := fechamento;
-   qrFechamento.Open;
-
-   dVlrCancProdutos := qrFechamento.FieldByName('VlrCancelado').AsFloat;
-   iQtdCancelProdutos := qrFechamento.FieldByName('Qtd').AsInteger;
-
-
-
-
-
-   {$ENDREGION}
-
-
-
-
 
 
   qrFechamento.close;
@@ -1315,22 +1260,7 @@ begin
 
   end;
 
-   GridFechamento.AddRow(1);
-   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd de Cancelamento de Cupom  ';
-   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelCupom,0,false);
 
-   GridFechamento.AddRow(1);
-   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Qtd de Cancelamento de Produtos  ';
-   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(iQtdCancelProdutos,0,false);
-
-
-   GridFechamento.AddRow(1);
-   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Cancelamento de Cupom  ';
-   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(dVlrCancCupom,2,false);
-
-   GridFechamento.AddRow(1);
-   GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Cancelamento de Produtos  ';
-   GridFechamento.Cell[3,GridFechamento.LastAddedRow].AsString := FormatarValor(dVlrCancProdutos,2,false);
 
    GridFechamento.AddRow(1);
    GridFechamento.Cell[2,GridFechamento.LastAddedRow].AsString := 'Troco ';
