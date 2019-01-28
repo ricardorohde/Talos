@@ -42,6 +42,7 @@ type
     AdvGlowButton2: TAdvGlowButton;
     N1: TMenuItem;
     ESC: TMenuItem;
+    qrEmitirNFCe: TUniQuery;
     procedure bt_fechar1Click(Sender: TObject);
     procedure BitBtn11Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -57,6 +58,7 @@ type
     { Private declarations }
     oldTipoImpressora: TImpressora;
     procedure AbreDados;
+    procedure EmitirNFCe;
   public
     { Public declarations }
   end;
@@ -66,13 +68,110 @@ var
 
 implementation
 
-uses funcoes, modulo, cupom_impressao;
+uses funcoes, modulo, cupom_impressao, venda;
 
 {$R *.dfm}
 
 procedure TfrmCupom_Menu.bt_fechar1Click(Sender: TObject);
 begin
   close;
+end;
+
+(**Procedure para emitir NFCe a partir de cupom **)
+procedure TfrmCupom_Menu.EmitirNFCe;
+begin
+  with frmModulo do begin
+    qrTemp.Close;
+    qrTemp.SQL.Clear;
+    qrTemp.SQL.Add('select cancelado, gerado_nfce, GEROU_SAT from cupom where numero = ' + QuotedStr(grid_cupom.Cell[0,grid_cupom.selectedrow].asstring));
+    qrTemp.Open;
+    if qrTemp.FieldByName('cancelado').AsInteger = 1 then begin
+      Application.MessageBox('Cupom Cancelado!','Atenção!',MB_ICONERROR);
+      Exit;
+    end;
+    if qrTemp.FieldByName('gerado_nfce').AsString = 'S' then begin
+      Application.MessageBox('Já foi gerado NFC-e equivalente para este cupom!','Atenção!',MB_ICONERROR);
+      Exit;
+    end;
+    if qrTemp.FieldByName('GEROU_SAT').AsString = 'S' then begin
+      Application.MessageBox('Já foi gerado SAT equivalente para este cupom!','Atenção!',MB_ICONERROR);
+      Exit;
+    end;
+
+    qrEmitirNFCe.Open;
+    qrEmitirNFCe.SQL.Clear;
+
+    {$REGION 'Emitir a NFCe'}
+//     try
+//            //prepara
+//            if not TfrmVenda.PrepararNFCE then
+//              Exit;
+//            //imprime
+//            if nfce_autorizada then begin
+//              vgerado_nfce := 'S';
+//              with frmModulo do begin
+//                NomeArquivo := ACBRNFCe.Configuracoes.Arquivos.PathNFe;
+//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorCNPJ then
+//                  NomeArquivo := NomeArquivo + '\' + edtEmitCNPJ;
+//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorModelo then
+//                  NomeArquivo := NomeArquivo + '\NFCe';
+//                if ACBRNFCe.Configuracoes.Arquivos.SepararPorMes then
+//                  NomeArquivo := NomeArquivo + '\' + FormatDateTime('YYYYMM', Date);
+//                if ACBRNFCe.Configuracoes.Arquivos.AdicionarLiteral then
+//                  NomeArquivo := NomeArquivo + '\NFCe';
+//                NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
+//
+//                qrNFCEInsert.Open;
+//                qrNFCEInsert.Insert;
+//                qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
+//                qrNFCEInsertDATA.AsDateTime := Date;
+//                qrNFCEInsertHORA.AsString := FormatDateTime('HH:MM:SS', Time);
+//                qrNFCEInsertTOTAL.AsFloat := rTotal_Venda;
+//                qrNFCEInsertCLIENTE.AsString := sCli_Nome;
+//                qrNFCEInsertCHAVE.AsString := Copy(ChaveNFCE, 4, 47);
+//                qrNFCEInsertXML.asstring := NomeArquivo;
+//                qrNFCEInsertSITUACAO.AsInteger := 0;
+//                qrNFCEInsertTROCO.AsFloat := vRecebimento.Troco;
+//                if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine then begin
+//                  vcontingencia := 'S';
+//                  qrNFCEInsertCONTINGENCIA.AsString := 'S';
+//                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := MotivoContigencia;
+//                end
+//                else begin
+//                  vcontingencia := 'N';
+//                  qrNFCEInsertCONTINGENCIA.AsString := 'N';
+//                  qrNFCEInsertMOTIVOCONTIGENCIA.AsString := '';
+//                end;
+//                qrNFCEInsertENVIADOCONTINGENCIA.AsString := 'N';
+//                qrNFCEInsertXMLENVIO.LoadFromFile(NomeArquivo);
+//                qrNFCEInsertEX.AsInteger := 0;
+//
+//                qrNFCEInsertALTERADO.AsString := 'N';
+//                qrNFCEInsertXMLCACNELAMENTO.Clear;
+//                qrNFCEInsertCUPOM.AsString := sNumero_Venda;
+//                qrNFCEInsert.Post;
+//                qrNFCEInsert.ApplyUpdates;
+//              end;
+//            end
+//            else begin
+//              Imprime_display('ERRO ' + frmModulo.ACBRNFCe.WebServices.Enviar.xMotivo, clWhite, tiLivre);
+//              Exit;
+//            end;
+//          except
+//            on E: Exception do begin
+//              Imprime_display('ERRO NFCE: ' + E.Message, clWhite, tiLivre);
+//              Exit;
+//            end;
+
+     {$ENDREGION}
+
+//    qrEmitirNFCe.SQL.Add('update cupom set cancelado = 1 where numero = ' + QuotedStr(grid_cupom.Cell[0,grid_cupom.selectedrow].asstring));
+//    qrEmitirNFCe.ExecSQL;
+//    conexao.Commit;
+//    AdvGlowButton1Click(AdvGlowButton1);
+//    Application.MessageBox('Cupom Cancelado com sucesso!','Atenção!',MB_ICONINFORMATION);
+    Exit;
+  end;
 end;
 
 procedure TfrmCupom_Menu.AbreDados;
@@ -86,6 +185,7 @@ begin
   qrcupom.sql.add('  cupom.codigo = cupom_consumidor.codigo');
   qrcupom.sql.add('  and cupom.data = :data');
   qrcupom.sql.add('  and cupom.ecf = '''+sCaixa+'''');
+  //qrcupom.sql.add('  and cupom_aberto_cancelado.ecf = '''+sCaixa+'''');
   qrcupom.sql.add('order by cupom.numero');
   qrcupom.parambyname('data').asdatetime := ed_data.Date;
   qrcupom.open;
