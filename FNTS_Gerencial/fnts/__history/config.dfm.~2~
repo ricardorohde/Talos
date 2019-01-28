@@ -25,8 +25,8 @@ object frmconfig: Tfrmconfig
     Top = 48
     Width = 723
     Height = 549
-    ActivePage = PageSheet7
-    ActivePageIndex = 0
+    ActivePage = PageSheet13
+    ActivePageIndex = 4
     AdaptiveColors = True
     Align = alClient
     BackgroundColor = clBtnFace
@@ -137,7 +137,7 @@ object frmconfig: Tfrmconfig
           Top = 39
           Width = 286
           Height = 18
-          Caption = 'Permitir C'#243'digo de Barras repetido'
+          Caption = 'Permitir C'#243'digo de Barras repedito'
           DataField = 'VERIFICA_COD_BARRA'
           DataSource = dsconfig
           TabOrder = 1

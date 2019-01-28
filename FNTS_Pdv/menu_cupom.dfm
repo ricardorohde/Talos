@@ -864,8 +864,8 @@ object frmCupom_Menu: TfrmCupom_Menu
   object pop_fechamento: TAdvPopupMenu
     MenuStyler = frmModulo.estilo_menu
     Version = '2.6.1.0'
-    Left = 200
-    Top = 282
+    Left = 240
+    Top = 274
     object Visualizar1: TMenuItem
       Caption = 'Visualizar'
       ShortCut = 113
@@ -887,17 +887,12 @@ object frmCupom_Menu: TfrmCupom_Menu
   end
   object qrcupom: TUniQuery
     Connection = frmModulo.conexao
-    Left = 320
-    Top = 322
+    Left = 304
+    Top = 274
   end
   object query: TUniQuery
     Connection = frmModulo.conexao
-    Left = 304
-    Top = 202
-  end
-  object qrEmitirNFCe: TUniQuery
-    Connection = frmModulo.conexao
-    Left = 184
-    Top = 184
+    Left = 272
+    Top = 274
   end
 end

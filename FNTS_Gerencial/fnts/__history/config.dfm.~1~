@@ -137,7 +137,7 @@ object frmconfig: Tfrmconfig
           Top = 39
           Width = 286
           Height = 18
-          Caption = 'Permitir C'#243'digo de Barras repetido'
+          Caption = 'Permitir C'#243'digo de Barras repedito'
           DataField = 'VERIFICA_COD_BARRA'
           DataSource = dsconfig
           TabOrder = 1
@@ -3434,7 +3434,7 @@ object frmconfig: Tfrmconfig
           Height = 21
           CharCase = ecUpperCase
           Color = 15916445
-          DataField = 'EMAIL_FINANCEIRO'
+          DataField = 'RESPONSAVEL'
           DataSource = dsemitente
           TabOrder = 20
           OnKeyPress = enovadata_inventarioKeyPress
@@ -9049,7 +9049,7 @@ object frmconfig: Tfrmconfig
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 2
     ShowExpander = False
@@ -9147,7 +9147,7 @@ object frmconfig: Tfrmconfig
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -9319,7 +9319,6 @@ object frmconfig: Tfrmconfig
     MostrarStatus = True
     TipoDANFE = tiSemGeracao
     NumCopias = 1
-    AgruparNumCopias = False
     ImprimeNomeFantasia = False
     ImprimirDescPorc = False
     ImprimirTotalLiquido = True
@@ -9360,7 +9359,6 @@ object frmconfig: Tfrmconfig
     IncorporarBackgroundPdf = True
     IncorporarFontesPdf = True
     ImprimirDadosDocReferenciados = True
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
     Left = 168
     Top = 194
   end

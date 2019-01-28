@@ -3960,11 +3960,6 @@ end;
 procedure TfrmVenda.ed_qtdeKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then begin
-    if  (ed_qtde.Value >= 100) then begin
-  ShowMessage('Digitado valor de quantidade maior do que o aceito pela SEFAZ');
-  ed_qtde.Value := 1.00;
-
-  end;
     if rProd_qtde <> ed_qtde.value then begin
       rProd_preco := frmModulo.PrecoDeVenda(iProd_codigo, ed_qtde.value);
       ed_unitario.Value := rProd_preco;
@@ -4018,7 +4013,6 @@ begin
     Teclado.Top := RoundDiv((Screen.Height - Teclado.Height), 2);
     Teclado.Visible := True;
   end;
-
 end;
 
 procedure TfrmVenda.ed_qtdeExit(Sender: TObject);
@@ -4029,9 +4023,13 @@ begin
 
   end;
 
+  if  (ed_qtde.Value.Size >= 6) then begin
 
+  ShowMessage('Digitado valor de quantidade maior do que o aceito pela SEFAZ');
+  ed_qtde.Value := '1.00';
+  ed_qtde.SetFocus;
 
-
+  end;
 
 
 
