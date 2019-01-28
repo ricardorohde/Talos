@@ -156,8 +156,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5E2A756B7A4BDDEA865297465FE6D23E5CE65253A94B4755AEE554D99DF89D80
         FF1B00A2177EFF42865FD10000000049454E44AE426082}
       Transparent = True
-      TabOrder = 1
-      TabStop = True
+      TabOrder = 0
       OnClick = bt_okClick
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -249,8 +248,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         0648458A77802AA05AFD574504A0F363EEE8C3123AE4FD97DA51C6BF9B1355BB
         53E93D8C0000000049454E44AE426082}
       Transparent = True
-      TabOrder = 0
-      TabStop = True
+      TabOrder = 1
       OnClick = AdvGlowButton2Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -461,6 +459,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet2: TTabSheet
       Caption = 'Formas Pagto.'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_forma: TNextGrid
         Left = 0
         Top = 0
@@ -541,6 +543,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet3: TTabSheet
       Caption = 'Al'#237'quotas'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_aliquota: TNextGrid
         Left = 0
         Top = 0
@@ -621,6 +627,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet4: TTabSheet
       Caption = 'Outros'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_outros: TNextGrid
         Left = 0
         Top = 0
@@ -700,6 +710,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet5: TTabSheet
       Caption = 'Pr'#233'-vendas'
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_venda: TNextGrid
         Left = 0
         Top = 0
@@ -898,6 +912,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet6: TTabSheet
       Caption = 'DAVs'
       ImageIndex = 5
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_dav: TNextGrid
         Left = 0
         Top = 0
@@ -995,6 +1013,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet7: TTabSheet
       Caption = 'Abast.Pendentes'
       ImageIndex = 6
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_abastecimento: TNextGrid
         Left = 0
         Top = 0
@@ -1282,6 +1304,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabSheet8: TTabSheet
       Caption = 'Mesas Abert.'
       ImageIndex = 7
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object grid_mesa: TNextGrid
         Left = 0
         Top = 0
@@ -1393,6 +1419,10 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     object TabFechamento: TTabSheet
       Caption = 'Fechamento'
       ImageIndex = 8
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GridFechamento: TNextGrid
         Left = 0
         Top = 0
@@ -1524,7 +1554,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 3
     ShowExpander = False
@@ -1622,7 +1652,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -1708,7 +1738,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 0
-      TabStop = True
       OnClick = bt_fechamento01Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -1812,7 +1841,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 1
-      TabStop = True
       OnClick = bt_fechamento02Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -1916,7 +1944,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 2
-      TabStop = True
       OnClick = bt_fechamento03Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2020,7 +2047,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 3
-      TabStop = True
       OnClick = bt_fechamento04Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2124,7 +2150,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 4
-      TabStop = True
       OnClick = bt_fechamento05Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2228,7 +2253,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 5
-      TabStop = True
       OnClick = bt_fechamento06Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2332,7 +2356,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 6
-      TabStop = True
       OnClick = bt_fechamento07Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2436,7 +2459,6 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
         5D0000000049454E44AE426082}
       Transparent = True
       TabOrder = 7
-      TabStop = True
       OnClick = bt_fechamento08Click
       Appearance.BorderColor = 12631218
       Appearance.BorderColorHot = 10079963
@@ -2480,7 +2502,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
   end
   object pop_fechamento: TAdvPopupMenu
     MenuStyler = frmModulo.estilo_menu
-    Version = '2.6.1.0'
+    Version = '2.6.1.1'
     Left = 253
     Top = 206
     object Cancelar1: TMenuItem
@@ -2572,7 +2594,7 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
     Top = 352
   end
   object fxFechamento: TfrxReport
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -3063,10 +3085,5 @@ object frmCaixa_Fechamento: TfrmCaixa_Fechamento
       ShortCut = 16453
       OnExecute = Action1Execute
     end
-  end
-  object query2: TUniQuery
-    Connection = frmModulo.conexao
-    Left = 389
-    Top = 198
   end
 end

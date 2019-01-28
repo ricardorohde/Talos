@@ -6910,7 +6910,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C0101020005003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF
@@ -11253,215 +11253,55 @@ object frmVenda: TfrmVenda
       Size = 100
     end
   end
-  object frxCancelado: TfrxReport
-    Tag = 1
-    Version = '5.2.3'
-    DotMatrixReport = False
-    IniFile = '\Software\Fast Reports'
-    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
-    PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Microsoft Print to PDF'
-    PrintOptions.PrintOnSheet = 0
-    PrintOptions.ShowDialog = False
-    ReportOptions.CreateDate = 40401.475989294000000000
-    ReportOptions.LastChange = 43343.000307696800000000
-    ScriptLanguage = 'PascalScript'
-    ScriptText.Strings = (
-      'begin'
-      'end.')
-    OnReportPrint = 'frxReportOnReportPrint'
-    Left = 376
-    Top = 144
-    Datasets = <
-      item
-        DataSet = frCupomNF
-        DataSetName = 'frCupomNF'
-      end
-      item
-        DataSet = frFilial
-        DataSetName = 'frFilial'
-      end>
-    Variables = <
-      item
-        Name = ' User'
-        Value = Null
-      end
-      item
-        Name = 'LinhasImpressas'
-        Value = Null
-      end>
-    Style = <>
-    object Data: TfrxDataPage
-      Height = 1000.000000000000000000
-      Width = 1000.000000000000000000
-    end
-    object Page1: TfrxReportPage
-      PaperWidth = 72.000000000000000000
-      PaperHeight = 1000.000000000000000000
-      PaperSize = 256
-      TopMargin = 0.500000000000000000
-      EndlessHeight = True
-      LargeDesignHeight = True
-      PrintIfEmpty = False
-      OnBeforePrint = 'Page1OnBeforePrint'
-      object cpTitulo: TfrxReportTitle
-        FillType = ftBrush
-        Height = 200.315090000000000000
-        Top = 18.897650000000000000
-        Width = 272.126160000000000000
-        OnBeforePrint = 'ReportTitle1OnBeforePrint'
-        PrintChildIfInvisible = True
-        Stretched = True
-        object lbDataHora: TfrxMemoView
-          Align = baWidth
-          Top = 42.692950000000010000
-          Width = 272.126160000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Data: [frCupomNF."DATA"] Hora: [frCupomNF."HORA"]')
-          ParentFont = False
-        end
-        object lbEmpresa: TfrxMemoView
-          Align = baWidth
-          Top = 4.779530000000001000
-          Width = 272.126160000000000000
-          Height = 18.897650000000000000
-          StretchMode = smActualHeight
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[frFilial."FILIAL"]')
-          ParentFont = False
-        end
-        object Line1: TfrxLineView
-          Align = baWidth
-          Top = 40.574830000000000000
-          Width = 272.126160000000000000
-          Color = clBlack
-          Frame.Style = fsDot
-          Frame.Typ = [ftTop]
-        end
-        object lbNCupum: TfrxMemoView
-          Align = baWidth
-          Top = 61.519790000000000000
-          Width = 272.126160000000000000
-          Height = 15.118120000000000000
-          StretchMode = smActualHeight
-          AutoWidth = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8W = (
-            'CUPOM : [frCupomNF."NUMERO"]')
-          ParentFont = False
-        end
-        object Line2: TfrxLineView
-          Align = baWidth
-          ShiftMode = smWhenOverlapped
-          Top = 82.047310000000000000
-          Width = 272.126160000000000000
-          Color = clBlack
-          Frame.Style = fsDot
-          Frame.Typ = [ftTop]
-        end
-        object Line3: TfrxLineView
-          Align = baWidth
-          Top = 2.779530000000001000
-          Width = 272.126160000000000000
-          Color = clBlack
-          Frame.Style = fsDot
-          Frame.Typ = [ftTop]
-        end
-        object lbTel: TfrxMemoView
-          Align = baWidth
-          Top = 24.015770000000000000
-          Width = 272.126160000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[frFilial."TELEFONE"]')
-          ParentFont = False
-          Formats = <
-            item
-            end
-            item
-            end
-            item
-            end>
-        end
-        object lbProduto: TfrxMemoView
-          Align = baWidth
-          Top = 99.488250000000000000
-          Width = 272.126160000000000000
-          Height = 30.236240000000000000
-          StretchMode = smActualHeight
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -24
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[frCupomNF."NOME"]')
-          ParentFont = False
-        end
-        object lbPreco: TfrxMemoView
-          Align = baRight
-          Left = 90.708720000000030000
-          Top = 137.283550000000000000
-          Width = 181.417440000000000000
-          Height = 30.236240000000000000
-          DisplayFormat.FormatStr = '%2.2m'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -29
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[frCupomNF."ITEM_UNITARIO"]')
-          ParentFont = False
-        end
-        object Line4: TfrxLineView
-          Align = baWidth
-          Top = 177.637910000000000000
-          Width = 272.126160000000000000
-          Color = clBlack
-          Frame.Style = fsDot
-          Frame.Typ = [ftTop]
-        end
-        object lbValidador: TfrxMemoView
-          Align = baWidth
-          Top = 179.858380000000000000
-          Width = 272.126160000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haCenter
-          ParentFont = False
-        end
-      end
-    end
+  object qrCancelaItem: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO CUPOM_ITEM_CANCELADO'
+      'SELECT * FROM CUPOM WHERE CUPOM_ITEM_TEMP.ITEM = (:ITEM)')
+    SQLDelete.Strings = (
+      'DELETE FROM CUPOM_ITEM_CANCELADO'
+      'WHERE'
+      '  CODIGO = :Old_CODIGO')
+    SQLUpdate.Strings = (
+      'UPDATE CUPOM_ITEM_CANCELADO'
+      'SET'
+      
+        '  CODIGO = :CODIGO, COD_CUPOM = :COD_CUPOM, ITEM = :ITEM, COD_PR' +
+        'ODUTO = :COD_PRODUTO, UNIDADE = :UNIDADE, QTDE = :QTDE, VALOR_UN' +
+        'ITARIO = :VALOR_UNITARIO, VALOR_SUBTOTAL = :VALOR_SUBTOTAL, VALO' +
+        'R_DESCONTO = :VALOR_DESCONTO, VALOR_ACRESCIMO = :VALOR_ACRESCIMO' +
+        ', VALOR_TOTAL = :VALOR_TOTAL, CST = :CST, ALIQUOTA = :ALIQUOTA, ' +
+        'COD_TOTALIZADOR = :COD_TOTALIZADOR, CANCELADO = :CANCELADO, EX =' +
+        ' :EX, TAMANHO = :TAMANHO, COR = :COR, CFOP = :CFOP, CSOSN = :CSO' +
+        'SN, CLASSIFICACAO_FISCAL = :CLASSIFICACAO_FISCAL, BASE_SUB = :BA' +
+        'SE_SUB, ICMS_SUB = :ICMS_SUB, ISENTAS_ICMS = :ISENTAS_ICMS, OUTR' +
+        'AS_ICMS = :OUTRAS_ICMS, EXTRA = :EXTRA, COMPLEMENTO = :COMPLEMEN' +
+        'TO'
+      'WHERE'
+      '  CODIGO = :Old_CODIGO')
+    SQLLock.Strings = (
+      'SELECT NULL FROM CUPOM_ITEM_CANCELADO'
+      'WHERE'
+      'CODIGO = :Old_CODIGO'
+      'FOR UPDATE WITH LOCK')
+    SQLRefresh.Strings = (
+      
+        'SELECT CODIGO, COD_CUPOM, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALO' +
+        'R_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VAL' +
+        'OR_TOTAL, CST, ALIQUOTA, COD_TOTALIZADOR, CANCELADO, EX, TAMANHO' +
+        ', COR, CFOP, CSOSN, CLASSIFICACAO_FISCAL, BASE_SUB, ICMS_SUB, IS' +
+        'ENTAS_ICMS, OUTRAS_ICMS, EXTRA, COMPLEMENTO FROM CUPOM_ITEM_CANC' +
+        'ELADO'
+      'WHERE'
+      '  CODIGO = :CODIGO')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM CUPOM_ITEM_CANCELADO'
+      ''
+      ') q')
+    Connection = frmModulo.conexao
+    SQL.Strings = (
+      'select * from CUPOM_ITEM_CANCELADO')
+    Left = 432
+    Top = 576
   end
 end

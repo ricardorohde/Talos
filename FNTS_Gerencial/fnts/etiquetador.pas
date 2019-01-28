@@ -140,6 +140,7 @@ type
     QRPRODUTOCOMPOSICAO1: TWideStringField;
     QRPRODUTOCOMPOSICAO2: TWideStringField;
     qretiqUNIDADE: TWideStringField;
+    COMBOCODBARRAS: TwwDBLookupComboDlg;
     procedure FormShow(Sender: TObject);
     procedure bfecharClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

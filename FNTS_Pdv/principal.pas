@@ -807,9 +807,6 @@ var
   txt: textFile;
   TipoCupom:string;
 begin
-  frmModulo.spCupom_Temp_delete.prepare;
-  frmModulo.spCupom_Temp_delete.execute;
-
   TipoCupom := UpperCase(frmPrincipal.LerINi(ExtractFilePath(Application.ExeName) + 'CFG\cfg.ini', 'Geral', 'TIPO CUPOM', 'NFCE'));
   if TipoCupom = 'SAT' then
     TipoDeCupom := tcSAT
