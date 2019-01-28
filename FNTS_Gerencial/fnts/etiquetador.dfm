@@ -1359,26 +1359,6 @@ object frmetiquetador: Tfrmetiquetador
       OnClick = AdvMetroButton1Click
     end
   end
-  object COMBOCODBARRAS: TwwDBLookupComboDlg
-    Left = 143
-    Top = 103
-    Width = 121
-    Height = 21
-    GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
-    GridColor = clWhite
-    GridTitleAlignment = taLeftJustify
-    Caption = 'Lookup'
-    MaxWidth = 0
-    MaxHeight = 209
-    DataField = 'codbarra'
-    DataSource = dsetiq
-    LookupTable = frmmodulo.qrproduto
-    LookupField = 'CODBARRA'
-    TabOrder = 13
-    AutoDropDown = False
-    ShowButton = True
-    AllowClearKey = False
-  end
   object dsetiq: TwwDataSource
     DataSet = qretiq
     Left = 285
