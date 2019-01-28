@@ -3047,7 +3047,7 @@ begin
    hMutex := CreateMutex(0, TRUE, 'Server_PDV');
     if GetLastError = ERROR_ALREADY_EXISTS then begin
     beep;
-    ShowMessage('Já existe um Servidor do PDV em execução. Verifique a sua barra de tarefas!');
+    ShowMessage('O Programa já esta em uso...Não pode criar duas Estâncias!\');
     Application.Terminate;
     end;
   if not pnlAviso.Visible then begin
