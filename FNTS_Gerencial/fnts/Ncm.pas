@@ -93,7 +93,20 @@ end;
 
 procedure TfrmNcm.LOCChange(Sender: TObject);
 begin
-         LOC.FindValue();
+
+    frmmodulo.qrNCM.close;
+    frmmodulo.qrNCM.SQL.clear;
+    if LOC.text = '' then
+    begin
+      frmmodulo.qrNcm.sql.add('select * from NCM');
+    end
+    else if (LOC.Text <> '') then
+    begin
+      frmmodulo.qrNcm.sql.add('select * from NCM WHERE DESCRICAO like ' + QuotedStr('%'+LOC.text+'%'));
+    end;
+    frmmodulo.qrNcm.Open;
+
+
 
 
 
