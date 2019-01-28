@@ -2079,7 +2079,7 @@ begin
 
   //TrocaResolucao(Screen.Width,Screen.Height,1,1);
   // ajuste para se a resolucao for muito baixa
-  if Screen.width < 1024 then
+  if Screen.width <= 1024 then
    cxGrid1.width := 400;
 
   Carregando := False;
@@ -2104,7 +2104,8 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
-   Key := ' ';
+   Key := #0;
+
 
 
   end ;
@@ -2276,6 +2277,8 @@ begin
   else if Key = #27 then begin
     Teclado.Visible := False;
   end;
+
+
 
 end;
 
