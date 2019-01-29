@@ -388,6 +388,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
       Top = 6
       Width = 552
       Height = 21
+      TabStop = False
       Text = ''
       TabOrder = 0
       OnKeyDown = edDesProdutoKeyDown
