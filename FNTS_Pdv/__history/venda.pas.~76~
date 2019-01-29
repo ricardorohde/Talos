@@ -2105,7 +2105,12 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
+<<<<<<< HEAD
    Key := #0;
+
+=======
+   Key := ' ';
+>>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
 
 
   end ;
@@ -2278,6 +2283,11 @@ begin
     Teclado.Visible := False;
   end;
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
 end;
 
 procedure TfrmVenda.ed_barraKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);

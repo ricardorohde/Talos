@@ -2079,8 +2079,11 @@ begin
 
   //TrocaResolucao(Screen.Width,Screen.Height,1,1);
   // ajuste para se a resolucao for muito baixa
-
+<<<<<<< HEAD
   if Screen.width <= 1024 then
+=======
+  if Screen.width < 1024 then
+>>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
    cxGrid1.width := 400;
 
   Carregando := False;
@@ -2105,7 +2108,12 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
+<<<<<<< HEAD
    Key := #0;
+
+=======
+   Key := ' ';
+>>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
 
 
   end ;
@@ -2278,6 +2286,11 @@ begin
     Teclado.Visible := False;
   end;
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
 end;
 
 procedure TfrmVenda.ed_barraKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);

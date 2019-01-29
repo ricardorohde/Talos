@@ -1291,17 +1291,17 @@ var
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
 
-  if not sNumero_Cupom.Equals('') then begin
 
   query.SQL.Clear;
   query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
   query.ExecSQL;
   query1.sql.clear;
-  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where COD_CUPOM = ' + sNumero_Cupom);
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where COD_CUPOM = ' + sNumero_Cupom));
   query1.ExecSQL;
 
-while not Query1.Eof do
+if not query1.Eof then
 begin
+
     query.SQL.Clear;
     QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
                       query.SQL.Add(') values (');
@@ -1321,13 +1321,11 @@ begin
                       query.Params.ParamByName('VALOR_ACRESCIMO').AsFloat := query1.FieldByName('VALOR_ACRESCIMO').AsFloat;
                       query.Params.ParamByName('VALOR_TOTAL').AsFloat := query1.FieldByName('VALOR_TOTAL').AsFloat;
                       query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
-                      query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM CANCELADO POR INTEIRO';
+                      query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM ABERTO CANCELADO';
     //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
     query.ExecSQL;
-    Query1.Next;
-end;
-  end;
 
+end;
 
   if (bBusca_foto_produto) and not (AtivaTouch) then
     img_produto.Picture := nil;
@@ -1818,8 +1816,6 @@ function TfrmVenda.Abre_Venda(): Boolean;
 begin
   TimerTroco.Enabled := False;
   try
-    frmModulo.spCupom_Temp_delete.prepare;
-    frmModulo.spCupom_Temp_delete.execute;
     cdsLancaProdutos.Close;
     cdsLancaProdutos.CreateDataSet;
     bLanca_Delivery := False;
@@ -2079,8 +2075,7 @@ begin
 
   //TrocaResolucao(Screen.Width,Screen.Height,1,1);
   // ajuste para se a resolucao for muito baixa
-
-  if Screen.width <= 1024 then
+  if Screen.width < 1024 then
    cxGrid1.width := 400;
 
   Carregando := False;
@@ -2105,7 +2100,7 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
-   Key := #0;
+   Key := ' ';
 
 
   end ;
