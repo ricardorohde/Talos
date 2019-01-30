@@ -226,7 +226,8 @@ begin
             ('select prod.codigo,prod.produto, prod.unidade, prod.precovenda,prod.codbarra, prod.codgrupo, prod.codsubgrupo,prod.codmarca,');
           query.sql.Add
             ('prod.codfornecedor,estq.* from c000025 prod, c000100 estq where prod.codigo = estq.codproduto '
-            + situacao);
+            + situacao + ' and upper(' + tipo + ') like ''' + ref + loc.text +
+            '%'' order by ' + tipo);
         end
         else
         begin
@@ -397,7 +398,7 @@ begin
         QUERY2.sql.Add('select * from c000009 where codigo = ''xxxxxx''')
       else
         QUERY2.sql.Add('SELECT * FROM C000009 where upper(NOME) like ''' + ref +
-          loc.text + '%'' order by NOME');
+          loc.text + '%'' order by NOME ');
       QUERY2.open;
       if QUERY2.RecordCount > 0 then
       begin
@@ -416,7 +417,7 @@ begin
         QUERY2.sql.Add('select * from c000019 where codigo = ''xxxxxx''')
       else
         QUERY2.sql.Add('SELECT * FROM C000019 where upper(NOME) like ''' + ref +
-          loc.text + '%'' order by NOME');
+          loc.text + '%'' order by NOME ');
       QUERY2.open;
       if QUERY2.RecordCount > 0 then
       begin
