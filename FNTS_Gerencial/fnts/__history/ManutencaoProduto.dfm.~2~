@@ -152,7 +152,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
     Left = 0
     Top = 48
     Width = 825
-    Height = 81
+    Height = 57
     Align = alTop
     BevelOuter = bvNone
     Color = 5351679

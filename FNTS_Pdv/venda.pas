@@ -36,7 +36,7 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter;
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -410,8 +410,6 @@ type
     procedure MostraFotoProduto(b: Boolean);
     procedure MostraLogoMarca(b: Boolean);
     procedure CentralizarPanel(p: TPanel);
-    function PrepararNFCE: Boolean;
-    procedure GerarNFCe(NumNFe: string);
     procedure OnInternetChange(LANStatus: TLANStatus; InternetStatus: TInternetStatus; xMsg: string = '');
     procedure MontaTelaTouch;
     procedure MontaGrupos;
@@ -433,6 +431,9 @@ type
     procedure ConfiguraSAT;
     function EnviaSAT(Cupom: string): Boolean;
     procedure PrepararImpressao;
+    //passei para public para poder emitir nfce no menu_cupom
+    function PrepararNFCE: Boolean;
+    procedure GerarNFCe(NumNFe: string);
   end;
 
 const
@@ -516,6 +517,9 @@ var
   cStatus: Integer;
   ChaveNFCE: string;
   NumeroNFCe: Integer;
+
+  //variavel multiplicador
+  multiplicador: string;
 
 implementation
 
@@ -1253,6 +1257,8 @@ begin
           end;
         end;
         iPesquisa_produto := 1;
+
+
         if frmVenda.Localizar_Produto(Zerar(IntToStr(Produto), 6)) then begin
           rProd_preco := rProd_preco + vExtra.valor;
           if (query.fieldbyname('usa_balanca').AsInteger = 1) and (bPesagemAutomatica) then begin
@@ -1285,10 +1291,42 @@ var
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
 
+  if not sNumero_Cupom.Equals('') then begin
 
   query.SQL.Clear;
   query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
   query.ExecSQL;
+  query1.sql.clear;
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where COD_CUPOM = ' + sNumero_Cupom);
+  query1.ExecSQL;
+
+while not Query1.Eof do
+begin
+    query.SQL.Clear;
+    QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
+                      query.SQL.Add(') values (');
+                      query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
+                      query.SQL.Add(')');
+                      query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
+                      query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
+                      query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
+                      query.Params.ParamByName('PDV').AsString := sCaixa;
+                      query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
+                      query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
+                      query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
+                      query.Params.ParamByName('QTDE').AsFloat := query1.FieldByName('QTDE').AsFloat;
+                      query.Params.ParamByName('VALOR_UNITARIO').AsFloat := query1.FieldByName('VALOR_UNITARIO').AsFloat;
+                      query.Params.ParamByName('VALOR_SUBTOTAL').AsFloat := query1.FieldByName('VALOR_SUBTOTAL').AsFloat;
+                      query.Params.ParamByName('VALOR_DESCONTO').AsFloat := query1.FieldByName('VALOR_DESCONTO').AsFloat;
+                      query.Params.ParamByName('VALOR_ACRESCIMO').AsFloat := query1.FieldByName('VALOR_ACRESCIMO').AsFloat;
+                      query.Params.ParamByName('VALOR_TOTAL').AsFloat := query1.FieldByName('VALOR_TOTAL').AsFloat;
+                      query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
+                      query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM CANCELADO POR INTEIRO';
+    //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+    query.ExecSQL;
+    Query1.Next;
+end;
+  end;
 
 
   if (bBusca_foto_produto) and not (AtivaTouch) then
@@ -1343,7 +1381,7 @@ begin
                     query.SQL.Add(')');
                     query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
                     query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
-                    query.Params.ParamByName('OPERADOR').AsFloat := StrToInt(sCaixa);
+                    query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
                     query.Params.ParamByName('PDV').AsString := sCaixa;
                     query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                     query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
@@ -1780,6 +1818,8 @@ function TfrmVenda.Abre_Venda(): Boolean;
 begin
   TimerTroco.Enabled := False;
   try
+    frmModulo.spCupom_Temp_delete.prepare;
+    frmModulo.spCupom_Temp_delete.execute;
     cdsLancaProdutos.Close;
     cdsLancaProdutos.CreateDataSet;
     bLanca_Delivery := False;
@@ -2037,6 +2077,12 @@ begin
   MostraFotoProduto(bBusca_foto_produto);
   MostraLogoMarca(bHabLogoMarca);
 
+  //TrocaResolucao(Screen.Width,Screen.Height,1,1);
+  // ajuste para se a resolucao for muito baixa
+
+  if Screen.width <= 1024 then
+   cxGrid1.width := 400;
+
   Carregando := False;
 
 end;
@@ -2051,7 +2097,19 @@ var
   Jpg: TJPEGImage;
   Bitmap: TBitmap;
   ext: string;
+
 begin
+
+  if Key = '*' then begin
+
+   multiplicador := SplitString(ed_barra.text,'*')[0];
+   Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
+   ed_barra.text := '';
+   Key := #0;
+
+
+  end ;
+
   if Key = #13 then begin
     sx_barra := Trim(ed_barra.text);
 
@@ -2089,6 +2147,9 @@ begin
     iPesquisa_produto := 1;
     // fazer a busca do produto
     sProd_barra := ed_barra.text;
+
+
+
     if frmVenda.Localizar_Produto(ed_barra.Text) then begin
       if (query.fieldbyname('usa_balanca').AsInteger = 1) and (bPesagemAutomatica) then begin
         ed_qtde.Value := RetornaPesoBalanca;
@@ -2147,6 +2208,13 @@ begin
         else if ed_qtde.Value > 1 then
           rProd_qtde := ed_qtde.Value;
         ed_unitario.Value := rProd_preco;
+
+        if multiplicador <> '' then begin
+        rProd_qtde := StrToFloat(multiplicador);
+        ed_qtde.Value := StrToFloat(multiplicador);
+        multiplicador := '1';
+        end;
+
         rProd_total := Truncar_Valor(rProd_qtde * rProd_preco);
         ed_total_item.Value := rProd_total;
       end;
@@ -2195,6 +2263,7 @@ begin
           Exit;
         end;
         ed_barra.text := '';
+
         Registra_Item;
       end;
     end
@@ -2208,6 +2277,7 @@ begin
   else if Key = #27 then begin
     Teclado.Visible := False;
   end;
+
 end;
 
 procedure TfrmVenda.ed_barraKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -3960,7 +4030,7 @@ end;
 procedure TfrmVenda.ed_qtdeKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then begin
-    if  (ed_qtde.Value >= 100) then begin
+    if  (ed_qtde.Value >= 100.000) then begin
   ShowMessage('Digitado valor de quantidade maior do que o aceito pela SEFAZ');
   ed_qtde.Value := 1.00;
 
@@ -4528,6 +4598,8 @@ begin
   if busuario_autenticado then begin
     // mudar o nome do usuario na tela de venda
     cpBarra.Panels.Items[1].Text := Copy(sNome_Operador, 1, 10);
+
+
 
     Application.MessageBox('Troca efetuada com sucesso!', 'Aviso', MB_OK + MB_ICONINFORMATION);
 

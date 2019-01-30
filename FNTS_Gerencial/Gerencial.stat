@@ -1,5 +1,32 @@
 
 [Stats]
+EditorSecs=15472
+DesignerSecs=2540
+InspectorSecs=525
+CompileSecs=3479392
+OtherSecs=10947
+StartTime=18/12/2018 23:34:58
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=11050
+EditorSecs=16351
+DesignerSecs=3232
+InspectorSecs=561
+CompileSecs=4336092
+OtherSecs=12031
+StartTime=18/12/2018 23:34:58
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=14507
+EditorSecs=16351
+DesignerSecs=3232
+InspectorSecs=561
+CompileSecs=4336092
+OtherSecs=12031
+StartTime=18/12/2018 23:34:58
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=14507
 EditorSecs=15899
 DesignerSecs=2703
 InspectorSecs=563

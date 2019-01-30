@@ -132,7 +132,7 @@ end;
 procedure TfrmManutencaoProduto.BFILTROClick(Sender: TObject);
 begin
   if qrProduto.State = dsEdit then
-    if Application.MessageBox('Existem alterações não salvas, Deseja Salvar?','Atenção!',MB_ICONQUESTION+MB_YESNO)=mrYes then
+    if Application.MessageBox('Existem alteraÃ§Ãµes nÃ£o salvas, Deseja Salvar?','AtenÃ§Ã£o!',MB_ICONQUESTION+MB_YESNO)=mrYes then
       qrProduto.Post
     else
       qrProduto.Cancel;
@@ -160,6 +160,7 @@ end;
 
 
 end;
+
 
 procedure TfrmManutencaoProduto.edGrupoButtonClick(Sender: TObject);
 begin
@@ -198,7 +199,7 @@ end;
 procedure TfrmManutencaoProduto.edSubGrupoButtonClick(Sender: TObject);
 begin
   if (edGrupo.Text = '') or (edGrupo.Text = '000000') then begin
-    Application.MessageBox('informe o Grupo para poder selecionar os sub-grupos do grupo.','Atenção!',MB_ICONINFORMATION);
+    Application.MessageBox('informe o Grupo para poder selecionar os sub-grupos do grupo.','AtenÃ§Ã£o!',MB_ICONINFORMATION);
     edGrupo.SetFocus;
     exit;
   end;
@@ -252,7 +253,7 @@ procedure TfrmManutencaoProduto.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   if qrProduto.State = dsEdit then
-    if Application.MessageBox('Existem alterações não salvas, Deseja Salvar?','Atenção!',MB_ICONQUESTION+MB_YESNO)=mrYes then
+    if Application.MessageBox('Existem alteraÃ§Ãµes nÃ£o salvas, Deseja Salvar?','AtenÃ§Ã£o!',MB_ICONQUESTION+MB_YESNO)=mrYes then
       qrProduto.Post
     else
       qrProduto.Cancel;
@@ -319,7 +320,7 @@ begin
   except
     on e:Exception do begin
       frmmodulo.conexao.Rollback;
-      Application.MessageBox(PwideChar('Ocorreu um erro no processo:'+#13+e.Message),'Atenção',MB_ICONINFORMATION);
+      Application.MessageBox(PwideChar('Ocorreu um erro no processo:'+#13+e.Message),'AtenÃ§Ã£o',MB_ICONINFORMATION);
     end;
   end;
 
