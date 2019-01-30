@@ -1,7 +1,5 @@
 
 [Stats]
-<<<<<<< HEAD
-<<<<<<< HEAD
 EditorSecs=15472
 DesignerSecs=2540
 InspectorSecs=525
@@ -11,7 +9,6 @@ StartTime=18/12/2018 23:34:58
 RealKeys=0
 EffectiveKeys=0
 DebugSecs=11050
-=======
 EditorSecs=16351
 DesignerSecs=3232
 InspectorSecs=561
@@ -21,8 +18,6 @@ StartTime=18/12/2018 23:34:58
 RealKeys=0
 EffectiveKeys=0
 DebugSecs=14507
->>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
-=======
 EditorSecs=16351
 DesignerSecs=3232
 InspectorSecs=561
@@ -32,4 +27,12 @@ StartTime=18/12/2018 23:34:58
 RealKeys=0
 EffectiveKeys=0
 DebugSecs=14507
->>>>>>> parent of 2cee34c... Revert "Merge branch 'beta' of https://github.com/Fabiorohem/Talos into beta"
+EditorSecs=15899
+DesignerSecs=2703
+InspectorSecs=563
+CompileSecs=3843611
+OtherSecs=11299
+StartTime=18/12/2018 23:34:58
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=11249

@@ -1,4 +1,3 @@
-
 unit ManutencaoProduto;
 
 interface
@@ -91,7 +90,8 @@ type
     cxStyle13: TcxStyle;
     cxStyle14: TcxStyle;
     cxStyle15: TcxStyle;
-    edDesNome: TRzEdit;
+    Label2: TLabel;
+    edDesProduto: TRzEdit;
     procedure AdvMetroButton1Click(Sender: TObject);
     procedure edGrupoButtonClick(Sender: TObject);
     procedure edGrupoExit(Sender: TObject);
@@ -106,6 +106,8 @@ type
     procedure edSubGrupoKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
     procedure qrProdutoBeforeEdit(DataSet: TDataSet);
+    procedure edDesProdutoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     EstoqueAtual:Double;
@@ -130,7 +132,7 @@ end;
 procedure TfrmManutencaoProduto.BFILTROClick(Sender: TObject);
 begin
   if qrProduto.State = dsEdit then
-    if Application.MessageBox('Existem alterações não salvas, Deseja Salvar?','Atenção!',MB_ICONQUESTION+MB_YESNO)=mrYes then
+    if Application.MessageBox('Existem alteraÃ§Ãµes nÃ£o salvas, Deseja Salvar?','AtenÃ§Ã£o!',MB_ICONQUESTION+MB_YESNO)=mrYes then
       qrProduto.Post
     else
       qrProduto.Cancel;
@@ -142,12 +144,23 @@ begin
     qrProduto.SQL.Add(' and pro.codgrupo = ' + QuotedStr(edGrupo.Text));
   if (edSubGrupo.Text <> '') and (edSubGrupo.Text <> '000000') then
     qrProduto.SQL.Add(' and pro.codsubgrupo = ' + QuotedStr(edSubGrupo.Text));
-  if (edDesNome.Text<> '') then  //foi utilizado o containing ao invés do LIKE pois é mais rápido. Se alterar a base de dados, deve ser alterado a instrução.
-    qrProduto.SQL.Add(' and pro.produto containing ' + QuotedStr(edDesNome.Text));
-
+  if (edDesProduto.Text <> '') then
+    qrProduto.SQL.Add(' and pro.produto containing (' + QuotedStr(edDesProduto.Text) + ')');
   qrProduto.SQL.Add('order by pro.codigo');
   qrProduto.Open;
 end;
+
+procedure TfrmManutencaoProduto.edDesProdutoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+if Key = VK_RETURN then begin
+ BFILTROClick(Sender);
+
+end;
+
+
+end;
+
 
 procedure TfrmManutencaoProduto.edGrupoButtonClick(Sender: TObject);
 begin
@@ -186,7 +199,7 @@ end;
 procedure TfrmManutencaoProduto.edSubGrupoButtonClick(Sender: TObject);
 begin
   if (edGrupo.Text = '') or (edGrupo.Text = '000000') then begin
-    Application.MessageBox('informe o Grupo para poder selecionar os sub-grupos do grupo.','Atenção!',MB_ICONINFORMATION);
+    Application.MessageBox('informe o Grupo para poder selecionar os sub-grupos do grupo.','AtenÃ§Ã£o!',MB_ICONINFORMATION);
     edGrupo.SetFocus;
     exit;
   end;
@@ -240,7 +253,7 @@ procedure TfrmManutencaoProduto.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   if qrProduto.State = dsEdit then
-    if Application.MessageBox('Existem alterações não salvas, Deseja Salvar?','Atenção!',MB_ICONQUESTION+MB_YESNO)=mrYes then
+    if Application.MessageBox('Existem alteraÃ§Ãµes nÃ£o salvas, Deseja Salvar?','AtenÃ§Ã£o!',MB_ICONQUESTION+MB_YESNO)=mrYes then
       qrProduto.Post
     else
       qrProduto.Cancel;
@@ -307,7 +320,7 @@ begin
   except
     on e:Exception do begin
       frmmodulo.conexao.Rollback;
-      Application.MessageBox(PwideChar('Ocorreu um erro no processo:'+#13+e.Message),'Atenção',MB_ICONINFORMATION);
+      Application.MessageBox(PwideChar('Ocorreu um erro no processo:'+#13+e.Message),'AtenÃ§Ã£o',MB_ICONINFORMATION);
     end;
   end;
 

@@ -46,7 +46,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
@@ -144,7 +144,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -152,15 +152,15 @@ object frmManutencaoProduto: TfrmManutencaoProduto
     Left = 0
     Top = 48
     Width = 825
-    Height = 57
+    Height = 81
     Align = alTop
     BevelOuter = bvNone
     Color = 5351679
     ParentBackground = False
     TabOrder = 1
     object Label36: TLabel
-      Left = 16
-      Top = 15
+      Left = 13
+      Top = 35
       Width = 33
       Height = 13
       Alignment = taRightJustify
@@ -174,7 +174,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
     end
     object Label1: TLabel
       Left = 316
-      Top = 15
+      Top = 35
       Width = 51
       Height = 13
       Alignment = taRightJustify
@@ -186,13 +186,27 @@ object frmManutencaoProduto: TfrmManutencaoProduto
       Font.Style = []
       ParentFont = False
     end
+    object Label2: TLabel
+      Left = 13
+      Top = 6
+      Width = 42
+      Height = 13
+      Alignment = taRightJustify
+      Caption = 'Produto:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
     object edGrupo: TRzButtonEdit
-      Left = 16
-      Top = 30
+      Left = 13
+      Top = 54
       Width = 73
       Height = 21
       Text = ''
-      TabOrder = 0
+      TabOrder = 1
       OnExit = edGrupoExit
       OnKeyPress = edGrupoKeyPress
       AltBtnWidth = 15
@@ -201,20 +215,20 @@ object frmManutencaoProduto: TfrmManutencaoProduto
     end
     object edDesGrupo: TRzEdit
       Left = 92
-      Top = 30
+      Top = 54
       Width = 218
       Height = 21
       TabStop = False
       Text = ''
-      TabOrder = 1
+      TabOrder = 2
     end
     object edSubGrupo: TRzButtonEdit
       Left = 316
-      Top = 30
+      Top = 54
       Width = 73
       Height = 21
       Text = ''
-      TabOrder = 2
+      TabOrder = 3
       OnExit = edSubGrupoExit
       OnKeyPress = edSubGrupoKeyPress
       AltBtnWidth = 15
@@ -222,19 +236,19 @@ object frmManutencaoProduto: TfrmManutencaoProduto
       OnButtonClick = edSubGrupoButtonClick
     end
     object edDesSubGrupo: TRzEdit
-      Left = 392
-      Top = 30
+      Left = 395
+      Top = 54
       Width = 218
       Height = 21
       TabStop = False
       Text = ''
-      TabOrder = 3
+      TabOrder = 4
     end
     object BFILTRO: TAdvGlowButton
       Left = 625
       Top = 7
-      Width = 92
-      Height = 43
+      Width = 152
+      Height = 68
       Caption = 'Filtrar'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -337,7 +351,7 @@ object frmManutencaoProduto: TfrmManutencaoProduto
         B3D4E4354B87BD166983D72219DB2DAA37BD169578600D109DBDCDF903FCFF00
         2ADC84EE2664A1DC0000000049454E44AE426082}
       Transparent = True
-      TabOrder = 4
+      TabOrder = 5
       OnClick = BFILTROClick
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
@@ -369,27 +383,38 @@ object frmManutencaoProduto: TfrmManutencaoProduto
       Appearance.GradientMirrorDown = ggVertical
       Appearance.GradientChecked = ggVertical
     end
+    object edDesProduto: TRzEdit
+      Left = 61
+      Top = 6
+      Width = 552
+      Height = 21
+      Text = ''
+      TabOrder = 0
+      OnKeyDown = edDesProdutoKeyDown
+    end
   end
   object pnl1: TPanel
     Left = 0
-    Top = 105
+    Top = 129
     Width = 825
-    Height = 439
+    Height = 415
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     Color = 14086904
     ParentBackground = False
     TabOrder = 2
-    ExplicitHeight = 434
+    ExplicitTop = 105
+    ExplicitHeight = 439
     object cxGrid1: TcxGrid
       Left = 5
       Top = 5
       Width = 815
-      Height = 429
+      Height = 405
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 424
+      ExplicitTop = 40
+      ExplicitHeight = 394
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.Insert.Visible = False

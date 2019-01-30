@@ -11,7 +11,20 @@ uses
   cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, cxDBData,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
-  cxClasses, cxGridCustomView, cxGrid, cxCalc, cxCurrencyEdit;
+  cxClasses, cxGridCustomView, cxGrid, cxCalc, cxCurrencyEdit, dxSkinsCore,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter;
 
 type
   TfrmManutencaoProduto = class(TForm)
@@ -77,6 +90,8 @@ type
     cxStyle13: TcxStyle;
     cxStyle14: TcxStyle;
     cxStyle15: TcxStyle;
+    Label2: TLabel;
+    edDesProduto: TRzEdit;
     procedure AdvMetroButton1Click(Sender: TObject);
     procedure edGrupoButtonClick(Sender: TObject);
     procedure edGrupoExit(Sender: TObject);
@@ -91,6 +106,8 @@ type
     procedure edSubGrupoKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
     procedure qrProdutoBeforeEdit(DataSet: TDataSet);
+    procedure edDesProdutoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     EstoqueAtual:Double;
@@ -127,8 +144,21 @@ begin
     qrProduto.SQL.Add(' and pro.codgrupo = ' + QuotedStr(edGrupo.Text));
   if (edSubGrupo.Text <> '') and (edSubGrupo.Text <> '000000') then
     qrProduto.SQL.Add(' and pro.codsubgrupo = ' + QuotedStr(edSubGrupo.Text));
+  if (edDesProduto.Text <> '') then
+    qrProduto.SQL.Add(' and pro.produto containing (' + QuotedStr(edDesProduto.Text) + ')');
   qrProduto.SQL.Add('order by pro.codigo');
   qrProduto.Open;
+end;
+
+procedure TfrmManutencaoProduto.edDesProdutoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+if Key = VK_RETURN then begin
+ BFILTROClick(Sender);
+
+end;
+
+
 end;
 
 procedure TfrmManutencaoProduto.edGrupoButtonClick(Sender: TObject);
