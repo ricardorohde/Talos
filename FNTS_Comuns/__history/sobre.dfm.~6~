@@ -15,7 +15,6 @@ object Form_sobre: TForm_sobre
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   PixelsPerInch = 96
   TextHeight = 13
@@ -113,7 +112,7 @@ object Form_sobre: TForm_sobre
       AA138D936693A7A7DCA76E3E5BFD6CFC79EAF3F9E9829FA57FAE7EA1FBE2BB5F
       1C7FE99B593533FE92FF72E1D7E257F2AF8EBC5EF6BA7BD67FF6F19BE437F373
       856FE5DF1E7DC778D7FB3EECFDC47CE607EC878A8F7A1FBB3E797F7AB890BCB0
-      F01BF784F3FB3AB8BE53000000097048597300000EBF00000EBF013805532400
+      F01BF784F3FB3AB8BE53000000097048597300000EC400000EC401952B0E1B00
       009F5349444154785EED9D05781457F7C6270971778104D71669294E81162B50
       7777F9D7F5AB7D5FDDBDA5D4951687007177171C8ABBBB3BE5FCDFF7CE2C1AC8
       2CD94068E7F09C67C3ECEE9D599BDFBCF79EFB5E4DFE05B1FBD021796BC52A79
@@ -1403,9 +1402,9 @@ object Form_sobre: TForm_sobre
     object Label8: TLabel
       Left = 15
       Top = 4
-      Width = 303
+      Width = 270
       Height = 13
-      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 714, 715 e 716 '
+      Caption = 'Rua Ant'#244'nio de Abreu, N'#186' 80 - Salas 716 e 717'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1455,7 +1454,7 @@ object Form_sobre: TForm_sobre
     object Label56: TLabel
       Left = 59
       Top = 13
-      Width = 302
+      Width = 301
       Height = 23
       Caption = 'Sobre o sistema TALOS 1.0.1.0'
       Font.Charset = ANSI_CHARSET

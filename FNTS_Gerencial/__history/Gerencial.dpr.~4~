@@ -379,8 +379,7 @@ uses
   ImpressaoEtiquetas in 'fnts\ImpressaoEtiquetas.pas' {frmImpressaoEtiquetas},
   ConsultaCPF in 'fnts\ConsultaCPF.pas' {frmConsultaCPF},
   ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ},
-  AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox},
-  UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao};
+  AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox};
 
 {$R *.res}
 
@@ -403,7 +402,6 @@ begin
   Application.CreateForm(TfrmConsultaCPF, frmConsultaCPF);
   Application.CreateForm(TfrmConsultaCNPJ, frmConsultaCNPJ);
   Application.CreateForm(TAboutBox, AboutBox);
-  Application.CreateForm(TFrmVersao, FrmVersao);
   frmsplash.Close;
   FreeAndNil(frmsplash);
   application.ProcessMessages;

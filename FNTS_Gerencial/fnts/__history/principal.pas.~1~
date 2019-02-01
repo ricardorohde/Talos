@@ -863,7 +863,7 @@ uses
   form_ativacaoicloud, pUCGeral, OpNatureza, Unit_ativar, ExportaXML,
   GridOrcamentos, ManutencaoProduto, AtualizaNCM, AtualizaIBPT, IcmsUF,
   PartilhaICMS, carta_cobranca, TabelaANP, CadastroEtiquetas,
-  ImpressaoEtiquetas, UnitVersao;
+  ImpressaoEtiquetas;
 
 {$R *.dfm}
 
@@ -2542,7 +2542,6 @@ var
   txt: textfile;
   entrada: string;
   Hand: THandle;
-  frmversao: TFrmVersao;
 begin
   store_protect.IDSistema := 291304;
   store_protect.executar;
@@ -2603,8 +2602,6 @@ begin
   except
 
   end;
-   frmversao:= TFrmVersao.Create(Self);
-   lbTitulo.Caption:='TALOS '+frmversao.GetBuildInfoAsString();
 end;
 
 procedure TfrmPrincipal.FormResize(Sender: TObject);

@@ -2542,7 +2542,7 @@ var
   txt: textfile;
   entrada: string;
   Hand: THandle;
-  frmversao: TFrmVersao;
+  tfrmversao: TFrmVersao;
 begin
   store_protect.IDSistema := 291304;
   store_protect.executar;
@@ -2603,8 +2603,9 @@ begin
   except
 
   end;
-   frmversao:= TFrmVersao.Create(Self);
-   lbTitulo.Caption:='TALOS '+frmversao.GetBuildInfoAsString();
+   frmver
+
+   lbTitulo.Caption:='TALOS'+TFrmVersao.GetBuildInfoAsString();
 end;
 
 procedure TfrmPrincipal.FormResize(Sender: TObject);

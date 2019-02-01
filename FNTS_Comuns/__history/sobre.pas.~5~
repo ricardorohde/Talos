@@ -36,7 +36,6 @@ type
     Label8: TLabel;
     procedure AdvMetroButton1Click(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,9 +48,6 @@ var
 
 implementation
 
-uses
-  UnitVersao;
-
 {$R *.dfm}
 
 procedure TForm_sobre.AdvMetroButton1Click(Sender: TObject);
@@ -59,21 +55,11 @@ begin
   close;
 end;
 
-procedure TForm_sobre.FormCreate(Sender: TObject);
-var
-frmversao: TFrmVersao;
-begin
-   frmversao:= TFrmVersao.Create(Self);
-   Label1.Caption:='TALOS '+frmversao.GetBuildInfoAsString();
-   Label56.Caption:='Sobre o Sistema TALOS '+frmversao.GetBuildInfoAsString();
-end;
-
 procedure TForm_sobre.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
   var
   tecla: Integer;
   AboutTalos: TAboutBox;
-
 
   begin
  tecla:=ord(key);
