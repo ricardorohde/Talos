@@ -161,7 +161,7 @@ begin
   query.SQL.clear;
   if parametro_pesquisa = '' then
   begin
-    query.SQL.Add('select * from c000030 where cfop Is NOT NULL and  TIPO ' + PARAMETRO_PESQUISA + '  ORDER BY NATUREZA');
+    query.SQL.Add('select * from c000030 where cfop Is NOT NULL ORDER BY NATUREZA');
     query.open;
 
   end
