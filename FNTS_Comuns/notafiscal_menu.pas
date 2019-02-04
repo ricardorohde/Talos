@@ -1603,7 +1603,7 @@ begin
                   ICMS.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
                   ICMS.modBC := dbiPrecoTabelado;
                   IPI.cEnq := '999';
-                  IPI.CST := '99';
+
                   IPI.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
                   IPI.pIPI := qrnota_item.fieldbyname('IPI').asfloat;
                   IPI.vIPI := qrnota_item.fieldbyname('valor_IPI').asfloat;

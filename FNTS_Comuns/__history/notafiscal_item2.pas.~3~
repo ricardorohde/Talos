@@ -7,20 +7,7 @@ uses
   Dialogs, ExtCtrls, AdvGlowButton, TFlatPanelUnit, StdCtrls, Mask, RzEdit,
   RzBtnEdt, Menus, DB, MemDS, DBAccess, RzButton, RzRadChk, RzPanel,
   ZAbstractRODataset, ZAbstractDataset, ZDataset, cxGraphics, cxControls,
-  cxLookAndFeels, cxLookAndFeelPainters, dxBarBuiltInMenu, cxPC, dxSkinsCore,
-  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
-  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
-  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
-  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
-  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
-  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
-  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
-  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
-  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven,
-  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
-  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
-  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinscxPCPainter;
+  cxLookAndFeels, cxLookAndFeelPainters, dxBarBuiltInMenu, cxPC;
 
 type
   TfrmNotaFiscal_Item2 = class(TForm)
@@ -410,7 +397,7 @@ begin
         begin
           if ed_estoque.Value < 0.01 then
           begin
-            APPLICATION.MESSAGEBOX('Este produto nÃ£o possue ESTOQUE!', 'AtenÃ§Ã£o', mb_ok + MB_ICONWARNING);
+            APPLICATION.MESSAGEBOX('Este produto não possue ESTOQUE!', 'Atenção', mb_ok + MB_ICONWARNING);
             ed_produto.text := '';
             vcodbarra := '';
             ed_qtde.Value := 0;
@@ -500,7 +487,7 @@ begin
   end
   else
   begin
-    application.messagebox('Produto nÃ£o localizado!', 'Erro', mb_ok + mb_iconerror);
+    application.messagebox('Produto não localizado!', 'Erro', mb_ok + mb_iconerror);
     ed_produto.SelectAll;
     result := false;
   end;
@@ -555,7 +542,7 @@ begin
     exit;
   end;
 
-  if pState.caption = 'InclusÃ£o' then
+  if pState.caption = 'Inclusão' then
   begin
     FrmNotaFiscal.qrnotafiscal_item.close;
     FrmNotaFiscal.qrnotafiscal_item.sql.clear;
@@ -940,11 +927,11 @@ begin
   begin
     if frmnotafiscal.check_custovenda.Checked = false then
     begin
-      application.messagebox('Produdo Sem PreÃ§o de Venda!, Verifique', 'AtenÃ§Ã£o', mb_ok + MB_ICONEXCLAMATION);
+      application.messagebox('Produdo Sem Preço de Venda!, Verifique', 'Atenção', mb_ok + MB_ICONEXCLAMATION);
     end
     else
     begin
-      application.messagebox('Produdo Sem PreÃ§o de Custo!, Verifique', 'AtenÃ§Ã£o', mb_ok + MB_ICONEXCLAMATION);
+      application.messagebox('Produdo Sem Preço de Custo!, Verifique', 'Atenção', mb_ok + MB_ICONEXCLAMATION);
     end;
     ed_unitario.SetFocus;
     exit;
@@ -997,7 +984,7 @@ begin
       end
       else
       begin
-        application.messagebox('CST nÃ£o cadastrada!', 'Aviso', mb_ok + mb_iconwarning);
+        application.messagebox('CST não cadastrada!', 'Aviso', mb_ok + mb_iconwarning);
         ed_cst.setfocus;
       end;
     end
@@ -1077,7 +1064,7 @@ begin
           end;
         end else begin
           // aliquota de icms = 0
-          if ed_cfop.Text = '6114' then begin // opÃ§Ã£o para a ouro preto  nota de consignaÃ§Ã£o
+          if ed_cfop.Text = '6114' then begin // opção para a ouro preto  nota de consignação
             ed_icms_base.value := ed_total.value;
             ed_icms_valor.value := 0;
             ed_outras.value := ed_total.Value;
@@ -1092,7 +1079,7 @@ begin
         ed_ipi_valor.value := ed_total.value * (ed_ipi_aliquota.value / 100)
       end;
     end else begin
-      application.messagebox('CFOP nÃ£o encontrado!', 'Erro', mb_ok + mb_iconerror);
+      application.messagebox('CFOP não encontrado!', 'Erro', mb_ok + mb_iconerror);
       ed_cfop.setfocus;
       exit;
     end;
@@ -1215,7 +1202,7 @@ begin
       frmmodulo.qrcfop.open;
       if frmmodulo.qrcfop.recordcount = 0 then
       begin
-        application.messagebox('CFOP nÃ£o cadastrado ou nÃ£o Ã© de entrada!','Aviso',mb_ok+mb_iconwarning);
+        application.messagebox('CFOP não cadastrado ou não é de entrada!','Aviso',mb_ok+mb_iconwarning);
         ecfop.setfocus;
       end
       else
@@ -1279,7 +1266,7 @@ begin
       end
       else
       begin
-          // substituiÃ§Ã£o tributÃ¡ria
+          // substituição tributária
         if (ed_cst.text = '060') or (ed_cst.text = '010') or (ed_cst.text = '070') then
         begin
           if frmmodulo.qrFilial.FieldByName('SUBSTITUTO_TRIBUTARIO').AsString = 'S' then
@@ -1320,7 +1307,7 @@ begin
     end
     else
     begin
-      if ed_cfop.Text = '6114' then // opÃ§Ã£o para a ouro preto nota de consignaÃ§Ã£o
+      if ed_cfop.Text = '6114' then // opção para a ouro preto nota de consignação
       begin
         ed_icms_base.value := 0;
         ed_icms_valor.value := 0;
@@ -1445,11 +1432,11 @@ begin
   begin
     if frmnotafiscal.check_custovenda.Checked = false then
     begin
-      application.messagebox('Produdo Sem PreÃ§o de Venda!, Verifique', 'AtenÃ§Ã£o', mb_ok + MB_ICONEXCLAMATION);
+      application.messagebox('Produdo Sem Preço de Venda!, Verifique', 'Atenção', mb_ok + MB_ICONEXCLAMATION);
     end
     else
     begin
-      application.messagebox('Produdo Sem PreÃ§o de Custo!, Verifique', 'AtenÃ§Ã£o', mb_ok + MB_ICONEXCLAMATION);
+      application.messagebox('Produdo Sem Preço de Custo!, Verifique', 'Atenção', mb_ok + MB_ICONEXCLAMATION);
     end;
     ed_unitario.SetFocus;
     exit;
@@ -1489,7 +1476,7 @@ begin
       end
       else
       begin
-        application.messagebox('CSOSN nÃ£o cadastrado!', 'Aviso', mb_ok + mb_iconwarning);
+        application.messagebox('CSOSN não cadastrado!', 'Aviso', mb_ok + mb_iconwarning);
         ed_csosn.setfocus;
       end;
     end
