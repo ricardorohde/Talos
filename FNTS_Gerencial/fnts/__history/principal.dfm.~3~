@@ -12748,7 +12748,6 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       Transparent = True
-      OnClick = lbNomeEmpresaClick
     end
     object LBHost: TLabel
       Left = 802

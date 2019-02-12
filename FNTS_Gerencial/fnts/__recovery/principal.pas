@@ -978,7 +978,7 @@ begin
           // difinir movimentacao
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -989,11 +989,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -1005,7 +1005,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -1019,7 +1019,7 @@ begin
           FreeAndNil(frmVENDA_INICIO);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -1036,42 +1036,42 @@ begin
 
   if daruma_retorno = 0 then begin
     continua := false;
-    application.messagebox('Erro de comunicaÁ„o, a FunÁ„o nao conseguiu enviar o comando', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro de comunica√ß√£o, a Fun√ß√£o nao conseguiu enviar o comando', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -1 then begin
     continua := false;
-    application.messagebox('Erro de ExecuÁ„o da FunÁ„o', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro de Execu√ß√£o da Fun√ß√£o', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -2 then begin
     continua := false;
-    application.messagebox('Par‚metro inv·lido passado na funÁ„o.!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Par√¢metro inv√°lido passado na fun√ß√£o.!', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -3 then begin
     continua := false;
-    application.messagebox('AlÌquota n„o programada no ECF. !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Al√≠quota n√£o programada no ECF. !', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -4 then begin
     continua := false;
-    application.messagebox('A Chave ou Valor no Registry n„o Foi Encontado.!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('A Chave ou Valor no Registry n√£o Foi Encontado.!', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -5 then begin
     continua := false;
-    application.messagebox('Erro ao Abrir a Porta de ComunicaÁ„o', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro ao Abrir a Porta de Comunica√ß√£o', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -6 then begin
     continua := false;
-    application.messagebox('Impressora desligada ou cabo de comunicaÁ„o desconectado.', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Impressora desligada ou cabo de comunica√ß√£o desconectado.', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -7 then begin
     continua := false;
-    application.messagebox('Banco n„o encontrado ou n„o cadastrado no Registry', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Banco n√£o encontrado ou n√£o cadastrado no Registry', 'Erro', mb_ok + MB_ICONERROR);
   end;
 
   if daruma_retorno = -8 then begin
@@ -1168,11 +1168,11 @@ begin
     end;
 
     if Length(Daruma_MSG) > 1 then
-      application.messagebox(PWideChar(Daruma_MSG), 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox(PWideChar(Daruma_MSG), 'Aten√ß√£o', mb_ok + mb_iconwarning);
   end;
 
   if Daruma_iACK = 21 then begin
-    application.messagebox('Erro Fatal na Impressora! A aplicaÁ„o ser· finalizada!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro Fatal na Impressora! A aplica√ß√£o ser√° finalizada!', 'Erro', mb_ok + MB_ICONERROR);
     application.Terminate;
     Exit;
   end;
@@ -1189,7 +1189,7 @@ begin
   if iACK = 6 then begin
     if iST1 = 64 then begin
       iST1 := iST1 - 64;
-      application.messagebox('Papel est· terminando', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Papel est√° terminando', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       iRet := 1;
       continua := true;
     end
@@ -1206,7 +1206,7 @@ begin
       end;
       if iST1 = 32 then begin
         iST1 := iST1 - 32;
-        application.messagebox('Erro no relÛgio interno do ECF', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Erro no rel√≥gio interno do ECF', 'Erro', mb_ok + MB_ICONERROR);
       end;
       if iST1 = 16 then begin
         iST1 := iST1 - 16;
@@ -1230,18 +1230,18 @@ begin
       end;
       if iST1 = 1 then begin
         iST1 := iST1 - 1;
-        application.messagebox('Par‚metro inv·lido', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Par√¢metro inv√°lido', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       // Verifica ST2
       if iST2 = 128 then begin
         iST2 := iST2 - 128;
-        application.messagebox('Tipo de comando inv·lido', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Tipo de comando inv√°lido', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 64 then begin
         iST2 := iST2 - 64;
-        application.messagebox('MemÛria Fiscal cheia', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Mem√≥ria Fiscal cheia', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 32 then begin
@@ -1251,40 +1251,40 @@ begin
       end;
       if iST2 = 16 then begin
         iST2 := iST2 - 16;
-        application.messagebox('AlÌquota n„o programada', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Al√≠quota n√£o programada', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 8 then begin
         iST2 := iST2 - 8;
-        application.messagebox('Capacidade de alÌquotas esgotada', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Capacidade de al√≠quotas esgotada', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 5 then begin
         iST2 := iST2 - 4;
-        application.messagebox('Cancelamento n„o permitido! Verifique se o mesmo j· foi cancelado!', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Cancelamento n√£o permitido! Verifique se o mesmo j√° foi cancelado!', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
 
       if iST2 = 4 then begin
         iST2 := iST2 - 4;
-        application.messagebox('Cancelamento n„o permitido pelo ECF', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Cancelamento n√£o permitido pelo ECF', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 2 then begin
         iST2 := iST2 - 2;
-        application.messagebox('CNPJ/IE n„o programados', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('CNPJ/IE n√£o programados', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
       if iST2 = 1 then begin
         iST2 := iST2 - 1;
-        application.messagebox('Comando n„o executado', 'Erro', mb_ok + MB_ICONERROR);
+        application.messagebox('Comando n√£o executado', 'Erro', mb_ok + MB_ICONERROR);
         continua := false;
       end;
     end; // ACABANDO O PAPEL....
   end;
 
   if iACK = 21 then begin
-    application.messagebox(PWideChar('AtenÁ„o!!!' + #13 + #10 + 'A Impressora retornou NAK. O programa ser· abortado.'), 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox(PWideChar('Aten√ß√£o!!!' + #13 + #10 + 'A Impressora retornou NAK. O programa ser√° abortado.'), 'Erro', mb_ok + MB_ICONERROR);
     continua := false;
     application.Terminate;
     Exit;
@@ -1300,60 +1300,60 @@ begin
     continua := false;
 
   if retorno = 0 then
-    application.messagebox('Erro de ComunicaÁ„o !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro de Comunica√ß√£o !', 'Erro', mb_ok + MB_ICONERROR);
   if retorno = -1 then
-    application.messagebox('Erro de ExecuÁ„o na FunÁ„o. Verifique!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro de Execu√ß√£o na Fun√ß√£o. Verifique!', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -2 then
-    application.messagebox('Par‚metro Inv·lido!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Par√¢metro Inv√°lido!', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -3 then
-    application.messagebox('AlÌquota n„o programada!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Al√≠quota n√£o programada!', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -4 then
-    application.messagebox('Arquivo BemaFI32.INI n„o encontrado. Verifique!', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Arquivo BemaFI32.INI n√£o encontrado. Verifique!', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -5 then
-    application.messagebox('Erro ao Abrir a Porta de ComunicaÁ„o', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro ao Abrir a Porta de Comunica√ß√£o', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -6 then
     application.messagebox('Impressora Desligada ou Desconectada', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -7 then
-    application.messagebox('Banco N„o Cadastrado no Arquivo BemaFI32.ini', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Banco N√£o Cadastrado no Arquivo BemaFI32.ini', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -8 then
     application.messagebox('Erro ao Criar ou Gravar no Arquivo Retorno.txt ou Status.txt', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -18 then
-    application.messagebox('N„o foi possÌvel abrir arquivo INTPOS.001 !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o foi poss√≠vel abrir arquivo INTPOS.001 !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -19 then
-    application.messagebox('Par‚metro diferentes !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Par√¢metro diferentes !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -20 then
-    application.messagebox('TransaÁ„o cancelada pelo Operador !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Transa√ß√£o cancelada pelo Operador !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -21 then
-    application.messagebox('A TransaÁ„o n„o foi aprovada !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('A Transa√ß√£o n√£o foi aprovada !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -22 then
-    application.messagebox('N„o foi possÌvel terminal a Impress„o !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o foi poss√≠vel terminal a Impress√£o !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -23 then
-    application.messagebox('N„o foi possÌvel terminal a OperaÁ„o !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o foi poss√≠vel terminal a Opera√ß√£o !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -24 then
-    application.messagebox('Forma de pagamento n„o programada.', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Forma de pagamento n√£o programada.', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -25 then
-    application.messagebox('Totalizador n„o fiscal n„o programado.', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Totalizador n√£o fiscal n√£o programado.', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -26 then
-    application.messagebox('TransaÁ„o j· Efetuada !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('Transa√ß√£o j√° Efetuada !', 'Erro', mb_ok + MB_ICONERROR);
 
   if retorno = -28 then
-    application.messagebox('N„o h· InformaÁıes para serem Impressas !', 'Erro', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o h√° Informa√ß√µes para serem Impressas !', 'Erro', mb_ok + MB_ICONERROR);
   result := retorno;
 end;
 
@@ -1462,7 +1462,7 @@ begin
   try
     if FileExists(File_Path) then
       retorno := ShellExecute(0, nil, Pchar(File_Path), nil, nil, SW_NORMAL)
-    else if application.messagebox(Pchar('N„o foi possÌvel encontrar o arquivo - ' + #13 + File_Path + #13#13 + 'Deseja Localizar o Arquivo?'), 'AtenÁ„o', MB_IconInformation + MB_YESNO) = idYes then begin
+    else if application.messagebox(Pchar('N√£o foi poss√≠vel encontrar o arquivo - ' + #13 + File_Path + #13#13 + 'Deseja Localizar o Arquivo?'), 'Aten√ß√£o', MB_IconInformation + MB_YESNO) = idYes then begin
       MyOpenDialog := TOpenDialog.create(MyOpenDialog);
       MyOpenDialog.Title := 'Localizando Arquivo...';
       MyOpenDialog.InitialDir := Extractfiledir(application.exename);
@@ -1470,7 +1470,7 @@ begin
         retorno := ShellExecute(0, nil, Pchar(MyOpenDialog.Filename), nil, nil, SW_NORMAL);
     end;
   except
-    application.messagebox('Erro no processo de execuÁ„o do arquivo de Ajuda', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Erro no processo de execu√ß√£o do arquivo de Ajuda', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
   end;
 
   MyOpenDialog.Free;
@@ -1478,31 +1478,31 @@ begin
   Error_Msg := '';
   case retorno of
     0:
-      Error_Msg := 'Erro: N„o h· memÛria sufiente para executar o arquivo - ' + File_Path;
+      Error_Msg := 'Erro: N√£o h√° mem√≥ria sufiente para executar o arquivo - ' + File_Path;
     ERROR_FILE_NOT_FOUND:
-      Error_Msg := 'Erro: Arquivo n„o encontrado em - ' + File_Path;
+      Error_Msg := 'Erro: Arquivo n√£o encontrado em - ' + File_Path;
     ERROR_PATH_NOT_FOUND:
-      Error_Msg := 'Erro: Arquivo n„o encontrado em - ' + File_Path;
+      Error_Msg := 'Erro: Arquivo n√£o encontrado em - ' + File_Path;
     ERROR_BAD_FORMAT:
-      Error_Msg := 'Erro: Arquivo .EXE inv·lido (non-Win32 .EXE or error in .EXE image).';
+      Error_Msg := 'Erro: Arquivo .EXE inv√°lido (non-Win32 .EXE or error in .EXE image).';
     SE_ERR_ACCESSDENIED:
       Error_Msg := 'Erro: O Sistema Operacional negou o acesso ao arquivo - ' + File_Path;
     SE_ERR_ASSOCINCOMPLETE:
-      Error_Msg := 'Erro: AssociaÁ„o de tipo de arquivo incompatÌvel ou inv·lida.';
+      Error_Msg := 'Erro: Associa√ß√£o de tipo de arquivo incompat√≠vel ou inv√°lida.';
     SE_ERR_DDEBUSY:
-      Error_Msg := 'Erro: TransaÁ„o DDE n„o pode ser completada devido a execuÁ„o de outras transaÁıes.';
+      Error_Msg := 'Erro: Transa√ß√£o DDE n√£o pode ser completada devido a execu√ß√£o de outras transa√ß√µes.';
     SE_ERR_DDEFAIL:
-      Error_Msg := 'Erro: A TransaÁ„o DDE falhou.';
+      Error_Msg := 'Erro: A Transa√ß√£o DDE falhou.';
     SE_ERR_DDETIMEOUT:
-      Error_Msg := 'Erro: Time de execuÁ„o da transaÁ„o DDE';
+      Error_Msg := 'Erro: Time de execu√ß√£o da transa√ß√£o DDE';
     SE_ERR_DLLNOTFOUND:
-      Error_Msg := 'Erro: Dll especificada n„o foi encontrada.';
+      Error_Msg := 'Erro: Dll especificada n√£o foi encontrada.';
     SE_ERR_NOASSOC:
-      Error_Msg := 'Erro: N„o h· aplicativo associado ao tipo de arquivo especificado.';
+      Error_Msg := 'Erro: N√£o h√° aplicativo associado ao tipo de arquivo especificado.';
     SE_ERR_OOM:
-      Error_Msg := 'Erro: N„o h· memÛria sufiente para completar a operaÁ„o.';
+      Error_Msg := 'Erro: N√£o h√° mem√≥ria sufiente para completar a opera√ß√£o.';
     SE_ERR_SHARE:
-      Error_Msg := 'Erro: ViolaÁ„o de Compartilhamento.';
+      Error_Msg := 'Erro: Viola√ß√£o de Compartilhamento.';
   end;
 
   if trim(Error_Msg) <> '' then
@@ -1643,9 +1643,9 @@ end;
 procedure TfrmPrincipal.AcertaPadraoData2;
 const
   arrShortDayNames: array[1..7] of string[3] = ('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab');
-  arrLongDayNames: array[1..7] of string[15] = ('Domingo', 'Segunda', 'TerÁa', 'Quarta', 'Quinta', 'Sexta', 'S·bado');
+  arrLongDayNames: array[1..7] of string[15] = ('Domingo', 'Segunda', 'Ter√ßa', 'Quarta', 'Quinta', 'Sexta', 'S√°bado');
   arrShortMonthNames: array[1..12] of string[3] = ('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez');
-  arrLongMonthNames: array[1..12] of string[15] = ('Janeiro', 'Fevereiro', 'MarÁo', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
+  arrLongMonthNames: array[1..12] of string[15] = ('Janeiro', 'Fevereiro', 'Mar√ßo', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
 var
   ii: Integer;
 begin
@@ -1689,7 +1689,7 @@ end;
 
 function TfrmPrincipal.AnoBiSexto(Ayear: Integer): Boolean;
 begin
-  // Verifica se o ano È Bi-Sexto
+  // Verifica se o ano √© Bi-Sexto
   result := (Ayear mod 4 = 0) and ((Ayear mod 100 <> 0) or (Ayear mod 400 = 0));
 end;
 
@@ -1797,7 +1797,7 @@ begin
         end;
       end;
     end;
-    // Menu RelatÛrio
+    // Menu Relat√≥rio
     if not qrconfigV_MEN_REL_FUNDO.IsNull then begin
       btnRelatorio.Color := StringToColor(qrconfigV_MEN_REL_FUNDO.AsString);
       for I := 0 to barra_relatorios.ControlCount-1 do begin
@@ -1818,7 +1818,7 @@ begin
         end;
       end;
     end;
-    // Menu ConfiguraÁıes
+    // Menu Configura√ß√µes
     if not qrconfigV_MEN_CON_FUNDO.IsNull then begin
       btnConfiguracao.Color := StringToColor(qrconfigV_MEN_CON_FUNDO.AsString);
       for I := 0 to barra_config.ControlCount-1 do begin
@@ -1891,106 +1891,106 @@ var
 begin
   for i := 1 to Length(Str) do
     case Str[i] of
-      'Ë':
+      '√®':
         Str[i] := 'e';
-      'Ï':
+      '√¨':
         Str[i] := 'i';
-      '˘':
+      '√π':
         Str[i] := 'u';
-      'Ó':
+      '√Æ':
         Str[i] := 'i';
-      '˚':
+      '√ª':
         Str[i] := 'u';
-      '·':
-        Str[i] := '†'; //
-      'È':
-        Str[i] := 'Ç'; //
-      'Ì':
-        Str[i] := '°'; //
-      'Û':
-        Str[i] := '¢'; //
-      '˙':
-        Str[i] := '£'; //
-      '‡':
-        Str[i] := 'Ö'; //
-      'Ú':
-        Str[i] := 'ï'; //
-      '‚':
-        Str[i] := 'É'; //
-      'Í':
-        Str[i] := 'à'; //
-      'Ù':
-        Str[i] := 'ì'; //
-      '‰':
-        Str[i] := 'Ñ'; //
-      'Î':
-        Str[i] := 'â'; //
-      'Ô':
-        Str[i] := 'ã'; //
-      'ˆ':
-        Str[i] := 'î'; //
-      '¸':
-        Str[i] := 'Å'; //
-      '„':
-        Str[i] := 'Ü'; //
-      'ı':
+      '√°':
+        Str[i] := '¬†'; //
+      '√©':
+        Str[i] := '‚Äö'; //
+      '√≠':
+        Str[i] := '¬°'; //
+      '√≥':
+        Str[i] := '¬¢'; //
+      '√∫':
+        Str[i] := '¬£'; //
+      '√†':
+        Str[i] := '‚Ä¶'; //
+      '√≤':
+        Str[i] := '‚Ä¢'; //
+      '√¢':
+        Str[i] := '∆í'; //
+      '√™':
+        Str[i] := 'ÀÜ'; //
+      '√¥':
+        Str[i] := '‚Äú'; //
+      '√§':
+        Str[i] := '‚Äû'; //
+      '√´':
+        Str[i] := '‚Ä∞'; //
+      '√Ø':
+        Str[i] := '‚Äπ'; //
+      '√∂':
+        Str[i] := '‚Äù'; //
+      '√º':
+        Str[i] := '¬Å'; //
+      '√£':
+        Str[i] := '‚Ä†'; //
+      '√µ':
         Str[i] := 'o';
-      'Ò':
-        Str[i] := '§'; //
-      'Á':
-        Str[i] := 'á'; //
-      '¡':
+      '√±':
+        Str[i] := '¬§'; //
+      '√ß':
+        Str[i] := '‚Ä°'; //
+      '√Å':
         Str[i] := 'A';
-      '…':
-        Str[i] := 'ê'; //
-      'Õ':
+      '√â':
+        Str[i] := '¬ê'; //
+      '√ç':
         Str[i] := 'I';
-      '”':
+      '√ì':
         Str[i] := 'O';
-      '⁄':
+      '√ö':
         Str[i] := 'U';
-      '¿':
+      '√Ä':
         Str[i] := 'A';
-      '»':
+      '√à':
         Str[i] := 'E';
-      'Ã':
+      '√å':
         Str[i] := 'I';
-      '“':
+      '√í':
         Str[i] := 'O';
-      'Ÿ':
+      '√ô':
         Str[i] := 'U';
-      '¬':
-        Str[i] := 'è';
-      ' ':
+      '√Ç':
+        Str[i] := '¬è';
+      '√ä':
         Str[i] := 'E';
-      'Œ':
+      '√é':
         Str[i] := 'I';
-      '‘':
+      '√î':
         Str[i] := 'O';
-      '€':
+      '√õ':
         Str[i] := 'U';
-      'ƒ':
+      '√Ñ':
         Str[i] := 'A';
-      'À':
+      '√ã':
         Str[i] := 'E';
-      'œ':
+      '√è':
         Str[i] := 'I';
-      '÷':
+      '√ñ':
         Str[i] := 'O';
-      '‹':
-        Str[i] := 'ö'; //
-      '√':
+      '√ú':
+        Str[i] := '≈°'; //
+      '√É':
         Str[i] := 'A';
-      '’':
+      '√ï':
         Str[i] := 'O';
-      '—':
-        Str[i] := '•'; //
-      '«':
-        Str[i] := 'Ä'; //
-      '™':
-        Str[i] := '¶'; //
-      '∫':
-        Str[i] := 'ß'; //
+      '√ë':
+        Str[i] := '¬•'; //
+      '√á':
+        Str[i] := '‚Ç¨'; //
+      '¬™':
+        Str[i] := '¬¶'; //
+      '¬∫':
+        Str[i] := '¬ß'; //
     end;
   result := Str;
 end;
@@ -2007,6 +2007,7 @@ var
 begin
   frmSelecionaEmpresa := TfrmSelecionaEmpresa.Create(Self);
   frmSelecionaEmpresa.ShowModal();
+
 end;
 
 function TfrmPrincipal.LeInistr(arquivo, sessao, chave, padrao: string): string;
@@ -2103,7 +2104,7 @@ begin
     result := true;
   end
   else begin
-    application.messagebox('Registro n„o encontrado!!', 'Erro', mb_ok + mb_iconwarning);
+    application.messagebox('Registro n√£o encontrado!!', 'Erro', mb_ok + mb_iconwarning);
     result := false;
   end;
 
@@ -2161,7 +2162,7 @@ begin
     result := frmPrincipal.zerarcodigo(IntToStr(xcod), 6);
   end
   else begin
-    showmessage('N„o foi possÌvel concluir com a operaÁ„o!' + #13 + 'Erro: CÛdigo de sequÍncia n„o encontrado na tabela de cÛdigos.');
+    showmessage('N√£o foi poss√≠vel concluir com a opera√ß√£o!' + #13 + 'Erro: C√≥digo de sequ√™ncia n√£o encontrado na tabela de c√≥digos.');
   end;
   application.ProcessMessages;
 end;
@@ -2273,18 +2274,18 @@ var
   IniFile: string;
   Ini: TIniFile;
 begin
-//informaÁıes de ativaÁ„o do sistema
+//informa√ß√µes de ativa√ß√£o do sistema
   Form_ativar.label1.Caption := '';
-  Form_ativar.label1.Caption := 'Chave N∫:................. ' + IntToStr(frmPrincipal.store_protect.IDInstalacao) + #13;
+  Form_ativar.label1.Caption := 'Chave N¬∫:................. ' + IntToStr(frmPrincipal.store_protect.IDInstalacao) + #13;
   Form_ativar.label1.Caption := Form_ativar.label1.Caption + 'Dias Restantes:.......... ' + IntToStr(frmPrincipal.store_protect.Dias_RestantesU) + #13;
   Form_ativar.label1.Caption := Form_ativar.label1.Caption + 'Data de vencimento:.... ' + principal.frmPrincipal.store_protect.Data_VencimentoU + #13;
-  Form_ativar.label1.Caption := Form_ativar.label1.Caption + 'Chave de AtivaÁ„o:..... ' + frmPrincipal.store_protect.Chave_RegistradaU + #13;
+  Form_ativar.label1.Caption := Form_ativar.label1.Caption + 'Chave de Ativa√ß√£o:..... ' + frmPrincipal.store_protect.Chave_RegistradaU + #13;
   Form_ativar.label1.Caption := Form_ativar.label1.Caption + 'E-mail do cliente:......... ' + frmPrincipal.store_protect.Email_ClienteU + #13;
-  // Form_ativarlabel1.Caption := Form_ativar.label1.Caption + 'Vers„o : ' + IntToStr(frmPrincipal.ativador.Versao_Sistema) + #13;
+  // Form_ativarlabel1.Caption := Form_ativar.label1.Caption + 'Vers√£o : ' + IntToStr(frmPrincipal.ativador.Versao_Sistema) + #13;
   if frmPrincipal.store_protect.Sistema_DemoU then
     Form_ativar.label1.Caption := Form_ativar.label1.Caption + '*****TRIAL*****'
   else
-    Form_ativar.label1.Caption := Form_ativar.label1.Caption + '*****C”PIA REGISTRADA*****';
+    Form_ativar.label1.Caption := Form_ativar.label1.Caption + '*****C√ìPIA REGISTRADA*****';
 
   Form_ativar.dados.Clear;
   Form_ativar.dados.Lines.Add(frmPrincipal.store_protect.Cliente_Nome);
@@ -2340,7 +2341,7 @@ begin
       end;
     3:
       begin // PECAS
-        // PSTATUS.Panels[0].Text := 'PE«AS';
+        // PSTATUS.Panels[0].Text := 'PE√áAS';
       end;
     4:
       begin // FARMACIA
@@ -2416,7 +2417,7 @@ begin
 
         if (qrcx.FIELDBYNAME('data').asdatetime <> date) and (qrcx.FIELDBYNAME('situacao').AsInteger = 1) then begin
 
-          if application.messagebox(Pchar('A Data do Caixa est· diferente da atual!' + #13 + 'Deseja fechar o caixa do dia ' + qrcx.FIELDBYNAME('data').asstring + '?'), 'AtenÁ„o', MB_IconInformation + MB_YESNO) = idYes then begin
+          if application.messagebox(Pchar('A Data do Caixa est√° diferente da atual!' + #13 + 'Deseja fechar o caixa do dia ' + qrcx.FIELDBYNAME('data').asstring + '?'), 'Aten√ß√£o', MB_IconInformation + MB_YESNO) = idYes then begin
             Action5.Execute
           end;
         end;
@@ -2486,7 +2487,7 @@ begin
       frmmodulo.qrinventario.params.parambyname('vInventario_ano').AsInteger := vInventario_ano;
       frmmodulo.qrinventario.open;
       if frmmodulo.qrinventario.recordcount = 0 then begin
-        if application.messagebox(Pchar('O Invent·rio de ' + IntToStr(vInventario_ano) + ' Ainda N„o foi Gerado.' + #13 + '        Deseja Criar o Invent·rio Agora?'), 'INVENT¡RIO', MB_YESNO + mb_iconquestion) = idYes then begin
+        if application.messagebox(Pchar('O Invent√°rio de ' + IntToStr(vInventario_ano) + ' Ainda N√£o foi Gerado.' + #13 + '        Deseja Criar o Invent√°rio Agora?'), 'INVENT√ÅRIO', MB_YESNO + mb_iconquestion) = idYes then begin
           qrproduto.close;
           qrproduto.SQL.clear;
           qrproduto.SQL.add('select prod.*, est.*');
@@ -2534,7 +2535,7 @@ begin
             frmmodulo.Conexao.Commit;
             frmmensagem_inventario.destroy;
 
-            application.messagebox('Invent·rio Gerado Com sucesso!', 'Invent·rio!', mb_ok + mb_iconquestion);
+            application.messagebox('Invent√°rio Gerado Com sucesso!', 'Invent√°rio!', mb_ok + mb_iconquestion);
           end;
         end;
       end;
@@ -2578,9 +2579,9 @@ begin
     registro_terminal := LerIni(ExtractFilePath(Application.ExeName) + 'ini\com.ini', 'CONFIGURACAO', 'Terminal', '');
     if trim(registro_terminal) = '' then begin
       while registro_terminal = '' do begin
-        registro_terminal := inputbox('Config. Terminal.', 'N∫ Terminal (3 Digitos)', '000');
+        registro_terminal := inputbox('Config. Terminal.', 'N¬∫ Terminal (3 Digitos)', '000');
         if trim(registro_terminal) = '' then
-          Application.MessageBox('… necess·rio que seja inform·do o N˙mero do Terminal, para o correto funcionamento do sistema.', 'AtenÁ„o!', MB_ICONWARNING);
+          Application.MessageBox('√â necess√°rio que seja inform√°do o N√∫mero do Terminal, para o correto funcionamento do sistema.', 'Aten√ß√£o!', MB_ICONWARNING);
       end;
       GravaIni(ExtractFilePath(Application.ExeName) + 'ini\com.ini', 'CONFIGURACAO', 'Terminal', registro_terminal);
     end;
@@ -2593,12 +2594,12 @@ begin
 
     if FileExists(ExeAtualiza) then begin
       if VersaoExe(ExeAtual) < VersaoExe(ExeAtualiza) then begin
-        if application.messagebox(Pchar('Foi Encontrada uma nova vers„o do Sistema TALOS 1.0.0.0.' + #13 + 'Deseja Atualizar Agora?                  '), 'ATUALIZA«√O', MB_YESNO + mb_iconquestion) = idYes then begin
+        if application.messagebox(Pchar('Foi Encontrada uma nova vers√£o do Sistema TALOS 1.0.0.0.' + #13 + 'Deseja Atualizar Agora?                  '), 'ATUALIZA√á√ÉO', MB_YESNO + mb_iconquestion) = idYes then begin
           novaversao := true;
           DeleteFile(ExeAtual + '.OLD');
           RenameFile(ExeAtual, ExeAtual + '.OLD');
           CopyFile(Pchar(ExeAtualiza), Pchar(extractfilepath(paramstr(0)) + 'Store_Protheus.exe'), false);
-          showmessage('AplicaÁ„o atualizada com sucesso!');
+          showmessage('Aplica√ß√£o atualizada com sucesso!');
           Hand := FindWindow('TApplication', 'Store_Protheus');
           if Hand = 0 then
             frmPrincipal.ExecutePrograma(extractfilepath(paramstr(0)) + 'Store_Protheus.exe', '');
@@ -2708,18 +2709,18 @@ begin
       FreeAndNil(frmVENDA_INICIO);
     end
     else begin
-      application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
     end;
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 end;
 
 procedure TfrmPrincipal.Filiais1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 end;
@@ -2727,7 +2728,7 @@ end;
 procedure TfrmPrincipal.VrDemoButton2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMPRODUTO_FALTA := TFRMPRODUTO_FALTA.create(self);
@@ -2739,7 +2740,7 @@ end;
 procedure TfrmPrincipal.VrDemoButton3Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -2752,7 +2753,7 @@ end;
 procedure TfrmPrincipal.VrDemoButton4Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -2765,7 +2766,7 @@ end;
 procedure TfrmPrincipal.VrDemoButton5Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -2780,11 +2781,11 @@ begin
 
     end
     else begin
-      application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
     end;
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -2811,7 +2812,7 @@ var
   i: Integer;
 begin
    // ****************************************************************
-  // Inicio da criaÁ„o do registro 60M - REDU«√O Z
+  // Inicio da cria√ß√£o do registro 60M - REDU√á√ÉO Z
   // ****************************************************************
 
   frmprogresso := tfrmprogresso.create(self);
@@ -2864,7 +2865,7 @@ begin
   frmmodulo.qrsintegra_r60.FIELDBYNAME('ie').asstring := ie_rg;
   frmmodulo.qrsintegra_r60.FIELDBYNAME('uf').asstring := emitente_uf;
 
-  frmprogresso.ltexto.caption := 'Gerando REGISTRO 60 ANALÕTICO para o SINTEGRA...';
+  frmprogresso.ltexto.caption := 'Gerando REGISTRO 60 ANAL√çTICO para o SINTEGRA...';
   frmprogresso.barra.Position := 5;
   application.ProcessMessages;
 
@@ -2915,7 +2916,7 @@ begin
 
       end;
 
-      if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Data de emiss„o...........:' then begin
+      if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Data de emiss√£o...........:' then begin
         Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
         // showmessage(texto);
         insert(copy(datetostr(date), 7, 2), Texto, 7);
@@ -2927,7 +2928,7 @@ begin
         frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_SERIE_EQP').asstring := frmmodulo.QRCONFIG.FIELDBYNAME('ECF_SERIAL').asstring;
       end
       else begin
-        if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'N˙mero de sÈrie...........:' then begin
+        if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'N√∫mero de s√©rie...........:' then begin
           Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
           frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_SERIE_EQP').asstring := Texto;
         end;
@@ -2986,7 +2987,7 @@ begin
         frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_ORDEM_EQP').asstring := frmmodulo.QRCONFIG.FIELDBYNAME('ECF_CAIXA').asstring;
       end
       else begin
-        if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'N˙mero do equipamento.....:' then begin
+        if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'N√∫mero do equipamento.....:' then begin
           Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
           frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_ORDEM_EQP').asstring := Texto;
         end;
@@ -3004,11 +3005,11 @@ begin
         Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
         frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_CONTADOR_FIM').asstring := Texto;
       end;
-      if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Contador de reduÁıes......:' then begin
+      if copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Contador de redu√ß√µes......:' then begin
         Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
         frmmodulo.qrsintegra_r60.FIELDBYNAME('NRO_CONTADOR_Z').asstring := Texto;
       end;
-      if (copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Reinicio de OperaÁ„o......:') or (copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Reinicio de Operacao......:') then begin
+      if (copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Reinicio de Opera√ß√£o......:') or (copy(Texto, CAMPO_INI, CAMPO_QTDE) = 'Reinicio de Operacao......:') then begin
         Texto := (TrimLeft(copy(Texto, RESULTADO_INI, RESULTADO_QTDE)));
         frmmodulo.qrsintegra_r60.FIELDBYNAME('CONTADOR_REINICIO').asstring := Texto;
       end;
@@ -3059,7 +3060,7 @@ begin
   h := Windows.FindFirstFile(Pchar(Arq), ffd);
   try
     if (INVALID_HANDLE_VALUE <> h) then begin
-      FileTimeToLocalFileTime(ffd.ftLastWriteTime, lft); // ultima alteraÁ„o
+      FileTimeToLocalFileTime(ffd.ftLastWriteTime, lft); // ultima altera√ß√£o
 
       FileTimeToDosDateTime(lft, LongRec(dft).Hi, LongRec(dft).Lo);
       result := FileDateToDateTime(dft);
@@ -3072,7 +3073,7 @@ end;
 procedure TfrmPrincipal.MenuItem1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3084,7 +3085,7 @@ end;
 procedure TfrmPrincipal.CSTCdigodaSituaoTributria1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3096,7 +3097,7 @@ end;
 procedure TfrmPrincipal.ModelosdeDocumentosFiscais1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3108,7 +3109,7 @@ end;
 procedure TfrmPrincipal.ECFCadastrodeEquipamentos1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3120,7 +3121,7 @@ end;
 procedure TfrmPrincipal.Setor2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.10') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmsetor := tfrmsetor.create(self);
@@ -3131,7 +3132,7 @@ end;
 procedure TfrmPrincipal.Veculos1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.11') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMVEICULO := TFRMVEICULO.create(self);
@@ -3142,7 +3143,7 @@ end;
 procedure TfrmPrincipal.Clientes1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcliente := tfrmcliente.create(self);
@@ -3154,7 +3155,7 @@ end;
 procedure TfrmPrincipal.Produtos1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3170,7 +3171,7 @@ procedure TfrmPrincipal.ConsultadePreos1Click(Sender: TObject);
 begin
 
   if frmPrincipal.acesso(codigo_usuario, '02.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3196,7 +3197,7 @@ end;
 procedure TfrmPrincipal.ContasaPagar1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3208,7 +3209,7 @@ end;
 procedure TfrmPrincipal.ContasaReceber1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3221,7 +3222,7 @@ end;
 procedure TfrmPrincipal.Oramento1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3238,14 +3239,14 @@ begin
     FreeAndNil(frmcaixa);
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 end;
 
 procedure TfrmPrincipal.Caixa1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3255,14 +3256,14 @@ begin
     FreeAndNil(frmcaixa);
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 end;
 
 procedure TfrmPrincipal.OrdemdeServio1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.04') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3275,7 +3276,7 @@ end;
 procedure TfrmPrincipal.NotaFiscal1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3293,7 +3294,7 @@ procedure TfrmPrincipal.rocardeUsurio1Click(Sender: TObject);
 begin
   with frmPrincipal do begin
 
-    if autentica('Trocar de Usu·rio', 1) then begin
+    if autentica('Trocar de Usu√°rio', 1) then begin
       nivel_usuario := frmmodulo.qrusuario.FIELDBYNAME('nivel').AsInteger;
       codigo_usuario := frmmodulo.qrusuario.FIELDBYNAME('codigo').asstring;
       if nivel_usuario = 4 then begin
@@ -3359,13 +3360,13 @@ end;
 
 procedure TfrmPrincipal.GerencimentodeUsurios1Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('Config. Usu·rios', nivel_exclusao) then begin
+  if frmPrincipal.autentica('Config. Usu√°rios', nivel_exclusao) then begin
     frmusuario := tfrmusuario.create(self);
     frmusuario.showmodal;
     FreeAndNil(frmusuario);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -3373,7 +3374,7 @@ end;
 procedure TfrmPrincipal.Baixa1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3385,7 +3386,7 @@ end;
 procedure TfrmPrincipal.Pedido1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.06') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmproduto_pedido := tfrmproduto_pedido.create(self);
@@ -3397,7 +3398,7 @@ end;
 procedure TfrmPrincipal.Entrada1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -3535,7 +3536,7 @@ end;
 procedure TfrmPrincipal.Action24Execute(Sender: TObject);
 begin
   barra_config.Visible := False;
-  if frmPrincipal.autentica('ConfiguraÁıes', 4) then begin
+  if frmPrincipal.autentica('Configura√ß√µes', 4) then begin
     frmconfig := tfrmconfig.create(self);
     frmconfig.showmodal;
     FreeAndNil(frmconfig);
@@ -3543,7 +3544,7 @@ begin
     CarregaParametros;
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 end;
 
@@ -3841,7 +3842,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -3852,11 +3853,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -3868,7 +3869,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -3884,7 +3885,7 @@ begin
             Action45Execute(Action45);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -3944,7 +3945,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -3955,11 +3956,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -3971,7 +3972,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -3985,7 +3986,7 @@ begin
           FreeAndNil(frmVENDA_INICIO);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -4045,7 +4046,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -4056,11 +4057,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -4072,7 +4073,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -4086,7 +4087,7 @@ begin
           FreeAndNil(frmVENDA_INICIO);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -4194,7 +4195,7 @@ begin
     FreeAndNil(frmcaixa);
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 end;
 
@@ -4387,7 +4388,7 @@ end;
 procedure TfrmPrincipal.Ad55vGlowButton1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -4399,7 +4400,7 @@ end;
 procedure TfrmPrincipal.bformaClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMFORMAPGTO := TFRMFORMAPGTO.create(self);
@@ -4426,7 +4427,7 @@ end;
 procedure TfrmPrincipal.Venda1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -4436,11 +4437,11 @@ begin
       if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+      application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
     end;
   end
   else begin
@@ -4452,11 +4453,11 @@ begin
         TAdvGlowButton(Sender).setfocus;
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+      application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
     end;
   end;
 
@@ -4473,7 +4474,7 @@ end;
 procedure TfrmPrincipal.CondiesdePagamento1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMCONDPGTO := TFRMCONDPGTO.create(self);
@@ -4539,7 +4540,7 @@ begin
   if (timetostr(time) >= '23:50:00') and (timetostr(time) <= '24:00:00') then begin
     Timer1.Enabled := false;
     if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
-      application.messagebox(Pchar('J· s„o ' + timetostr(time) + ' e o Caixa do dia ' + datetostr(frmmodulo.qrcaixa_operador.FIELDBYNAME('data').asdatetime) + #13 + 'Ainda n„o foi fechado! Verifique!'), 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox(Pchar('J√° s√£o ' + timetostr(time) + ' e o Caixa do dia ' + datetostr(frmmodulo.qrcaixa_operador.FIELDBYNAME('data').asdatetime) + #13 + 'Ainda n√£o foi fechado! Verifique!'), 'Aten√ß√£o', mb_ok + mb_iconwarning);
     end;
     Timer1.Enabled := true;
   end;
@@ -4576,7 +4577,7 @@ end;
 
 function TfrmPrincipal.RemoveAcentos(Str: string): string;
 const
-  ComAcento = '‡‚ÍÙ˚„ı·ÈÌÛ˙Á¸¿¬ ‘€√’¡…Õ”⁄«‹';
+  ComAcento = '√†√¢√™√¥√ª√£√µ√°√©√≠√≥√∫√ß√º√Ä√Ç√ä√î√õ√É√ï√Å√â√ç√ì√ö√á√ú';
   SemAcento = 'aaeouaoaeioucuAAEOUAOAEIOUCU';
 var
   x: Integer;
@@ -4591,20 +4592,20 @@ end;
 
 procedure TfrmPrincipal.AdvGlowButton3Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('ExportaÁ„o', 3) then begin
+  if frmPrincipal.autentica('Exporta√ß√£o', 3) then begin
     FRMPRODUTO_PDV2 := TFRMPRODUTO_PDV2.create(self);
     FRMPRODUTO_PDV2.showmodal;
     FreeAndNil(FRMPRODUTO_PDV2);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 end;
 
 procedure TfrmPrincipal.AdvGlowButton4Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmentrega := tfrmentrega.create(self);
@@ -4636,7 +4637,7 @@ end;
 procedure TfrmPrincipal.AdvGlowButton10Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.09') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -4822,13 +4823,13 @@ end;
 
 procedure TfrmPrincipal.dxTileControl1ActionBarItem4Click(Sender: TdxTileControlActionBarItem);
 begin
-  if frmPrincipal.autentica('ConfiguraÁıes', 4) then begin
+  if frmPrincipal.autentica('Configura√ß√µes', 4) then begin
     frmconfig := tfrmconfig.create(self);
     frmconfig.showmodal;
     FreeAndNil(frmconfig);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -4859,8 +4860,8 @@ var
   Factor, Fraction: Extended;
 begin
   Factor := IntPower(10, Decimals);
-  { A convers„o para string e depois para float evita
-    erros de arredondamentos indesej·veis. }
+  { A convers√£o para string e depois para float evita
+    erros de arredondamentos indesej√°veis. }
   Value := strtofloat(FloatToStr(Value * Factor));
   result := Int(Value);
   Fraction := Frac(Value);
@@ -4898,7 +4899,7 @@ end;
 procedure TfrmPrincipal.imgClientesClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcliente := tfrmcliente.create(self);
@@ -4909,7 +4910,7 @@ end;
 procedure TfrmPrincipal.Image9Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmEMPRESA := tfrmEMPRESA.create(self);
@@ -4921,7 +4922,7 @@ end;
 procedure TfrmPrincipal.Clientes3Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcliente := tfrmcliente.create(self);
@@ -4932,7 +4933,7 @@ end;
 procedure TfrmPrincipal.imgFornecedoresClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMFORNECEDOR := TFRMFORNECEDOR.create(self);
@@ -4943,7 +4944,7 @@ end;
 procedure TfrmPrincipal.imgtransportadoresClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.04') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmtransportador := tfrmtransportador.create(self);
@@ -4954,7 +4955,7 @@ end;
 procedure TfrmPrincipal.imgFuncionariosClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMFUNCIONARIO := TFRMFUNCIONARIO.create(self);
@@ -4975,7 +4976,7 @@ end;
 procedure TfrmPrincipal.imgBancosClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.06') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmbanco := tfrmbanco.create(self);
@@ -4986,7 +4987,7 @@ end;
 procedure TfrmPrincipal.vbosContasClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.09') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMPLANO := TFRMPLANO.create(self);
@@ -5006,7 +5007,7 @@ end;
 procedure TfrmPrincipal.imgConveniosClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.14') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMCONVENIO := TFRMCONVENIO.create(self);
@@ -5017,7 +5018,7 @@ end;
 procedure TfrmPrincipal.imgServicosClick(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.13') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmservico := tfrmservico.create(self);
@@ -5028,7 +5029,7 @@ end;
 procedure TfrmPrincipal.EmpresasFiliais1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   if frmEMPRESA = nil then begin
@@ -5041,7 +5042,7 @@ end;
 procedure TfrmPrincipal.Clientes2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcliente := tfrmcliente.create(self);
@@ -5052,7 +5053,7 @@ end;
 procedure TfrmPrincipal.Fornecedores1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMFORNECEDOR := TFRMFORNECEDOR.create(self);
@@ -5063,7 +5064,7 @@ end;
 procedure TfrmPrincipal.ransportadores1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.04') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmtransportador := tfrmtransportador.create(self);
@@ -5074,7 +5075,7 @@ end;
 procedure TfrmPrincipal.bancosFinanceiras1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.06') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmbanco := tfrmbanco.create(self);
@@ -5086,7 +5087,7 @@ procedure TfrmPrincipal.rocardeUsurio2Click(Sender: TObject);
 begin
   with frmPrincipal do begin
 
-    if autentica('Trocar de Usu·rio', 1) then begin
+    if autentica('Trocar de Usu√°rio', 1) then begin
       nivel_usuario := frmmodulo.qrusuario.FIELDBYNAME('nivel').AsInteger;
       codigo_usuario := frmmodulo.qrusuario.FIELDBYNAME('codigo').asstring;
       if nivel_usuario = 4 then begin
@@ -5201,7 +5202,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -5212,11 +5213,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -5228,7 +5229,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -5242,7 +5243,7 @@ begin
           FreeAndNil(frmVENDA_INICIO);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -5253,13 +5254,13 @@ end;
 
 procedure TfrmPrincipal.GerenciamentodeUsurio1Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('Config. Usu·rios', nivel_exclusao) then begin
+  if frmPrincipal.autentica('Config. Usu√°rios', nivel_exclusao) then begin
     frmusuario := tfrmusuario.create(self);
     frmusuario.showmodal;
     FreeAndNil(frmusuario);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 end;
 
@@ -5284,7 +5285,7 @@ end;
 procedure TfrmPrincipal.Setor1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.10') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmsetor := tfrmsetor.create(self);
@@ -5295,7 +5296,7 @@ end;
 procedure TfrmPrincipal.Veculos2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.11') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMVEICULO := TFRMVEICULO.create(self);
@@ -5306,7 +5307,7 @@ end;
 procedure TfrmPrincipal.VeculosdeTerceiros1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.12') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMCLIENTE_VEICULO := TFRMCLIENTE_VEICULO.create(self);
@@ -5317,7 +5318,7 @@ end;
 procedure TfrmPrincipal.CondiesdePagamento2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMCONDPGTO := TFRMCONDPGTO.create(self);
@@ -5356,7 +5357,7 @@ end;
 procedure TfrmPrincipal.CFOPNaturezadeOperao1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5368,7 +5369,7 @@ end;
 procedure TfrmPrincipal.CSTCdigodaSituaoTributria2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5380,7 +5381,7 @@ end;
 procedure TfrmPrincipal.ModelosdeDocumentosFiscais2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5392,7 +5393,7 @@ end;
 procedure TfrmPrincipal.ECFCadastrodeEquipamentos2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5418,7 +5419,7 @@ end;
 procedure TfrmPrincipal.Servios1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.13') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmservico := tfrmservico.create(self);
@@ -5436,7 +5437,7 @@ end;
 procedure TfrmPrincipal.planodeContas1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.09') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMPLANO := TFRMPLANO.create(self);
@@ -5447,7 +5448,7 @@ end;
 procedure TfrmPrincipal.Produtos2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5462,7 +5463,7 @@ end;
 procedure TfrmPrincipal.GruposeSubgrupos1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmgrupo := tfrmgrupo.create(self);
@@ -5480,7 +5481,7 @@ end;
 procedure TfrmPrincipal.Marcasfabricantes1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5492,7 +5493,7 @@ end;
 procedure TfrmPrincipal.notaFiscaldeEntrada1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcompra_menu := tfrmcompra_menu.create(self);
@@ -5504,7 +5505,7 @@ procedure TfrmPrincipal.ConsultadePreo1Click(Sender: TObject);
 begin
 
   if frmPrincipal.acesso(codigo_usuario, '02.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5530,7 +5531,7 @@ end;
 procedure TfrmPrincipal.ConsultaSerial1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5542,7 +5543,7 @@ end;
 procedure TfrmPrincipal.ProdutosVendasFaltas1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   FRMPRODUTO_FALTA := TFRMPRODUTO_FALTA.create(self);
@@ -5560,7 +5561,7 @@ end;
 procedure TfrmPrincipal.BalanaExportao1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.09') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5575,7 +5576,7 @@ var
   slinha: string;
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5609,11 +5610,11 @@ begin
       if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+      application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
     end;
   end
   else begin
@@ -5624,11 +5625,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+      application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
     end;
   end;
 
@@ -5637,7 +5638,7 @@ end;
 procedure TfrmPrincipal.AtendimentodePrVenda1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5651,11 +5652,11 @@ begin
 
     end
     else begin
-      application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
     end;
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -5665,7 +5666,7 @@ var
   i: Integer;
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5677,7 +5678,7 @@ end;
 procedure TfrmPrincipal.Oramento2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmorcamento := tfrmorcamento.create(self);
@@ -5689,7 +5690,7 @@ procedure TfrmPrincipal.ECFmovimentoDirio1Click(Sender: TObject);
 begin
   Exit;
   if frmPrincipal.acesso(codigo_usuario, '03.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5701,7 +5702,7 @@ end;
 procedure TfrmPrincipal.SINTEGRARegistroFiscal1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.06') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5713,7 +5714,7 @@ end;
 procedure TfrmPrincipal.EFDSpedFiscal1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmPrincipal.ExecutePrograma('\TALOS\server\sped.exe', '');
@@ -5722,7 +5723,7 @@ end;
 procedure TfrmPrincipal.ControledeEntrega1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmentrega := tfrmentrega.create(self);
@@ -5733,12 +5734,12 @@ end;
 procedure TfrmPrincipal.OrdemdesERVIO2Click(Sender: TObject);
 begin
   if frmmodulo.oslibera <> '1' then begin
-    application.messagebox('MÛdulo N„o Liberado!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('M√≥dulo N√£o Liberado!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
   if frmPrincipal.acesso(codigo_usuario, '03.04') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5751,7 +5752,7 @@ end;
 procedure TfrmPrincipal.NotaFiscalEmisso1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '03.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5763,7 +5764,7 @@ end;
 procedure TfrmPrincipal.Caixa2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.01') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5773,14 +5774,14 @@ begin
     FreeAndNil(frmcaixa);
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 end;
 
 procedure TfrmPrincipal.ContasaPagar2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.02') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5792,7 +5793,7 @@ end;
 procedure TfrmPrincipal.ContasaReceber2Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5804,7 +5805,7 @@ end;
 procedure TfrmPrincipal.Financeira1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.08') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5816,7 +5817,7 @@ end;
 procedure TfrmPrincipal.Cheques1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.03') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5828,7 +5829,7 @@ end;
 procedure TfrmPrincipal.ContaCorrente1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.04') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5840,7 +5841,7 @@ end;
 procedure TfrmPrincipal.Clientes4Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.05') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
   frmcliente_financeiro := tfrmcliente_financeiro.create(self);
@@ -5861,7 +5862,7 @@ end;
 procedure TfrmPrincipal.CartodeCrdito1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.09') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5873,7 +5874,7 @@ end;
 procedure TfrmPrincipal.Convnio1Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '04.07') = 'NAO' then begin
-    application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
     Exit;
   end;
 
@@ -5906,12 +5907,12 @@ end;
 procedure TfrmPrincipal.Vendas1Click(Sender: TObject);
 begin
   if nivel_usuario < 3 then begin
-    application.messagebox('Seu nÌvel n„o permite este acesso!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+    application.messagebox('Seu n√≠vel n√£o permite este acesso!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
     Exit;
   end
   else begin
     if frmPrincipal.acesso(codigo_usuario, '06.01') = 'NAO' then begin
-      application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+      application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
       Exit;
     end;
 
@@ -5925,12 +5926,12 @@ end;
 procedure TfrmPrincipal.ContasaReceber3Click(Sender: TObject);
 begin
   if nivel_usuario < 3 then begin
-    application.messagebox('Seu nÌvel n„o permite este acesso!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+    application.messagebox('Seu n√≠vel n√£o permite este acesso!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
     Exit;
   end
   else begin
     if frmPrincipal.acesso(codigo_usuario, '06.03') = 'NAO' then begin
-      application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + MB_ICONERROR);
+      application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + MB_ICONERROR);
       Exit;
     end;
 
@@ -6008,13 +6009,13 @@ end;
 
 procedure TfrmPrincipal.Configuraes1Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('ConfiguraÁıes', 4) then begin
+  if frmPrincipal.autentica('Configura√ß√µes', 4) then begin
     frmconfig := tfrmconfig.create(self);
     frmconfig.showmodal;
     FreeAndNil(frmconfig);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 end;
 
@@ -6218,13 +6219,13 @@ end;
 
 procedure TfrmPrincipal.cySpeedButton5Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('ConfiguraÁıes', 4) then begin
+  if frmPrincipal.autentica('Configura√ß√µes', 4) then begin
     frmconfig := tfrmconfig.create(self);
     frmconfig.showmodal;
     FreeAndNil(frmconfig);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -6474,7 +6475,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
           Exit;
         end;
       end
@@ -6485,11 +6486,11 @@ begin
         FreeAndNil(frmVENDA_INICIO);
       end
       else begin
-        application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+        application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       end;
     end
     else begin
-      application.messagebox('Voce n„o possui um caixa padr„o! Favor verificar com o Administrador!', 'AtenÁ„o', mb_ok + mb_iconwarning);
+      application.messagebox('Voce n√£o possui um caixa padr√£o! Favor verificar com o Administrador!', 'Aten√ß√£o', mb_ok + mb_iconwarning);
       Exit;
     end;
 
@@ -6501,7 +6502,7 @@ begin
         if frmmodulo.qrcaixa_operador.FIELDBYNAME('situacao').AsInteger = 1 then begin
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -6515,7 +6516,7 @@ begin
           FreeAndNil(frmVENDA_INICIO);
         end
         else begin
-          application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+          application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
         end;
       end
 
@@ -6544,7 +6545,7 @@ procedure TfrmPrincipal.rocardeUsurio4Click(Sender: TObject);
 begin
   with frmPrincipal do begin
 
-    if autentica('Trocar de Usu·rio', 1) then begin
+    if autentica('Trocar de Usu√°rio', 1) then begin
       nivel_usuario := frmmodulo.qrusuario.FIELDBYNAME('nivel').AsInteger;
       codigo_usuario := frmmodulo.qrusuario.FIELDBYNAME('codigo').asstring;
       if nivel_usuario = 4 then begin
@@ -6610,13 +6611,13 @@ end;
 
 procedure TfrmPrincipal.GerenciamentodeUsurio3Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('Config. Usu·rios', nivel_exclusao) then begin
+  if frmPrincipal.autentica('Config. Usu√°rios', nivel_exclusao) then begin
     frmusuario := tfrmusuario.create(self);
     frmusuario.showmodal;
     FreeAndNil(frmusuario);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -6740,13 +6741,13 @@ end;
 
 procedure TfrmPrincipal.Configuraes3Click(Sender: TObject);
 begin
-  if frmPrincipal.autentica('ConfiguraÁıes', 4) then begin
+  if frmPrincipal.autentica('Configura√ß√µes', 4) then begin
     frmconfig := tfrmconfig.create(self);
     frmconfig.showmodal;
     FreeAndNil(frmconfig);
   end
   else begin
-    application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
+    application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + MB_ICONERROR);
   end;
 end;
 
@@ -6759,7 +6760,7 @@ begin
     FreeAndNil(frmcaixa);
   end
   else begin
-    application.messagebox('N„o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
+    application.messagebox('N√£o autorizado!', 'Aviso', mb_ok + MB_ICONERROR);
   end;
 
 end;
@@ -6861,7 +6862,7 @@ begin
 
   end
   else begin
-    application.messagebox('Este caixa est· fechado! Favor verificar...', 'AtenÁ„o', mb_ok + mb_iconwarning);
+    application.messagebox('Este caixa est√° fechado! Favor verificar...', 'Aten√ß√£o', mb_ok + mb_iconwarning);
   end;
 end;
 

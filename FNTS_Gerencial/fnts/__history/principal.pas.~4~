@@ -725,7 +725,6 @@ type
     procedure Action92Execute(Sender: TObject);
     procedure Action93Execute(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure lbNomeEmpresaClick(Sender: TObject);
   private
     { Private declarations }
     FUltimaExecucao: TDateTime;
@@ -1999,14 +1998,6 @@ function TfrmPrincipal.lancaproduto(codproduto: string; data: TDateTime; movimen
 begin
   result := '';
 
-end;
-
-procedure TfrmPrincipal.lbNomeEmpresaClick(Sender: TObject);
-var
-  frmSelecionaEmpresa: TfrmSelecionaEmpresa;
-begin
-  frmSelecionaEmpresa := TfrmSelecionaEmpresa.Create(Self);
-  frmSelecionaEmpresa.ShowModal();
 end;
 
 function TfrmPrincipal.LeInistr(arquivo, sessao, chave, padrao: string): string;

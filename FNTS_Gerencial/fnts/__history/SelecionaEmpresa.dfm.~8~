@@ -1,10 +1,10 @@
-object frmStatus: TfrmStatus
+object frmSelecionaEmpresa: TfrmSelecionaEmpresa
   Left = 494
   Top = 230
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = 'NFe'
-  ClientHeight = 36
+  Caption = 'Seleciona Empresa'
+  ClientHeight = 58
   ClientWidth = 445
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -15,19 +15,20 @@ object frmStatus: TfrmStatus
   OldCreateOrder = False
   Position = poMainFormCenter
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
     Width = 445
-    Height = 36
+    Height = 58
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 2
     Color = clBlack
     TabOrder = 0
-    ExplicitHeight = 40
+    ExplicitHeight = 36
     object lbl1: TLabel
       Left = 2
       Top = 2
@@ -35,7 +36,7 @@ object frmStatus: TfrmStatus
       Height = 17
       Align = alTop
       AutoSize = False
-      Caption = 'Status da NFe'
+      Caption = 'Selecionar Empresa'
       Color = clSilver
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -51,7 +52,7 @@ object frmStatus: TfrmStatus
       Left = 2
       Top = 19
       Width = 441
-      Height = 15
+      Height = 37
       Align = alClient
       Color = clGray
       Font.Charset = DEFAULT_CHARSET
@@ -62,8 +63,26 @@ object frmStatus: TfrmStatus
       ParentColor = False
       ParentFont = False
       Layout = tlCenter
-      ExplicitWidth = 4
-      ExplicitHeight = 18
+      ExplicitHeight = 25
+    end
+    object Label1: TLabel
+      Left = 2
+      Top = 25
+      Width = 50
+      Height = 19
+      Caption = 'Empresa:'
+      Color = clCream
+      ParentColor = False
+    end
+    object frxComboBox1: TfrxComboBox
+      Left = 58
+      Top = 25
+      Width = 385
+      Height = 19
+      ListWidth = 0
+      TabOrder = 0
+      Text = 'frxComboBox1'
+      ItemIndex = -1
     end
   end
 end

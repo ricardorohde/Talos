@@ -380,8 +380,7 @@ uses
   ConsultaCPF in 'fnts\ConsultaCPF.pas' {frmConsultaCPF},
   ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ},
   AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox},
-  UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao},
-  SelecionaEmpresa in 'fnts\SelecionaEmpresa.pas' {frmSelecionaEmpresa};
+  UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao};
 
 {$R *.res}
 
@@ -405,8 +404,6 @@ begin
   Application.CreateForm(TfrmConsultaCNPJ, frmConsultaCNPJ);
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TFrmVersao, FrmVersao);
-  Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
-  Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
   frmsplash.Close;
   FreeAndNil(frmsplash);
   application.ProcessMessages;

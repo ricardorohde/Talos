@@ -1,11 +1,11 @@
-object frmStatus: TfrmStatus
+object frmSelecionaEmpresa: TfrmSelecionaEmpresa
   Left = 494
   Top = 230
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = 'NFe'
-  ClientHeight = 36
-  ClientWidth = 445
+  Caption = 'Seleciona Empresa'
+  ClientHeight = 54
+  ClientWidth = 530
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -15,27 +15,29 @@ object frmStatus: TfrmStatus
   OldCreateOrder = False
   Position = poMainFormCenter
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 445
-    Height = 36
+    Width = 530
+    Height = 54
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 2
     Color = clBlack
     TabOrder = 0
-    ExplicitHeight = 40
+    ExplicitWidth = 453
+    ExplicitHeight = 58
     object lbl1: TLabel
       Left = 2
       Top = 2
-      Width = 441
+      Width = 526
       Height = 17
       Align = alTop
       AutoSize = False
-      Caption = 'Status da NFe'
+      Caption = 'Selecionar Empresa'
       Color = clSilver
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -46,12 +48,13 @@ object frmStatus: TfrmStatus
       ParentFont = False
       Transparent = False
       Layout = tlCenter
+      ExplicitWidth = 451
     end
     object lblStatus: TLabel
       Left = 2
       Top = 19
-      Width = 441
-      Height = 15
+      Width = 526
+      Height = 33
       Align = alClient
       Color = clGray
       Font.Charset = DEFAULT_CHARSET
@@ -62,8 +65,37 @@ object frmStatus: TfrmStatus
       ParentColor = False
       ParentFont = False
       Layout = tlCenter
-      ExplicitWidth = 4
-      ExplicitHeight = 18
+      ExplicitWidth = 441
+      ExplicitHeight = 25
+    end
+    object Label1: TLabel
+      Left = 2
+      Top = 25
+      Width = 50
+      Height = 19
+      Caption = 'Empresa:'
+      Color = clCream
+      ParentColor = False
+    end
+    object frxComboBox1: TfrxComboBox
+      Left = 58
+      Top = 25
+      Width = 385
+      Height = 19
+      ListWidth = 0
+      TabOrder = 0
+      Text = 'frxComboBox1'
+      ReadOnly = True
+      ItemIndex = -1
+    end
+    object btnAtivar: TButton
+      Left = 449
+      Top = 25
+      Width = 75
+      Height = 27
+      Caption = 'Ativar'
+      TabOrder = 1
+      OnClick = btnAtivarClick
     end
   end
 end
