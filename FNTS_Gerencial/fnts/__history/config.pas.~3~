@@ -1055,20 +1055,20 @@ begin
     combo_venda.Items.Add('01 - Cupom Fiscal');
     combo_venda.Items.Add('02 - Nota Fiscal');
     combo_venda.Items.Add('03 - Bobina');
-    combo_venda.Items.Add('04 - FormulÃ¡rio ContÃ­nuo - RazÃ£o');
-    combo_venda.Items.Add('05 - FormulÃ¡rio ContÃ­nuo - Carta');
-    combo_venda.Items.Add('06 - PrÃ©-impresso (Personalizado)');
-    combo_venda.Items.Add('07 - Contrato/Guia de Entrega/CarnÃª');
+    combo_venda.Items.Add('04 - Formulário Contínuo - Razão');
+    combo_venda.Items.Add('05 - Formulário Contínuo - Carta');
+    combo_venda.Items.Add('06 - Pré-impresso (Personalizado)');
+    combo_venda.Items.Add('07 - Contrato/Guia de Entrega/Carnê');
     combo_venda.Items.Add('08 - Personalizado');
     combo_venda.Items.Add('09 - Papel A4 - Laser / Tinta');
-    combo_venda.Items.Add('10 - Papel RazÃ£o - Laser / Tinta');
-    combo_venda.Items.Add('11 - FormulÃ¡rio ContÃ­nuo - RazÃ£o 2');
-    combo_venda.Items.Add('12 - Contrato/Guia de Entrega/CarnÃª+Capa');
-    combo_venda.Items.Add('13 - Bobina sem formataÃ§Ã£o');
-    combo_venda.Items.Add('14 - Pedido + CarnÃª');
-    combo_venda.Items.Add('15 - Contrato/CarnÃª');
-    combo_venda.Items.Add('16 - Pedido + CarnÃª com cÃ³digo de barras');
-    combo_venda.Items.add('17 - RazÃ£o Laser - 2');
+    combo_venda.Items.Add('10 - Papel Razão - Laser / Tinta');
+    combo_venda.Items.Add('11 - Formulário Contínuo - Razão 2');
+    combo_venda.Items.Add('12 - Contrato/Guia de Entrega/Carnê+Capa');
+    combo_venda.Items.Add('13 - Bobina sem formatação');
+    combo_venda.Items.Add('14 - Pedido + Carnê');
+    combo_venda.Items.Add('15 - Contrato/Carnê');
+    combo_venda.Items.Add('16 - Pedido + Carnê com código de barras');
+    combo_venda.Items.add('17 - Razão Laser - 2');
   end;
 end;
 
@@ -1210,8 +1210,6 @@ begin
   frmmodulo.qrprecoPRECO_VENDA.DisplayFormat := mascara_valor;
   frmmodulo.qrprecoLUCRO.DisplayFormat := mascara_valor;
 
-
-
   //////////////////////////////////////////////////////////////////////////////////////////
 
   if frmmodulo.qrconfig.state = dsedit then begin
@@ -1227,8 +1225,8 @@ begin
   frmmodulo.qrDFeConfig.edit;
 
 
-  // Grava configuraÃ§Ãµes no arquivo de
-  // configuraÃ§Ã£o do FTP
+  // Grava configurações no arquivo de
+  // configuração do FTP
 
  // ServerIni := TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'ini\FTPConfig.ini');
  // try
@@ -1626,7 +1624,7 @@ end;
 
 procedure Tfrmconfig.AdvGlowButton2Click(Sender: TObject);
 begin
-  if application.messagebox('Esta operaÃ§Ã£o limpa o Banco de Dados e Transfere dados de outros sistemas! Deseja continuar?', 'AtenÃ§Ã£o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idyes then begin
+  if application.messagebox('Esta operação limpa o Banco de Dados e Transfere dados de outros sistemas! Deseja continuar?', 'Atenção', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idyes then begin
     frmtransf_dados := tfrmtransf_dados.create(self);
     frmtransf_dados.showmodal;
   end;
@@ -1700,7 +1698,7 @@ begin
     qrproduto.SQL.Add('select produto from c000025 where codigo = ' + QuotedStr(eproduto.Text));
     qrproduto.Open;
     if qrproduto.IsEmpty then begin
-      Application.MessageBox('CÃ³digo invÃ¡lido', 'AtenÃ§Ã£o!', MB_ICONINFORMATION);
+      Application.MessageBox('Código inválido', 'Atenção!', MB_ICONINFORMATION);
       eproduto.SetFocus;
       qrproduto.Close;
       Exit;

@@ -28,6 +28,7 @@ object frmcst: Tfrmcst
       'CODIGO'#9'3'#9'CODIGO'#9#9
       'SITUACAO'#9'90'#9'SITUACAO'#9#9)
     IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -266,7 +267,8 @@ object frmcst: Tfrmcst
   end
   object UCControls1: TUCControls
     GroupName = 'Form.CST'
-    UserControl = frmPrincipal.iCloud
+    UserControl = frmPrincipal.icloud
+    Components = ''
     NotAllowed = naDisabled
     Left = 400
     Top = 208

@@ -1302,17 +1302,15 @@ begin
 
 while not Query1.Eof do
 begin
-
     query.SQL.Clear;
-
     QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
                       query.SQL.Add(') values (');
                       query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                       query.SQL.Add(')');
-                      query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString + '_' + query1.FieldByName('CODIGO').AsString;
+                      query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('PDV').AsString + '_' +  query1.FieldByName('CODIGO').AsString;
                       query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
                       query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
-                      query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString;
+                      query.Params.ParamByName('PDV').AsString := sCaixa;
                       query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                       query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
                       query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
@@ -1325,11 +1323,7 @@ begin
                       query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
                       query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM CANCELADO POR INTEIRO';
     //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
-    try
     query.ExecSQL;
-    exception
-
-    end;
     Query1.Next;
 end;
   end;
@@ -1385,10 +1379,10 @@ begin
                     query.SQL.Add(') values (');
                     query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                     query.SQL.Add(')');
-                    query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString + '_' + query1.FieldByName('CODIGO').AsString;
+                    query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
                     query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
                     query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
-                    query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString;
+                    query.Params.ParamByName('PDV').AsString := sCaixa;
                     query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                     query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
                     query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;

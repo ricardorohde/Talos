@@ -4,8 +4,8 @@ object frmconfig: Tfrmconfig
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'CONFIGURA'#199#213'ES | Painel'
-  ClientHeight = 621
-  ClientWidth = 842
+  ClientHeight = 628
+  ClientWidth = 845
   Color = 11429670
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -23,8 +23,8 @@ object frmconfig: Tfrmconfig
   object PageView3: TPageView
     Left = 0
     Top = 48
-    Width = 723
-    Height = 573
+    Width = 726
+    Height = 580
     ActivePage = PageSheet7
     ActivePageIndex = 0
     AdaptiveColors = True
@@ -48,12 +48,13 @@ object frmconfig: Tfrmconfig
     TabOrder = 0
     TabStyle = tsWhidbey
     TopIndent = 3
+    ExplicitWidth = 723
     ExplicitHeight = 549
     object PageSheet7: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Geral'
       Color = clSilver
       DisplayMode = tdGlyph
@@ -64,6 +65,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object GroupBox10: TGroupBox
         Left = 10
@@ -695,7 +697,7 @@ object frmconfig: Tfrmconfig
       end
       object RzGroupBox5: TRzGroupBox
         Left = 379
-        Top = 502
+        Top = 508
         Width = 270
         Height = 43
         Caption = 'C'#243'digo de Barras - Importa'#231#227'o'
@@ -713,8 +715,7 @@ object frmconfig: Tfrmconfig
           Top = 14
           Width = 147
           Height = 21
-          CharCase = ecUpperCase
-          DataField = 'CEP_CHAVE'
+          DataField = 'CHAVE_COSMOS'
           DataSource = dsconfig
           TabOrder = 0
         end
@@ -723,8 +724,8 @@ object frmconfig: Tfrmconfig
     object PageSheet10: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Faturamento'
       DisplayMode = tdGlyph
       ImageIndex = 0
@@ -733,6 +734,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object GroupBox1: TGroupBox
         Left = 12
@@ -1309,8 +1311,8 @@ object frmconfig: Tfrmconfig
     object PageSheet11: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Financeiro'
       Color = 7456876
       DisplayMode = tdGlyph
@@ -1321,6 +1323,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object GroupBox9: TGroupBox
         Left = 43
@@ -1834,8 +1837,8 @@ object frmconfig: Tfrmconfig
     object PageSheet12: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Nota Fiscal'
       Color = clWhite
       DisplayMode = tdGlyph
@@ -1846,12 +1849,13 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object PageView2: TPageView
         Left = 0
         Top = 0
-        Width = 723
-        Height = 552
+        Width = 726
+        Height = 559
         ActivePage = PageSheet5
         ActivePageIndex = 0
         AdaptiveColors = True
@@ -1868,12 +1872,13 @@ object frmconfig: Tfrmconfig
         TabStyle = tsWhidbey
         TopIndent = 3
         OnChange = PageView2Change
+        ExplicitWidth = 723
         ExplicitHeight = 528
         object PageSheet5: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 531
+          Width = 726
+          Height = 538
           Caption = 'Nota Fiscal'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -1882,6 +1887,7 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 507
           object BitBtn19: TBitBtn
             Left = 465
@@ -2791,8 +2797,8 @@ object frmconfig: Tfrmconfig
         object PageSheet17: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 531
+          Width = 726
+          Height = 538
           Caption = 'Config.Extras NF'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -2801,6 +2807,7 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 507
           object GBTPNF: TGroupBox
             Left = 1
@@ -2902,8 +2909,8 @@ object frmconfig: Tfrmconfig
     object PageSheet13: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Emitente'
       Color = clGray
       DisplayMode = tdGlyph
@@ -2914,6 +2921,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object pemitente2: TPanel
         Left = 8
@@ -4151,8 +4159,8 @@ object frmconfig: Tfrmconfig
     object PageSheet14: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Equipamentos'
       Color = 8440061
       DisplayMode = tdGlyph
@@ -4163,6 +4171,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object GroupBox5: TGroupBox
         Left = 55
@@ -4372,8 +4381,8 @@ object frmconfig: Tfrmconfig
     object PageSheet16: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Plano de Contas'
       Color = 16698839
       DisplayMode = tdGlyph
@@ -4384,11 +4393,12 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object PageView1: TPageView
         Left = 0
         Top = 0
-        Width = 723
+        Width = 726
         Height = 201
         ActivePage = PageSheet1
         ActivePageIndex = 0
@@ -4405,10 +4415,11 @@ object frmconfig: Tfrmconfig
         TabOrder = 0
         TabStyle = tsWhidbey
         TopIndent = 3
+        ExplicitWidth = 723
         object PageSheet1: TPageSheet
           Left = 0
           Top = 20
-          Width = 723
+          Width = 726
           Height = 181
           Caption = 'Vendas'
           DisplayMode = tdGlyph
@@ -4418,10 +4429,11 @@ object frmconfig: Tfrmconfig
           TabColor = 15653559
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           object GroupBox16: TGroupBox
             Left = 0
             Top = 0
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'VENDA '#192' VISTA'
@@ -4432,6 +4444,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 0
+            ExplicitWidth = 723
             object DBEdit28: TDBEdit
               Left = 8
               Top = 16
@@ -4501,7 +4514,7 @@ object frmconfig: Tfrmconfig
           object GroupBox17: TGroupBox
             Left = 0
             Top = 92
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'DUPLICATAS'
@@ -4512,6 +4525,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 1
+            ExplicitWidth = 723
             object DBEdit21: TDBEdit
               Left = 8
               Top = 16
@@ -4581,7 +4595,7 @@ object frmconfig: Tfrmconfig
           object GroupBox30: TGroupBox
             Left = 0
             Top = 46
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'VENDAS '#192' PRAZO'
@@ -4592,6 +4606,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 2
+            ExplicitWidth = 723
             object DBEdit4: TDBEdit
               Left = 8
               Top = 16
@@ -4662,7 +4677,7 @@ object frmconfig: Tfrmconfig
         object PageSheet2: TPageSheet
           Left = 0
           Top = 20
-          Width = 723
+          Width = 726
           Height = 181
           Caption = 'Ordem de Servi'#231'o'
           DisplayMode = tdGlyph
@@ -4672,10 +4687,11 @@ object frmconfig: Tfrmconfig
           TabColor = 13035201
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           object GroupBox18: TGroupBox
             Left = 0
             Top = 0
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'O.S. '#192' VISTA'
@@ -4686,6 +4702,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 0
+            ExplicitWidth = 723
             object DBEdit24: TDBEdit
               Left = 8
               Top = 16
@@ -4755,7 +4772,7 @@ object frmconfig: Tfrmconfig
           object GroupBox19: TGroupBox
             Left = 0
             Top = 46
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'O.S. '#192' PRAZO'
@@ -4766,6 +4783,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 1
+            ExplicitWidth = 723
             object DBEdit27: TDBEdit
               Left = 8
               Top = 16
@@ -4836,7 +4854,7 @@ object frmconfig: Tfrmconfig
         object PageSheet3: TPageSheet
           Left = 0
           Top = 20
-          Width = 723
+          Width = 726
           Height = 181
           Caption = 'Entradas'
           DisplayMode = tdGlyph
@@ -4846,10 +4864,11 @@ object frmconfig: Tfrmconfig
           TabColor = 9106937
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           object GroupBox20: TGroupBox
             Left = 0
             Top = 46
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'ENTRADAS DIVERSAS'
@@ -4860,6 +4879,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 0
+            ExplicitWidth = 723
             object DBEdit32: TDBEdit
               Left = 8
               Top = 16
@@ -4929,7 +4949,7 @@ object frmconfig: Tfrmconfig
           object GroupBox22: TGroupBox
             Left = 0
             Top = 0
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'RECEBIMENTO DE CREDI'#193'RIO'
@@ -4940,6 +4960,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 1
+            ExplicitWidth = 723
             object DBEdit38: TDBEdit
               Left = 8
               Top = 16
@@ -5010,7 +5031,7 @@ object frmconfig: Tfrmconfig
         object PageSheet4: TPageSheet
           Left = 0
           Top = 20
-          Width = 723
+          Width = 726
           Height = 181
           Caption = 'Sa'#237'das'
           DisplayMode = tdGlyph
@@ -5020,10 +5041,11 @@ object frmconfig: Tfrmconfig
           TabColor = 11184895
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           object GroupBox21: TGroupBox
             Left = 0
             Top = 0
-            Width = 723
+            Width = 726
             Height = 46
             Align = alTop
             Caption = 'SA'#205'DAS DIVERSAS'
@@ -5034,6 +5056,7 @@ object frmconfig: Tfrmconfig
             Font.Style = []
             ParentFont = False
             TabOrder = 0
+            ExplicitWidth = 723
             object DBEdit35: TDBEdit
               Left = 8
               Top = 16
@@ -5106,8 +5129,8 @@ object frmconfig: Tfrmconfig
     object PageSheet6: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Restaurante'
       DisplayMode = tdGlyph
       ImageIndex = 0
@@ -5116,6 +5139,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object GroupBox34: TGroupBox
         Left = 14
@@ -5311,8 +5335,8 @@ object frmconfig: Tfrmconfig
     object PageSheet8: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'DF-e'
       Color = clWhite
       DisplayMode = tdGlyph
@@ -5323,12 +5347,13 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object PageView4: TPageView
         Left = 0
         Top = 215
-        Width = 723
-        Height = 337
+        Width = 726
+        Height = 344
         ActivePage = PageSheet18
         ActivePageIndex = 3
         AdaptiveColors = True
@@ -5344,12 +5369,13 @@ object frmconfig: Tfrmconfig
         TabOrder = 0
         TabStyle = tsOneNote
         TopIndent = 3
+        ExplicitWidth = 723
         ExplicitHeight = 313
         object PageSheet9: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 316
+          Width = 726
+          Height = 323
           Caption = 'NF-e'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -5358,12 +5384,13 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 292
           object PageView9: TPageView
             Left = 0
             Top = 0
-            Width = 723
-            Height = 316
+            Width = 726
+            Height = 323
             ActivePage = PageSheet32
             ActivePageIndex = 0
             AdaptiveColors = True
@@ -5379,12 +5406,13 @@ object frmconfig: Tfrmconfig
             TabOrder = 0
             TabStyle = tsOneNote
             TopIndent = 3
+            ExplicitWidth = 723
             ExplicitHeight = 292
             object PageSheet32: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Geral'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -5393,6 +5421,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label123: TLabel
                 Left = 12
@@ -5484,8 +5513,8 @@ object frmconfig: Tfrmconfig
             object PageSheet33: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Arquivos'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -5494,6 +5523,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label126: TLabel
                 Left = 296
@@ -5847,8 +5877,8 @@ object frmconfig: Tfrmconfig
             object PageSheet34: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'E-mail'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -5857,6 +5887,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label132: TLabel
                 Left = 3
@@ -5912,8 +5943,8 @@ object frmconfig: Tfrmconfig
         object PageSheet19: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 316
+          Width = 726
+          Height = 323
           Caption = 'NFC-e'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -5922,12 +5953,13 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 292
           object PageView8: TPageView
             Left = 0
             Top = 0
-            Width = 723
-            Height = 316
+            Width = 726
+            Height = 323
             ActivePage = PageSheet28
             ActivePageIndex = 0
             AdaptiveColors = True
@@ -5943,12 +5975,13 @@ object frmconfig: Tfrmconfig
             TabOrder = 0
             TabStyle = tsOneNote
             TopIndent = 3
+            ExplicitWidth = 723
             ExplicitHeight = 292
             object PageSheet28: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Geral'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -5957,6 +5990,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label113: TLabel
                 Left = 97
@@ -6042,8 +6076,8 @@ object frmconfig: Tfrmconfig
             object PageSheet29: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Arquivos'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -6052,6 +6086,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label115: TLabel
                 Left = 297
@@ -6407,8 +6442,8 @@ object frmconfig: Tfrmconfig
         object PageSheet15: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 316
+          Width = 726
+          Height = 323
           Caption = 'CT-e'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -6417,12 +6452,13 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 292
           object PageView7: TPageView
             Left = 0
             Top = 0
-            Width = 723
-            Height = 316
+            Width = 726
+            Height = 323
             ActivePage = PageSheet23
             ActivePageIndex = 0
             AdaptiveColors = True
@@ -6438,12 +6474,13 @@ object frmconfig: Tfrmconfig
             TabOrder = 0
             TabStyle = tsOneNote
             TopIndent = 3
+            ExplicitWidth = 723
             ExplicitHeight = 292
             object PageSheet23: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Geral'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -6452,6 +6489,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label77: TLabel
                 Left = 12
@@ -6570,8 +6608,8 @@ object frmconfig: Tfrmconfig
             object PageSheet37: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Danfe'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -6580,6 +6618,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label148: TLabel
                 Left = 3
@@ -6713,8 +6752,8 @@ object frmconfig: Tfrmconfig
             object PageSheet27: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Arquivos'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -6723,6 +6762,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object SpeedButton2: TSpeedButton
                 Left = 489
@@ -6918,8 +6958,8 @@ object frmconfig: Tfrmconfig
             object PageSheet30: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'E-mail'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -6928,6 +6968,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label109: TLabel
                 Left = 3
@@ -6983,8 +7024,8 @@ object frmconfig: Tfrmconfig
         object PageSheet18: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 316
+          Width = 726
+          Height = 323
           Caption = 'MDF-e'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -6993,12 +7034,13 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 292
           object PageView6: TPageView
             Left = 0
             Top = 0
-            Width = 723
-            Height = 316
+            Width = 726
+            Height = 323
             ActivePage = PageSheet25
             ActivePageIndex = 2
             AdaptiveColors = True
@@ -7014,12 +7056,13 @@ object frmconfig: Tfrmconfig
             TabOrder = 0
             TabStyle = tsOneNote
             TopIndent = 3
+            ExplicitWidth = 723
             ExplicitHeight = 292
             object PageSheet24: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Geral'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -7028,6 +7071,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label71: TLabel
                 Left = 12
@@ -7106,8 +7150,8 @@ object frmconfig: Tfrmconfig
             object PageSheet38: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Danfe'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -7116,6 +7160,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label164: TLabel
                 Left = 3
@@ -7249,8 +7294,8 @@ object frmconfig: Tfrmconfig
             object PageSheet25: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'Arquivos'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -7259,6 +7304,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object SpeedButton32: TSpeedButton
                 Left = 489
@@ -7417,8 +7463,8 @@ object frmconfig: Tfrmconfig
             object PageSheet26: TPageSheet
               Left = 0
               Top = 21
-              Width = 723
-              Height = 295
+              Width = 726
+              Height = 302
               Caption = 'E-mail'
               DisplayMode = tdGlyph
               ImageIndex = 0
@@ -7427,6 +7473,7 @@ object frmconfig: Tfrmconfig
               TabColor = clWindow
               TabWidth = 0
               TransparentColor = clNone
+              ExplicitWidth = 723
               ExplicitHeight = 271
               object Label104: TLabel
                 Left = 3
@@ -7483,15 +7530,16 @@ object frmconfig: Tfrmconfig
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 723
+        Width = 726
         Height = 215
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
+        ExplicitWidth = 723
         object PageView5: TPageView
           Left = 0
           Top = 0
-          Width = 723
+          Width = 726
           Height = 215
           ActivePage = PageSheet20
           ActivePageIndex = 0
@@ -7508,10 +7556,11 @@ object frmconfig: Tfrmconfig
           TabOrder = 0
           TabStyle = tsOneNote
           TopIndent = 3
+          ExplicitWidth = 723
           object PageSheet20: TPageSheet
             Left = 0
             Top = 21
-            Width = 723
+            Width = 726
             Height = 194
             Caption = 'Certificado'
             DisplayMode = tdGlyph
@@ -7521,6 +7570,7 @@ object frmconfig: Tfrmconfig
             TabColor = clWindow
             TabWidth = 0
             TransparentColor = clNone
+            ExplicitWidth = 723
             object lSSLLib: TLabel
               Left = 40
               Top = 14
@@ -7699,7 +7749,7 @@ object frmconfig: Tfrmconfig
           object PageSheet22: TPageSheet
             Left = 0
             Top = 21
-            Width = 723
+            Width = 726
             Height = 194
             Caption = 'WebService'
             DisplayMode = tdGlyph
@@ -7709,6 +7759,7 @@ object frmconfig: Tfrmconfig
             TabColor = clWindow
             TabWidth = 0
             TransparentColor = clNone
+            ExplicitWidth = 723
             object GroupBox38: TGroupBox
               Left = 2
               Top = 4
@@ -7991,7 +8042,7 @@ object frmconfig: Tfrmconfig
           object PageSheet21: TPageSheet
             Left = 0
             Top = 21
-            Width = 723
+            Width = 726
             Height = 194
             Caption = 'Geral'
             DisplayMode = tdGlyph
@@ -8001,6 +8052,7 @@ object frmconfig: Tfrmconfig
             TabColor = clWindow
             TabWidth = 0
             TransparentColor = clNone
+            ExplicitWidth = 723
             object Label70: TLabel
               Left = 238
               Top = 44
@@ -8134,8 +8186,8 @@ object frmconfig: Tfrmconfig
     object PageSheet31: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'E-Mail'
       DisplayMode = tdGlyph
       ImageIndex = 0
@@ -8144,6 +8196,7 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object Label74: TLabel
         Left = 14
@@ -8247,8 +8300,8 @@ object frmconfig: Tfrmconfig
     object PageSheet35: TPageSheet
       Left = 0
       Top = 21
-      Width = 723
-      Height = 552
+      Width = 726
+      Height = 559
       Caption = 'Visual'
       Color = clWhite
       DisplayMode = tdGlyph
@@ -8259,12 +8312,13 @@ object frmconfig: Tfrmconfig
       TabColor = clWindow
       TabWidth = 0
       TransparentColor = clNone
+      ExplicitWidth = 723
       ExplicitHeight = 528
       object PageView10: TPageView
         Left = 0
         Top = 0
-        Width = 723
-        Height = 552
+        Width = 726
+        Height = 559
         ActivePage = PageSheet36
         ActivePageIndex = 0
         AdaptiveColors = True
@@ -8282,12 +8336,13 @@ object frmconfig: Tfrmconfig
         TabOrder = 0
         TabStyle = tsWhidbey
         TopIndent = 3
+        ExplicitWidth = 723
         ExplicitHeight = 528
         object PageSheet36: TPageSheet
           Left = 0
           Top = 21
-          Width = 723
-          Height = 531
+          Width = 726
+          Height = 538
           Caption = 'Tela Inicial'
           DisplayMode = tdGlyph
           ImageIndex = 0
@@ -8296,6 +8351,7 @@ object frmconfig: Tfrmconfig
           TabColor = clWindow
           TabWidth = 0
           TransparentColor = clNone
+          ExplicitWidth = 723
           ExplicitHeight = 507
           object Label87: TLabel
             Left = 15
@@ -8684,15 +8740,16 @@ object frmconfig: Tfrmconfig
     end
   end
   object Panel1: TPanel
-    Left = 723
+    Left = 726
     Top = 48
     Width = 119
-    Height = 573
+    Height = 580
     Align = alRight
     BevelOuter = bvNone
     Color = 5460819
     ParentBackground = False
     TabOrder = 1
+    ExplicitLeft = 723
     ExplicitHeight = 549
     object bcancelar: TAdvGlowButton
       Left = 17
@@ -9089,7 +9146,7 @@ object frmconfig: Tfrmconfig
   object AdvSmoothExpanderPanel1: TAdvSmoothExpanderPanel
     Left = 0
     Top = 0
-    Width = 842
+    Width = 845
     Height = 48
     Cursor = crDefault
     Caption.HTMLFont.Charset = DEFAULT_CHARSET
@@ -9122,6 +9179,7 @@ object frmconfig: Tfrmconfig
     ExpanderColor = 16445929
     ExpanderDownColor = 15587527
     ExpanderHoverColor = 11196927
+    ExplicitWidth = 842
     TMSStyle = 0
     OldHeight = 48.000000000000000000
     object Label56: TLabel

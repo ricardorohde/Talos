@@ -1291,10 +1291,42 @@ var
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
 
+  if not sNumero_Cupom.Equals('') then begin
 
   query.SQL.Clear;
   query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
   query.ExecSQL;
+  query1.sql.clear;
+  query1.sql.add('SELECT * FROM CUPOM_ITEM_TEMP where COD_CUPOM = ' + sNumero_Cupom);
+  query1.ExecSQL;
+
+while not Query1.Eof do
+begin
+    query.SQL.Clear;
+    QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
+                      query.SQL.Add(') values (');
+                      query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
+                      query.SQL.Add(')');
+                      query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString + '_' +  query1.FieldByName('CODIGO').AsString;
+                      query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
+                      query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
+                      query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString;
+                      query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
+                      query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
+                      query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
+                      query.Params.ParamByName('QTDE').AsFloat := query1.FieldByName('QTDE').AsFloat;
+                      query.Params.ParamByName('VALOR_UNITARIO').AsFloat := query1.FieldByName('VALOR_UNITARIO').AsFloat;
+                      query.Params.ParamByName('VALOR_SUBTOTAL').AsFloat := query1.FieldByName('VALOR_SUBTOTAL').AsFloat;
+                      query.Params.ParamByName('VALOR_DESCONTO').AsFloat := query1.FieldByName('VALOR_DESCONTO').AsFloat;
+                      query.Params.ParamByName('VALOR_ACRESCIMO').AsFloat := query1.FieldByName('VALOR_ACRESCIMO').AsFloat;
+                      query.Params.ParamByName('VALOR_TOTAL').AsFloat := query1.FieldByName('VALOR_TOTAL').AsFloat;
+                      query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
+                      query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM CANCELADO POR INTEIRO';
+    //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+    query.ExecSQL;
+    Query1.Next;
+end;
+  end;
 
 
   if (bBusca_foto_produto) and not (AtivaTouch) then
@@ -1347,10 +1379,10 @@ begin
                     query.SQL.Add(') values (');
                     query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                     query.SQL.Add(')');
-                    query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
+                    query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString + '_' + query1.FieldByName('CODIGO').AsString;
                     query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
-                    query.Params.ParamByName('OPERADOR').AsFloat := StrToInt(sCaixa);
-                    query.Params.ParamByName('PDV').AsString := sCaixa;
+                    query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
+                    query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString;
                     query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                     query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
                     query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
@@ -1786,6 +1818,8 @@ function TfrmVenda.Abre_Venda(): Boolean;
 begin
   TimerTroco.Enabled := False;
   try
+    frmModulo.spCupom_Temp_delete.prepare;
+    frmModulo.spCupom_Temp_delete.execute;
     cdsLancaProdutos.Close;
     cdsLancaProdutos.CreateDataSet;
     bLanca_Delivery := False;
@@ -2045,7 +2079,8 @@ begin
 
   //TrocaResolucao(Screen.Width,Screen.Height,1,1);
   // ajuste para se a resolucao for muito baixa
-  if Screen.width < 1024 then
+
+  if Screen.width <= 1024 then
    cxGrid1.width := 400;
 
   Carregando := False;
@@ -2070,7 +2105,8 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
-   Key := 0;
+   Key := #0;
+
 
   end ;
 
@@ -4562,6 +4598,8 @@ begin
   if busuario_autenticado then begin
     // mudar o nome do usuario na tela de venda
     cpBarra.Panels.Items[1].Text := Copy(sNome_Operador, 1, 10);
+
+
 
     Application.MessageBox('Troca efetuada com sucesso!', 'Aviso', MB_OK + MB_ICONINFORMATION);
 

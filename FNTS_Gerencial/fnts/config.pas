@@ -1210,6 +1210,8 @@ begin
   frmmodulo.qrprecoPRECO_VENDA.DisplayFormat := mascara_valor;
   frmmodulo.qrprecoLUCRO.DisplayFormat := mascara_valor;
 
+
+
   //////////////////////////////////////////////////////////////////////////////////////////
 
   if frmmodulo.qrconfig.state = dsedit then begin

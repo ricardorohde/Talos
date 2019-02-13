@@ -65,9 +65,8 @@ begin
   end
   else
   begin
-    Application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + mb_iconerror);
   end;
 end;
 
 end.
-

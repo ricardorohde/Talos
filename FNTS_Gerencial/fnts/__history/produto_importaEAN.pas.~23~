@@ -98,9 +98,9 @@ begin
    frmproduto.COMBOCODBARRA.Text := edtCodBarra.Text;
    frmproduto.DBEdit2.Text := edtNomeProduto.Text;
    frmproduto.DBEdit2.Text := edtNomeProduto.Text;
-   if not string.Equals(edtNcm.Text,' NÃ£o Encontrado ') then
+   if not string.Equals(edtNcm.Text,' Não Encontrado ') then
       frmproduto.eNCM.Text := edtNcm.Text;
-   if not string.Equals(edtCest.Text,' NÃ£o Encontrado ') then
+   if not string.Equals(edtCest.Text,' Não Encontrado ') then
    begin
       frmproduto.eCEST.Text := edtCest.Text;
       frmproduto.ealiq.Clear;
@@ -179,7 +179,7 @@ try
 
     except on E: Exception do
   Begin
-    Memo1.Lines.Add('Resposta da exceÃ§Ã£o:');
+    Memo1.Lines.Add('Resposta da exceção:');
     Memo1.Lines.Add('--> '+E.Message);
   End;
 end;
@@ -211,13 +211,13 @@ end;
 try
 edtNcm.Text := LJsonValue.GetValue<TJSONObject>('ncm').GetValue<TJSONString>('code').Value + ' - ' + LJsonValue.GetValue<TJSONObject>('ncm').GetValue<TJSONString>('full_description').Value;
 except on JsonError : EJSONException do
-edtNcm.Text := ' NÃ£o Encontrado ';
+edtNcm.Text := ' Não Encontrado ';
 end;
 
 try
 edtCest.Text := LJsonValue.GetValue<TJSONObject>('cest').GetValue<TJSONString>('code').Value + ' - ' + LJsonValue.GetValue<TJSONObject>('cest').GetValue<TJSONString>('description').Value;
 except on JsonError : EJSONException do
-edtCest.Text := ' NÃ£o Encontrado ';
+edtCest.Text := ' Não Encontrado ';
 end;
 
 edtCodBarra.Text := LJsonValue.GetValue<TJSONString>('gtin').Value;
