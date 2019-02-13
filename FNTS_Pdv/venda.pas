@@ -1327,8 +1327,10 @@ begin
     //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
     try
     query.ExecSQL;
-    exception
+    except
+      on E: Exception do begin
 
+    end;
     end;
     Query1.Next;
 end;
