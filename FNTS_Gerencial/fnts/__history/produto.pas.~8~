@@ -5040,15 +5040,10 @@ begin
 
 frmproduto_importaEAN := Tfrmproduto_importaEAN.Create(self);
 
-frmproduto_importaEAN.Show();
+frmproduto_importaEAN.ShowModal();
 
-//frmproduto_importaEAN.Close;
-//
-//
-//
-//
-//Self.Show;
-//Self.COMBOCODBARRA.SetFocus;
+Self.Show;
+Self.COMBOCODBARRA.SetFocus;
 
 end;
 

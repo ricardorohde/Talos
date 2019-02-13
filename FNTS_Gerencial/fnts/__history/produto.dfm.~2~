@@ -46,7 +46,7 @@ object frmproduto: Tfrmproduto
     object Label10: TLabel
       Left = 725
       Top = 184
-      Width = 26
+      Width = 25
       Height = 12
       Caption = 'CST:'
       Font.Charset = ANSI_CHARSET
@@ -1598,117 +1598,6 @@ object frmproduto: Tfrmproduto
         Transparent = True
         TabOrder = 2
         OnClick = bSimilarClick
-        Appearance.BorderColor = 14727579
-        Appearance.BorderColorHot = 10079963
-        Appearance.BorderColorDown = 4548219
-        Appearance.BorderColorChecked = clBlack
-        Appearance.Color = 15653832
-        Appearance.ColorTo = 16178633
-        Appearance.ColorChecked = 7915518
-        Appearance.ColorCheckedTo = 11918331
-        Appearance.ColorDisabled = 15921906
-        Appearance.ColorDisabledTo = 15921906
-        Appearance.ColorDown = 7778289
-        Appearance.ColorDownTo = 4296947
-        Appearance.ColorHot = 15465983
-        Appearance.ColorHotTo = 11332863
-        Appearance.ColorMirror = 15586496
-        Appearance.ColorMirrorTo = 16245200
-        Appearance.ColorMirrorHot = 5888767
-        Appearance.ColorMirrorHotTo = 10807807
-        Appearance.ColorMirrorDown = 946929
-        Appearance.ColorMirrorDownTo = 5021693
-        Appearance.ColorMirrorChecked = 10480637
-        Appearance.ColorMirrorCheckedTo = 5682430
-        Appearance.ColorMirrorDisabled = 11974326
-        Appearance.ColorMirrorDisabledTo = 15921906
-        Appearance.GradientHot = ggVertical
-        Appearance.GradientMirrorHot = ggVertical
-        Appearance.GradientDown = ggVertical
-        Appearance.GradientMirrorDown = ggVertical
-        Appearance.GradientChecked = ggVertical
-        Layout = blGlyphTop
-      end
-      object btnCodigoEAN: TAdvGlowButton
-        Left = 41
-        Top = 267
-        Width = 72
-        Height = 74
-        Caption = 'Importar por C'#243'digo de Barras'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ImageIndex = 49
-        FocusType = ftHot
-        NotesFont.Charset = DEFAULT_CHARSET
-        NotesFont.Color = clWindowText
-        NotesFont.Height = -11
-        NotesFont.Name = 'Tahoma'
-        NotesFont.Style = []
-        ParentFont = False
-        Picture.Data = {
-          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-          F40000001974455874536F6674776172650041646F626520496D616765526561
-          647971C9653C0000001B744558745469746C65004D6F64656C3B436F70793B43
-          6F70794D6F64656C3B892D59CB0000068F49444154785E8D977F8C1D5515C73F
-          E7CEDBDDB6EB1613354153ADB652B545D19A002D2BB4B1B6C61F3444138D2648
-          42444563A4C640A94A597F1042D204214AE41F348231184B4DC122DB45A0D46D
-          41B1B429142A25B549A53522DD76F7BD37F79C6399B93399D4F762CF9B9B73F3
-          FEB8DFEFF99EEFB9991177E7CC181919616A6AEAF51CEEFAD513E388ACC41D10
-          1C47A0C8C5E3E042B9015E3B71EA07377EE3136380017EEB5DE38E1B0EDCF0B5
-          D5A428CE0768D1331206C8EBE05FBCFC02CE8C6E3712D58851E9E4CACC4CE4DF
-          FF99A6DD8DDFBB79D366B969DD1563805EFFD5554CFEE5051F7FF220BDA20520
-          2254E1EE950A02D40AA919EEA5020056265C04473077763D7B846B3E7F21D3ED
-          F8DDF53FFEADDC72E367C78078F18717F1FDDB7EEFFD08F4A8AE2B00AD562B58
-          01ECA839E0D58304411C5A21A0C100A793E7005CF4C177A0661BD66DBC4F366D
-          FC424162EC3B971BE0FD0980243524CBB290F661DEB9239859B1DC1C487DC709
-          22202059A942B75D12085960F9D27762B9DED85D7F8FDC79CB5563405EF9A22F
-          81DBEF79B2309C1878127BDF81E3EC3D70ACA7E1CE5FF416969D0672774C8D76
-          A75B1E1A0425307AD1BB8966EB3BEB7ECEDD9BAEE945A2262095E1BE79E5B29E
-          86CBD588B9D2C96361B8E3AF9EE2C4549BC7771F3C2DF97C70E8747244A09509
-          210859E67C747411A6BABE1B7FCA2F7E72EDC604EE3D15A824CE63999DCA80E0
-          0E86602E4473FEB4EB25BE7DF5A56C9D788E1DA7F7EF5FF236468607B9FE470F
-          60502B06CEE8850B5974DE82F5C00F01EDDB02F706B04BB94F3D05C3B3808680
-          6074BA39002B979FC7F88E03EC7EE665AEF8F805B4BB916E545C21AA93AB9209
-          1C3E3A0590F5356173044926937A6F8410086E85E10CA133D30520CB02AB46DF
-          C3C38FEEE7A93D8758B16C111E5AB83A664E8C4A10703B52B7BAAF0266353E35
-          170C00838284888239330DC30981352B97F0E0F8B34CEC788ED52BCF270C66B8
-          83C616AD0C0CA309DED384EE8637409B44002C8D9E233D0DB776CD07D8FCD05F
-          F9C3F81E3EB5FA434808C880309009166B1CFA2BE0D5FD1EC0AB6991642AAF15
-          1C18CA386764165FB9E13ECCBC6938D6AC58C2F32F4F93E791C1A12124487159
-          99D9FF2580D5F7AB61B5112B6030334226CC9935C8559FBB8493D36DBADD1C8D
-          4E1E8DA84A4B84BD075E412DE23E48164241C27BB4A0EF149857035811F29286
-          000883AD528191E12134DD0FC53D11B56889AA61E6B83BEEA5774CFD2C4CA85E
-          4F7F85EF4D05103047040607B292A867E860C6A01A1AAD20605404A80B31AF09
-          54D97B98B084F366F126D434AAAE20A4F34A238690CC2B0CB4048B2472898473
-          561E08AA111C5CBDCC14AB0EF7DA17587342700429AA1F18C850CB895AFA2850
-          9288C6D9DC03568F9E570C90543A58F57F0D0B6758852CF5DBCD30050BA512A6
-          7D1410919A598C5E576A0D1837683402F7B44BA04DF3AA296A86462DF6A28269
-          482F349E995950551111FF1F0554637948A3B45275A1AEB251AEA9D3CA02590B
-          4C0D73C3A2B3F2E205BC617888A1962062A87659BE741E9B546799D9508C5149
-          1DEE31054D107084869DC1C093ACAD0078E4C4137F24DFBD1D4BA659EC30BDD3
-          3879E9624EEEBF1F37E74DEA4C6C5CFA7733E7231B2687016D1290E64D484AD0
-          F482534F8496E0EECAB1ADBF61E4D88B2C5CB19C2A0EED7D81C3CF6F676198CD
-          FBBEF475AA38BA6B1B7F7BF8E94A79E96BC2820842DD67ABAFE4BA7273E5C1C9
-          433C72783E6E6FC71E4BDE716774E6519E9977149FDC522CD2FFEB749AF6A937
-          E2EEA1370137DCA9C1312FB2D5FD30DC2064CE961D2F7162700EDFBAEE635431
-          F9E7834C3C722B6FFEE442365D7635556C997888DF6DDD0173A1339D538137A5
-          00C0D270BB79023DB31DA19CF1AEB275F2082BD65EC2CEBDAFE20E6ACED33B0F
-          327BF638B3DEFA5E265EFC757916CEE6ED3BE9B487138148BF573277751C983B
-          3C8037C0BDC1228F90B723DDBC4BBBA3B880A963A90E55432DE2E9578D68DE31
-          FE79B4C5F1D73AB7033191908A8001F94CFBD463D7DD74FF656680A4F91770AF
-          0F42555935BA80D8CDE9C4B26556F43811884EB49846D86A253B1D65CF41B963
-          C3E3C7C7802EA9B64AFE000C004369B57A7CAA35551B5971EDBDFB96AF5D855A
-          55A9F0D403DB987BCE063E73E5BB70AC26FDCB9FEDE35FFFE0CEBD5BA76E064E
-          F622206985B47A013709CC59FCE9DB8E991B9861A6055867EA95BBCF9D7FEF97
-          CD00F3FAFDA27D4AEFD8BFEDE458026F7E1B20EECED9868854440780D9295784
-          3DADAA10817A883A401B88BD3F4CCE3E3CE51CD08672F46D59026C64A711FF05
-          7A8E7AF166C6FC0F0000000049454E44AE426082}
-        Transparent = True
-        TabOrder = 3
-        OnClick = btnCodigoEANClick
         Appearance.BorderColor = 14727579
         Appearance.BorderColorHot = 10079963
         Appearance.BorderColorDown = 4548219
@@ -4411,7 +4300,7 @@ object frmproduto: Tfrmproduto
           object Label87: TLabel
             Left = 562
             Top = 46
-            Width = 123
+            Width = 122
             Height = 13
             Caption = 'Novo Pre'#231'o de Venda'
             Font.Charset = ANSI_CHARSET
@@ -7171,7 +7060,7 @@ object frmproduto: Tfrmproduto
           object Label76: TLabel
             Left = 8
             Top = 179
-            Width = 199
+            Width = 198
             Height = 12
             Caption = '65535 - QTDE. N'#195'O SIGNIFICATIVA'
             Font.Charset = ANSI_CHARSET
@@ -7302,7 +7191,7 @@ object frmproduto: Tfrmproduto
             object Label148: TLabel
               Left = 2
               Top = 18
-              Width = 90
+              Width = 89
               Height = 12
               Caption = 'CARBOIDRATOS'
               Font.Charset = ANSI_CHARSET
@@ -7329,7 +7218,7 @@ object frmproduto: Tfrmproduto
             object Label150: TLabel
               Left = 2
               Top = 50
-              Width = 108
+              Width = 107
               Height = 12
               Caption = 'GORDURAS TOTAIS'
               Font.Charset = ANSI_CHARSET
@@ -7342,7 +7231,7 @@ object frmproduto: Tfrmproduto
             object Label151: TLabel
               Left = 2
               Top = 66
-              Width = 133
+              Width = 132
               Height = 12
               Caption = 'GORDURAS SATURADAS'
               Font.Charset = ANSI_CHARSET
@@ -7369,7 +7258,7 @@ object frmproduto: Tfrmproduto
             object Label153: TLabel
               Left = 2
               Top = 99
-              Width = 101
+              Width = 100
               Height = 12
               Caption = 'FIBRA ALIMENTAR'
               Font.Charset = ANSI_CHARSET
@@ -10464,7 +10353,7 @@ object frmproduto: Tfrmproduto
           ParentBackground = False
           ParentFont = False
           TabOrder = 2
-          Version = '6.1.0.0'
+          Version = '6.1.0.3'
         end
       end
     end
@@ -12380,7 +12269,7 @@ object frmproduto: Tfrmproduto
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 12
     ShowExpander = False
@@ -12478,7 +12367,7 @@ object frmproduto: Tfrmproduto
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -12522,7 +12411,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 0
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton1Click
       TMSStyle = 23
     end
@@ -12557,7 +12446,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 1
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton2Click
       TMSStyle = 23
     end
@@ -12592,7 +12481,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 2
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton3Click
       TMSStyle = 23
     end
@@ -12627,7 +12516,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 3
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton4Click
       TMSStyle = 23
     end
@@ -12662,7 +12551,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 4
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton5Click
       TMSStyle = 23
     end
@@ -12697,7 +12586,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 5
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton6Click
       TMSStyle = 23
     end
@@ -12732,7 +12621,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 6
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton7Click
       TMSStyle = 23
     end
@@ -12767,7 +12656,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 7
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton8Click
       TMSStyle = 23
     end
@@ -12802,7 +12691,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 8
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton9Click
       TMSStyle = 23
     end
@@ -12837,7 +12726,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 9
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton13Click
       TMSStyle = 23
     end
@@ -12872,7 +12761,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 10
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton12Click
       TMSStyle = 23
     end
@@ -12907,7 +12796,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 11
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = cySpeedButton11Click
       TMSStyle = 23
     end
@@ -12942,7 +12831,7 @@ object frmproduto: Tfrmproduto
       Color = 12223546
       ParentFont = False
       TabOrder = 12
-      Version = '2.1.0.1'
+      Version = '2.1.1.1'
       OnClick = AdvSmoothButton13Click
       TMSStyle = 23
     end
@@ -13617,7 +13506,7 @@ object frmproduto: Tfrmproduto
     end
   end
   object popmenu1: TAdvPopupMenu
-    Version = '2.6.1.0'
+    Version = '2.6.1.1'
     Left = 48
     Top = 16
     object Inventrio1: TMenuItem
@@ -15347,7 +15236,7 @@ object frmproduto: Tfrmproduto
     Left = 479
     Top = 443
     Bitmap = {
-      494C0101030005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010103000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFD1D1
       D100ABB0B5006C7D8F00AFB4B800D5D5D500DBDBDB00FFFFFFFFFFFFFFFFFFFF
@@ -15490,7 +15379,7 @@ object frmproduto: Tfrmproduto
     Left = 223
     Top = 374
     Bitmap = {
-      494C0101020005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF

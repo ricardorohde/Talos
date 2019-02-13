@@ -2007,6 +2007,7 @@ var
 begin
   frmSelecionaEmpresa := TfrmSelecionaEmpresa.Create(Self);
   frmSelecionaEmpresa.ShowModal();
+
 end;
 
 function TfrmPrincipal.LeInistr(arquivo, sessao, chave, padrao: string): string;

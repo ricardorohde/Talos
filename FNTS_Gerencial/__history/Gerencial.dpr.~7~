@@ -382,7 +382,7 @@ uses
   AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox},
   UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao},
   SelecionaEmpresa in 'fnts\SelecionaEmpresa.pas' {frmSelecionaEmpresa},
-  produto_importaEAN in 'fnts\produto_importaEAN.pas' {frmproduto_importaEAN};
+  produto_importaEAN in 'fnts\produto_importaEAN.pas';
 
 {$R *.res}
 
@@ -408,7 +408,6 @@ begin
   Application.CreateForm(TFrmVersao, FrmVersao);
   Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
   Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
-  Application.CreateForm(Tfrmproduto_importaEAN, frmproduto_importaEAN);
   frmsplash.Close;
   FreeAndNil(frmsplash);
   application.ProcessMessages;

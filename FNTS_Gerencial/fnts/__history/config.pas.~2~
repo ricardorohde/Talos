@@ -720,9 +720,6 @@ type
     DBRadioGroup8: TDBRadioGroup;
     DBRadioGroup5: TDBRadioGroup;
     DBCheckBox52: TDBCheckBox;
-    RzGroupBox5: TRzGroupBox;
-    Label72: TLabel;
-    DBEdit127: TDBEdit;
     procedure bcancelarClick(Sender: TObject);
     procedure bgravarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

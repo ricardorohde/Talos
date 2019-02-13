@@ -3951,7 +3951,6 @@ type
     qrDFeConfigMDFE_DANFE_EMAIL: TWideStringField;
     qrDFeConfigMDFE_CAMINHO_PDF: TWideStringField;
     qrconfigINICIAR_NOVA_VENDA: TWideStringField;
-    qrconfigCHAVE_COSMOS: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);

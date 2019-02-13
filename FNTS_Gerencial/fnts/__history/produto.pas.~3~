@@ -1087,7 +1087,6 @@ type
     qrprodutoPIZZA: TWideStringField;
     DBCheckBox7: TDBCheckBox;
     cxButton1: TcxButton;
-    btnCodigoEAN: TAdvGlowButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -1322,7 +1321,6 @@ type
     procedure RzDBButtonEdit7ButtonClick(Sender: TObject);
     procedure eNCMExit(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
-    procedure btnCodigoEANClick(Sender: TObject);
   private
     { Private declarations }
     UsaCadastroSimples: Boolean;
@@ -1354,7 +1352,7 @@ uses
   xloc_produto, produto_atualizapreco, xloc_cst, inventario, baixa_estoque,
   servico, loc_aliquota, Produto_consultaserial, produto_movimentar, unNFe2,
   produto_serial_ficha, fornecedor_codigo, Ncm, CEST, xloc_csosn,
-  ConversaoUnidade, xloc_cfop, produto_importaEAN;
+  ConversaoUnidade, xloc_cfop;
 
 {$R *.dfm}
 
@@ -5031,25 +5029,6 @@ begin
     else
       edGridTabelaDBTableView1.Columns[2].Selected;
   end;
-end;
-
-procedure Tfrmproduto.btnCodigoEANClick(Sender: TObject);
-var
-frmproduto_importaEAN: Tfrmproduto_importaEAN;
-begin
-
-frmproduto_importaEAN := Tfrmproduto_importaEAN.Create(self);
-
-frmproduto_importaEAN.Show();
-
-//frmproduto_importaEAN.Close;
-//
-//
-//
-//
-//Self.Show;
-//Self.COMBOCODBARRA.SetFocus;
-
 end;
 
 procedure Tfrmproduto.btcancelarClick(Sender: TObject);

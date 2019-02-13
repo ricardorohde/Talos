@@ -3,7 +3,7 @@
         <ProjectGuid>{213CAD52-BB44-4CDB-91C4-44F935F3354C}</ProjectGuid>
         <MainSource>Gerencial.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -96,6 +96,7 @@
         <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <VerInfo_MinorVer>0</VerInfo_MinorVer>
         <VerInfo_Release>1</VerInfo_Release>
         <VerInfo_MajorVer>1</VerInfo_MajorVer>
@@ -1225,6 +1226,10 @@
         </DCCReference>
         <DCCReference Include="fnts\SelecionaEmpresa.pas">
             <Form>frmSelecionaEmpresa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="fnts\produto_importaEAN.pas">
+            <Form>frmproduto_importaEAN</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="..\FNTS_Comuns\Intro.mp3"/>

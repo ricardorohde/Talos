@@ -85,7 +85,7 @@ object frmproduto_serial: Tfrmproduto_serial
     object Label2: TLabel
       Left = 4
       Top = 15
-      Width = 97
+      Width = 98
       Height = 12
       Caption = 'QTDE. DIGITADA:'
       Font.Charset = ANSI_CHARSET
@@ -305,7 +305,7 @@ object frmproduto_serial: Tfrmproduto_serial
     object Label7: TLabel
       Left = 20
       Top = 2
-      Width = 94
+      Width = 95
       Height = 13
       Caption = 'Seriais Vendidos'
     end

@@ -9,7 +9,6 @@ object frmmodulo: Tfrmmodulo
     Properties.Strings = (
       'controls_cp=CP_UTF16')
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = ''
     Port = 0
     Database = 'C:\TALOS\Server\BD\BASE.FDB'
@@ -1172,11 +1171,6 @@ object frmmodulo: Tfrmmodulo
     object qrconfigINICIAR_NOVA_VENDA: TWideStringField
       FieldName = 'INICIAR_NOVA_VENDA'
       Size = 1
-    end
-    object qrconfigCHAVE_COSMOS: TWideStringField
-      FieldName = 'CHAVE_COSMOS'
-      Required = True
-      Size = 22
     end
   end
   object qrFilial: TZQuery
@@ -16059,7 +16053,7 @@ object frmmodulo: Tfrmmodulo
     Top = 24
   end
   object frxReport1: TfrxReport
-    Version = '5.2.3'
+    Version = '5.3.16'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]

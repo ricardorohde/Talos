@@ -714,7 +714,7 @@ object frmconfig: Tfrmconfig
           Width = 147
           Height = 21
           CharCase = ecUpperCase
-          DataField = 'CEP_CHAVE'
+          DataField = 'CHAVE_COSMOS'
           DataSource = dsconfig
           TabOrder = 0
         end
