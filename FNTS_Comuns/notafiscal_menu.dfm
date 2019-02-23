@@ -573,6 +573,10 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
         object TabSheet6: TTabSheet
           Caption = 'XML Resposta'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object WBResposta: TWebBrowser
             Left = 0
             Top = 0
@@ -592,6 +596,10 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
         object TabSheet8: TTabSheet
           Caption = 'Log'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object memoLog: TMemo
             Left = 0
             Top = 0
@@ -3346,7 +3354,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     Left = 904
     Top = 520
     Bitmap = {
-      494C010171007500080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101710075000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000D0010000010020000000000000D0
       010000000000000000000000000000000000000000003E3E3E0017171700FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -8291,7 +8299,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     Left = 944
     Top = 488
     Bitmap = {
-      494C010109000D00080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109000D000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10949,125 +10957,62 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     Configuracoes.WebServices.AjustaAguardaConsultaRet = True
     Configuracoes.WebServices.TimeOut = 20000
     Configuracoes.WebServices.QuebradeLinha = '|'
+    Configuracoes.RespTec.IdCSRT = 0
     DANFE = ACBrNFeDANFeRL1
     Left = 178
     Top = 479
   end
   object ACBrNFeDANFeRL1: TACBrNFeDANFeRL
-    ACBrNFe = ACBrNFe1
-    MostrarPreview = True
-    MostrarStatus = True
-    TipoDANFE = tiRetrato
-    NumCopias = 1
-    AgruparNumCopias = False
-    ImprimeNomeFantasia = False
-    ImprimirDescPorc = False
-    ImprimirTotalLiquido = True
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     MargemInferior = 0.700000000000000000
     MargemSuperior = 0.700000000000000000
     MargemEsquerda = 0.700000000000000000
     MargemDireita = 0.700000000000000000
     CasasDecimais.Formato = tdetInteger
-    CasasDecimais._qCom = 4
-    CasasDecimais._vUnCom = 4
-    CasasDecimais._Mask_qCom = '###,###,###,##0.00'
-    CasasDecimais._Mask_vUnCom = '###,###,###,##0.00'
-    ExibirResumoCanhoto = False
-    FormularioContinuo = False
-    TamanhoFonte_DemaisCampos = 10
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    ImprimirItens = True
-    ViaConsumidor = True
-    TamanhoLogoHeight = 0
-    TamanhoLogoWidth = 0
-    RecuoEndereco = 0
-    RecuoEmpresa = 0
-    LogoemCima = False
-    TamanhoFonteEndereco = 0
-    RecuoLogo = 0
-    LarguraCodProd = 54
-    ExibirEAN = False
-    QuebraLinhaEmDetalhamentoEspecifico = True
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrNFe = ACBrNFe1
     ExibeCampoFatura = False
-    ImprimirUnQtVlComercial = iuComercial
-    ImprimirDadosDocReferenciados = True
     Left = 211
     Top = 479
   end
   object ACBrNFeDANFCeFortes1: TACBrNFeDANFCeFortes
-    MostrarPreview = True
-    MostrarStatus = True
-    TipoDANFE = tiSemGeracao
-    NumCopias = 1
-    AgruparNumCopias = False
-    ImprimeNomeFantasia = True
-    ImprimirDescPorc = True
-    ImprimirTotalLiquido = True
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     MargemInferior = 0.800000000000000000
     MargemSuperior = 0.800000000000000000
     MargemEsquerda = 0.600000000000000000
     MargemDireita = 0.510000000000000000
     CasasDecimais.Formato = tdetInteger
-    CasasDecimais._qCom = 2
-    CasasDecimais._vUnCom = 2
-    CasasDecimais._Mask_qCom = '###,###,###,##0.00'
-    CasasDecimais._Mask_vUnCom = '###,###,###,##0.00'
-    ExibirResumoCanhoto = False
-    FormularioContinuo = True
-    ExpandirLogoMarca = True
-    TamanhoFonte_DemaisCampos = 10
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    ImprimirItens = True
-    ViaConsumidor = True
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    TipoDANFE = tiSemGeracao
+    ImprimeNomeFantasia = True
     TamanhoLogoHeight = 0
     TamanhoLogoWidth = 0
-    RecuoEndereco = 0
-    RecuoEmpresa = 0
-    LogoemCima = False
-    TamanhoFonteEndereco = 0
-    RecuoLogo = 0
-    ImprimeEmUmaLinha = False
+    FonteLinhaItem.Charset = DEFAULT_CHARSET
+    FonteLinhaItem.Color = clWindowText
+    FonteLinhaItem.Height = -9
+    FonteLinhaItem.Name = 'Lucida Console'
+    FonteLinhaItem.Style = []
     Left = 242
     Top = 479
   end
   object ACBrNFeDANFeESCPOS1: TACBrNFeDANFeESCPOS
-    MostrarPreview = True
-    MostrarStatus = True
-    TipoDANFE = tiSemGeracao
-    NumCopias = 1
-    AgruparNumCopias = False
-    ImprimeNomeFantasia = False
-    ImprimirDescPorc = False
-    ImprimirTotalLiquido = False
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     MargemInferior = 0.800000000000000000
     MargemSuperior = 0.800000000000000000
     MargemEsquerda = 0.600000000000000000
     MargemDireita = 0.510000000000000000
     CasasDecimais.Formato = tdetInteger
-    CasasDecimais._qCom = 2
-    CasasDecimais._vUnCom = 2
-    CasasDecimais._Mask_qCom = ',0.00'
-    CasasDecimais._Mask_vUnCom = ',0.00'
-    ExibirResumoCanhoto = False
-    FormularioContinuo = True
-    TamanhoFonte_DemaisCampos = 10
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    ImprimirItens = True
-    ViaConsumidor = True
-    TamanhoLogoHeight = 0
-    TamanhoLogoWidth = 0
-    RecuoEndereco = 0
-    RecuoEmpresa = 0
-    LogoemCima = False
-    TamanhoFonteEndereco = 0
-    RecuoLogo = 0
-    ImprimeEmUmaLinha = False
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    TipoDANFE = tiSemGeracao
     PosPrinter = ACBrPosPrinter1
     Left = 273
     Top = 479
@@ -11099,52 +11044,21 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     Top = 479
   end
   object ACBrNFeDANFEFR1: TACBrNFeDANFEFR
-    MostrarPreview = True
-    MostrarStatus = True
-    TipoDANFE = tiSemGeracao
-    NumCopias = 1
-    AgruparNumCopias = False
-    ImprimeNomeFantasia = False
-    ImprimirDescPorc = False
-    ImprimirTotalLiquido = True
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     MargemInferior = 0.800000000000000000
     MargemSuperior = 0.800000000000000000
     MargemEsquerda = 0.600000000000000000
     MargemDireita = 0.510000000000000000
     CasasDecimais.Formato = tdetInteger
-    CasasDecimais._qCom = 2
-    CasasDecimais._vUnCom = 2
-    CasasDecimais._Mask_qCom = ',0.00'
-    CasasDecimais._Mask_vUnCom = ',0.00'
-    ExibirResumoCanhoto = False
-    FormularioContinuo = False
-    TamanhoFonte_DemaisCampos = 8
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    ImprimirItens = True
-    ViaConsumidor = True
-    TamanhoLogoHeight = 0
-    TamanhoLogoWidth = 0
-    RecuoEndereco = 0
-    RecuoEmpresa = 0
-    LogoemCima = False
-    TamanhoFonteEndereco = 0
-    RecuoLogo = 0
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    TipoDANFE = tiSemGeracao
     EspessuraBorda = 1
-    ShowDialog = True
-    ExibirTotalTributosItem = False
-    ExibeCampoFatura = True
-    TributosPercentual = ptValorProdutos
-    ImprimirUnQtVlComercial = iuComercial
-    Detalhado = False
-    DescricaoViaEstabelec = 'Via do Consumidor'
     ExpandirDadosAdicionaisAuto = False
-    ImprimirDadosArma = True
-    QuebraLinhaEmDetalhamentoEspecifico = True
     IncorporarBackgroundPdf = True
     IncorporarFontesPdf = True
-    ImprimirDadosDocReferenciados = True
     BorderIcon = [biSystemMenu, biMinimize, biMaximize]
     Left = 368
     Top = 478

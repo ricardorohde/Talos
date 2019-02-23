@@ -1,6 +1,6 @@
 object frmimporta_nfe: Tfrmimporta_nfe
-  Left = 523
-  Top = 123
+  Left = 342
+  Top = 110
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'TALOS 1.0.0.0'
@@ -14,7 +14,7 @@ object frmimporta_nfe: Tfrmimporta_nfe
   Font.Style = []
   OldCreateOrder = False
   PopupMenu = pop1
-  Position = poDesktopCenter
+  Position = poDesigned
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -2483,10 +2483,6 @@ object frmimporta_nfe: Tfrmimporta_nfe
     object TabSheet1: TRzTabSheet
       Color = 15461355
       Caption = 'Itens da Nota'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object wwDBGrid2: TwwDBGrid
         Left = 0
         Top = 0
@@ -2767,10 +2763,6 @@ object frmimporta_nfe: Tfrmimporta_nfe
     object TabSheet2: TRzTabSheet
       Color = 5460819
       Caption = 'Transportador'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label38: TLabel
         Left = 4
         Top = 15
@@ -3293,10 +3285,6 @@ object frmimporta_nfe: Tfrmimporta_nfe
     object TabSheet3: TRzTabSheet
       Color = 15461355
       Caption = 'Faturamento'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object pfatura: TPanel
         Left = 0
         Top = 0
@@ -3724,18 +3712,10 @@ object frmimporta_nfe: Tfrmimporta_nfe
     object TabSheet4: TRzTabSheet
       Color = 15461355
       Caption = 'Observa'#231#245'es'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object tbshetlog: TRzTabSheet
       Color = 15461355
       Caption = 'Log de Produtos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object memo1: TMemo
         Left = 1
         Top = 4
@@ -4780,7 +4760,7 @@ object frmimporta_nfe: Tfrmimporta_nfe
     Left = 80
     Top = 48
     Bitmap = {
-      494C01010200050014000F000F00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010200050018000F000F00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000003C0000000F0000000100200000000000100E
       0000000000000000000000000000000000000000000000000000000000000000
       0000B9BCF000676DDF004048D600434BD7004048D700353ED5005960DC00AFB2

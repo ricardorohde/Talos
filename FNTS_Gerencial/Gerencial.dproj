@@ -3,7 +3,7 @@
         <ProjectGuid>{213CAD52-BB44-4CDB-91C4-44F935F3354C}</ProjectGuid>
         <MainSource>Gerencial.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>

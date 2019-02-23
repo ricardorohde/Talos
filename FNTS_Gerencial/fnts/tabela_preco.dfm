@@ -59,20 +59,19 @@ object frm_tb_preco: Tfrm_tb_preco
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
     ExpanderColor = 16445929
     ExpanderDownColor = 15587527
     ExpanderHoverColor = 11196927
-    ExplicitWidth = 337
     TMSStyle = 0
     OldHeight = 48.000000000000000000
     object Label53: TLabel
       Left = 59
       Top = 14
-      Width = 160
+      Width = 162
       Height = 23
       Caption = 'Tabela de Pre'#231'os'
       Font.Charset = ANSI_CHARSET
@@ -158,7 +157,7 @@ object frm_tb_preco: Tfrm_tb_preco
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -169,6 +168,7 @@ object frm_tb_preco: Tfrm_tb_preco
     Height = 307
     TabOrder = 1
     object cxGrid1DBTableView1: TcxGridDBTableView
+      OnKeyPress = cxGrid1DBTableView1KeyPress
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = DataSource1
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -493,7 +493,7 @@ object frm_tb_preco: Tfrm_tb_preco
     Left = 285
     Top = 383
     Bitmap = {
-      494C010103000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010103000500080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFD1D1
       D100ABB0B5006C7D8F00AFB4B800D5D5D500DBDBDB00FFFFFFFFFFFFFFFFFFFF

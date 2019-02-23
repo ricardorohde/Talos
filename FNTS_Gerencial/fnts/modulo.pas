@@ -3952,6 +3952,8 @@ type
     qrDFeConfigMDFE_CAMINHO_PDF: TWideStringField;
     qrconfigINICIAR_NOVA_VENDA: TWideStringField;
     qrconfigCHAVE_COSMOS: TWideStringField;
+    qrorcamentoNOME_CLIENTE: TWideStringField;
+    qrorcamentoNOME_CPFCNPJ: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);

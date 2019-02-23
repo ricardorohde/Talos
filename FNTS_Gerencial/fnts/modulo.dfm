@@ -6744,6 +6744,14 @@ object frmmodulo: Tfrmmodulo
       FieldName = 'NOME_VENDEDOR'
       Size = 50
     end
+    object qrorcamentoNOME_CLIENTE: TWideStringField
+      FieldName = 'NOME_CLIENTE'
+      Size = 50
+    end
+    object qrorcamentoNOME_CPFCNPJ: TWideStringField
+      FieldName = 'NOME_CPFCNPJ'
+      Size = 14
+    end
   end
   object qrrelatorio: TZQuery
     Connection = ConexaoLocal
@@ -16048,9 +16056,8 @@ object frmmodulo: Tfrmmodulo
     Top = 24
   end
   object BoletoFR: TACBrBoletoFCFR
-    ACBrBoleto = boleto
-    DirLogo = 'C:\TALOS\SERVER\img\Logos\Colorido'
     SoftwareHouse = 'TALOS 1.0.0.0'
+    DirLogo = 'C:\TALOS\SERVER\img\Logos\Colorido'
     FastReportFile = 'C:\TALOS\SERVER\rel\Boleto.fr3'
     ModoThread = False
     IncorporarBackgroundPdf = False

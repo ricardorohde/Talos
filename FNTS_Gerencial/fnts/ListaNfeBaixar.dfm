@@ -116,7 +116,7 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -929,8 +929,6 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
       Appearance.GradientDown = ggVertical
       Appearance.GradientMirrorDown = ggVertical
       Appearance.GradientChecked = ggVertical
-      ExplicitLeft = -6
-      ExplicitTop = 6
     end
     object bNaoRealizada: TAdvGlowButton
       Left = 465
@@ -1132,7 +1130,6 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
       Appearance.GradientDown = ggVertical
       Appearance.GradientMirrorDown = ggVertical
       Appearance.GradientChecked = ggVertical
-      ExplicitTop = 6
     end
     object bDesconhecimento: TAdvGlowButton
       Left = 294
@@ -1541,6 +1538,7 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
         Style.Font.Style = [fsBold]
         Style.IsFontAssigned = True
         Transparent = True
+        ExplicitLeft = 870
       end
       object cxLabel1: TcxLabel
         Left = 0
@@ -1920,7 +1918,7 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
     Left = 144
     Top = 186
     Bitmap = {
-      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFF04490600055B0900066C0C00066C0C00055E0A00044C0600FFFF
@@ -2063,7 +2061,7 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
     Left = 160
     Top = 258
     Bitmap = {
-      494C010103000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101030005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -2206,7 +2204,7 @@ object frmListaNfeBaixar: TfrmListaNfeBaixar
     Left = 264
     Top = 298
     Bitmap = {
-      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF

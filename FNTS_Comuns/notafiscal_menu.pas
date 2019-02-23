@@ -30,7 +30,8 @@ uses
   ACBrNFeDANFEFR, ACBrBase, ACBrDFe, JvExMask, JvToolEdit, XMLIntf, XMLDoc,
   ACBrMail, ACBrNFeDANFeRLClass, ACBrDFeSSL, Vcl.Samples.Spin, blcksock,
   ACBrPosPrinter, ACBrNFeDANFeESCPOS, ACBrDANFCeFortesFr, ACBrNFeConfiguracoes,
-  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode;
+  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode,
+  ACBrDFeReport, ACBrDFeDANFeReport;
 
 type
   TvNFe = (v310, v400);
@@ -3421,7 +3422,7 @@ begin
 
       gridRowChanged(frmnotafiscal_menu);
 
-      ACBrNFeDANFEFR1.ProtocoloNFe := '';
+      ACBrNFeDANFEFR1.Protocolo := '';
       bt_nfe_assinar.Click;
 
     end
@@ -3490,7 +3491,7 @@ begin
 
     gridRowChanged(frmnotafiscal_menu);
 
-    ACBrNFeDANFEFR1.ProtocoloNFe := '';
+    ACBrNFeDANFEFR1.Protocolo := '';
     // Linha inserida para corrigir problema de impressao do numero do protocolo na nfe.
 
     // bt_nfe_danfe.Click;
@@ -3793,7 +3794,7 @@ begin
       if FileExists(sXML) then begin
         ACBrNFeDANFEFR1.FastFileEvento := 'C:\TALOS\Server\danfe\EVENTOS.fr3';
         ACBrNFe1.DANFE.PathPDF := ExtractFilePath(ParamStr(0)) + 'CCePdf\';
-        ACBrNFeDANFEFR1.MostrarPreview := True;
+        ACBrNFeDANFEFR1.MostraPreview := True;
 
         ACBrNFe1.NotasFiscais.Clear;
         ACBrNFe1.NotasFiscais.LoadFromString(sXML);

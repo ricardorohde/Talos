@@ -10,7 +10,20 @@ uses
   cxGridTableView, cxGridDBTableView, ZAbstractRODataset, ZAbstractDataset,
   ZDataset, AdvGlowButton, Vcl.StdCtrls, AdvMetroButton, cxGridLevel, cxClasses,
   cxGridCustomView, cxGrid, Vcl.ExtCtrls, pcnConversao, cxImageComboBox,
-  System.ImageList, Vcl.ImgList, cxContainer, cxLabel, cxDBLabel;
+  System.ImageList, Vcl.ImgList, cxContainer, cxLabel, cxDBLabel, dxSkinsCore,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter;
 
 type
   TRetListaXML = record
@@ -223,23 +236,23 @@ begin
             sTipoNFe := '';
             Valor    := 0.0;
             Impresso := ' ';
-            if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.chNFe <> '' then begin
-              sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.chNFe;
+            if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.chDFe <> '' then begin
+              sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.chDFe;
               sSerie  := Copy(sChave, 23, 3);
               sNumero := Copy(sChave, 26, 9);
-              sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.CNPJCPF;
-              sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.xNome;
-              sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.IE;
-              sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.chNFe+'-nfe.xml';
-              case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.tpNF of
+              sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFE.CNPJCPF;
+              sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.xNome;
+              sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.IE;
+              sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.chdFe+'-nfe.xml';
+              case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.tpNF of
                 tnEntrada: sTipoNFe := 'E';
                 tnSaida:   sTipoNFe := 'S';
               end;
               sNSU  := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].NSU;
-              sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.dhEmi);
-              Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.vNF;
+              sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.dhEmi);
+              Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.vNF;
 
-              case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resNFe.cSitNFe of
+              case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[0].resDFe.cSitDFe of
                 snAutorizado: Impresso := 'A';
                 snDenegado:   Impresso := 'D';
                 snCancelado:  Impresso := 'C';
@@ -307,30 +320,32 @@ begin
     Exit;
   end;
   try
+
     frmListaNfeBaixar.Enabled := False;
     pnAguarde.Visible := True;
     frmimporta_nfe.ACBrNFe1.DistribuicaoDFePorNSU(UFtoCUF(frmmodulo.qrFilialUF.asstring),SN(frmmodulo.qrFilialCNPJ.asstring),qrNFENSU.AsString);
     sStat   := IntToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.cStat);
     sMotivo := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.xMotivo;
+
     if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.cStat = 138 then begin
       for i := 0 to frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Count -1 do begin
-        if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe <> '' then begin
-          sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe;
+        if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe <> '' then begin
+          sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe;
           sSerie  := Copy(sChave, 23, 3);
           sNumero := Copy(sChave, 26, 9);
-          sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.CNPJCPF;
-          sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.xNome;
-          sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.IE;
-          sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe+'-nfe.xml';
-          case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.tpNF of
+          sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.CNPJCPF;
+          sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.xNome;
+          sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.IE;
+          sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe+'-nfe.xml';
+          case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.tpNF of
             tnEntrada: sTipoNFe := 'E';
             tnSaida:   sTipoNFe := 'S';
           end;
           sNSU  := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].NSU;
-          sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.dhEmi);
-          Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.vNF;
+          sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.dhEmi);
+          Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.vNF;
 
-          case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.cSitNFe of
+          case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.cSitDFe of
             snAutorizado: Impresso := 'A';
             snDenegado:   Impresso := 'D';
             snCancelado:  Impresso := 'C';
@@ -652,23 +667,23 @@ begin
           sTipoNFe := '';
           Valor    := 0.0;
           Impresso := ' ';
-          if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe <> '' then begin
-            sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe;
+          if frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe <> '' then begin
+            sChave := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe;
             sSerie  := Copy(sChave, 23, 3);
             sNumero := Copy(sChave, 26, 9);
-            sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.CNPJCPF;
-            sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.xNome;
-            sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.IE;
-            sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.chNFe+'-nfe.xml';
-            case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.tpNF of
+            sCNPJ := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.CNPJCPF;
+            sNome := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.xNome;
+            sIEst := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.IE;
+            sXml := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.chDFe+'-nfe.xml';
+            case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.tpNF of
               tnEntrada: sTipoNFe := 'E';
               tnSaida:   sTipoNFe := 'S';
             end;
             sNSU  := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].NSU;
-            sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.dhEmi);
-            Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.vNF;
+            sEmissao := DateToStr(frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.dhEmi);
+            Valor := frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.vNF;
 
-            case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resNFe.cSitNFe of
+            case frmimporta_nfe.ACBrNFe1.WebServices.DistribuicaoDFe.retDistDFeInt.docZip.Items[i].resDFe.cSitDFe of
               snAutorizado: Impresso := 'A';
               snDenegado:   Impresso := 'D';
               snCancelado:  Impresso := 'C';

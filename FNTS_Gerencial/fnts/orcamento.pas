@@ -966,6 +966,9 @@ type
     ZQuery1CEST: TWideStringField;
     qrorcamento_produtoXITEM: TWideStringField;
     qrorcamento_produtoXPED: TWideStringField;
+    lblCliente_CPFCNPJ: TLabel;
+    eclientecpfcnpj: TDBEdit;
+    chkClienteCadastrado: TCheckBox;
     procedure qrorcamento_produtoBeforePost(DataSet: TDataSet);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -1062,6 +1065,9 @@ type
     procedure comboprodutoKeyPress(Sender: TObject; var Key: Char);
     procedure eprodutoKeyPress(Sender: TObject; var Key: Char);
     procedure AdvMetroButton1Click(Sender: TObject);
+    procedure chkClienteCadastradoClick(Sender: TObject);
+    procedure enomeclienteKeyPress(Sender: TObject; var Key: Char);
+    procedure eclientecpfcnpjKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -1155,6 +1161,9 @@ begin
   DBDateEdit1.Date := Date;
   qrorcamento_produtoXPED.Visible := AtivaB2B;
   qrorcamento_produtoXITEM.Visible := AtivaB2B;
+
+  ecliente.SetFocus;
+
 end;
 
 procedure TfrmOrcamento.DBDateEdit1KeyPress(Sender: TObject; var Key: Char);
@@ -1231,6 +1240,8 @@ begin
       evendedorButtonClick(frmOrcamento);
     end;
   end;
+
+  Self.AdvGlowButton1Click(Self);
 end;
 
 procedure TfrmOrcamento.evendedorKeyPress(Sender: TObject; var Key: Char);
@@ -1485,6 +1496,8 @@ begin
     end;
   except
   end;}
+
+
 end;
 
 procedure TfrmOrcamento.blocalizarClick(Sender: TObject);
@@ -1564,9 +1577,66 @@ begin
     bgravar.SetFocus;
 end;
 
+procedure TfrmOrcamento.chkClienteCadastradoClick(Sender: TObject);
+begin
+enomecliente.Clear;
+eclientecpfcnpj.Clear;
+ecliente.Clear;
+
+
+if chkClienteCadastrado.Checked then begin
+
+ecliente.Visible := true;
+enomecliente.ReadOnly := true;
+eclientecpfcnpj.ReadOnly := True;
+
+ECLIENTE.DataField := 'CODCLIENTE';
+
+eclientecpfcnpj.DataField := '';
+eclientecpfcnpj.DataSource := DBEdit15.DataSource;
+eclientecpfcnpj.DataField := DBEdit15.DataField;
+
+enomecliente.Enabled := false;
+eclienteButtonClick(Self);
+
+enomecliente.Width := 152;
+enomecliente.Left := 370;
+
+
+end
+else
+begin
+
+ecliente.Visible := false;
+enomecliente.ReadOnly := false;
+eclientecpfcnpj.ReadOnly := false;
+
+ENOMECLIENTE.DataField := 'NOME_CLIENTE';
+
+eclientecpfcnpj.DataField := '';
+eclientecpfcnpj.DataSource := dsorcamento;
+eclientecpfcnpj.DataField := 'NOME_CPFCNPJ';
+
+eclientecpfcnpj.Enabled := True;
+
+enomecliente.Width := 219;
+enomecliente.Left := 303;
+enomecliente.Enabled := Enabled;
+enomecliente.SetFocus;
+end;
+
+
+
+
+
+end;
+
 procedure TfrmOrcamento.combocondpgtoEnter(Sender: TObject);
 begin
   tedit(Sender).color := $00A8FFFF;
+  combocondpgtoExit(Self);
+  bgravar.TabStop := true;
+  bgravar.SetFocus;
 end;
 
 procedure TfrmOrcamento.combocondpgtoExit(Sender: TObject);
@@ -2032,6 +2102,9 @@ end;
 
 procedure TfrmOrcamento.BitBtn1Click(Sender: TObject);
 begin
+
+  combocondpgto.Text := 'DINHEIRO';
+  bgravar.SetFocus;
   frmmodulo.qrconfig.Open;
   if frmmodulo.qrconfig.fieldbyname('FIXA_FORMA_PGTO_CLIENTE').asinteger = 1 then begin
     combocondpgto.text := frmmodulo.qrcliente.Fields.fieldbyname('CONDPGTO').asstring;
@@ -2040,6 +2113,14 @@ begin
   end
   else if pficha.Enabled then
     combocondpgto.SetFocus;
+
+
+
+
+
+
+
+
 end;
 
 procedure TfrmOrcamento.qrorcamento_produtoBeforeDelete(DataSet: TDataSet);
@@ -2069,6 +2150,12 @@ begin
   if (qrorcamento_produto.state = dsedit) or (qrorcamento_produto.state = dsinsert) then begin
     qrorcamento_produto.fieldbyname('total').asfloat := (qrorcamento_produto.fieldbyname('qtde').asfloat * qrorcamento_produto.fieldbyname('unitario').asfloat) - qrorcamento_produto.fieldbyname('desconto').asfloat + qrorcamento_produto.fieldbyname('acrescimo').asfloat;
   end;
+end;
+
+procedure TfrmOrcamento.enomeclienteKeyPress(Sender: TObject; var Key: Char);
+begin
+ if Key = #13 then
+   eclientecpfcnpj.SetFocus;
 end;
 
 procedure TfrmOrcamento.eacrescimoExit(Sender: TObject);
@@ -2143,6 +2230,13 @@ begin
   end
   else if pficha.Enabled then
     wwDBGrid1.SetFocus;
+
+end;
+
+procedure TfrmOrcamento.eclientecpfcnpjKeyPress(Sender: TObject; var Key: Char);
+begin
+   if Key = #13 then
+   evendedor.SetFocus;
 
 end;
 
@@ -4012,6 +4106,9 @@ begin
 
   qrorcamento_produto.Refresh;
 
+  Self.BitBtn1Click(Self);
+
+
 end;
 
 procedure TfrmOrcamento.AdvGlowButton2Click(Sender: TObject);
@@ -4141,6 +4238,10 @@ begin
   qrProdutoVendaQTDE.DisplayFormat := mascara_qtde;
   qrProdutoVendaUNITARIO.DisplayFormat := mascara_valor;
   qrorcamento_contasreceberVALOR.DisplayFormat := mascara_valor;
+
+
+
+
 
 end;
 

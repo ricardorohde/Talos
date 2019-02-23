@@ -1021,6 +1021,9 @@ begin
   end;
 
   rtotal.value := rsubtotal.value - rdesconto2.value;
+
+  bgravar.setfocus;
+
 end;
 
 procedure TfrmOS_item.rdesconto2KeyPress(Sender: TObject; var Key: Char);

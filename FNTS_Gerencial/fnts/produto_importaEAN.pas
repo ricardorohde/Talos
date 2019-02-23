@@ -25,7 +25,6 @@ type
     Label20: TLabel;
     AdvMetroButton1: TAdvMetroButton;
     IdHTTP1: TIdHTTP;
-    Button1: TButton;
     Memo1: TMemo;
     Label8: TLabel;
     edtNomeProduto: TEdit;
@@ -43,6 +42,7 @@ type
     bGravar: TAdvGlowButton;
     bLimpar: TAdvGlowButton;
     bCancelar: TAdvGlowButton;
+    AdvGlowButton1: TAdvGlowButton;
     procedure Localizarpor1Click(Sender: TObject);
     procedure Referncia1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -54,6 +54,7 @@ type
     procedure bLimparClick(Sender: TObject);
     procedure bCancelarClick(Sender: TObject);
     procedure bGravarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -263,9 +264,22 @@ begin
   ACTION := CAFREE;
 end;
 
+procedure Tfrmproduto_importaEAN.FormCreate(Sender: TObject);
+begin
+  edtNomeProduto.Clear;
+  edtMaskPrecoMedio.Clear;
+  edtUnidadeMedida.Clear;
+  edtNcm.Clear;
+  edtCest.Clear;
+  edtCodBarra.Clear;
+end;
+
 procedure Tfrmproduto_importaEAN.locKeyPress(Sender: TObject; var Key: Char);
 var ref, tipo: string;
 begin
+if Key = #13 then
+  Self.Button1Click(Sender);
+
 
 end;
 
