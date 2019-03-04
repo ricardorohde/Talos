@@ -9,7 +9,7 @@ uses
   InterBaseUniProvider, Datasnap.DBClient, MemDS, VirtualTable, ACBrValidador,
   AdvMenus, AdvMenuStylers, ACBrBase, ACBrBAL, pcnConversao, ACBrDFeSSL,
   blcksock, Vcl.FileCtrl, pcnConversaoNFe, ACBrUtil, System.Math, System.TypInfo,
-  ACBrGAV, ACBrDFeReport, ACBrDFeDANFeReport;
+  ACBrGAV;
 
 type
   TvNFe = (v310, v400);

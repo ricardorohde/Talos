@@ -420,7 +420,7 @@ type
     function RetornaSenhaImpressao: Integer;
     procedure LongPress;
     procedure AjustaDescontoAcrescimo(Desconto, Acrescimo: Double);
-    //procedure VerificaDuplicidade(Qtd: Integer); //funÁ„o para verificar se passou o cÛdigo de barras errado no campo de qtd.
+    //procedure VerificaDuplicidade(Qtd: Integer); //fun√ß√£o para verificar se passou o c√≥digo de barras errado no campo de qtd.
   public
     { Public declarations }
     procedure CorEditTotaL;
@@ -456,7 +456,7 @@ var
   vExtra: tRetExtra;
   vRecebimento: TRecebimento;
 
- // resoluÁ„o da tela
+ // resolu√ß√£o da tela
   OldWidth: Integer;
   SenhaImpressao, OldHeight: Integer;
   TipoImprimeCupom, ImprimeCupom: string;
@@ -544,8 +544,8 @@ var
 begin
   if EnumDisplaySettings(nil, 0, lpDevMode) then begin
     lpDevMode.dmFields := DM_PELSWIDTH or DM_PELSHEIGHT;
-    lpDevMode.dmPelsWidth := X; // altera a resoluÁ„o para a que voce voce desejou
-    lpDevMode.dmPelsHeight := Y; // altera a resoluÁ„o para a que voce voce desejou
+    lpDevMode.dmPelsWidth := X; // altera a resolu√ß√£o para a que voce voce desejou
+    lpDevMode.dmPelsHeight := Y; // altera a resolu√ß√£o para a que voce voce desejou
     Result := ChangeDisplaySettings(lpDevMode, 0) = DISP_CHANGE_SUCCESSFUL;
   end;
 end;
@@ -556,8 +556,8 @@ var
 begin
   if EnumDisplaySettings(nil, 0, lpDevMode) then begin
     lpDevMode.dmFields := DM_PELSWIDTH or DM_PELSHEIGHT;
-    lpDevMode.dmPelsWidth := a; // ao fechar o programa recupera a resoluÁ„o que vinha sendo usada
-    lpDevMode.dmPelsHeight := b; // ao fechar o programa recupera a resoluÁ„o que vinha sendo usada
+    lpDevMode.dmPelsWidth := a; // ao fechar o programa recupera a resolu√ß√£o que vinha sendo usada
+    lpDevMode.dmPelsHeight := b; // ao fechar o programa recupera a resolu√ß√£o que vinha sendo usada
     Result := ChangeDisplaySettings(lpDevMode, 0) = DISP_CHANGE_SUCCESSFUL;
   end;
   Result := True;
@@ -571,7 +571,7 @@ begin
     if ContigenciaPermanente then begin
       if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao <> frmtOffLine then begin
         TdxStatusBarStateIndicatorPanelStyle(cpBarra.Panels[7].PanelStyle).Indicators[0].IndicatorType := sitGreen;
-        cpBarra.Panels[9].Text := 'CONTING NCIA';
+        cpBarra.Panels[9].Text := 'CONTING√äNCIA';
         tmContigencia.Enabled := False;
         frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao := frmtOffLine;
       end
@@ -951,7 +951,7 @@ begin
           Query1.FieldByName('numero_sat').Clear;
           Query1.FieldByName('gerou_sat').AsString := 'E';
           Query1.Post;
-          Application.MessageBox(PWideChar('Ocorreu um erro no envio do SAT:' + #13 + #13 + 'Erro: ' + IntToStr(ACBrSAT1.Resposta.codigoDeRetorno) + ' - ' + ACBrSAT1.Resposta.RetornoStr), 'AtenÁ„o!', MB_ICONERROR);
+          Application.MessageBox(PWideChar('Ocorreu um erro no envio do SAT:' + #13 + #13 + 'Erro: ' + IntToStr(ACBrSAT1.Resposta.codigoDeRetorno) + ' - ' + ACBrSAT1.Resposta.RetornoStr), 'Aten√ß√£o!', MB_ICONERROR);
         end;
       end;
     end;
@@ -959,7 +959,7 @@ begin
   except
     on e: Exception do begin
       Result := False;
-      Application.MessageBox(PWideChar('Ocorre um erro ao tentar enviar o SAT:' + #13 + #13 + e.Message), 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox(PWideChar('Ocorre um erro ao tentar enviar o SAT:' + #13 + #13 + e.Message), 'Aten√ß√£o!', MB_ICONINFORMATION);
     end;
   end;
 end;
@@ -1066,7 +1066,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
+          query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -1078,7 +1078,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + AnsiUpperCase(referencia) + '%''');
+            query.sql.add('where upper(nome) like ''' + AnsiUpperCase(referencia) + '%''');
             query.sql.add('order by nome');
             query.open;
 
@@ -1116,7 +1116,7 @@ begin
       end;
     end
     else begin
-      // verificar se o produto È pesado em balanca
+      // verificar se o produto √© pesado em balanca
       if (Copy(referencia, 1, 1) = '2') and (Length(referencia) <= 13) then begin
         try //Exemplo de codigo na etiqueta: 2000010002550 -> Codigo = 00001 Valor = 000255 = 2,55
           query.close;
@@ -1158,7 +1158,7 @@ begin
         query.close;
         query.sql.clear;
         query.sql.add('select * from ESTOQUE');
-        query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
+        query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
         query.sql.add('order by REFERENCIA, COR, TAMANHO');
         query.open;
 
@@ -1184,7 +1184,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + referencia + '%''');
+            query.sql.add('where upper(nome) like ''' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin
@@ -1240,13 +1240,13 @@ begin
     if Pos('Touch_Produto', Controle.Name) > 0 then begin
       if bNao_utiliza_extra then begin
         sObsProduto.Lines.Clear;
-        RetTexto(sObsProduto, 'Cancelar (F3)', 'Confirmar (F2)', 'InformaÁıes Extras do Produto!');
+        RetTexto(sObsProduto, 'Cancelar (F3)', 'Confirmar (F2)', 'Informa√ß√µes Extras do Produto!');
         vExtra.Texto := sObsProduto.Lines.Text;
         vExtra.valor := 0;
       end
       else
         vExtra := RetornaAdcional(Zerar(IntToStr(Produto), 6));
-      if Application.MessageBox('LanÁar o produto no cupom?', 'AtenÁ„o!', MB_ICONQUESTION + MB_YESNO) = mrYes then begin
+      if Application.MessageBox('Lan√ßar o produto no cupom?', 'Aten√ß√£o!', MB_ICONQUESTION + MB_YESNO) = mrYes then begin
         if not bVenda then begin
           if not Abre_Venda then begin
             bLanca_pre_venda := False;
@@ -1755,7 +1755,7 @@ begin
     else begin
       if TipoImprimeCupom = 'P' then begin
         Acao := 'N';
-        if Application.MessageBox('Deseja Imprimir o Cupom?', 'AtenÁ„o!', MB_ICONQUESTION + MB_YESNO) = IDYES then begin
+        if Application.MessageBox('Deseja Imprimir o Cupom?', 'Aten√ß√£o!', MB_ICONQUESTION + MB_YESNO) = IDYES then begin
           Acao := 'S';
           if bExibeCumponNFTela then
             if (rTotal_Couvert + rTotal_Comissao) > 0 then
@@ -1944,7 +1944,7 @@ begin
     try
       hHora_Cupom := StrToTime(sMsg);
     except
-      Imprime_display('Hora inv·lida!', clRed, tiErro);
+      Imprime_display('Hora inv√°lida!', clRed, tiErro);
       result := False;
       Exit;
     end;
@@ -2075,7 +2075,7 @@ begin
 
   // data e hora da ultima carga
   if sCarga_data <> '' then begin
-    cpBarra.Panels.Items[11].Text := sCarga_data + ' ‡s ' + scarga_hora;
+    cpBarra.Panels.Items[11].Text := sCarga_data + ' √†s ' + scarga_hora;
   end
   else
     cpBarra.Panels.Items[11].Text := '';
@@ -2268,7 +2268,7 @@ begin
           ed_unitario.ReadOnly := False;
           if not AtivaTouch then
             ed_unitario.SetFocus;
-          Imprime_display('INFORME O PRE«O DE VENDA DO PRODUTO!', clRed, tiErro);
+          Imprime_display('INFORME O PRE√áO DE VENDA DO PRODUTO!', clRed, tiErro);
           Exit;
         end;
         ed_barra.text := '';
@@ -2279,7 +2279,7 @@ begin
     else begin
       // nao achou o produto
       // lancar no display do produto
-      Imprime_display('PRODUTO N√O ENCONTRADO!', clRed, tiErro);
+      Imprime_display('PRODUTO N√ÉO ENCONTRADO!', clRed, tiErro);
       ed_barra.SelectAll;
     end;
   end
@@ -2313,13 +2313,13 @@ begin
         Cancela_Item(Zerar(frmModulo.qrItensITEM.AsString, 3), 'C');
     end
     else begin
-      Imprime_display('N√O EXISTEM ITENS LAN«ADOS!', clRed, tiErro);
+      Imprime_display('N√ÉO EXISTEM ITENS LAN√áADOS!', clRed, tiErro);
       Sleep(1000);
       Imprime_display_anterior;
     end;
   end
   else begin
-    Imprime_display('N„o existe cupom aberto para cancelar!', clRed, tiErro);
+    Imprime_display('N√£o existe cupom aberto para cancelar!', clRed, tiErro);
     Sleep(1000);
     Imprime_display_anterior;
     Exit;
@@ -2350,10 +2350,10 @@ begin
       Tentativas := 0;
       while Peso <= 0 do begin
         Peso := frmModulo.balanca.LePeso(iBal_time);
-        Imprime_display('Coloque o produto na BalanÁa!', clYellow, tiPeso);
+        Imprime_display('Coloque o produto na Balan√ßa!', clYellow, tiPeso);
         Inc(Tentativas);
         if Tentativas = 5 then begin
-          if Application.MessageBox('N„o foi possivel obter o peso da balanÁa em 5 tentativas, Tentar novamente?', 'AtenÁ„o!', MB_ICONQUESTION + MB_YESNO) = mrYes then begin
+          if Application.MessageBox('N√£o foi possivel obter o peso da balan√ßa em 5 tentativas, Tentar novamente?', 'Aten√ß√£o!', MB_ICONQUESTION + MB_YESNO) = mrYes then begin
             Tentativas := 0;
           end
           else begin
@@ -2366,16 +2366,16 @@ begin
       Application.ProcessMessages;
     except
       on E: Exception do begin
-        Application.MessageBox(PWideChar('Ocorreu um erro ao tentar conectar-se a balanÁa: ' + #13 + E.Message), 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox(PWideChar('Ocorreu um erro ao tentar conectar-se a balan√ßa: ' + #13 + E.Message), 'Aten√ß√£o!', MB_ICONINFORMATION);
         frmModulo.balanca.Ativo := False;
       end;
     end;
   end
   else begin
     if bPesagemAutomatica then
-      Application.MessageBox('O produto informado utiliza balanÁa e o pdv esta configurado para Pesagem Autom·tica e n„o foi configurada uma balanÁa para capturar o peso do produto!', 'AtenÁ„o!', MB_ICONINFORMATION)
+      Application.MessageBox('O produto informado utiliza balan√ßa e o pdv esta configurado para Pesagem Autom√°tica e n√£o foi configurada uma balan√ßa para capturar o peso do produto!', 'Aten√ß√£o!', MB_ICONINFORMATION)
     else
-      Application.MessageBox('N„o foi configurada uma balanÁa para capturar o peso do produto!', 'AtenÁ„o!', MB_ICONINFORMATION)
+      Application.MessageBox('N√£o foi configurada uma balan√ßa para capturar o peso do produto!', 'Aten√ß√£o!', MB_ICONINFORMATION)
   end;
   Result := Peso;
 end;
@@ -2420,7 +2420,7 @@ begin
     Cancela_cupom_aberto;
   end
   else begin
-    Imprime_display('N„o existe cupom aberto para cancelar!', clRed, tiErro);
+    Imprime_display('N√£o existe cupom aberto para cancelar!', clRed, tiErro);
     Sleep(1000);
     Imprime_display_anterior;
     Exit;
@@ -2463,7 +2463,7 @@ var
 begin
   if bVenda then begin
     if rTotal_Venda <= 0 then begin
-      Imprime_display('CUPOM EST¡ ZERADO!', clRed, tiErro);
+      Imprime_display('CUPOM EST√Å ZERADO!', clRed, tiErro);
       Sleep(1000);
       Imprime_display_anterior;
       Exit;
@@ -2672,7 +2672,7 @@ begin
           with frmModulo do begin
             // lancamento do cupom no banco de dados
             sNumero_Cupom := sNumero_Venda;
-            lbCupom.Caption := '⁄timo Cupom: ' + sNumero_Cupom;
+            lbCupom.Caption := '√ötimo Cupom: ' + sNumero_Cupom;
             sCod_Cupom := codifica_cupom;
             spCupom.close;
             spCupom.ParamByName('codigo').asstring := sCod_Cupom;
@@ -3000,7 +3000,7 @@ begin
                 spNao_fiscal.ParamByName('data').asdatetime := dData_Sistema;
                 spNao_fiscal.ParamByName('hora').Astime := Time;
                 spNao_fiscal.ParamByName('indice').asstring := 'RG';
-                spNao_fiscal.ParamByName('Descricao').asstring := 'RELAT”RIO GERENCIAL';
+                spNao_fiscal.ParamByName('Descricao').asstring := 'RELAT√ìRIO GERENCIAL';
                 spNao_fiscal.ParamByName('valor').asfloat := 0;
                 spNao_fiscal.ParamByName('COO').asstring := sCOO_Prestacao;
                 spNao_fiscal.ParamByName('GNF').asstring := sGNF_Prestacao;
@@ -3099,7 +3099,7 @@ begin
     end;
   end
   else begin
-    Imprime_display('N„o h· cupom aberto!', clYellow, tiAlerta);
+    Imprime_display('N√£o h√° cupom aberto!', clYellow, tiAlerta);
     Sleep(1000);
     Imprime_display_anterior;
   end;
@@ -3124,7 +3124,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -3139,7 +3139,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if id > 0 then begin
-    Imprime_display('Iniciando impress„o do Delivery!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o do Delivery!', clWhite, tiInfo);
     try
       // verificar o serial do ec
       // Abrir o cupom fiscal
@@ -3161,7 +3161,7 @@ begin
       qrServidor.SQL.Add('select PRODUTO_TAXA_ENTREGA from c000001');
       qrServidor.Open;
       if Trim(qrServidor.FieldByName('PRODUTO_TAXA_ENTREGA').AsString) = '' then begin
-        Application.MessageBox('N„o foi informado nas configuraÁıes do gerencial o produto para lanÁamento da taxa de entrega.', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox('N√£o foi informado nas configura√ß√µes do gerencial o produto para lan√ßamento da taxa de entrega.', 'Aten√ß√£o!', MB_ICONINFORMATION);
         Exit;
       end;
     end;
@@ -3248,7 +3248,7 @@ begin
   if TdxStatusBarStateIndicatorPanelStyle(cpBarra.Panels[7].PanelStyle).Indicators[0].IndicatorType = sitGreen then
     EnviaContingencia
   else
-    Application.MessageBox('Sem conex„o com internet para envio das contingÍncias!', 'AtenÁ„o!', MB_ICONERROR);
+    Application.MessageBox('Sem conex√£o com internet para envio das conting√™ncias!', 'Aten√ß√£o!', MB_ICONERROR);
 end;
 
 procedure TfrmVenda.G1Click(Sender: TObject);
@@ -3480,8 +3480,8 @@ begin
                         csosn101:
                           begin
                             ICMS.orig := oeNacional;
-                            ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                            ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                           end;
                         csosn102:
                           begin
@@ -3496,8 +3496,8 @@ begin
                             ICMS.vBCST := 0;
                             ICMS.pICMSST := 00.00;
                             ICMS.vICMSST := 0;
-                            ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                            ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                           end;
                         csosn202:
                           begin
@@ -3529,8 +3529,8 @@ begin
                             ICMS.vBCST := 0;
                             ICMS.pICMSST := 00.00;
                             ICMS.vICMSST := 0;
-                            ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                            ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                            ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                           end;
                       end;
                       with ICMSUFDest do begin
@@ -3724,7 +3724,7 @@ begin
         Total.ICMSTot.vICMSUFRemet := 0.00;
         Total.ICMSTot.vTotTrib := total_trib;
 
-        Transp.modFrete := mfSemFrete; // NFC-e n„o pode ter FRETE
+        Transp.modFrete := mfSemFrete; // NFC-e n√£o pode ter FRETE
         PTroco := 0;
         divide := 0;
         if vRecebimento.Troco > 0 then begin
@@ -3779,7 +3779,7 @@ begin
     end;
   except
     on E: Exception do
-      Application.messagebox(PWideChar('Erro na geraÁ„o da NFCE' + #13 + 'Erro: ' + E.Message), 'Erro', MB_OK + MB_ICONERROR);
+      Application.messagebox(PWideChar('Erro na gera√ß√£o da NFCE' + #13 + 'Erro: ' + E.Message), 'Erro', MB_OK + MB_ICONERROR);
   end;
 
 end;
@@ -3863,7 +3863,7 @@ begin
           ACBRNFCe.Enviar(vNumLote, False, Sincrono);
         except
           on E: Exception do begin
-            Application.MessageBox(PWideChar(E.Message), 'AtenÁ„o!', MB_ICONINFORMATION);
+            Application.MessageBox(PWideChar(E.Message), 'Aten√ß√£o!', MB_ICONINFORMATION);
             Result := False;
             Exit;
           end;
@@ -3898,7 +3898,7 @@ begin
 
       if TipoImprimeCupom = 'P' then begin
         Acao := 'N';
-        if Application.MessageBox('Deseja Imprimir o Cupom?', 'AtenÁ„o!', MB_ICONQUESTION + MB_YESNO) = IDYES then begin
+        if Application.MessageBox('Deseja Imprimir o Cupom?', 'Aten√ß√£o!', MB_ICONQUESTION + MB_YESNO) = IDYES then begin
           Acao := 'S';
           ACBRNFCe.NotasFiscais.Imprimir;
         end;
@@ -3946,7 +3946,7 @@ begin
     except
       on E: Exception do begin
         frmModulo.codifica('888888', 'D');
-        Application.messagebox(PWideChar('Erro na geraÁ„o da NFCE' + #13 + 'Erro: ' + E.Message), 'Erro', MB_OK + MB_ICONERROR);
+        Application.messagebox(PWideChar('Erro na gera√ß√£o da NFCE' + #13 + 'Erro: ' + E.Message), 'Erro', MB_OK + MB_ICONERROR);
         nfce_autorizada := False;
       end;
 
@@ -4064,7 +4064,7 @@ begin
     end
     else begin
       if (rProd_total <= 0) or (rProd_qtde <= 0) or (rProd_preco <= 0) then begin
-        Imprime_display('TOTAL N√O PODE SER ZERADO OU NEGATIVO!', clRed, tiErro);
+        Imprime_display('TOTAL N√ÉO PODE SER ZERADO OU NEGATIVO!', clRed, tiErro);
         Sleep(2000);
         Exit;
       end;
@@ -4220,7 +4220,7 @@ begin
       Application.ProcessMessages;
     except
       on E: Exception do begin
-        Application.MessageBox(PWideChar('Ocorreu um erro ao tentar conectar-se a balanÁa: ' + #13 + E.Message), 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox(PWideChar('Ocorreu um erro ao tentar conectar-se a balan√ßa: ' + #13 + E.Message), 'Aten√ß√£o!', MB_ICONINFORMATION);
         frmModulo.balanca.Ativo := False;
       end;
     end;
@@ -4320,7 +4320,7 @@ end;
 
 procedure TfrmVenda.ConsultadePreos1Click(Sender: TObject);
 begin
-  Imprime_display('Consulta de PreÁo', clWhite, tiPgto);
+  Imprime_display('Consulta de Pre√ßo', clWhite, tiPgto);
   //abre a tela de consulta de preco
   frmPreco_consulta := TfrmPreco_consulta.create(Self);
   frmPreco_consulta.showmodal;
@@ -4660,7 +4660,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -4677,7 +4677,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if bLanca_pre_venda then begin
-    Imprime_display('Iniciando impress„o da PrÈ-venda!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o da Pr√©-venda!', clWhite, tiInfo);
     try
       // verificar o serial do ecf
       // Abrir o cupom fiscal
@@ -4740,7 +4740,7 @@ begin
       frmModulo.Conexao_Servidor.Connected := False;
       frmModulo.Conexao_Servidor.Connected := True;
     except
-      if Application.messagebox(PWideChar('N„o foi possÌvel se conectar ao servidor!' + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then
+      if Application.messagebox(PWideChar('N√£o foi poss√≠vel se conectar ao servidor!' + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then
         Break;
     end;
     until frmModulo.conexao_servidor.Connected;
@@ -4755,7 +4755,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if bLanca_OS then begin
-    Imprime_display('Iniciando impress„o do Cupom!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o do Cupom!', clWhite, tiInfo);
     try
       // verificar o serial do ecf
       // Abrir o cupom fiscal
@@ -4871,7 +4871,7 @@ begin
       frmModulo.Conexao_Servidor.Connected := False;
       frmModulo.Conexao_Servidor.Connected := True;
     except
-      if Application.messagebox(PWideChar('N„o foi possÌvel se conectar ao servidor!' + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then
+      if Application.messagebox(PWideChar('N√£o foi poss√≠vel se conectar ao servidor!' + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then
         Break;
     end;
     until frmModulo.conexao_servidor.Connected;
@@ -4908,7 +4908,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -4925,7 +4925,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if bLanca_OS then begin
-    Imprime_display('Iniciando impress„o da O.S.!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o da O.S.!', clWhite, tiInfo);
     try
       // Abrir o cupom fiscal
       if not Abre_Venda then begin
@@ -4938,7 +4938,7 @@ begin
 
     // vender os servicos
     // fazer a soma dos serviso e lancar comO:
-    // 9999999999999 PrestaÁ„o de ServiÁo Municipal    Valor Unitario R$ 1,00   Nao Tributado
+    // 9999999999999 Presta√ß√£o de Servi√ßo Municipal    Valor Unitario R$ 1,00   Nao Tributado
 
     frmModulo.query_servidor2.SQL.CLEAR;
     frmModulo.query_servidor2.SQL.ADD('select sum(valor) total from c000053');
@@ -5023,7 +5023,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -5040,7 +5040,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if bLanca_Mesa then begin
-    Imprime_display('Iniciando impress„o do Consumo!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o do Consumo!', clWhite, tiInfo);
     try
       // verificar o serial do ec
       // Abrir o cupom fiscal
@@ -5133,7 +5133,7 @@ begin
           if qrconfigCOBRA_COMISSAO.AsString = 'O' then
             rTotal_Comissao := (rTotal_Venda * qrconfigCOMISSAO_PERCENTUAL.AsFloat) / 100;
           if qrconfigCOBRA_COMISSAO.AsString = 'P' then
-            if Application.MessageBox('Cliente autorizou incluir taxa do garÁon na comanda?', 'AtenÁ„o?', MB_ICONQUESTION + MB_YESNO) = mrYes then
+            if Application.MessageBox('Cliente autorizou incluir taxa do gar√ßon na comanda?', 'Aten√ß√£o?', MB_ICONQUESTION + MB_YESNO) = mrYes then
               rTotal_Comissao := (rTotal_Venda * qrconfigCOMISSAO_PERCENTUAL.AsFloat) / 100;
         end;
         if rTotal_Comissao > 0 then
@@ -5162,7 +5162,7 @@ procedure TfrmVenda.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
 begin
   if (Key = 66) and (Shift = [ssCtrl]) then begin
     if (sConsumidor_CPF <> '') and (frmPrincipal.TipoImpressora = SemImpressora) then begin
-      Application.MessageBox('Impossivel Realizar a aÁ„o CPF do Cliente j· Informado!', 'Erro', MB_OK + MB_ICONERROR);
+      Application.MessageBox('Impossivel Realizar a a√ß√£o CPF do Cliente j√° Informado!', 'Erro', MB_OK + MB_ICONERROR);
       Exit;
     end;
     if (TipoDeCupom <> tcSimples) then begin
@@ -5185,7 +5185,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -5212,7 +5212,7 @@ begin
   frmModulo.query.SQL.add('select carga_data, carga_hora from config');
   frmModulo.query.open;
   frmModulo.qrconfig.open;
-  cpBarra.Panels.Items[11].Text := frmModulo.query.fieldbyname('carga_data').asstring + ' ‡s ' + frmModulo.query.fieldbyname('carga_hora').asstring;
+  cpBarra.Panels.Items[11].Text := frmModulo.query.fieldbyname('carga_data').asstring + ' √†s ' + frmModulo.query.fieldbyname('carga_hora').asstring;
 end;
 
 // -------------------------------------------------------------------------- //
@@ -5331,7 +5331,7 @@ begin
       bServidor_Conexao := True;
     except
       on E: Exception do begin
-        if Application.messagebox(PWideChar('Erro na conex„o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
+        if Application.messagebox(PWideChar('Erro na conex√£o com o banco de dados do servidor!' + #13 + 'Mensagem: ' + E.Message + #13 + 'Deseja tentar outra vez?'), 'Erro', MB_YESNO + MB_ICONERROR) = IDNO then begin
           Break;
         end;
       end;
@@ -5348,7 +5348,7 @@ begin
 
   // iniciar a impressao da pre-venda
   if bLanca_Comanda then begin
-    Imprime_display('Iniciando impress„o do Consumo!', clWhite, tiInfo);
+    Imprime_display('Iniciando impress√£o do Consumo!', clWhite, tiInfo);
     try
       // verificar o serial do ecf
       // Abrir o cupom fiscal
@@ -5444,7 +5444,7 @@ begin
           if qrconfigCOBRA_COMISSAO.AsString = 'O' then
             rTotal_Comissao := (rTotal_Venda * qrconfigCOMISSAO_PERCENTUAL.AsFloat) / 100;
           if qrconfigCOBRA_COMISSAO.AsString = 'P' then
-            if Application.MessageBox('Cliente autorizou incluir taxa do garÁon na comanda?', 'AtenÁ„o?', MB_ICONQUESTION + MB_YESNO) = mrYes then
+            if Application.MessageBox('Cliente autorizou incluir taxa do gar√ßon na comanda?', 'Aten√ß√£o?', MB_ICONQUESTION + MB_YESNO) = mrYes then
               rTotal_Comissao := (rTotal_Venda * qrconfigCOMISSAO_PERCENTUAL.AsFloat) / 100;
         end;
         if rTotal_Comissao > 0 then

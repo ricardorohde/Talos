@@ -15,7 +15,20 @@ uses
   pcnConversaoNFe, RzEdit, RzBtnEdt, cxSpinEdit, ACBrGAV, System.Actions,
   Vcl.ActnList, ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr,
   ACBrSATExtratoClass, ACBrSATExtratoESCPOS, ACBrSAT, Vcl.Menus, ACBrPosPrinter,
-  Vcl.OleCtrls, SHDocVw, ACBrUtil;
+  Vcl.OleCtrls, SHDocVw, ACBrUtil, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  ACBrDFeReport, ACBrDFeDANFeReport;
 
 const
   SELDIRHELP = 1000;
@@ -670,7 +683,7 @@ begin
 
   bEdicaoRelatorio := CheckBox1.Checked;
 
-  application.messagebox('ConfiguraÁıes Salvas!', 'Aviso', mb_ok + MB_ICONINFORMATION);
+  application.messagebox('Configura√ß√µes Salvas!', 'Aviso', mb_ok + MB_ICONINFORMATION);
 
   LerConfiguracao;
 
@@ -1103,7 +1116,7 @@ begin
     cbSSLType.ItemIndex := Ini.ReadInteger('WebService', 'SSLType', 0);
     EdFormatoOff.ItemIndex := Ini.ReadInteger('WebService', 'FormatoOFF', 0);
     edContigenciaPermanente.Checked := Ini.ReadBool('WebService', 'ContingenciaPermanente', False);
-    edMotivoContingencia.Text := Ini.ReadString('WebService', 'MotivoContingencia', 'Sem conex„o com a Internet.');
+    edMotivoContingencia.Text := Ini.ReadString('WebService', 'MotivoContingencia', 'Sem conex√£o com a Internet.');
     edVersaoQR.ItemIndex := Ini.ReadInteger('WebService', 'VersaoQRCode', 0);
 
     edtProxyHost.Text := Ini.ReadString('Proxy', 'Host', '');
@@ -1321,7 +1334,7 @@ function TfrmConfig.ValidaDados: Boolean;
 begin
   Result := True;
   if Trim(edTipoCupom.Text) = '' then begin
-    Application.MessageBox('Informe o Tipo de Cupom Fiscal', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('Informe o Tipo de Cupom Fiscal', 'Aten√ß√£o!', MB_ICONINFORMATION);
     pageview1.ActivePage := PageSheet1;
     edTipoCupom.SetFocus;
     Result := False;
@@ -1329,7 +1342,7 @@ begin
   end;
   if (edTipoCupom.ItemIndex = 0) then begin
     if Trim(edtEmitCNPJ.Text) = '' then begin
-      Application.MessageBox('Informe o CNPJ do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o CNPJ do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitCNPJ.SetFocus;
@@ -1337,7 +1350,7 @@ begin
       Exit;
     end;
     if Trim(edtEmitRazao.Text) = '' then begin
-      Application.MessageBox('Informe a Raz„o do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe a Raz√£o do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitRazao.SetFocus;
@@ -1345,7 +1358,7 @@ begin
       Exit;
     end;
     if Trim(edtEmitFantasia.Text) = '' then begin
-      Application.MessageBox('Informe o Nome Fantasia  do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o Nome Fantasia  do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitFantasia.SetFocus;
@@ -1353,7 +1366,7 @@ begin
       Exit;
     end;
     if Trim(edtEmitCodCidade.Text) = '' then begin
-      Application.MessageBox('Informe o CÛdigo da Cidade do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o C√≥digo da Cidade do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitCodCidade.SetFocus;
@@ -1361,7 +1374,7 @@ begin
       Exit;
     end;
     if Trim(edtEmitCodCidade.Text) = '' then begin
-      Application.MessageBox('Informe o CÛdigo da Cidade do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o C√≥digo da Cidade do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitCodCidade.SetFocus;
@@ -1369,7 +1382,7 @@ begin
       Exit;
     end;
     if Trim(edtEmitCidade.Text) = '' then begin
-      Application.MessageBox('Informe o a Cidade do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o a Cidade do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitCidade.SetFocus;
@@ -1378,7 +1391,7 @@ begin
     end;
 
     if Trim(edtNumSerie.Text) = '' then begin
-      Application.MessageBox('Informe o N˙mero de SÈrie do Certificado clicando no Bot„o na frente do campos', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o N√∫mero de S√©rie do Certificado clicando no Bot√£o na frente do campos', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts1;
       edtNumSerie.SetFocus;
@@ -1387,7 +1400,7 @@ begin
     end;
 
     if (rgTipoAmb.ItemIndex = 0) and (Trim(edtToken.Text) = '') then begin
-      Application.MessageBox('Informe o N˙mero CSC para emiss„o em ProduÁ„o', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o N√∫mero CSC para emiss√£o em Produ√ß√£o', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts2;
       edtToken.SetFocus;
@@ -1396,7 +1409,7 @@ begin
     end;
 
     if (rgTipoAmb.ItemIndex = 0) and (Trim(edtIdToken.Text) = '') then begin
-      Application.MessageBox('Informe o ID CSC para emiss„o em ProduÁ„o', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o ID CSC para emiss√£o em Produ√ß√£o', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts1;
       edtIdToken.SetFocus;
@@ -1405,7 +1418,7 @@ begin
     end;
 
     if (ckSalvar.Checked) and (Trim(edtPathLogs.Text) = '') then begin
-      Application.MessageBox('Informe o Caminho para salvar os XMLs', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o Caminho para salvar os XMLs', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts2;
       edtPathLogs.SetFocus;
@@ -1414,7 +1427,7 @@ begin
     end;
 
     if (ckSalvar.Checked) and not (DirectoryExists(Trim(edtPathLogs.Text))) then begin
-      Application.MessageBox('Informe um Caminho valido para salvar os Envios e Respostas', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe um Caminho valido para salvar os Envios e Respostas', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts2;
       edtPathLogs.SetFocus;
@@ -1423,7 +1436,7 @@ begin
     end;
 
     if not (DirectoryExists(Trim(edtPathNFe.Text))) then begin
-      Application.MessageBox('Informe um Caminho valido para salvar os XMLs', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe um Caminho valido para salvar os XMLs', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := TabSheet2;
       edtPathNFe.SetFocus;
@@ -1432,7 +1445,7 @@ begin
     end;
 
     if (Trim(edtPathSchemas.Text) = '') or not (DirectoryExists(Trim(edtPathSchemas.Text))) then begin
-      Application.MessageBox('Informe um Caminho valido de localizaÁ„o do Schemas', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe um Caminho valido de localiza√ß√£o do Schemas', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts2;
       edtPathSchemas.SetFocus;
@@ -1441,7 +1454,7 @@ begin
     end;
 
     if Trim(edtEmitUF.Text) = '' then begin
-      Application.MessageBox('Informe o UF do Emitente', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o UF do Emitente', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edtEmitUF.SetFocus;
@@ -1450,7 +1463,7 @@ begin
     end;
 
     if Trim(edSequencia.Text) = '' then begin
-      Application.MessageBox('Informe a Sequencia da NFC-e', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe a Sequencia da NFC-e', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edSequencia.SetFocus;
@@ -1458,7 +1471,7 @@ begin
       Exit;
     end;
     if Trim(edSerie.Text) = '' then begin
-      Application.MessageBox('Informe a SÈrie da NFC-e', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe a S√©rie da NFC-e', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edSerie.SetFocus;
@@ -1468,7 +1481,7 @@ begin
     try
       StrToInt(edSequencia.Text);
     except
-      Application.MessageBox('Informe uma Sequencia da NFC-e V·lida', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe uma Sequencia da NFC-e V√°lida', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts4;
       edSequencia.SetFocus;
@@ -1476,7 +1489,7 @@ begin
       Exit;
     end;
     if Trim(edCFOP.Text) = '' then begin
-      Application.MessageBox('Informe o CFOP Padr„o', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o CFOP Padr√£o', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet5;
       pgc1.ActivePage := ts2;
       edCFOP.SetFocus;
@@ -1484,7 +1497,7 @@ begin
     end;
   end else if (edTipoCupom.ItemIndex = 1) then begin
     if Trim(edCfopPadrao.Text) = '' then begin
-      Application.MessageBox('Informe o CFOP Padr„o', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('Informe o CFOP Padr√£o', 'Aten√ß√£o!', MB_ICONINFORMATION);
       pageview1.ActivePage := PageSheet6;
       PageControl1.ActivePage := TabSheet4;
       edCfopPadrao.SetFocus;
@@ -1628,7 +1641,7 @@ begin
     Exit;
   GravaDados;
 
-  application.messagebox('… necess·rio reiniciar o sistema para atualizar as novas configuraÁıes!', 'Aviso', mb_ok + MB_ICONINFORMATION);
+  application.messagebox('√â necess√°rio reiniciar o sistema para atualizar as novas configura√ß√µes!', 'Aviso', mb_ok + MB_ICONINFORMATION);
   bEdicaoRelatorio := CheckBox1.Checked;
 
   Close;
