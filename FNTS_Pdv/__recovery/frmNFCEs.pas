@@ -101,7 +101,7 @@ var
 begin
   if qrNFCE.RecordCount > 0 then begin
     if qrNFCE.FieldByName('situacao').AsInteger = 0 then begin
-      if Application.MessageBox('Deseja realmente cancelar esta NFC-e, este processo È irreversÌvel?','AtenÁ„o',MB_ICONQUESTION+MB_YESNO) <> mrYes then
+      if Application.MessageBox('Deseja realmente cancelar esta NFC-e, este processo √© irrevers√≠vel?','Aten√ß√£o',MB_ICONQUESTION+MB_YESNO) <> mrYes then
         Exit;
       Application.CreateForm(TfrmSenha_Supervisor,frmSenha_Supervisor);
       frmSenha_Supervisor.ShowModal;
@@ -177,7 +177,7 @@ begin
         end;
       end;
     end else begin
-      Application.MessageBox('NFC-e ja est· cancelada.','AtenÁ„o!',MB_ICONINFORMATION);
+      Application.MessageBox('NFC-e ja est√° cancelada.','Aten√ß√£o!',MB_ICONINFORMATION);
       Exit;
     end;
   end;
@@ -222,7 +222,7 @@ begin
        frmResultadoWebService.ShowModal;
        FreeAndNil(frmResultadoWebService);
       end else begin
-        Application.MessageBox('Ocorreu um erro ao efetuar a consulta.','AtenÁ„o!',MB_ICONINFORMATION);
+        Application.MessageBox('Ocorreu um erro ao efetuar a consulta.','Aten√ß√£o!',MB_ICONINFORMATION);
       end;
     end;
   end;
@@ -275,11 +275,11 @@ begin
     qryTmp.Open;
     if not qryTmp.IsEmpty then begin
       if (qryTmp.FieldByName('situacao').AsString = '1') then begin
-        Application.MessageBox('N„o È necess·rio Inutilizar uma numeraÁ„o de uma NFC-e ja Cancelada.', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox('N√£o √© necess√°rio Inutilizar uma numera√ß√£o de uma NFC-e ja Cancelada.', 'Aten√ß√£o!', MB_ICONINFORMATION);
         Exit;
       end;
       if (qryTmp.FieldByName('nfe_situacao').AsString = '0') then begin
-        Application.MessageBox('N„o È posivel inutilizar um NFC-e enviada.', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox('N√£o √© posivel inutilizar um NFC-e enviada.', 'Aten√ß√£o!', MB_ICONINFORMATION);
         Exit;
       end;
     end;

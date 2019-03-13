@@ -5181,7 +5181,27 @@ object frmModulo: TfrmModulo
     Left = 441
     Top = 477
   end
-
+  object ACBRNFCe: TACBrNFe
+    OnStatusChange = ACBRNFCeStatusChange
+    Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
+    Configuracoes.Geral.SSLCryptLib = cryCapicom
+    Configuracoes.Geral.SSLHttpLib = httpIndy
+    Configuracoes.Geral.SSLXmlSignLib = xsMsXmlCapicom
+    Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
+    Configuracoes.Geral.ValidarDigest = False
+    Configuracoes.Geral.VersaoQRCode = veqr200
+    Configuracoes.Arquivos.SepararPorModelo = True
+    Configuracoes.Arquivos.OrdenacaoPath = <>
+    Configuracoes.Arquivos.SepararPorMes = True
+    Configuracoes.Arquivos.SalvarEvento = True
+    Configuracoes.WebServices.UF = 'SP'
+    Configuracoes.WebServices.AguardarConsultaRet = 0
+    Configuracoes.WebServices.QuebradeLinha = '|'
+    Configuracoes.RespTec.IdCSRT = 0
+    DANFE = ACBRDANFENFCe
+    Left = 300
+    Top = 493
+  end
   object qradic_mestre: TUniQuery
     Connection = Conexao_Servidor
     SQL.Strings = (
@@ -6416,21 +6436,5 @@ object frmModulo: TfrmModulo
     Porta = 'COM1'
     Left = 536
     Top = 496
-  end
-  object ACBRDANFENFCe: TACBrNFeDANFCEFR
-    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
-    MargemInferior = 0.800000000000000000
-    MargemSuperior = 0.800000000000000000
-    MargemEsquerda = 0.600000000000000000
-    MargemDireita = 0.510000000000000000
-    CasasDecimais.Formato = tdetInteger
-    CasasDecimais.qCom = 2
-    CasasDecimais.vUnCom = 2
-    CasasDecimais.MaskqCom = ',0.00'
-    CasasDecimais.MaskvUnCom = ',0.00'
-    ACBrNFe = ACBRNFCe
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
-    Left = 464
-    Top = 272
   end
 end

@@ -9,7 +9,7 @@ uses
   InterBaseUniProvider, Datasnap.DBClient, MemDS, VirtualTable, ACBrValidador,
   AdvMenus, AdvMenuStylers, ACBrBase, ACBrBAL, pcnConversao, ACBrDFeSSL,
   blcksock, Vcl.FileCtrl, pcnConversaoNFe, ACBrUtil, System.Math, System.TypInfo,
-  ACBrGAV, ACBrDFeReport, ACBrDFeDANFeReport;
+  ACBrGAV, ACBrDFeReport, ACBrDFeDANFeReport, ACBrNFeDANFEFR;
 
 type
   TvNFe = (v310, v400);
@@ -1021,6 +1021,7 @@ type
     ZFilialCOD_PAIS: TStringField;
     ZFilialPAIS: TStringField;
     ACBrEAD1: TACBrEAD;
+    ACBRDANFENFCe: TACBrNFeDANFCEFR;
     ACBRNFCe: TACBrNFe;
     qradic_mestre: TUniQuery;
     Conexao_Numerador: TUniConnection;
@@ -1337,7 +1338,6 @@ type
     qrImpDeliveryEXTRA: TBlobField;
     qrImpDeliveryCOMPLEMENTO: TStringField;
     qrImpDeliveryID_ITEM: TIntegerField;
-    ACBRDANFENFCe: TACBrNFeDANFCEFR;
     procedure BalancaLePeso(Peso: Double; Resposta: string);
     procedure DataModuleCreate(Sender: TObject);
     procedure ACBRNFCeStatusChange(Sender: TObject);

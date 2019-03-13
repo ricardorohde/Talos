@@ -1191,19 +1191,11 @@ begin
     edtSwHCNPJ.Text       := INI.ReadString('SwH','CNPJ','11111111111111');
     edtSwHAssinatura.Lines.Text := INI.ReadString('SwH','Assinatura',cAssinatura);
 
-
-    seLargura.Value        := INI.ReadInteger('Fortes','Largura',StrToInt(ACBrSATExtratoFortes1.LarguraBobina.toString));
-    seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',StrToInt(ACBrSATExtratoFortes1.MargemSuperior.toString));
-    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',StrToInt(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',StrToInt(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita', StrToInt(ACBrSATExtratoFortes1.MargemDireita.ToString));
-
     seLargura.Value        := INI.ReadInteger('Fortes','Largura',ACBrSATExtratoFortes1.LarguraBobina);
     seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
-
+    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',ACBrSATExtratoFortes1.Margens.Fundo);
+    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',ACBrSATExtratoFortes1.Margens.Esquerda);
+    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',ACBrSATExtratoFortes1.Margens.Direita);
     cbPreview.Checked      := INI.ReadBool('Fortes','Preview',True);
 
     lImpressora.Caption := INI.ReadString('Printer','Name','');

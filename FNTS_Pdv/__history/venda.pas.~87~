@@ -3931,18 +3931,18 @@ begin
       ACBRDANFENFCe.FastFile := 'C:\TALOS\PDV\Schemas\DANFeNFCe.fr3';
       if FileExists(frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
         ACBRDANFENFCe.Logo := frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '');
-
+<<<<<<< HEAD
       ACBRDANFENFCe.ImprimeDetalhamentoEspecifico := True;
 
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
       ACBRDANFENFCe.EspessuraBorda := edMargem;
-
+=======
 //      ACBRDANFENFCe.Detalhado := True;
       ACBRDANFENFCe.vTroco := vRecebimento.Troco;
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
 //      ACBRDANFENFCe.ViaConsumidor := edDescEsta;
 //      ACBRDANFENFCe.EspessuraBorda := edMargem;
-
+>>>>>>> a07ab7db4734f727d529640da074f0c085669cee
       ACBRDANFENFCe.MargemDireita := edMargDir;
       ACBRDANFENFCe.MargemEsquerda := edMargEsq;
       ACBRDANFENFCe.MargemSuperior := edMargSup;
@@ -4327,19 +4327,19 @@ begin
     SwHAssinatura := Ini.ReadString('SwH', 'Assinatura', '');
     Sat_FormatXML := Ini.ReadBool('SAT', 'FormatarXML', True);
 
-
+<<<<<<< HEAD
     Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', StrToInt(ACBrSATExtratoFortes1.MargemSuperior.ToString));
     Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', StrToInt( ACBrSATExtratoFortes1.MargemSuperior.ToString));
     Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', StrToInt(ACBrSATExtratoFortes1.MargemInferior.ToString));
     Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda',   StrToInt(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
     Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita',  StrToInt(ACBrSATExtratoFortes1.MargemDireita.TOString));
-
+=======
     Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', ACBrSATExtratoFortes1.LarguraBobina);
     Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
     Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
     Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
     Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
-
+>>>>>>> a07ab7db4734f727d529640da074f0c085669cee
     Sat_Preview := Ini.ReadBool('Fortes', 'Preview', True);
 
     Sat_Impressora := Ini.ReadString('Printer', 'Name', '');

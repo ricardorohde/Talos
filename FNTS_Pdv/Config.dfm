@@ -1530,7 +1530,7 @@ object frmConfig: TfrmConfig
           TabOrder = 1
           Text = ''
           Visible = True
-          Version = '1.3.6.0'
+          Version = '1.3.5.1'
           ButtonStyle = bsButton
           ButtonWidth = 16
           Etched = False
@@ -1573,6 +1573,10 @@ object frmConfig: TfrmConfig
           TabOrder = 0
           object ts1: TTabSheet
             Caption = 'Certificado'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object grp2: TGroupBox
               Left = 0
               Top = 3
@@ -1746,6 +1750,10 @@ object frmConfig: TfrmConfig
           object ts2: TTabSheet
             Caption = 'Geral'
             ImageIndex = 1
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object grp3: TGroupBox
               Left = 0
               Top = 0
@@ -1966,6 +1974,10 @@ object frmConfig: TfrmConfig
           object ts3: TTabSheet
             Caption = 'WebService'
             ImageIndex = 2
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label45: TLabel
               Left = 8
               Top = 276
@@ -2280,6 +2292,10 @@ object frmConfig: TfrmConfig
           object ts4: TTabSheet
             Caption = 'Emitente'
             ImageIndex = 3
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object lbl12: TLabel
               Left = 8
               Top = 4
@@ -2512,6 +2528,10 @@ object frmConfig: TfrmConfig
           object TabSheet1: TTabSheet
             Caption = 'Impress'#227'o'
             ImageIndex = 5
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label20: TLabel
               Left = 3
               Top = 3
@@ -2611,6 +2631,10 @@ object frmConfig: TfrmConfig
           object TabSheet2: TTabSheet
             Caption = 'Arquivos'
             ImageIndex = 6
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object sbPathNFe: TSpeedButton
               Left = 500
               Top = 16
@@ -2844,6 +2868,10 @@ object frmConfig: TfrmConfig
           TabOrder = 0
           object tsDadosSAT: TTabSheet
             Caption = 'Dados do SAT CFe'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label54: TLabel
               Left = 19
               Top = 58
@@ -3311,6 +3339,10 @@ object frmConfig: TfrmConfig
           end
           object tsDadosEmit: TTabSheet
             Caption = 'Dados Emitente'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label62: TLabel
               Left = 12
               Top = 23
@@ -3425,6 +3457,10 @@ object frmConfig: TfrmConfig
           end
           object tsDadosSwHouse: TTabSheet
             Caption = 'Dados Sw.House'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             DesignSize = (
               978
               391)
@@ -3469,6 +3505,10 @@ object frmConfig: TfrmConfig
           object tsRede: TTabSheet
             Caption = 'Rede'
             ImageIndex = 4
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object gbIPFix: TGroupBox
               Left = 160
               Top = 48
@@ -3805,6 +3845,10 @@ object frmConfig: TfrmConfig
           end
           object Impressao: TTabSheet
             Caption = 'Impressao'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object GroupBox16: TGroupBox
               Left = 0
               Top = 0
@@ -3969,6 +4013,10 @@ object frmConfig: TfrmConfig
           object TabSheet4: TTabSheet
             Caption = 'Dados Adcionais'
             ImageIndex = 6
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label83: TLabel
               Left = 10
               Top = 7
@@ -4126,7 +4174,7 @@ object frmConfig: TfrmConfig
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 2
     ShowExpander = False
@@ -4224,7 +4272,7 @@ object frmConfig: TfrmConfig
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -4255,6 +4303,7 @@ object frmConfig: TfrmConfig
     Configuracoes.WebServices.UF = 'SP'
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.QuebradeLinha = '|'
+    Configuracoes.RespTec.IdCSRT = 0
     Left = 501
     Top = 63
   end
@@ -4277,54 +4326,25 @@ object frmConfig: TfrmConfig
     Top = 63
   end
   object ACBRDANFENFCe: TACBrNFeDANFEFR
-    Logo = 'C:\TALOS\PDV\Img\logo-nfce.jpg'
-    PathPDF = 'C:\TALOS\PDV\xml\'
     Impressora = 'CutePDF Writer'
-    MostrarPreview = False
-    MostrarStatus = True
-    TipoDANFE = tiNFCe
-    NumCopias = 1
-    ImprimeNomeFantasia = False
-    ImprimirDescPorc = False
-    ImprimirTotalLiquido = True
+    PathPDF = 'C:\TALOS\PDV\xml\'
+    Logo = 'C:\TALOS\PDV\Img\logo-nfce.jpg'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     MargemInferior = 0.800000000000000000
     MargemSuperior = 0.800000000000000000
     MargemEsquerda = 0.600000000000000000
     MargemDireita = 0.510000000000000000
     CasasDecimais.Formato = tdetInteger
-    CasasDecimais._qCom = 2
-    CasasDecimais._vUnCom = 2
-    CasasDecimais._Mask_qCom = '###,###,###,##0.00'
-    CasasDecimais._Mask_vUnCom = '###,###,###,##0.00'
-    ExibirResumoCanhoto = False
-    FormularioContinuo = False
-    TamanhoFonte_DemaisCampos = 10
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    ImprimirItens = True
-    ViaConsumidor = True
-    TamanhoLogoHeight = 0
-    TamanhoLogoWidth = 0
-    RecuoEndereco = 0
-    RecuoEmpresa = 0
-    LogoemCima = False
-    TamanhoFonteEndereco = 0
-    RecuoLogo = 0
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    TipoDANFE = tiNFCe
     EspessuraBorda = 1
-    ExibirTotalTributosItem = False
-    ExibeCampoFatura = True
-    TributosFonte = 'IBPT'
-    TributosPercentual = ptValorProdutos
-    ImprimirUnQtVlComercial = iuComercial
-    Detalhado = False
-    DescricaoViaEstabelec = 'Via do Consumidor'
     ExpandirDadosAdicionaisAuto = False
-    ImprimirDadosArma = True
-    QuebraLinhaEmDetalhamentoEspecifico = True
     IncorporarBackgroundPdf = True
     IncorporarFontesPdf = True
-    ImprimirDadosDocReferenciados = True
+    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
     Left = 533
     Top = 63
   end
@@ -4427,10 +4447,17 @@ object frmConfig: TfrmConfig
     Top = 322
   end
   object ACBrSATExtratoESCPOS1: TACBrSATExtratoESCPOS
-    Mask_qCom = '0.0000'
-    Mask_vUnCom = '0.000'
-    SoftwareHouse = 'TALOS 1.0.0.0'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     Site = 'http://www.projetoacbr.com.br'
+    MargemInferior = 0.800000000000000000
+    MargemSuperior = 0.800000000000000000
+    MargemEsquerda = 0.600000000000000000
+    MargemDireita = 0.510000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
     MsgAppQRCode = 
       'Consulte o QR Code pelo aplicativo  "De olho na nota", dispon'#237've' +
       'l na AppStore (Apple) e PlayStore (Android)'
@@ -4446,18 +4473,21 @@ object frmConfig: TfrmConfig
     Top = 354
   end
   object ACBrSATExtratoFortes1: TACBrSATExtratoFortes
-    ACBrSAT = ACBrSAT1
-    Mask_qCom = '0.000'
-    Mask_vUnCom = '0.00'
-    MostrarPreview = True
-    NomeArquivo = 'satcfe.pdf'
-    SoftwareHouse = 'TALOS 1.0.0.0'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     Site = 'http://www.projetoacbr.com.br'
+    MargemInferior = 4.000000000000000000
+    MargemSuperior = 2.000000000000000000
+    MargemEsquerda = 2.000000000000000000
+    MargemDireita = 2.000000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrSAT = ACBrSAT1
     MsgAppQRCode = 
       'Consulte o QR Code pelo aplicativo  "De olho na nota", dispon'#237've' +
       'l na AppStore (Apple) e PlayStore (Android)'
-    Margens.Topo = 5
-    Margens.Fundo = 5
     Left = 150
     Top = 298
   end

@@ -36,8 +36,7 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils,
-  ACBrDFeReport;
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -522,9 +521,6 @@ var
   //variavel multiplicador
   multiplicador: string;
 
-  //flag da contingencia
-  enviadoemcontingencia: boolean;
-
 implementation
 
 uses
@@ -584,8 +580,8 @@ begin
       TdxStatusBarStateIndicatorPanelStyle(cpBarra.Panels[7].PanelStyle).Indicators[0].IndicatorType := sitGreen;
       cpBarra.Panels[9].Text := 'ON-LINE';
       frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao := StrToTpEmis(ok, IntToStr(rgFormaEmissao + 1));
-
-     if not (bVenda) then
+      frmModulo.ACBRDANFENFCe.ViaConsumidor := True;
+      if not (bVenda) then
         EnviaContingencia;
     end;
   end
@@ -1069,7 +1065,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
+          query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -1081,7 +1077,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + AnsiUpperCase(referencia) + '%''');
+            query.sql.add('where upper(nome) like ''' + AnsiUpperCase(referencia) + '%''');
             query.sql.add('order by nome');
             query.open;
 
@@ -1161,7 +1157,7 @@ begin
         query.close;
         query.sql.clear;
         query.sql.add('select * from ESTOQUE');
-        query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
+        query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
         query.sql.add('order by REFERENCIA, COR, TAMANHO');
         query.open;
 
@@ -1187,7 +1183,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + referencia + '%''');
+            query.sql.add('where upper(nome) like ''' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin
@@ -2581,7 +2577,6 @@ begin
                   NomeArquivo := NomeArquivo + '\NFCe';
                 NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
 
-                qrNFCEInsert.Close;
                 qrNFCEInsert.Open;
                 qrNFCEInsert.Insert;
                 qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
@@ -2593,11 +2588,10 @@ begin
                 qrNFCEInsertXML.asstring := NomeArquivo;
                 qrNFCEInsertSITUACAO.AsInteger := 0;
                 qrNFCEInsertTROCO.AsFloat := vRecebimento.Troco;
-                if (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) or (enviadoemcontingencia=True) then begin
+                if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine then begin
                   vcontingencia := 'S';
                   qrNFCEInsertCONTINGENCIA.AsString := 'S';
                   qrNFCEInsertMOTIVOCONTIGENCIA.AsString := MotivoContigencia;
-                  enviadoemcontingencia := False;
                 end
                 else begin
                   vcontingencia := 'N';
@@ -2622,7 +2616,6 @@ begin
           except
             on E: Exception do begin
               Imprime_display('ERRO NFCE: ' + E.Message, clWhite, tiLivre);
-              
               Exit;
             end;
           end;
@@ -3823,13 +3816,13 @@ end;
 procedure TfrmVenda.PrepararImpressao;
 begin
   ACBrSATExtratoFortes1.LarguraBobina := Sat_Largura;
-  ACBrSATExtratoFortes1.MargemSuperior := Sat_MargemTopo;
-  ACBrSATExtratoFortes1.MargemInferior := Sat_MargemFundo;
-  ACBrSATExtratoFortes1.MargemEsquerda := Sat_MargemEsquerda;
-  ACBrSATExtratoFortes1.MargemDireita := Sat_MargemDireita;
-  ACBrSATExtratoFortes1.MostraPreview := Sat_Preview;
+  ACBrSATExtratoFortes1.Margens.Topo := Sat_MargemTopo;
+  ACBrSATExtratoFortes1.Margens.Fundo := Sat_MargemFundo;
+  ACBrSATExtratoFortes1.Margens.Esquerda := Sat_MargemEsquerda;
+  ACBrSATExtratoFortes1.Margens.Direita := Sat_MargemDireita;
+  ACBrSATExtratoFortes1.MostrarPreview := Sat_Preview;
   if Sat_Impressora <> '' then
-    ACBrSATExtratoFortes1.Impressora := Sat_Impressora;
+    ACBrSATExtratoFortes1.PrinterName := Sat_Impressora;
 end;
 
 function TfrmVenda.PrepararNFCE: Boolean;
@@ -3837,8 +3830,6 @@ var
   Acao: string;
   i: Integer;
   Prestacao, Resto: Double;
-  ContingenciaTemporaria: Boolean;
-  Sender : TObject;
 begin
   Result := True;
   nfce_autorizada := False;
@@ -3872,45 +3863,8 @@ begin
         except
           on E: Exception do begin
             Application.MessageBox(PWideChar(E.Message), 'Atenção!', MB_ICONINFORMATION);
-            if(E.Message.Contains('12002')) then begin
-              Imprime_display('Comunicação Ruim -> Não houve retorno da SEFAZ',clWhite,tiLivre);
-              ContingenciaTemporaria := True;
-//              frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao := frmtOffLine;
-               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
-               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
-               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
-               
-               GerarNFCe(vAux);
-               ACBRNFCe.NotasFiscais.Assinar;
-               ACBRNFCe.NotasFiscais.Validar;
-               enviadoemcontingencia := True;
-               ChaveNFCE := ACBRNFCe.NotasFiscais.Items[0].NFe.infNFe.Id;
-               NumeroNFCe := StrToInt(vAux);
-               
-            end
-            else begin
-            
-
-            if (E.Message.Contains('12007')) then begin
-              Imprime_display('Comunicação Ruim -> Enviando em Contingência',clWhite,tiLivre);
-              ContingenciaTemporaria := True;
-              enviadoemcontingencia := True;
-              ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
-               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
-               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
-               GerarNFCe(vAux);
-               ACBRNFCe.NotasFiscais.Assinar;
-               ACBRNFCe.NotasFiscais.Validar;
-               enviadoemcontingencia := True;
-               ChaveNFCE := ACBRNFCe.NotasFiscais.Items[0].NFe.infNFe.Id;
-               NumeroNFCe := StrToInt(vAux);
-            end
-            else begin
             Result := False;
             Exit;
-            end;
-
-            end;
           end;
         end;
         if ACBRNFCe.NotasFiscais.Items[0].Confirmada then begin
@@ -3931,23 +3885,16 @@ begin
       ACBRDANFENFCe.FastFile := 'C:\TALOS\PDV\Schemas\DANFeNFCe.fr3';
       if FileExists(frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
         ACBRDANFENFCe.Logo := frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '');
-
-      ACBRDANFENFCe.ImprimeDetalhamentoEspecifico := True;
-
-      ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
-      ACBRDANFENFCe.EspessuraBorda := edMargem;
-
-//      ACBRDANFENFCe.Detalhado := True;
+      ACBRDANFENFCe.Detalhado := True;
       ACBRDANFENFCe.vTroco := vRecebimento.Troco;
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
-//      ACBRDANFENFCe.ViaConsumidor := edDescEsta;
-//      ACBRDANFENFCe.EspessuraBorda := edMargem;
-
+      ACBRDANFENFCe.DescricaoViaEstabelec := edDescEsta;
+      ACBRDANFENFCe.EspessuraBorda := edMargem;
       ACBRDANFENFCe.MargemDireita := edMargDir;
       ACBRDANFENFCe.MargemEsquerda := edMargEsq;
       ACBRDANFENFCe.MargemSuperior := edMargSup;
       ACBRDANFENFCe.MargemInferior := edMarginf;
-      ACBRDANFENFCe.MostraPreview := bExibeCumponNFTela;
+      ACBRDANFENFCe.MostrarPreview := bExibeCumponNFTela;
 
       if TipoImprimeCupom = 'P' then begin
         Acao := 'N';
@@ -3992,12 +3939,10 @@ begin
 
       ACBRNFCe.NotasFiscais.clear;
 
-      if (cStatus = 100) or (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) or (ContingenciaTemporaria = True) then
+      if (cStatus = 100) or (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) then
         nfce_autorizada := True
       else
         nfce_autorizada := False;
-
-      ContingenciaTemporaria := false;
     except
       on E: Exception do begin
         frmModulo.codifica('888888', 'D');
@@ -4327,19 +4272,11 @@ begin
     SwHAssinatura := Ini.ReadString('SwH', 'Assinatura', '');
     Sat_FormatXML := Ini.ReadBool('SAT', 'FormatarXML', True);
 
-
-    Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', StrToInt(ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', StrToInt( ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', StrToInt(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda',   StrToInt(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita',  StrToInt(ACBrSATExtratoFortes1.MargemDireita.TOString));
-
     Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', ACBrSATExtratoFortes1.LarguraBobina);
-    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
-
+    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', ACBrSATExtratoFortes1.Margens.Topo);
+    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', ACBrSATExtratoFortes1.Margens.Fundo);
+    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', ACBrSATExtratoFortes1.Margens.Esquerda);
+    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', ACBrSATExtratoFortes1.Margens.Direita);
     Sat_Preview := Ini.ReadBool('Fortes', 'Preview', True);
 
     Sat_Impressora := Ini.ReadString('Printer', 'Name', '');

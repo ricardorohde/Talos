@@ -193,12 +193,12 @@ begin
         ACBRDANFENFCe.FastFile := 'C:\TALOS\PDV\Schemas\DANFeNFCe.fr3';
         if FileExists(frmPrincipal.LerIni(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
           ACBRDANFENFCe.Logo := frmPrincipal.LerIni(sConfiguracoes, 'PDV','CAMINHO_LOGO', '');
-
+<<<<<<< HEAD
        // ACBRDANFENFCe.vTroco := qrNFCETROCO.AsFloat;
         //ACBRDANFENFCe.Detalhado := False;
-
+=======
         ACBRDANFENFCe.vTroco := qrNFCETROCO.AsFloat;
-
+>>>>>>> a07ab7db4734f727d529640da074f0c085669cee
         ACBRNFCe.NotasFiscais.Imprimir;
       end;
     end;

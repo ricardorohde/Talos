@@ -590,6 +590,7 @@ type
     procedure ImportaCupomFiscal1Click(Sender: TObject);
     procedure ecodmodeloExit(Sender: TObject);
     procedure qryBeforePost(DataSet: TDataSet);
+    procedure AdvMetroButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1295,6 +1296,11 @@ begin
   end;
   bimporta_cupom.Visible := false;
 
+end;
+
+procedure Tfrmnotafiscal.AdvMetroButton1Click(Sender: TObject);
+begin
+close;
 end;
 
 procedure Tfrmnotafiscal.bcancelarClick(Sender: TObject);
