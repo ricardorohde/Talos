@@ -522,6 +522,9 @@ var
   //variavel multiplicador
   multiplicador: string;
 
+  //flag da contingencia
+  enviadoemcontingencia: boolean;
+
 implementation
 
 uses
@@ -2578,6 +2581,7 @@ begin
                   NomeArquivo := NomeArquivo + '\NFCe';
                 NomeArquivo := NomeArquivo + '\' + Copy(ChaveNFCE, 4, 47) + '-nfe.xml';
 
+                qrNFCEInsert.Close;
                 qrNFCEInsert.Open;
                 qrNFCEInsert.Insert;
                 qrNFCEInsertNUMERO.asinteger := NumeroNFCe;
@@ -2589,10 +2593,11 @@ begin
                 qrNFCEInsertXML.asstring := NomeArquivo;
                 qrNFCEInsertSITUACAO.AsInteger := 0;
                 qrNFCEInsertTROCO.AsFloat := vRecebimento.Troco;
-                if frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine then begin
+                if (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) or (enviadoemcontingencia=True) then begin
                   vcontingencia := 'S';
                   qrNFCEInsertCONTINGENCIA.AsString := 'S';
                   qrNFCEInsertMOTIVOCONTIGENCIA.AsString := MotivoContigencia;
+                  enviadoemcontingencia := False;
                 end
                 else begin
                   vcontingencia := 'N';
@@ -2617,6 +2622,7 @@ begin
           except
             on E: Exception do begin
               Imprime_display('ERRO NFCE: ' + E.Message, clWhite, tiLivre);
+              
               Exit;
             end;
           end;
@@ -3831,6 +3837,8 @@ var
   Acao: string;
   i: Integer;
   Prestacao, Resto: Double;
+  ContingenciaTemporaria: Boolean;
+  Sender : TObject;
 begin
   Result := True;
   nfce_autorizada := False;
@@ -3864,8 +3872,45 @@ begin
         except
           on E: Exception do begin
             Application.MessageBox(PWideChar(E.Message), 'Atenção!', MB_ICONINFORMATION);
+            if(E.Message.Contains('12002')) then begin
+              Imprime_display('Comunicação Ruim -> Não houve retorno da SEFAZ',clWhite,tiLivre);
+              ContingenciaTemporaria := True;
+//              frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao := frmtOffLine;
+               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
+               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
+               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
+               
+               GerarNFCe(vAux);
+               ACBRNFCe.NotasFiscais.Assinar;
+               ACBRNFCe.NotasFiscais.Validar;
+               enviadoemcontingencia := True;
+               ChaveNFCE := ACBRNFCe.NotasFiscais.Items[0].NFe.infNFe.Id;
+               NumeroNFCe := StrToInt(vAux);
+               
+            end
+            else begin
+            
+
+            if (E.Message.Contains('12007')) then begin
+              Imprime_display('Comunicação Ruim -> Enviando em Contingência',clWhite,tiLivre);
+              ContingenciaTemporaria := True;
+              enviadoemcontingencia := True;
+              ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
+               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
+               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
+               GerarNFCe(vAux);
+               ACBRNFCe.NotasFiscais.Assinar;
+               ACBRNFCe.NotasFiscais.Validar;
+               enviadoemcontingencia := True;
+               ChaveNFCE := ACBRNFCe.NotasFiscais.Items[0].NFe.infNFe.Id;
+               NumeroNFCe := StrToInt(vAux);
+            end
+            else begin
             Result := False;
             Exit;
+            end;
+
+            end;
           end;
         end;
         if ACBRNFCe.NotasFiscais.Items[0].Confirmada then begin
@@ -3939,10 +3984,12 @@ begin
 
       ACBRNFCe.NotasFiscais.clear;
 
-      if (cStatus = 100) or (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) then
+      if (cStatus = 100) or (frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao = frmtOffLine) or (ContingenciaTemporaria = True) then
         nfce_autorizada := True
       else
         nfce_autorizada := False;
+
+      ContingenciaTemporaria := false;
     except
       on E: Exception do begin
         frmModulo.codifica('888888', 'D');

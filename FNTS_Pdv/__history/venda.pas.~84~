@@ -36,7 +36,8 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils;
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils,
+  ACBrDFeReport;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -580,8 +581,8 @@ begin
       TdxStatusBarStateIndicatorPanelStyle(cpBarra.Panels[7].PanelStyle).Indicators[0].IndicatorType := sitGreen;
       cpBarra.Panels[9].Text := 'ON-LINE';
       frmModulo.ACBRNFCe.Configuracoes.Geral.FormaEmissao := StrToTpEmis(ok, IntToStr(rgFormaEmissao + 1));
-      frmModulo.ACBRDANFENFCe.ViaConsumidor := True;
-      if not (bVenda) then
+
+     if not (bVenda) then
         EnviaContingencia;
     end;
   end
@@ -1065,7 +1066,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
+          query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -1077,7 +1078,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like ''' + AnsiUpperCase(referencia) + '%''');
+            query.sql.add('where upper(nome) like %''' + AnsiUpperCase(referencia) + '%''');
             query.sql.add('order by nome');
             query.open;
 
@@ -1157,7 +1158,7 @@ begin
         query.close;
         query.sql.clear;
         query.sql.add('select * from ESTOQUE');
-        query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '%''');
+        query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
         query.sql.add('order by REFERENCIA, COR, TAMANHO');
         query.open;
 
@@ -1183,7 +1184,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like ''' + referencia + '%''');
+            query.sql.add('where upper(nome) like %''' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin
@@ -1291,6 +1292,7 @@ var
 begin
   Imprime_display('Aguarde! Cancelando cupom ' + sNumero_Cupom + '!', clYellow, tiAlerta);
 
+  if not sNumero_Cupom.Equals('') then begin
 
   query.SQL.Clear;
   query.SQL.Add('INSERT INTO CUPOM_ABERTO_CANCELADO SELECT * FROM CUPOM_TEMP WHERE NUMERO = ' + sNumero_Cupom );
@@ -1301,15 +1303,17 @@ begin
 
 while not Query1.Eof do
 begin
+
     query.SQL.Clear;
+
     QUERY.SQL.Add('insert into CUPOM_ITEM_CANCELADO (CODIGO, COD_CUPOM, OPERADOR, DATA, HORA, PDV, ITEM, COD_PRODUTO, UNIDADE, QTDE, VALOR_UNITARIO, VALOR_SUBTOTAL, VALOR_DESCONTO, VALOR_ACRESCIMO, VALOR_TOTAL, CANCELADO,COMPLEMENTO');
                       query.SQL.Add(') values (');
                       query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                       query.SQL.Add(')');
-                      query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString + '_' + query1.FieldByName('ITEM').AsString;;
+                      query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString + '_' + query1.FieldByName('CODIGO').AsString;
                       query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
                       query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
-                      query.Params.ParamByName('PDV').AsString := sCaixa;
+                      query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsString;
                       query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                       query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
                       query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
@@ -1322,9 +1326,17 @@ begin
                       query.Params.ParamByName('CANCELADO').AsInteger := query1.FieldByName('CANCELADO').AsInteger;
                       query.Params.ParamByName('COMPLEMENTO').AsString := 'CUPOM CANCELADO POR INTEIRO';
     //query.SQL.Add('INSERT INTO CUPOM_ITEM_CANCELADO SELECT * FROM CUPOM_ITEM_TEMP WHERE CUPOM_ITEM_TEMP.ITEM = ' + IntToStr(StrToInt(sItem)));
+    try
     query.ExecSQL;
+    except
+      on E: Exception do begin
+
+    end;
+    end;
     Query1.Next;
 end;
+  end;
+
 
   if (bBusca_foto_produto) and not (AtivaTouch) then
     img_produto.Picture := nil;
@@ -1376,10 +1388,10 @@ begin
                     query.SQL.Add(') values (');
                     query.SQL.Add(':CODIGO, :COD_CUPOM, :OPERADOR, CURRENT_DATE, CURRENT_TIME, :PDV, :ITEM, :COD_PRODUTO, :UNIDADE, :QTDE, :VALOR_UNITARIO, :VALOR_SUBTOTAL, :VALOR_DESCONTO, :VALOR_ACRESCIMO, :VALOR_TOTAL, :CANCELADO, :COMPLEMENTO');
                     query.SQL.Add(')');
-                    query.Params.ParamByName('CODIGO').AsString := query1.FieldByName('CODIGO').AsString;
+                    query.Params.ParamByName('CODIGO').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString + '_' + query1.FieldByName('CODIGO').AsString;
                     query.Params.ParamByName('COD_CUPOM').AsString := query1.FieldByName('COD_CUPOM').AsString;
                     query.Params.ParamByName('OPERADOR').AsFloat := icodigo_Usuario;
-                    query.Params.ParamByName('PDV').AsString := sCaixa;
+                    query.Params.ParamByName('PDV').AsString := frmmodulo.qrConfigPDV.FieldByName('numcaixa').AsInteger.ToString;
                     query.Params.ParamByName('ITEM').AsInteger := query1.FieldByName('ITEM').AsInteger;
                     query.Params.ParamByName('COD_PRODUTO').AsInteger := query1.FieldByName('COD_PRODUTO').AsInteger;
                     query.Params.ParamByName('UNIDADE').AsString := query1.FieldByName('UNIDADE').AsString;
@@ -1815,6 +1827,8 @@ function TfrmVenda.Abre_Venda(): Boolean;
 begin
   TimerTroco.Enabled := False;
   try
+    frmModulo.spCupom_Temp_delete.prepare;
+    frmModulo.spCupom_Temp_delete.execute;
     cdsLancaProdutos.Close;
     cdsLancaProdutos.CreateDataSet;
     bLanca_Delivery := False;
@@ -2074,7 +2088,8 @@ begin
 
   //TrocaResolucao(Screen.Width,Screen.Height,1,1);
   // ajuste para se a resolucao for muito baixa
-  if Screen.width < 1024 then
+
+  if Screen.width <= 1024 then
    cxGrid1.width := 400;
 
   Carregando := False;
@@ -2099,7 +2114,7 @@ begin
    multiplicador := SplitString(ed_barra.text,'*')[0];
    Imprime_display('MULTIPLICADOR DE ' + multiplicador + ' VEZES',clYellow,tiInfo);
    ed_barra.text := '';
-   Key := ' ';
+   Key := #0;
 
 
   end ;
@@ -3802,13 +3817,13 @@ end;
 procedure TfrmVenda.PrepararImpressao;
 begin
   ACBrSATExtratoFortes1.LarguraBobina := Sat_Largura;
-  ACBrSATExtratoFortes1.Margens.Topo := Sat_MargemTopo;
-  ACBrSATExtratoFortes1.Margens.Fundo := Sat_MargemFundo;
-  ACBrSATExtratoFortes1.Margens.Esquerda := Sat_MargemEsquerda;
-  ACBrSATExtratoFortes1.Margens.Direita := Sat_MargemDireita;
-  ACBrSATExtratoFortes1.MostrarPreview := Sat_Preview;
+  ACBrSATExtratoFortes1.MargemSuperior := Sat_MargemTopo;
+  ACBrSATExtratoFortes1.MargemInferior := Sat_MargemFundo;
+  ACBrSATExtratoFortes1.MargemEsquerda := Sat_MargemEsquerda;
+  ACBrSATExtratoFortes1.MargemDireita := Sat_MargemDireita;
+  ACBrSATExtratoFortes1.MostraPreview := Sat_Preview;
   if Sat_Impressora <> '' then
-    ACBrSATExtratoFortes1.PrinterName := Sat_Impressora;
+    ACBrSATExtratoFortes1.Impressora := Sat_Impressora;
 end;
 
 function TfrmVenda.PrepararNFCE: Boolean;
@@ -3871,16 +3886,15 @@ begin
       ACBRDANFENFCe.FastFile := 'C:\TALOS\PDV\Schemas\DANFeNFCe.fr3';
       if FileExists(frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
         ACBRDANFENFCe.Logo := frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '');
-      ACBRDANFENFCe.Detalhado := True;
-      ACBRDANFENFCe.vTroco := vRecebimento.Troco;
+      ACBRDANFENFCe.ImprimeDetalhamentoEspecifico := True;
+
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
-      ACBRDANFENFCe.DescricaoViaEstabelec := edDescEsta;
       ACBRDANFENFCe.EspessuraBorda := edMargem;
       ACBRDANFENFCe.MargemDireita := edMargDir;
       ACBRDANFENFCe.MargemEsquerda := edMargEsq;
       ACBRDANFENFCe.MargemSuperior := edMargSup;
       ACBRDANFENFCe.MargemInferior := edMarginf;
-      ACBRDANFENFCe.MostrarPreview := bExibeCumponNFTela;
+      ACBRDANFENFCe.MostraPreview := bExibeCumponNFTela;
 
       if TipoImprimeCupom = 'P' then begin
         Acao := 'N';
@@ -4258,11 +4272,11 @@ begin
     SwHAssinatura := Ini.ReadString('SwH', 'Assinatura', '');
     Sat_FormatXML := Ini.ReadBool('SAT', 'FormatarXML', True);
 
-    Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', ACBrSATExtratoFortes1.LarguraBobina);
-    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', ACBrSATExtratoFortes1.Margens.Topo);
-    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', ACBrSATExtratoFortes1.Margens.Fundo);
-    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', ACBrSATExtratoFortes1.Margens.Esquerda);
-    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', ACBrSATExtratoFortes1.Margens.Direita);
+    Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', StrToInt(ACBrSATExtratoFortes1.MargemSuperior.ToString));
+    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', StrToInt( ACBrSATExtratoFortes1.MargemSuperior.ToString));
+    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', StrToInt(ACBrSATExtratoFortes1.MargemInferior.ToString));
+    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda',   StrToInt(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
+    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita',  StrToInt(ACBrSATExtratoFortes1.MargemDireita.TOString));
     Sat_Preview := Ini.ReadBool('Fortes', 'Preview', True);
 
     Sat_Impressora := Ini.ReadString('Printer', 'Name', '');
