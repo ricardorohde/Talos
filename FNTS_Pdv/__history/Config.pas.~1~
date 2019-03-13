@@ -15,20 +15,7 @@ uses
   pcnConversaoNFe, RzEdit, RzBtnEdt, cxSpinEdit, ACBrGAV, System.Actions,
   Vcl.ActnList, ACBrSATExtratoReportClass, ACBrSATExtratoFortesFr,
   ACBrSATExtratoClass, ACBrSATExtratoESCPOS, ACBrSAT, Vcl.Menus, ACBrPosPrinter,
-  Vcl.OleCtrls, SHDocVw, ACBrUtil, dxSkinsCore, dxSkinBlack, dxSkinBlue,
-  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
-  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
-  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
-  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
-  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
-  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
-  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
-  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
-  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
-  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
-  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
-  ACBrDFeReport, ACBrDFeDANFeReport;
+  Vcl.OleCtrls, SHDocVw, ACBrUtil;
 
 const
   SELDIRHELP = 1000;
@@ -1192,10 +1179,10 @@ begin
     edtSwHAssinatura.Lines.Text := INI.ReadString('SwH','Assinatura',cAssinatura);
 
     seLargura.Value        := INI.ReadInteger('Fortes','Largura',ACBrSATExtratoFortes1.LarguraBobina);
-    seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
+    seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',ACBrSATExtratoFortes1.Margens.Topo);
+    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',ACBrSATExtratoFortes1.Margens.Fundo);
+    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',ACBrSATExtratoFortes1.Margens.Esquerda);
+    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',ACBrSATExtratoFortes1.Margens.Direita);
     cbPreview.Checked      := INI.ReadBool('Fortes','Preview',True);
 
     lImpressora.Caption := INI.ReadString('Printer','Name','');

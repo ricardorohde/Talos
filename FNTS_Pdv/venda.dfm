@@ -3403,8 +3403,8 @@ object frmVenda: TfrmVenda
         object lb_produto: TRzLabel
           Left = 5
           Top = 5
-          Width = 1142
-          Height = 44
+          Width = 321
+          Height = 42
           Align = alClient
           Alignment = taCenter
           Caption = 'C A I X A    L I V R E'
@@ -3417,8 +3417,6 @@ object frmVenda: TfrmVenda
           Transparent = True
           Layout = tlCenter
           ShadowColor = clBlack
-          ExplicitWidth = 321
-          ExplicitHeight = 42
         end
       end
       object pnBarra: TPanel
@@ -3980,7 +3978,7 @@ object frmVenda: TfrmVenda
           object lbTotal: TRzLabel
             Left = 5
             Top = 5
-            Width = 375
+            Width = 37
             Height = 16
             Align = alTop
             Caption = 'Total:'
@@ -3991,7 +3989,6 @@ object frmVenda: TfrmVenda
             Font.Style = [fsBold]
             ParentFont = False
             Transparent = True
-            ExplicitWidth = 37
           end
         end
         object Panel14: TPanel
@@ -4027,7 +4024,7 @@ object frmVenda: TfrmVenda
           object RzLabel7: TRzLabel
             Left = 5
             Top = 5
-            Width = 146
+            Width = 34
             Height = 16
             Align = alTop
             Caption = 'Itens'
@@ -4038,7 +4035,6 @@ object frmVenda: TfrmVenda
             Font.Style = [fsBold]
             ParentFont = False
             Transparent = True
-            ExplicitWidth = 34
           end
         end
         object Panel15: TPanel
@@ -6910,7 +6906,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C0101020005004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF
@@ -11052,18 +11048,21 @@ object frmVenda: TfrmVenda
     end
   end
   object ACBrSATExtratoFortes1: TACBrSATExtratoFortes
-    ACBrSAT = ACBrSAT1
-    Mask_qCom = '0.000'
-    Mask_vUnCom = '0.00'
-    MostrarPreview = True
-    NomeArquivo = 'satcfe.pdf'
-    SoftwareHouse = 'TALOS 1.0.0.0'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     Site = 'http://www.projetoacbr.com.br'
+    MargemInferior = 4.000000000000000000
+    MargemSuperior = 2.000000000000000000
+    MargemEsquerda = 2.000000000000000000
+    MargemDireita = 2.000000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrSAT = ACBrSAT1
     MsgAppQRCode = 
       'Consulte o QR Code pelo aplicativo  "De olho na nota", dispon'#237've' +
       'l na AppStore (Apple) e PlayStore (Android)'
-    Margens.Topo = 5
-    Margens.Fundo = 5
     Left = 142
     Top = 482
   end
@@ -11424,7 +11423,7 @@ object frmVenda: TfrmVenda
         end
         object lbPreco: TfrxMemoView
           Align = baRight
-          Left = 90.708720000000030000
+          Left = 90.708720000000000000
           Top = 137.283550000000000000
           Width = 181.417440000000000000
           Height = 30.236240000000000000

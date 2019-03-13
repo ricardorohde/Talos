@@ -194,6 +194,7 @@ begin
         if FileExists(frmPrincipal.LerIni(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
           ACBRDANFENFCe.Logo := frmPrincipal.LerIni(sConfiguracoes, 'PDV','CAMINHO_LOGO', '');
         ACBRDANFENFCe.vTroco := qrNFCETROCO.AsFloat;
+        ACBRDANFENFCe.Detalhado := False;
         ACBRNFCe.NotasFiscais.Imprimir;
       end;
     end;

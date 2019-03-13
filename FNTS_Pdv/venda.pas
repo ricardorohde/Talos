@@ -36,7 +36,8 @@ uses
   dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils;
+  dxSkinXmas2008Blue, dxSkinsdxStatusBarPainter, dxSkinscxPCPainter, System.StrUtils,
+  ACBrDFeReport;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -3816,13 +3817,13 @@ end;
 procedure TfrmVenda.PrepararImpressao;
 begin
   ACBrSATExtratoFortes1.LarguraBobina := Sat_Largura;
-  ACBrSATExtratoFortes1.Margens.Topo := Sat_MargemTopo;
-  ACBrSATExtratoFortes1.Margens.Fundo := Sat_MargemFundo;
-  ACBrSATExtratoFortes1.Margens.Esquerda := Sat_MargemEsquerda;
-  ACBrSATExtratoFortes1.Margens.Direita := Sat_MargemDireita;
-  ACBrSATExtratoFortes1.MostrarPreview := Sat_Preview;
+  ACBrSATExtratoFortes1.MargemSuperior := Sat_MargemTopo;
+  ACBrSATExtratoFortes1.MargemInferior := Sat_MargemFundo;
+  ACBrSATExtratoFortes1.MargemEsquerda := Sat_MargemEsquerda;
+  ACBrSATExtratoFortes1.MargemDireita := Sat_MargemDireita;
+  ACBrSATExtratoFortes1.MostraPreview := Sat_Preview;
   if Sat_Impressora <> '' then
-    ACBrSATExtratoFortes1.PrinterName := Sat_Impressora;
+    ACBrSATExtratoFortes1.Impressora := Sat_Impressora;
 end;
 
 function TfrmVenda.PrepararNFCE: Boolean;
@@ -3885,16 +3886,16 @@ begin
       ACBRDANFENFCe.FastFile := 'C:\TALOS\PDV\Schemas\DANFeNFCe.fr3';
       if FileExists(frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
         ACBRDANFENFCe.Logo := frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '');
-      ACBRDANFENFCe.Detalhado := True;
+//      ACBRDANFENFCe.Detalhado := True;
       ACBRDANFENFCe.vTroco := vRecebimento.Troco;
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
-      ACBRDANFENFCe.DescricaoViaEstabelec := edDescEsta;
-      ACBRDANFENFCe.EspessuraBorda := edMargem;
+//      ACBRDANFENFCe.ViaConsumidor := edDescEsta;
+//      ACBRDANFENFCe.EspessuraBorda := edMargem;
       ACBRDANFENFCe.MargemDireita := edMargDir;
       ACBRDANFENFCe.MargemEsquerda := edMargEsq;
       ACBRDANFENFCe.MargemSuperior := edMargSup;
       ACBRDANFENFCe.MargemInferior := edMarginf;
-      ACBRDANFENFCe.MostrarPreview := bExibeCumponNFTela;
+      ACBRDANFENFCe.MostraPreview := bExibeCumponNFTela;
 
       if TipoImprimeCupom = 'P' then begin
         Acao := 'N';
@@ -4273,10 +4274,10 @@ begin
     Sat_FormatXML := Ini.ReadBool('SAT', 'FormatarXML', True);
 
     Sat_Largura := Ini.ReadInteger('Fortes', 'Largura', ACBrSATExtratoFortes1.LarguraBobina);
-    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', ACBrSATExtratoFortes1.Margens.Topo);
-    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', ACBrSATExtratoFortes1.Margens.Fundo);
-    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', ACBrSATExtratoFortes1.Margens.Esquerda);
-    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', ACBrSATExtratoFortes1.Margens.Direita);
+    Sat_MargemTopo := Ini.ReadInteger('Fortes', 'MargemTopo', Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
+    Sat_MargemFundo := Ini.ReadInteger('Fortes', 'MargemFundo', Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
+    Sat_MargemEsquerda := Ini.ReadInteger('Fortes', 'MargemEsquerda', Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
+    Sat_MargemDireita := Ini.ReadInteger('Fortes', 'MargemDireita', Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
     Sat_Preview := Ini.ReadBool('Fortes', 'Preview', True);
 
     Sat_Impressora := Ini.ReadString('Printer', 'Name', '');

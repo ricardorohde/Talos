@@ -200,7 +200,6 @@ object frmModulo: TfrmModulo
     Database = 'C:\TALOS\Server\BD\BASE.FDB'
     Username = 'sysdba'
     Server = 'localhost'
-    Connected = True
     LoginPrompt = False
     Left = 120
     Top = 25
@@ -5157,6 +5156,61 @@ object frmModulo: TfrmModulo
     Left = 527
     Top = 419
   end
+  object ACBRDANFENFCe: TACBrNFeDANFEFR
+    ACBrNFe = ACBRNFCe
+    Logo = 'C:\TALOS\PDV\Img\logo-nfce.jpg'
+    PathPDF = 'C:\TALOS\PDV\xml\'
+    Impressora = 'CutePDF Writer'
+    MostrarPreview = False
+    MostrarStatus = True
+    TipoDANFE = tiNFCe
+    NumCopias = 1
+    AgruparNumCopias = False
+    ImprimeNomeFantasia = False
+    ImprimirDescPorc = False
+    ImprimirTotalLiquido = True
+    MargemInferior = 0.800000000000000000
+    MargemSuperior = 0.800000000000000000
+    MargemEsquerda = 0.600000000000000000
+    MargemDireita = 0.510000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais._qCom = 2
+    CasasDecimais._vUnCom = 2
+    CasasDecimais._Mask_qCom = '###,###,###,##0.00'
+    CasasDecimais._Mask_vUnCom = '###,###,###,##0.00'
+    ExibirResumoCanhoto = False
+    FormularioContinuo = False
+    TamanhoFonte_DemaisCampos = 10
+    ProdutosPorPagina = 0
+    ImprimirDetalhamentoEspecifico = True
+    NFeCancelada = False
+    ImprimirItens = True
+    ViaConsumidor = True
+    TamanhoLogoHeight = 0
+    TamanhoLogoWidth = 0
+    RecuoEndereco = 0
+    RecuoEmpresa = 0
+    LogoemCima = False
+    TamanhoFonteEndereco = 0
+    RecuoLogo = 0
+    EspessuraBorda = 1
+    ExibirTotalTributosItem = False
+    ExibeCampoFatura = True
+    TributosFonte = 'IBPT'
+    TributosPercentual = ptValorProdutos
+    ImprimirUnQtVlComercial = iuComercial
+    Detalhado = False
+    DescricaoViaEstabelec = 'Via do Consumidor'
+    ExpandirDadosAdicionaisAuto = False
+    ImprimirDadosArma = True
+    QuebraLinhaEmDetalhamentoEspecifico = True
+    IncorporarBackgroundPdf = True
+    IncorporarFontesPdf = True
+    ImprimirDadosDocReferenciados = True
+    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
+    Left = 441
+    Top = 477
+  end
   object ACBRNFCe: TACBrNFe
     OnStatusChange = ACBRNFCeStatusChange
     Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
@@ -5165,6 +5219,7 @@ object frmModulo: TfrmModulo
     Configuracoes.Geral.SSLXmlSignLib = xsMsXmlCapicom
     Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
     Configuracoes.Geral.ValidarDigest = False
+    Configuracoes.Geral.VersaoDF = ve400
     Configuracoes.Geral.VersaoQRCode = veqr200
     Configuracoes.Arquivos.SepararPorModelo = True
     Configuracoes.Arquivos.OrdenacaoPath = <>
@@ -5173,7 +5228,7 @@ object frmModulo: TfrmModulo
     Configuracoes.WebServices.UF = 'SP'
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.QuebradeLinha = '|'
-    Configuracoes.RespTec.IdCSRT = 0
+    DANFE = ACBRDANFENFCe
     Left = 300
     Top = 493
   end
@@ -6411,21 +6466,5 @@ object frmModulo: TfrmModulo
     Porta = 'COM1'
     Left = 536
     Top = 496
-  end
-  object ACBRDANFENFCe: TACBrNFeDANFCEFR
-    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
-    MargemInferior = 0.800000000000000000
-    MargemSuperior = 0.800000000000000000
-    MargemEsquerda = 0.600000000000000000
-    MargemDireita = 0.510000000000000000
-    CasasDecimais.Formato = tdetInteger
-    CasasDecimais.qCom = 2
-    CasasDecimais.vUnCom = 2
-    CasasDecimais.MaskqCom = ',0.00'
-    CasasDecimais.MaskvUnCom = ',0.00'
-    ACBrNFe = ACBRNFCe
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
-    Left = 464
-    Top = 272
   end
 end

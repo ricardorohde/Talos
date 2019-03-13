@@ -5157,6 +5157,30 @@ object frmModulo: TfrmModulo
     Left = 527
     Top = 419
   end
+  object ACBRDANFENFCe: TACBrNFeDANFEFR
+    Impressora = 'CutePDF Writer'
+    PathPDF = 'C:\TALOS\PDV\xml\'
+    Logo = 'C:\TALOS\PDV\Img\logo-nfce.jpg'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
+    MargemInferior = 0.800000000000000000
+    MargemSuperior = 0.800000000000000000
+    MargemEsquerda = 0.600000000000000000
+    MargemDireita = 0.510000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrNFe = ACBRNFCe
+    TipoDANFE = tiNFCe
+    EspessuraBorda = 1
+    ExpandirDadosAdicionaisAuto = False
+    IncorporarBackgroundPdf = True
+    IncorporarFontesPdf = True
+    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
+    Left = 441
+    Top = 477
+  end
   object ACBRNFCe: TACBrNFe
     OnStatusChange = ACBRNFCeStatusChange
     Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
@@ -5174,6 +5198,7 @@ object frmModulo: TfrmModulo
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.QuebradeLinha = '|'
     Configuracoes.RespTec.IdCSRT = 0
+    DANFE = ACBRDANFENFCe
     Left = 300
     Top = 493
   end
@@ -6411,21 +6436,5 @@ object frmModulo: TfrmModulo
     Porta = 'COM1'
     Left = 536
     Top = 496
-  end
-  object ACBRDANFENFCe: TACBrNFeDANFCEFR
-    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
-    MargemInferior = 0.800000000000000000
-    MargemSuperior = 0.800000000000000000
-    MargemEsquerda = 0.600000000000000000
-    MargemDireita = 0.510000000000000000
-    CasasDecimais.Formato = tdetInteger
-    CasasDecimais.qCom = 2
-    CasasDecimais.vUnCom = 2
-    CasasDecimais.MaskqCom = ',0.00'
-    CasasDecimais.MaskvUnCom = ',0.00'
-    ACBrNFe = ACBRNFCe
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
-    Left = 464
-    Top = 272
   end
 end

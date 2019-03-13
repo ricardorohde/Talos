@@ -1193,9 +1193,9 @@ begin
 
     seLargura.Value        := INI.ReadInteger('Fortes','Largura',ACBrSATExtratoFortes1.LarguraBobina);
     seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
-    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
-    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
-    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
+    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',ACBrSATExtratoFortes1.Margens.Fundo);
+    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',ACBrSATExtratoFortes1.Margens.Esquerda);
+    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',ACBrSATExtratoFortes1.Margens.Direita);
     cbPreview.Checked      := INI.ReadBool('Fortes','Preview',True);
 
     lImpressora.Caption := INI.ReadString('Printer','Name','');

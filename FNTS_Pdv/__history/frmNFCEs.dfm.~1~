@@ -99,7 +99,6 @@ object frmNotasconsumidor: TfrmNotasconsumidor
       ParentFont = False
       TabOrder = 2
       Text = '  /  /    '
-      CheckOnExit = True
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
@@ -121,7 +120,6 @@ object frmNotasconsumidor: TfrmNotasconsumidor
       ParentFont = False
       TabOrder = 3
       Text = '  /  /    '
-      CheckOnExit = True
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
@@ -209,7 +207,7 @@ object frmNotasconsumidor: TfrmNotasconsumidor
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 2
     ShowExpander = False
@@ -308,7 +306,7 @@ object frmNotasconsumidor: TfrmNotasconsumidor
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -459,7 +457,7 @@ object frmNotasconsumidor: TfrmNotasconsumidor
     Left = 704
     Top = 368
     Bitmap = {
-      494C010102000500080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
