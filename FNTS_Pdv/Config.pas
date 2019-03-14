@@ -420,6 +420,10 @@ type
     Label76: TLabel;
     SpeedButton3: TSpeedButton;
     edVersaoQR: TRadioGroup;
+    GroupBox17: TGroupBox;
+    chkPesquisaCodigoProduto: TCheckBox;
+    chkPesquisaCodBarras: TCheckBox;
+    chkPesquisaNomeProd: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure EditLogoMarcaClickBtn(Sender: TObject);
@@ -848,6 +852,10 @@ begin
     Ini.WriteString('Certificado', 'Senha', edtSenha.Text);
     Ini.WriteString('Certificado', 'NumSerie', edtNumSerie.Text);
 
+    Ini.WriteBool('Geral', 'PesquisaCodigoProduto', chkPesquisaCodigoProduto.Checked);
+    Ini.WriteBool('Geral', 'PesquisaCodigoBarras', chkPesquisaCodBarras.Checked);
+    Ini.WriteBool('Geral', 'PesquisaNomeProduto', chkPesquisaNomeProd.Checked);
+
     Ini.WriteBool('Geral', 'AtualizarXML', cbxAtualizarXML.Checked);
     Ini.WriteBool('Geral', 'ExibirErroSchema', cbxExibirErroSchema.Checked);
     Ini.WriteString('Geral', 'FormatoAlerta', edtFormatoAlerta.Text);
@@ -1045,6 +1053,11 @@ begin
     edtCaminho.Text := Ini.ReadString('Certificado', 'Caminho', '');
     edtSenha.Text := Ini.ReadString('Certificado', 'Senha', '');
     edtNumSerie.Text := Ini.ReadString('Certificado', 'NumSerie', '');
+
+    chkPesquisaCodigoProduto.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoProduto', True);
+    chkPesquisaCodBarras.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoBarras', True);
+    chkPesquisaNomeProd.Checked := Ini.ReadBool('Geral', 'PesquisaNomeProduto', True);
+
 
     cbxAtualizarXML.Checked := Ini.ReadBool('Geral', 'AtualizarXML', False);
     cbxExibirErroSchema.Checked := Ini.ReadBool('Geral', 'ExibirErroSchema', False);

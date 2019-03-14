@@ -191,14 +191,14 @@ begin
                                  query.fieldbyname('total_vendido').asfloat+
                                  query.fieldbyname('total_cancelado').asfloat)+' '+
                                  grid.cell[3,grid.selectedrow].asstring;
-  frmConsulta_Estoque.StatusBar1.Panels[0].Text := 'Atualizado em: '+sCarga_data+' Ã s '+scarga_hora;
+  frmConsulta_Estoque.StatusBar1.Panels[0].Text := 'Atualizado em: '+sCarga_data+' às '+scarga_hora;
   frmConsulta_Estoque.showmodal;
 end;
 
 
 // -------------------------------------------------------------------------- //
 // CGT: 04/03/2010 - Procedure para corrigir um problema que
-// estava ocorrendo quando a consulta era inÃ­ciada pela digitaÃ§Ã£o de um
+// estava ocorrendo quando a consulta era iníciada pela digitação de um
 // produto na tela de venda
 procedure TfrmProduto_consulta.LocalizarProduto(referencia: string);
 var
@@ -220,15 +220,8 @@ begin
         bBusca_codigo := false;
     end;
 
-    if (modulo.pesquisaCodigoProduto) or (modulo.pesquisaCodBarras) then begin
-
-    if (bBusca_codigo) then
+    if bBusca_codigo then
     begin
-
-      if modulo.pesquisaCodigoProduto then begin
-
-
-
       // comando SQL para filtrar o produto pelo codigo de barras
       frmVenda.query.close;
       frmVenda.query.sql.clear;
@@ -236,10 +229,6 @@ begin
       frmVenda.query.sql.add('where cod_barra = '''+referencia+'''');
       frmVenda.query.sql.add('and SITUACAO = 0');
       frmVenda.query.Open;
-
-      end;
-
-      if modulo.pesquisaCodBarras then begin
 
       if frmVenda.query.IsEmpty then
       begin
@@ -252,36 +241,9 @@ begin
         frmVenda.Query.open;
       end;
     end
-    end
     else
     begin
       // GUIO: Tenta localizar a referencia do produto
-      frmVenda.Query.close;
-      frmVenda.Query.sql.clear;
-      frmVenda.Query.sql.add('select * from ESTOQUE');
-      frmVenda.Query.sql.add('where upper(REFERENCIA) LIKE '''+ANSIUPPERCASE(referencia)+'%''');
-      frmVenda.query.sql.add('and SITUACAO = 0');
-      frmVenda.Query.sql.add('order by REFERENCIA, COR, TAMANHO');
-      frmVenda.Query.open;
-
-      if frmVenda.query.IsEmpty then
-      begin
-        // nao achou pelo codigo de barras, procurar pelo nome
-        frmVenda.Query.close;
-        frmVenda.Query.sql.clear;
-        frmVenda.Query.sql.add('select * from ESTOQUE');
-        //frmVenda.Query.sql.add('where upper(nome) like '+QuotedStr('%'+ANSIUPPERCASE(referencia)+'%'));
-        frmVenda.Query.sql.add('where upper(nome) CONTAINING ' + QuotedStr(ANSIUPPERCASE(referencia)));
-        frmVenda.query.sql.add('and SITUACAO = 0');
-        frmVenda.Query.sql.add('order by nome');
-        frmVenda.Query.open;
-      end;
-    end;
-    end
-    else
-    begin
-
-     // GUIO: Tenta localizar a referencia do produto
       frmVenda.Query.close;
       frmVenda.Query.sql.clear;
       frmVenda.Query.sql.add('select * from ESTOQUE');
@@ -337,13 +299,13 @@ begin
 
     case iColunaCOnsultaProdutos of
       0: begin
-      //  grid.Columns[1].Header.Caption := 'CÃ³d.Barras';
+      //  grid.Columns[1].Header.Caption := 'Cód.Barras';
 
         grid.cell[1,grid.LastAddedRow].asstring :=
           frmvenda.query.fieldbyname('cod_barra').asstring;
       end;
       1: begin
-        grid.Columns[1].Header.Caption := 'RefÃªrÃªncia';
+        grid.Columns[1].Header.Caption := 'Refêrência';
 
         grid.cell[1,grid.LastAddedRow].asstring :=
           frmvenda.query.fieldbyname('referencia').asstring;

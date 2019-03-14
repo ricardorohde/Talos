@@ -411,8 +411,8 @@ object frmConfig: TfrmConfig
     Top = 48
     Width = 988
     Height = 442
-    ActivePage = PageSheet5
-    ActivePageIndex = 4
+    ActivePage = PageSheet1
+    ActivePageIndex = 0
     AdaptiveColors = True
     Align = alClient
     BackgroundColor = 15264234
@@ -1030,6 +1030,38 @@ object frmConfig: TfrmConfig
           ValueUnchecked = 'N'
         end
       end
+      object GroupBox17: TGroupBox
+        Left = 325
+        Top = 323
+        Width = 275
+        Height = 92
+        Caption = 'Pesquisa'
+        TabOrder = 8
+        object chkPesquisaCodigoProduto: TCheckBox
+          Left = 13
+          Top = 17
+          Width = 180
+          Height = 17
+          Caption = 'Pesquisa por C'#243'digo do Produto'
+          TabOrder = 0
+        end
+        object chkPesquisaCodBarras: TCheckBox
+          Left = 13
+          Top = 40
+          Width = 180
+          Height = 17
+          Caption = 'Pesquisa por C'#243'digo de Barras'
+          TabOrder = 1
+        end
+        object chkPesquisaNomeProd: TCheckBox
+          Left = 13
+          Top = 63
+          Width = 180
+          Height = 17
+          Caption = 'Pesquisa por Nome do Produto'
+          TabOrder = 2
+        end
+      end
     end
     object PageSheet4: TPageSheet
       Left = 0
@@ -1573,10 +1605,6 @@ object frmConfig: TfrmConfig
           TabOrder = 0
           object ts1: TTabSheet
             Caption = 'Certificado'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object grp2: TGroupBox
               Left = 0
               Top = 3
@@ -1750,10 +1778,6 @@ object frmConfig: TfrmConfig
           object ts2: TTabSheet
             Caption = 'Geral'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object grp3: TGroupBox
               Left = 0
               Top = 0
@@ -1974,10 +1998,6 @@ object frmConfig: TfrmConfig
           object ts3: TTabSheet
             Caption = 'WebService'
             ImageIndex = 2
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label45: TLabel
               Left = 8
               Top = 276
@@ -2292,10 +2312,6 @@ object frmConfig: TfrmConfig
           object ts4: TTabSheet
             Caption = 'Emitente'
             ImageIndex = 3
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object lbl12: TLabel
               Left = 8
               Top = 4
@@ -2528,10 +2544,6 @@ object frmConfig: TfrmConfig
           object TabSheet1: TTabSheet
             Caption = 'Impress'#227'o'
             ImageIndex = 5
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label20: TLabel
               Left = 3
               Top = 3
@@ -2631,10 +2643,6 @@ object frmConfig: TfrmConfig
           object TabSheet2: TTabSheet
             Caption = 'Arquivos'
             ImageIndex = 6
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object sbPathNFe: TSpeedButton
               Left = 500
               Top = 16
@@ -2868,10 +2876,6 @@ object frmConfig: TfrmConfig
           TabOrder = 0
           object tsDadosSAT: TTabSheet
             Caption = 'Dados do SAT CFe'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label54: TLabel
               Left = 19
               Top = 58
@@ -3339,10 +3343,6 @@ object frmConfig: TfrmConfig
           end
           object tsDadosEmit: TTabSheet
             Caption = 'Dados Emitente'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label62: TLabel
               Left = 12
               Top = 23
@@ -3457,10 +3457,6 @@ object frmConfig: TfrmConfig
           end
           object tsDadosSwHouse: TTabSheet
             Caption = 'Dados Sw.House'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             DesignSize = (
               978
               391)
@@ -3505,10 +3501,6 @@ object frmConfig: TfrmConfig
           object tsRede: TTabSheet
             Caption = 'Rede'
             ImageIndex = 4
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object gbIPFix: TGroupBox
               Left = 160
               Top = 48
@@ -3845,10 +3837,6 @@ object frmConfig: TfrmConfig
           end
           object Impressao: TTabSheet
             Caption = 'Impressao'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object GroupBox16: TGroupBox
               Left = 0
               Top = 0
@@ -4013,10 +4001,6 @@ object frmConfig: TfrmConfig
           object TabSheet4: TTabSheet
             Caption = 'Dados Adcionais'
             ImageIndex = 6
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label83: TLabel
               Left = 10
               Top = 7

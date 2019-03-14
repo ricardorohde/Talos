@@ -3,7 +3,7 @@
         <ProjectGuid>{98B150AF-3E00-40B4-8C19-4C7B6BBDB6F1}</ProjectGuid>
         <MainSource>Pdv.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>

@@ -220,8 +220,15 @@ begin
         bBusca_codigo := false;
     end;
 
-    if bBusca_codigo then
+    if (modulo.pesquisaCodigoProduto) or (modulo.pesquisaCodBarras) then begin
+
+    if (bBusca_codigo) then
     begin
+
+      if modulo.pesquisaCodigoProduto then begin
+
+
+
       // comando SQL para filtrar o produto pelo codigo de barras
       frmVenda.query.close;
       frmVenda.query.sql.clear;
@@ -229,6 +236,10 @@ begin
       frmVenda.query.sql.add('where cod_barra = '''+referencia+'''');
       frmVenda.query.sql.add('and SITUACAO = 0');
       frmVenda.query.Open;
+
+      end;
+
+      if modulo.pesquisaCodBarras then begin
 
       if frmVenda.query.IsEmpty then
       begin
@@ -241,9 +252,36 @@ begin
         frmVenda.Query.open;
       end;
     end
+    end
     else
     begin
       // GUIO: Tenta localizar a referencia do produto
+      frmVenda.Query.close;
+      frmVenda.Query.sql.clear;
+      frmVenda.Query.sql.add('select * from ESTOQUE');
+      frmVenda.Query.sql.add('where upper(REFERENCIA) LIKE '''+ANSIUPPERCASE(referencia)+'%''');
+      frmVenda.query.sql.add('and SITUACAO = 0');
+      frmVenda.Query.sql.add('order by REFERENCIA, COR, TAMANHO');
+      frmVenda.Query.open;
+
+      if frmVenda.query.IsEmpty then
+      begin
+        // nao achou pelo codigo de barras, procurar pelo nome
+        frmVenda.Query.close;
+        frmVenda.Query.sql.clear;
+        frmVenda.Query.sql.add('select * from ESTOQUE');
+        //frmVenda.Query.sql.add('where upper(nome) like '+QuotedStr('%'+ANSIUPPERCASE(referencia)+'%'));
+        frmVenda.Query.sql.add('where upper(nome) CONTAINING ' + QuotedStr(ANSIUPPERCASE(referencia)));
+        frmVenda.query.sql.add('and SITUACAO = 0');
+        frmVenda.Query.sql.add('order by nome');
+        frmVenda.Query.open;
+      end;
+    end;
+    end
+    else
+    begin
+
+     // GUIO: Tenta localizar a referencia do produto
       frmVenda.Query.close;
       frmVenda.Query.sql.clear;
       frmVenda.Query.sql.add('select * from ESTOQUE');

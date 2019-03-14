@@ -6403,7 +6403,6 @@ object frmModulo: TfrmModulo
     CasasDecimais.vUnCom = 2
     CasasDecimais.MaskqCom = ',0.00'
     CasasDecimais.MaskvUnCom = ',0.00'
-    ACBrNFe = ACBRNFCe
     BorderIcon = [biSystemMenu, biMinimize, biMaximize]
     Left = 328
     Top = 504
@@ -6420,7 +6419,6 @@ object frmModulo: TfrmModulo
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.QuebradeLinha = '|'
     Configuracoes.RespTec.IdCSRT = 0
-    DANFE = ACBRDANFENFCe
     Left = 416
     Top = 512
   end
