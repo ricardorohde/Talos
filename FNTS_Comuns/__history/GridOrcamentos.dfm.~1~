@@ -44,7 +44,7 @@ object frmGridOrcamentos: TfrmGridOrcamentos
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.0.0'
+    Version = '1.1.1.0'
     Align = alTop
     TabOrder = 0
     ShowExpander = False
@@ -142,7 +142,7 @@ object frmGridOrcamentos: TfrmGridOrcamentos
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.1.0'
+      Version = '1.1.2.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -1316,15 +1316,13 @@ object frmGridOrcamentos: TfrmGridOrcamentos
       'SITUACAO;ImageIndex;Original Size'
       'NFE_SITUACAO;ImageIndex;Original Size')
     Selected.Strings = (
-      'STATUS'#9'10'#9'Status'#9'F'
+      'STATUS'#9'15'#9'Status'#9'F'
       'CODIGO'#9'7'#9'N'#250'mero'#9'F'
       'DATA'#9'10'#9'Data'#9'F'
       'CODNF'#9'7'#9'N.F.'#9'F'
       'CODVENDA'#9'7'#9'Cod. Venda'#9'F'
-      'CLIENTE'#9'20'#9'Com Cadastro'#9'F'#9'Cliente'
-      'NOME_CLIENTE'#9'20'#9'Sem Cadastro'#9'F'#9'Cliente'
-      'NOME_CPFCNPJ'#9'14'#9'CPF/CNPJ'#9'F'#9'Cliente'
-      'SUBTOTAL'#9'8'#9'Sub. Total'#9'F'
+      'CLIENTE'#9'49'#9'Cliente'#9'F'
+      'SUBTOTAL'#9'10'#9'Sub. Total'#9'F'
       'TOTAL'#9'12'#9'Total'#9'F')
     IniAttributes.Delimiter = ';;'
     IniAttributes.UnicodeIniFile = False
@@ -1783,14 +1781,6 @@ object frmGridOrcamentos: TfrmGridOrcamentos
       KeyFields = 'CODCLIENTE'
       Size = 60
       Lookup = True
-    end
-    object qrorcamentoNOME_CLIENTE: TWideStringField
-      FieldName = 'NOME_CLIENTE'
-      Size = 50
-    end
-    object qrorcamentoNOME_CPFCNPJ: TWideStringField
-      FieldName = 'NOME_CPFCNPJ'
-      Size = 14
     end
   end
   object dsorcamento: TDataSource

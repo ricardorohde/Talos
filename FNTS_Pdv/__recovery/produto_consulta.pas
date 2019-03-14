@@ -191,14 +191,14 @@ begin
                                  query.fieldbyname('total_vendido').asfloat+
                                  query.fieldbyname('total_cancelado').asfloat)+' '+
                                  grid.cell[3,grid.selectedrow].asstring;
-  frmConsulta_Estoque.StatusBar1.Panels[0].Text := 'Atualizado em: '+sCarga_data+' às '+scarga_hora;
+  frmConsulta_Estoque.StatusBar1.Panels[0].Text := 'Atualizado em: '+sCarga_data+' Ã s '+scarga_hora;
   frmConsulta_Estoque.showmodal;
 end;
 
 
 // -------------------------------------------------------------------------- //
 // CGT: 04/03/2010 - Procedure para corrigir um problema que
-// estava ocorrendo quando a consulta era iníciada pela digitação de um
+// estava ocorrendo quando a consulta era inÃ­ciada pela digitaÃ§Ã£o de um
 // produto na tela de venda
 procedure TfrmProduto_consulta.LocalizarProduto(referencia: string);
 var
@@ -222,6 +222,9 @@ begin
 
     if bBusca_codigo then
     begin
+
+      if frmModulo then
+
       // comando SQL para filtrar o produto pelo codigo de barras
       frmVenda.query.close;
       frmVenda.query.sql.clear;
@@ -299,13 +302,13 @@ begin
 
     case iColunaCOnsultaProdutos of
       0: begin
-      //  grid.Columns[1].Header.Caption := 'Cód.Barras';
+      //  grid.Columns[1].Header.Caption := 'CÃ³d.Barras';
 
         grid.cell[1,grid.LastAddedRow].asstring :=
           frmvenda.query.fieldbyname('cod_barra').asstring;
       end;
       1: begin
-        grid.Columns[1].Header.Caption := 'Refêrência';
+        grid.Columns[1].Header.Caption := 'RefÃªrÃªncia';
 
         grid.cell[1,grid.LastAddedRow].asstring :=
           frmvenda.query.fieldbyname('referencia').asstring;

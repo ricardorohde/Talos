@@ -1597,16 +1597,22 @@ eclientecpfcnpj.DataSource := DBEdit15.DataSource;
 eclientecpfcnpj.DataField := DBEdit15.DataField;
 
 enomecliente.Enabled := false;
+
+ecliente.Text := '';
+
 eclienteButtonClick(Self);
 
 enomecliente.Width := 152;
 enomecliente.Left := 370;
 
 
+
+
 end
 else
 begin
 
+ecliente.Text := '000000';
 ecliente.Visible := false;
 enomecliente.ReadOnly := false;
 eclientecpfcnpj.ReadOnly := false;
@@ -1623,6 +1629,7 @@ enomecliente.Width := 219;
 enomecliente.Left := 303;
 enomecliente.Enabled := Enabled;
 enomecliente.SetFocus;
+
 end;
 
 

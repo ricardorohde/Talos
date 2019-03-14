@@ -3932,10 +3932,10 @@ begin
       if FileExists(frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '')) then
         ACBRDANFENFCe.Logo := frmPrincipal.LerINi(sConfiguracoes, 'PDV', 'CAMINHO_LOGO', '');
 
-      ACBRDANFENFCe.ImprimeDetalhamentoEspecifico := True;
+      //ACBRDANFENFCe.ImprimeDetalhamentoEspecifico := True;
 
       ACBRDANFENFCe.Impressora := sImpressora_Venda_Simples;
-      ACBRDANFENFCe.EspessuraBorda := edMargem;
+      //ACBRDANFENFCe.EspessuraBorda := edMargem;
 
 //      ACBRDANFENFCe.Detalhado := True;
       ACBRDANFENFCe.vTroco := vRecebimento.Troco;

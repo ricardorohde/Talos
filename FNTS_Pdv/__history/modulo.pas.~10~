@@ -1355,7 +1355,7 @@ type
     function StrToHex(const S: string): string;
     function codifica(TABELA: string; Tipo: string = 'A'): string;
     function PrecoDeVenda(Produto: Integer; Quantidade: Double): Double;
-
+     pesquisaCodigoProduto, pesquisaCodBarras, pesquisaNomeProd: Boolean;
   end;
 
 const
@@ -1405,7 +1405,7 @@ var
   ckSalvar, ckVisualizar, ContigenciaPermanente: Boolean;
   edMargem, rgFormaEmissao, EdFormatoOff: Integer;
   edMargEsq, edMargDir, edMargSup, edMarginf: Double;
-  pesquisaCodigoProduto, pesquisaCodBarras, pesquisaNomeProd: Boolean;
+
 
 
 implementation

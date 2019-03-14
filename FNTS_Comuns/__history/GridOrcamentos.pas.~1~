@@ -147,8 +147,6 @@ type
     qrorcamentoSTATUS: TWideStringField;
     qrorcamentoCLIENTE: TStringField;
     bitbtn7: TAdvGlowButton;
-    qrorcamentoNOME_CLIENTE: TWideStringField;
-    qrorcamentoNOME_CPFCNPJ: TWideStringField;
     procedure eclienteButtonClick(Sender: TObject);
     procedure eclienteEnter(Sender: TObject);
     procedure eclienteKeyPress(Sender: TObject; var Key: Char);
@@ -189,14 +187,14 @@ end;
 procedure TfrmGridOrcamentos.balterarClick(Sender: TObject);
 begin
   if qrorcamento.fieldbyname('CODNF').asstring <> '' then begin
-    application.messagebox('Nota Fiscal j√° emitida, n√£o √© permitido Alterar!' +
-      #13 + 'Para Cancelar esta Venda somente em Notas de Venda!', 'Aten√ß√£o!',
+    application.messagebox('Nota Fiscal j· emitida, n„o È permitido Alterar!' +
+      #13 + 'Para Cancelar esta Venda somente em Notas de Venda!', 'AtenÁ„o!',
       mb_ok + MB_ICONEXCLAMATION);
     exit;
   end;
   if qrorcamento.fieldbyname('CODVENDA').asstring <> '' then begin
-    application.messagebox('J√° Foi Gerado Venda, n√£o √© permitido Alterar!' + #13
-      + 'Para Cancelar esta Venda somente em Notas de Venda!', 'Aten√ß√£o!',
+    application.messagebox('J· Foi Gerado Venda, n„o È permitido Alterar!' + #13
+      + 'Para Cancelar esta Venda somente em Notas de Venda!', 'AtenÁ„o!',
       mb_ok + MB_ICONEXCLAMATION);
     exit;
   end;
@@ -213,16 +211,16 @@ procedure TfrmGridOrcamentos.bexcluirClick(Sender: TObject);
 begin
   if qrorcamento.fieldbyname('CODNF').asstring <> '' then
   begin
-    application.messagebox('Nota Fiscal j√° emitida, n√£o √© permitido excluir!' +
-      #13 + 'Para Cancelar esta Venda somente em Notas de Venda!', 'Aten√ß√£o!',
+    application.messagebox('Nota Fiscal j· emitida, n„o È permitido excluir!' +
+      #13 + 'Para Cancelar esta Venda somente em Notas de Venda!', 'AtenÁ„o!',
       mb_ok + MB_ICONEXCLAMATION);
     exit;
   end;
 
   if qrorcamento.fieldbyname('CODVENDA').asstring <> '' then
   begin
-    application.messagebox('J√° Foi Gerado Venda, n√£o √© permitido excluir!' + #13
-      + 'Para Cancelar esta Venda v√° em Notas de Venda!', 'Aten√ß√£o!',
+    application.messagebox('J· Foi Gerado Venda, n„o È permitido excluir!' + #13
+      + 'Para Cancelar esta Venda v· em Notas de Venda!', 'AtenÁ„o!',
       mb_ok + MB_ICONEXCLAMATION);
     exit;
   end;
@@ -337,7 +335,7 @@ begin
           end;
         end;
       end else begin
-        APPLICATION.MESSAGEBOX('Cliente n√£o encontrado!', 'Aten√ß√£o',
+        APPLICATION.MESSAGEBOX('Cliente n„o encontrado!', 'AtenÁ„o',
           mb_ok + mb_iconerror);
         resultado_pesquisa1 := '';
         parametro_pesquisa := '';

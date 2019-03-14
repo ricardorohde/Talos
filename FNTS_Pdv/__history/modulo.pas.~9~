@@ -1355,7 +1355,6 @@ type
     function StrToHex(const S: string): string;
     function codifica(TABELA: string; Tipo: string = 'A'): string;
     function PrecoDeVenda(Produto: Integer; Quantidade: Double): Double;
-
   end;
 
 const

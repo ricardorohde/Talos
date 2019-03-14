@@ -258,8 +258,7 @@ begin
         frmVenda.Query.close;
         frmVenda.Query.sql.clear;
         frmVenda.Query.sql.add('select * from ESTOQUE');
-        //frmVenda.Query.sql.add('where upper(nome) like '+QuotedStr('%'+ANSIUPPERCASE(referencia)+'%'));
-        frmVenda.Query.sql.add('where upper(nome) CONTAINING ' + QuotedStr(ANSIUPPERCASE(referencia)));
+        frmVenda.Query.sql.add('where upper(nome) like '+QuotedStr('%'+ANSIUPPERCASE(referencia)+'%'));
         frmVenda.query.sql.add('and SITUACAO = 0');
         frmVenda.Query.sql.add('order by nome');
         frmVenda.Query.open;
@@ -271,7 +270,7 @@ begin
     if frmVenda.Query.IsEmpty then
     begin
       Application.ProcessMessages;
-      // Teste retirando -> Sleep(1500);
+      Sleep(1500);
       ed_barra.setfocus;
 
       //ED_barra.TEXT := '';

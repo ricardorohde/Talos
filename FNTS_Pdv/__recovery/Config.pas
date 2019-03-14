@@ -420,6 +420,10 @@ type
     Label76: TLabel;
     SpeedButton3: TSpeedButton;
     edVersaoQR: TRadioGroup;
+    GroupBox17: TGroupBox;
+    chkPesquisaCodigoProduto: TCheckBox;
+    chkPesquisaCodBarras: TCheckBox;
+    chkPesquisaNomeProd: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure EditLogoMarcaClickBtn(Sender: TObject);
@@ -848,6 +852,10 @@ begin
     Ini.WriteString('Certificado', 'Senha', edtSenha.Text);
     Ini.WriteString('Certificado', 'NumSerie', edtNumSerie.Text);
 
+    Ini.WriteBool('Geral', 'PesquisaCodigoProduto', chkPesquisaCodigoProduto.Checked);
+    Ini.WriteBool('Geral', 'PesquisaCodigoBarras', chkPesquisaCodBarras.Checked);
+    Ini.WriteBool('Geral', 'PesquisaNomeProduto', chkPesquisaNomeProd.Checked);
+
     Ini.WriteBool('Geral', 'AtualizarXML', cbxAtualizarXML.Checked);
     Ini.WriteBool('Geral', 'ExibirErroSchema', cbxExibirErroSchema.Checked);
     Ini.WriteString('Geral', 'FormatoAlerta', edtFormatoAlerta.Text);
@@ -1046,6 +1054,11 @@ begin
     edtSenha.Text := Ini.ReadString('Certificado', 'Senha', '');
     edtNumSerie.Text := Ini.ReadString('Certificado', 'NumSerie', '');
 
+    chkPesquisaCodigoProduto.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoProduto', True);
+    chkPesquisaCodBarras.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoBarras', True);
+    chkPesquisaNomeProd.Checked := Ini.ReadBool('Geral', 'PesquisaNomeProduto', True);
+
+
     cbxAtualizarXML.Checked := Ini.ReadBool('Geral', 'AtualizarXML', False);
     cbxExibirErroSchema.Checked := Ini.ReadBool('Geral', 'ExibirErroSchema', False);
     edtFormatoAlerta.Text := Ini.ReadString('Geral', 'FormatoAlerta', '');
@@ -1191,11 +1204,19 @@ begin
     edtSwHCNPJ.Text       := INI.ReadString('SwH','CNPJ','11111111111111');
     edtSwHAssinatura.Lines.Text := INI.ReadString('SwH','Assinatura',cAssinatura);
 
+
     seLargura.Value        := INI.ReadInteger('Fortes','Largura',StrToInt(ACBrSATExtratoFortes1.LarguraBobina.toString));
     seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',StrToInt(ACBrSATExtratoFortes1.MargemSuperior.toString));
     seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',StrToInt(ACBrSATExtratoFortes1.MargemInferior.ToString));
     seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',StrToInt(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
     seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita', StrToInt(ACBrSATExtratoFortes1.MargemDireita.ToString));
+
+    seLargura.Value        := INI.ReadInteger('Fortes','Largura',ACBrSATExtratoFortes1.LarguraBobina);
+    seMargemTopo.Value     := INI.ReadInteger('Fortes','MargemTopo',Integer.Parse(ACBrSATExtratoFortes1.MargemSuperior.ToString));
+    seMargemFundo.Value    := INI.ReadInteger('Fortes','MargemFundo',Integer.Parse(ACBrSATExtratoFortes1.MargemInferior.ToString));
+    seMargemEsquerda.Value := INI.ReadInteger('Fortes','MargemEsquerda',Integer.Parse(ACBrSATExtratoFortes1.MargemEsquerda.ToString));
+    seMargemDireita.Value  := INI.ReadInteger('Fortes','MargemDireita',Integer.Parse(ACBrSATExtratoFortes1.MargemDireita.ToString));
+
     cbPreview.Checked      := INI.ReadBool('Fortes','Preview',True);
 
     lImpressora.Caption := INI.ReadString('Printer','Name','');

@@ -428,7 +428,7 @@ begin
   frmmodulo.qrcliente.locate('codigo', frmmodulo.qrorcamento.fieldbyname('codcliente').asstring, [loCaseInsensitive]);
 
 
-  if (FRMMODULO.QRorcamento.FIELDBYNAME('CODCLIENTE').ASSTRING = 'S/CLIE') OR (FRMMODULO.QRorcamento.FIELDBYNAME('CODCLIENTE').ASSTRING = '') then
+  if FRMMODULO.QRorcamento.FIELDBYNAME('CODCLIENTE').ASSTRING = 'S/CLIE' then
   begin
     CLIENTE_NOME := 'CLIENTE ESPECIAL';
     CLIENTE_ENDERECO := '';

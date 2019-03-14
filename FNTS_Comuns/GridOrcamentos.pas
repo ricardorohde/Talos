@@ -147,6 +147,8 @@ type
     qrorcamentoSTATUS: TWideStringField;
     qrorcamentoCLIENTE: TStringField;
     bitbtn7: TAdvGlowButton;
+    qrorcamentoNOME_CLIENTE: TWideStringField;
+    qrorcamentoNOME_CPFCNPJ: TWideStringField;
     procedure eclienteButtonClick(Sender: TObject);
     procedure eclienteEnter(Sender: TObject);
     procedure eclienteKeyPress(Sender: TObject; var Key: Char);

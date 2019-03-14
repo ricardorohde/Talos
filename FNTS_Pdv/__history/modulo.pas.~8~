@@ -1355,7 +1355,6 @@ type
     function StrToHex(const S: string): string;
     function codifica(TABELA: string; Tipo: string = 'A'): string;
     function PrecoDeVenda(Produto: Integer; Quantidade: Double): Double;
-
   end;
 
 const
@@ -1669,9 +1668,7 @@ begin
 
   Ini := TIniFile.Create(IniFile);
   try
-    pesquisaCodigoProduto := Ini.ReadBool('Geral', 'PesquisaCodigoProduto', True);
-    pesquisaCodBarras := Ini.ReadBool('Geral', 'PesquisaCodigoBarras', True);
-    pesquisaNomeProd := Ini.ReadBool('Geral', 'PesquisaNomeProduto', True);
+
 
 
     ACBRNFCe.Configuracoes.Certificados.ArquivoPFX := Ini.ReadString('Certificado', 'Caminho', '');
