@@ -199,7 +199,6 @@ object frmxloc_produto: Tfrmxloc_produto
       Top = 17
       Width = 369
       Height = 20
-      AutoSelect = False
       CharCase = ecUpperCase
       Color = 15916445
       Font.Charset = ANSI_CHARSET

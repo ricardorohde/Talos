@@ -191,7 +191,7 @@ procedure Tfrmxloc_produto.locKeyPress(Sender: TObject; var Key: Char);
 var
   ref, tipo, novoloc: string;
 begin
-  if (Key <> #13) and (loc.Text <> '') then
+  if Key = #13 then
   begin
     if combo_referencia.ItemIndex = 0 then
       ref := ''
@@ -359,7 +359,6 @@ begin
     GRID.setfocus;
   end;
 
-  loc.SetFocus;
   if frmmodulo.qrconfig.fieldbyname('ramo_atividade').asinteger = 2 then
     // supermercado
     combo_localizar.ItemIndex := 2;

@@ -237,6 +237,7 @@ type
     procedure bgravarClick(Sender: TObject);
     procedure eprodutoEnter(Sender: TObject);
     procedure eprodutoExit(Sender: TObject);
+    procedure eprodutoKeyPress(Sender: TObject; var Key: Char);
     procedure esubgrupoButtonClick(Sender: TObject);
     procedure esubgrupoEnter(Sender: TObject);
     procedure esubgrupoExit(Sender: TObject);
@@ -262,7 +263,6 @@ type
     procedure Cancelar1Click(Sender: TObject);
     procedure edtOBSItemKeyPress(Sender: TObject; var Key: Char);
     procedure xitemKeyPress(Sender: TObject; var Key: Char);
-    procedure eprodutoKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -543,6 +543,347 @@ begin
   edtOBSItem.SetFocus;
 end;
 
+procedure TfrmOS_item.eprodutoKeyPress(Sender: TObject; var Key: Char);
+var
+  a, cod_serial, TIPO, codigo: string;
+  achou: BOOLEAN;
+  i: integer;
+begin
+  if Key = #13 then begin
+    if eproduto.text <> '' then begin
+      achou := false;
+      cod_serial := '';
+      TIPO := '';
+      // procurar pelo codigo  de barras
+      codigo := eproduto.text;
+
+      qrproduto.close;
+      qrproduto.sql.clear;
+      qrproduto.sql.Add('select * from c000025 where situacao = 0 and codbarra =''' + codigo + '''');
+      qrproduto.Open;
+
+      codigo := '';
+      if qrproduto.RecordCount > 0 then
+        achou := true;
+      if not achou then begin
+        // procurar pelo codigo
+        codigo := FRMPRINCIPAL.zerarcodigo(codigo, 6);
+        qrproduto.close;
+        qrproduto.sql.clear;
+        qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + FRMPRINCIPAL.zerarcodigo(eproduto.text, 6) + '''');
+        qrproduto.Open;
+        if qrproduto.RecordCount > 0 then
+          achou := true;
+      end;
+
+      if not achou then begin
+        // procurar pelo serial
+        QUERY.close;
+        QUERY.sql.clear;
+        QUERY.sql.Add('select * from c000022 where serial =''' + eproduto.text + '''');
+        QUERY.Open;
+        if QUERY.RecordCount > 0 then
+          achou := true;
+        if achou then begin
+          a := QUERY.FieldByName('codproduto').AsString;
+          cod_serial := QUERY.FieldByName('serial').AsString;
+          TIPO := 'SERIAL';
+          qrproduto.close;
+          qrproduto.sql.clear;
+          qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + a + '''');
+          qrproduto.Open;
+          if qrproduto.RecordCount > 0 then
+            achou := true
+          else
+            achou := false;
+        end;
+      end;
+
+      if not achou then begin
+        // procurar pelo codigo de barras da grade
+        QUERY.close;
+        QUERY.sql.clear;
+        QUERY.sql.Add('select * from c000021 where codbarra =''' + eproduto.text + '''');
+        QUERY.Open;
+        if QUERY.RecordCount > 0 then begin
+          if ESTOQUE_NEGATIVO then
+            achou := true
+          else begin
+            if QUERY.FieldByName('estoque').asfloat > 0 then
+              achou := true
+            else begin
+              frmmodulo.autentica_estoque_negativo := 1;
+              if frmmodulo.importando_orcamento <> 1 then begin
+                if not FRMPRINCIPAL.autentica('Venda Sem Estoque', 4) then begin
+                  // APPLICATION.MESSAGEBOX('Este produto não possue ESTOQUE!', 'Atenção', mb_ok + MB_ICONWARNING);
+                  eproduto.text := '';
+                  eproduto.setfocus;
+                  exit;
+                end;
+              end;
+            end;
+          end;
+        end;
+
+        if achou then begin
+          a := QUERY.FieldByName('codproduto').AsString;
+          cod_serial := QUERY.FieldByName('codigo').AsString;
+          TIPO := 'GRADE';
+          qrproduto.close;
+          qrproduto.sql.clear;
+          qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + a + '''');
+          qrproduto.Open;
+          if qrproduto.RecordCount > 0 then
+            achou := true
+          else
+            achou := false;
+        end;
+      end;
+
+      if not achou then begin
+        codigo := eproduto.text;
+        a := copy(codigo, 1, 1);
+        for i := 1 to Length(a) do begin
+          if (a[i] in ['A'..'Z']) then begin
+            produto_loc := '';
+            qrproduto.close;
+            qrproduto.sql.clear;
+            qrproduto.sql.Add('select * from c000025 where situacao = 0 and  produto like ''%' + eproduto.text + '%''');
+            qrproduto.Open;
+            if qrproduto.RecordCount = 0 then begin
+              APPLICATION.MESSAGEBOX('Produto não encontrado!', 'Aviso', mb_ok + MB_ICONWARNING);
+              eproduto.text := '';
+              exit;
+            end
+            else begin
+              if qrproduto.RecordCount = 1 then begin
+                achou := true;
+              end
+              else begin
+
+                frmmodulo.qrconfig.Open;
+                if frmmodulo.qrconfig.FieldByName('CADASTRO_PRODUTO').AsString = 'PECAS' then begin
+                  if produto_loc <> '' then begin
+                    qrproduto.close;
+                    qrproduto.sql.clear;
+                    qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo like ''%' + produto_loc + '%''');
+                    qrproduto.Open;
+                    if qrproduto.RecordCount > 0 then
+                      achou := true
+                    else
+                      achou := false;
+                  end;
+                end
+                else begin
+                  frmxloc_produto := tfrmxloc_produto.create(self);
+                  frmxloc_produto.loc.text := eproduto.text;
+                  frmxloc_produto.ShowModal;
+                  produto_loc := resultado_pesquisa1;
+
+                  if produto_loc <> '' then begin
+                    qrproduto.close;
+                    qrproduto.sql.clear;
+                    qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo like ''%' + produto_loc + '%''');
+                    qrproduto.Open;
+                    if qrproduto.RecordCount > 0 then
+                      achou := true
+                    else
+                      achou := false;
+                  end;
+                end;
+              end;
+            end;
+          end;
+        end;
+      end;
+
+      qrproduto.Open;
+      if qrproduto.RecordCount > 0 then begin
+        // verificar se produto usa tabela preco
+        eproduto.text := qrproduto.FieldByName('codigo').AsString + ' ' + qrproduto.FieldByName('produto').AsString;
+        runitario.value := frmmodulo.PrecoDeVenda(qrproduto.FieldByName('codigo').AsString, 1);
+        rqtde.value := 1;
+        eproduto.text := qrproduto.FieldByName('produto').AsString;
+
+        qrestoque.close;
+        qrestoque.sql.clear;
+        qrestoque.sql.Add('select * from c000100 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + '''');
+        qrestoque.Open;
+
+        if qrestoque.RecordCount > 0 then
+          restoque.value := qrestoque.FieldByName('estoque_atual').asfloat;
+        if not ESTOQUE_NEGATIVO then begin
+          if restoque.value < 0.01 then begin
+            frmmodulo.autentica_estoque_negativo := 1;
+            if frmmodulo.importando_orcamento <> 1 then begin
+              if not FRMPRINCIPAL.autentica('Venda Sem Estoque', 4) then begin
+                // APPLICATION.MESSAGEBOX('Este produto não possue ESTOQUE!', 'Atenção', mb_ok + MB_ICONWARNING);
+                eproduto.text := '';
+                eproduto.setfocus;
+                exit;
+              end;
+            end;
+
+          end;
+        end;
+
+        lfornecedor.caption := qrproduto.FieldByName('fornecedor').AsString;
+        ecst.text := qrproduto.FieldByName('cst').AsString;
+        ealiquota.value := qrproduto.FieldByName('aliquota').asfloat;
+        lserial.caption := '---';
+
+        rsubtotal.value := runitario.Value;
+        rdesconto1.value := 0;
+        rdesconto2.value := 0;
+        rtotal.value := rsubtotal.Value;
+
+        serial_grade := 0;
+        codigo_serial_grade := '';
+
+        rqtde.Enabled := true;
+
+        /// / verificar se produto usa grade
+
+        if qrproduto.FieldByName('usa_grade').asinteger = 1 then begin
+          if (cod_serial <> '') and (TIPO = 'GRADE') then begin
+            frmOrcamento.qrproduto_grade.close;
+            frmOrcamento.qrproduto_grade.sql.clear;
+            frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codigo = ''' + cod_serial + '''');
+            frmOrcamento.qrproduto_grade.Open;
+            if frmOrcamento.qrproduto_grade.RecordCount > 0 then begin
+              lserial.caption := frmOrcamento.qrproduto_grade.FieldByName('numeracao').AsString;
+              serial_grade := 2;
+              codigo_serial_grade := frmOrcamento.qrproduto_grade.FieldByName('codigo').AsString;
+              rqtde.setfocus;
+            end
+            else begin
+              APPLICATION.MESSAGEBOX('Grade não encontrada!', 'Atenção', mb_ok + MB_ICONWARNING);
+              eproduto.text := '';
+              eproduto.setfocus;
+              exit;
+            end;
+
+          end
+          else begin
+            frmOrcamento.qrproduto_grade.close;
+            frmOrcamento.qrproduto_grade.sql.clear;
+            if ESTOQUE_NEGATIVO then
+              frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' order by codigo')
+            else
+              frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' and estoque > 0 order by codigo');
+            frmOrcamento.qrproduto_grade.Open;
+
+            if frmOrcamento.qrproduto_grade.RecordCount = 0 then begin
+              APPLICATION.MESSAGEBOX('Não foi encontrado nenhum registro de grade para este produto!', 'Erro', mb_ok + mb_iconerror);
+              eproduto.text := '';
+              eproduto.setfocus;
+
+              restoque.value := 0;
+              lserial.caption := '';
+              lfornecedor.caption := '';
+              ecst.text := '';
+              ealiquota.value := 0;
+              rqtde.value := 0;
+              runitario.value := 0;
+              rsubtotal.value := 0;
+              rdesconto1.value := 0;
+              rdesconto2.value := 0;
+              rtotal.value := 0;
+              xped.Text := '';
+              xitem.Text := '';
+              exit;
+            end;
+
+            frmorcamento_grade := tfrmorcamento_grade.create(self);
+            frmorcamento_grade.ShowModal;
+
+            if selecionado then begin
+              lserial.caption := frmOrcamento.qrproduto_grade.FieldByName('numeracao').AsString;
+              serial_grade := 2;
+              codigo_serial_grade := frmOrcamento.qrproduto_grade.FieldByName('codigo').AsString;
+              rqtde.setfocus;
+            end
+            else begin
+              eproduto.setfocus;
+            end;
+          end;
+        end
+        else begin
+          /// verificar se produto utiliza controle de seriais
+          if qrproduto.FieldByName('usa_serial').asinteger = 1 then begin
+            if (cod_serial <> '') and (TIPO = 'SERIAL') then begin
+              frmOrcamento.qrproduto_serial.close;
+              frmOrcamento.qrproduto_serial.sql.clear;
+              frmOrcamento.qrproduto_serial.sql.Add('select * from c000022 where codigo = ''' + cod_serial + ''' and situacao = 1 ');
+              frmOrcamento.qrproduto_serial.Open;
+              if frmOrcamento.qrproduto_serial.RecordCount > 0 then begin
+                lserial.caption := frmOrcamento.qrproduto_serial.FieldByName('serial').AsString;
+                serial_grade := 1;
+                codigo_serial_grade := frmOrcamento.qrproduto_serial.FieldByName('codigo').AsString;
+                rqtde.Enabled := false;
+                runitario.setfocus;
+              end
+              else begin
+                APPLICATION.MESSAGEBOX('Serial não encontrado!', 'Atenção', mb_ok + MB_ICONWARNING);
+                eproduto.text := '';
+                eproduto.setfocus;
+                exit;
+              end;
+            end
+            else begin
+              frmOrcamento.qrproduto_serial.close;
+              frmOrcamento.qrproduto_serial.sql.clear;
+              frmOrcamento.qrproduto_serial.sql.Add('select * from c000022 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' and situacao = 1 order by codigo');
+              frmOrcamento.qrproduto_serial.Open;
+
+              if frmOrcamento.qrproduto_serial.RecordCount = 0 then begin
+                APPLICATION.MESSAGEBOX('Produto utiliza controle de serial mas não tem nenhum serial cadastrado!', 'Atenção', mb_ok + MB_ICONWARNING);
+                eproduto.text := '';
+                eproduto.setfocus;
+                exit;
+
+              end;
+
+              frmOrcamento_serial := tfrmOrcamento_serial.create(self);
+              frmOrcamento_serial.ShowModal;
+
+              Panel2.Visible := true;
+
+              if selecionado then begin
+                lserial.caption := frmOrcamento.qrproduto_serial.FieldByName('serial').AsString;
+                serial_grade := 1;
+                codigo_serial_grade := frmOrcamento.qrproduto_serial.FieldByName('codigo').AsString;
+                rqtde.Enabled := false;
+                runitario.setfocus;
+              end
+              else begin
+                eproduto.setfocus;
+              end;
+            end;
+          end
+          else begin
+            rqtde.setfocus;
+          end;
+        end;
+        if UtilizaLeitorCodigoBarra then begin
+          bgravar.Click;
+          eproduto.SetFocus;
+        end;
+      end
+      else begin
+        APPLICATION.MESSAGEBOX('Produto não encontrado!', 'Aviso', mb_ok + MB_ICONWARNING);
+        eproduto.text := '';
+        eproduto.setfocus;
+      end;
+    end
+    else begin
+      eproduto.setfocus;
+    end;
+  end
+  else
+    eproduto.setfocus;
+end;
+
 procedure TfrmOS_item.esubgrupoButtonClick(Sender: TObject);
 begin
   try
@@ -761,363 +1102,6 @@ begin
     bgravar.setfocus;
 end;
 
-procedure TfrmOS_item.eprodutoKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-var
-  a, cod_serial, TIPO, codigo: string;
-  achou: BOOLEAN;
-  i: integer;
-begin
-  if Key <> VK_RETURN then begin
-    if eproduto.text <> '' then begin
-//      achou := false;
-//      cod_serial := '';
-//      TIPO := '';
-//      // procurar pelo codigo  de barras
-//      codigo := eproduto.text;
-//
-//      qrproduto.close;
-//      qrproduto.sql.clear;
-//      qrproduto.sql.Add('select * from c000025 where situacao = 0 and codbarra =''' + codigo + '''');
-//      qrproduto.Open;
-//
-//      codigo := '';
-//      if qrproduto.RecordCount > 0 then
-//        achou := true;
-//      if not achou then begin
-//        // procurar pelo codigo
-//        codigo := FRMPRINCIPAL.zerarcodigo(codigo, 6);
-//        qrproduto.close;
-//        qrproduto.sql.clear;
-//        qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + FRMPRINCIPAL.zerarcodigo(eproduto.text, 6) + '''');
-//        qrproduto.Open;
-//        if qrproduto.RecordCount > 0 then
-//          achou := true;
-//      end;
-//
-//      if not achou then begin
-//        // procurar pelo serial
-//        QUERY.close;
-//        QUERY.sql.clear;
-//        QUERY.sql.Add('select * from c000022 where serial =''' + eproduto.text + '''');
-//        QUERY.Open;
-//        if QUERY.RecordCount > 0 then
-//          achou := true;
-//        if achou then begin
-//          a := QUERY.FieldByName('codproduto').AsString;
-//          cod_serial := QUERY.FieldByName('serial').AsString;
-//          TIPO := 'SERIAL';
-//          qrproduto.close;
-//          qrproduto.sql.clear;
-//          qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + a + '''');
-//          qrproduto.Open;
-//          if qrproduto.RecordCount > 0 then
-//            achou := true
-//          else
-//            achou := false;
-//        end;
-//      end;
-//
-//      if not achou then begin
-//        // procurar pelo codigo de barras da grade
-//        QUERY.close;
-//        QUERY.sql.clear;
-//        QUERY.sql.Add('select * from c000021 where codbarra =''' + eproduto.text + '''');
-//        QUERY.Open;
-//        if QUERY.RecordCount > 0 then begin
-//          if ESTOQUE_NEGATIVO then
-//            achou := true
-//          else begin
-//            if QUERY.FieldByName('estoque').asfloat > 0 then
-//              achou := true
-//            else begin
-//              frmmodulo.autentica_estoque_negativo := 1;
-//              if frmmodulo.importando_orcamento <> 1 then begin
-//                if not FRMPRINCIPAL.autentica('Venda Sem Estoque', 4) then begin
-//                  // APPLICATION.MESSAGEBOX('Este produto não possue ESTOQUE!', 'Atenção', mb_ok + MB_ICONWARNING);
-//                  eproduto.text := '';
-//                  eproduto.setfocus;
-//                  exit;
-//                end;
-//              end;
-//            end;
-//          end;
-//        end;
-//
-//        if achou then begin
-//          a := QUERY.FieldByName('codproduto').AsString;
-//          cod_serial := QUERY.FieldByName('codigo').AsString;
-//          TIPO := 'GRADE';
-//          qrproduto.close;
-//          qrproduto.sql.clear;
-//          qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo =''' + a + '''');
-//          qrproduto.Open;
-//          if qrproduto.RecordCount > 0 then
-//            achou := true
-//          else
-//            achou := false;
-//        end;
-//      end;
-//
-//      if not achou then begin
-//        codigo := eproduto.text;
-//        a := copy(codigo, 1, 1);
-//        for i := 1 to Length(a) do begin
-//          if (a[i] in ['A'..'Z']) then begin
-//            produto_loc := '';
-//            qrproduto.close;
-//            qrproduto.sql.clear;
-//            qrproduto.sql.Add('select * from c000025 where situacao = 0 and  produto like ''%' + eproduto.text + '%''');
-//            qrproduto.Open;
-//            if qrproduto.RecordCount = 0 then begin
-//              APPLICATION.MESSAGEBOX('Produto não encontrado!', 'Aviso', mb_ok + MB_ICONWARNING);
-//              eproduto.text := '';
-//              exit;
-//            end
-//            else begin
-//              if qrproduto.RecordCount = 1 then begin
-//                achou := true;
-//              end
-//              else begin
-//
-//                frmmodulo.qrconfig.Open;
-//                if frmmodulo.qrconfig.FieldByName('CADASTRO_PRODUTO').AsString = 'PECAS' then begin
-//                  if produto_loc <> '' then begin
-//                    qrproduto.close;
-//                    qrproduto.sql.clear;
-//                    qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo like ''%' + produto_loc + '%''');
-//                    qrproduto.Open;
-//                    if qrproduto.RecordCount > 0 then
-//                      achou := true
-//                    else
-//                      achou := false;
-//                  end;
-//                end
-//                else begin
-//                  frmxloc_produto := tfrmxloc_produto.create(self);
-//                  frmxloc_produto.loc.text := eproduto.text;
-//                  frmxloc_produto.ShowModal;
-//                  produto_loc := resultado_pesquisa1;
-//
-//                  if produto_loc <> '' then begin
-//                    qrproduto.close;
-//                    qrproduto.sql.clear;
-//                    qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo like ''%' + produto_loc + '%''');
-//                    qrproduto.Open;
-//                    if qrproduto.RecordCount > 0 then
-//                      achou := true
-//                    else
-//                      achou := false;
-//                  end;
-//                end;
-//              end;
-//            end;
-//          end;
-//        end;
-//      end;
-      frmxloc_produto := tfrmxloc_produto.create(self);
-      frmxloc_produto.loc.text := eproduto.text;
-      frmxloc_produto.loc.SelStart := 1;
-      frmxloc_produto.ShowModal;
-      produto_loc := resultado_pesquisa1;
+end.
 
-      if produto_loc <> '' then begin
-                    qrproduto.close;
-                    qrproduto.sql.clear;
-                    qrproduto.sql.Add('select * from c000025 where situacao = 0 and  codigo like ''%' + produto_loc + '%''');
-                    qrproduto.Open;
-                    if qrproduto.RecordCount > 0 then
-                      achou := true
-                    else
-                      achou := false;
-      end;
-
-
-      qrproduto.Open;
-      if qrproduto.RecordCount > 0 then begin
-        // verificar se produto usa tabela preco
-        eproduto.text := qrproduto.FieldByName('codigo').AsString + ' ' + qrproduto.FieldByName('produto').AsString;
-        runitario.value := frmmodulo.PrecoDeVenda(qrproduto.FieldByName('codigo').AsString, 1);
-        rqtde.value := 1;
-        eproduto.text := qrproduto.FieldByName('produto').AsString;
-
-        qrestoque.close;
-        qrestoque.sql.clear;
-        qrestoque.sql.Add('select * from c000100 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + '''');
-        qrestoque.Open;
-
-        if qrestoque.RecordCount > 0 then
-          restoque.value := qrestoque.FieldByName('estoque_atual').asfloat;
-        if not ESTOQUE_NEGATIVO then begin
-          if restoque.value < 0.01 then begin
-            frmmodulo.autentica_estoque_negativo := 1;
-            if frmmodulo.importando_orcamento <> 1 then begin
-              if not FRMPRINCIPAL.autentica('Venda Sem Estoque', 4) then begin
-                // APPLICATION.MESSAGEBOX('Este produto não possue ESTOQUE!', 'Atenção', mb_ok + MB_ICONWARNING);
-                eproduto.text := '';
-                eproduto.setfocus;
-                exit;
-              end;
-            end;
-
-          end;
-        end;
-
-        lfornecedor.caption := qrproduto.FieldByName('fornecedor').AsString;
-        ecst.text := qrproduto.FieldByName('cst').AsString;
-        ealiquota.value := qrproduto.FieldByName('aliquota').asfloat;
-        lserial.caption := '---';
-
-        rsubtotal.value := runitario.Value;
-        rdesconto1.value := 0;
-        rdesconto2.value := 0;
-        rtotal.value := rsubtotal.Value;
-
-        serial_grade := 0;
-        codigo_serial_grade := '';
-
-        rqtde.Enabled := true;
-
-        /// / verificar se produto usa grade
-
-        if qrproduto.FieldByName('usa_grade').asinteger = 1 then begin
-          if (cod_serial <> '') and (TIPO = 'GRADE') then begin
-            frmOrcamento.qrproduto_grade.close;
-            frmOrcamento.qrproduto_grade.sql.clear;
-            frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codigo = ''' + cod_serial + '''');
-            frmOrcamento.qrproduto_grade.Open;
-            if frmOrcamento.qrproduto_grade.RecordCount > 0 then begin
-              lserial.caption := frmOrcamento.qrproduto_grade.FieldByName('numeracao').AsString;
-              serial_grade := 2;
-              codigo_serial_grade := frmOrcamento.qrproduto_grade.FieldByName('codigo').AsString;
-              rqtde.setfocus;
-            end
-            else begin
-              APPLICATION.MESSAGEBOX('Grade não encontrada!', 'Atenção', mb_ok + MB_ICONWARNING);
-              eproduto.text := '';
-              eproduto.setfocus;
-              exit;
-            end;
-
-          end
-          else begin
-            frmOrcamento.qrproduto_grade.close;
-            frmOrcamento.qrproduto_grade.sql.clear;
-            if ESTOQUE_NEGATIVO then
-              frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' order by codigo')
-            else
-              frmOrcamento.qrproduto_grade.sql.Add('select * from c000021 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' and estoque > 0 order by codigo');
-            frmOrcamento.qrproduto_grade.Open;
-
-            if frmOrcamento.qrproduto_grade.RecordCount = 0 then begin
-              APPLICATION.MESSAGEBOX('Não foi encontrado nenhum registro de grade para este produto!', 'Erro', mb_ok + mb_iconerror);
-              eproduto.text := '';
-              eproduto.setfocus;
-
-              restoque.value := 0;
-              lserial.caption := '';
-              lfornecedor.caption := '';
-              ecst.text := '';
-              ealiquota.value := 0;
-              rqtde.value := 0;
-              runitario.value := 0;
-              rsubtotal.value := 0;
-              rdesconto1.value := 0;
-              rdesconto2.value := 0;
-              rtotal.value := 0;
-              xped.Text := '';
-              xitem.Text := '';
-              exit;
-            end;
-
-            frmorcamento_grade := tfrmorcamento_grade.create(self);
-            frmorcamento_grade.ShowModal;
-
-            if selecionado then begin
-              lserial.caption := frmOrcamento.qrproduto_grade.FieldByName('numeracao').AsString;
-              serial_grade := 2;
-              codigo_serial_grade := frmOrcamento.qrproduto_grade.FieldByName('codigo').AsString;
-              rqtde.setfocus;
-            end
-            else begin
-              eproduto.setfocus;
-            end;
-          end;
-        end
-        else begin
-          /// verificar se produto utiliza controle de seriais
-          if qrproduto.FieldByName('usa_serial').asinteger = 1 then begin
-            if (cod_serial <> '') and (TIPO = 'SERIAL') then begin
-              frmOrcamento.qrproduto_serial.close;
-              frmOrcamento.qrproduto_serial.sql.clear;
-              frmOrcamento.qrproduto_serial.sql.Add('select * from c000022 where codigo = ''' + cod_serial + ''' and situacao = 1 ');
-              frmOrcamento.qrproduto_serial.Open;
-              if frmOrcamento.qrproduto_serial.RecordCount > 0 then begin
-                lserial.caption := frmOrcamento.qrproduto_serial.FieldByName('serial').AsString;
-                serial_grade := 1;
-                codigo_serial_grade := frmOrcamento.qrproduto_serial.FieldByName('codigo').AsString;
-                rqtde.Enabled := false;
-                runitario.setfocus;
-              end
-              else begin
-                APPLICATION.MESSAGEBOX('Serial não encontrado!', 'Atenção', mb_ok + MB_ICONWARNING);
-                eproduto.text := '';
-                eproduto.setfocus;
-                exit;
-              end;
-            end
-            else begin
-              frmOrcamento.qrproduto_serial.close;
-              frmOrcamento.qrproduto_serial.sql.clear;
-              frmOrcamento.qrproduto_serial.sql.Add('select * from c000022 where codproduto = ''' + qrproduto.FieldByName('codigo').AsString + ''' and situacao = 1 order by codigo');
-              frmOrcamento.qrproduto_serial.Open;
-
-              if frmOrcamento.qrproduto_serial.RecordCount = 0 then begin
-                APPLICATION.MESSAGEBOX('Produto utiliza controle de serial mas não tem nenhum serial cadastrado!', 'Atenção', mb_ok + MB_ICONWARNING);
-                eproduto.text := '';
-                eproduto.setfocus;
-                exit;
-
-              end;
-
-              frmOrcamento_serial := tfrmOrcamento_serial.create(self);
-              frmOrcamento_serial.ShowModal;
-
-              Panel2.Visible := true;
-
-              if selecionado then begin
-                lserial.caption := frmOrcamento.qrproduto_serial.FieldByName('serial').AsString;
-                serial_grade := 1;
-                codigo_serial_grade := frmOrcamento.qrproduto_serial.FieldByName('codigo').AsString;
-                rqtde.Enabled := false;
-                runitario.setfocus;
-              end
-              else begin
-                eproduto.setfocus;
-              end;
-            end;
-          end
-          else begin
-            rqtde.setfocus;
-          end;
-        end;
-        if UtilizaLeitorCodigoBarra then begin
-          bgravar.Click;
-          eproduto.SetFocus;
-        end;
-      end
-      else begin
-        APPLICATION.MESSAGEBOX('Produto não encontrado!', 'Aviso', mb_ok + MB_ICONWARNING);
-        eproduto.text := '';
-        eproduto.setfocus;
-      end;
-    end
-    else begin
-      eproduto.setfocus;
-    end;
-  end
-  else
-    eproduto.setfocus;
-end;
-   end.
 

@@ -34,7 +34,7 @@ object frmOS_item: TfrmOS_item
   object Label4: TLabel
     Left = 165
     Top = 219
-    Width = 82
+    Width = 83
     Height = 13
     Caption = 'Valor Unit'#225'rio:'
     Font.Charset = ANSI_CHARSET
@@ -60,7 +60,7 @@ object frmOS_item: TfrmOS_item
   object Label7: TLabel
     Left = 189
     Top = 324
-    Width = 65
+    Width = 67
     Height = 13
     Caption = 'Valor Total:'
     Font.Charset = ANSI_CHARSET
@@ -474,7 +474,7 @@ object frmOS_item: TfrmOS_item
       TabOrder = 0
       OnEnter = eprodutoEnter
       OnExit = eprodutoExit
-      OnKeyUp = eprodutoKeyUp
+      OnKeyPress = eprodutoKeyPress
     end
     object restoque: TJvCalcEdit
       Left = 75
