@@ -3,7 +3,7 @@ object frmVenda: TfrmVenda
   Top = 144
   BorderStyle = bsNone
   Caption = 'Venda Balc'#227'o'
-  ClientHeight = 745
+  ClientHeight = 747
   ClientWidth = 1167
   Color = 1261591
   Font.Charset = ANSI_CHARSET
@@ -48,30 +48,32 @@ object frmVenda: TfrmVenda
     Left = 0
     Top = 0
     Width = 1167
-    Height = 745
+    Height = 747
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 2
+    ExplicitHeight = 745
     object pn_principal: TPanel
       Left = 0
       Top = 0
       Width = 1167
-      Height = 745
+      Height = 747
       Align = alClient
       BevelOuter = bvNone
       Color = 14086904
       ParentBackground = False
       TabOrder = 0
+      ExplicitHeight = 745
       DesignSize = (
         1167
-        745)
+        747)
       object imgFundo: TImage
         Left = 0
         Top = 0
         Width = 1167
-        Height = 628
+        Height = 630
         Align = alClient
         Picture.Data = {
           0D546478536D617274496D616765FFD8FFE000104A46494600010101012C012C
@@ -2368,21 +2370,23 @@ object frmVenda: TfrmVenda
         Stretch = True
         ExplicitTop = 4
         ExplicitWidth = 1276
+        ExplicitHeight = 628
       end
       object CentralizaGrid: TBevel
         Left = 612
         Top = 99
         Width = 555
-        Height = 533
+        Height = 535
         Anchors = [akLeft, akTop, akRight, akBottom]
         Shape = bsSpacer
         ExplicitWidth = 664
+        ExplicitHeight = 533
       end
       object pnBaseFoto: TBevel
         Left = 76
         Top = 126
         Width = 538
-        Height = 282
+        Height = 284
         Anchors = [akLeft, akTop, akBottom]
         Shape = bsSpacer
         ExplicitHeight = 276
@@ -3322,7 +3326,7 @@ object frmVenda: TfrmVenda
       end
       object pnTotal: TPanel
         Left = 348
-        Top = 501
+        Top = 503
         Width = 266
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3331,6 +3335,7 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 13
+        ExplicitTop = 501
         object RzLabel4: TRzLabel
           Left = 10
           Top = 10
@@ -3423,7 +3428,7 @@ object frmVenda: TfrmVenda
       end
       object pnBarra: TPanel
         Left = 76
-        Top = 414
+        Top = 416
         Width = 344
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3432,6 +3437,7 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 2
+        ExplicitTop = 414
         object lbCodBarras: TRzLabel
           Left = 10
           Top = 10
@@ -3481,7 +3487,7 @@ object frmVenda: TfrmVenda
       end
       object pnUnitario: TPanel
         Left = 76
-        Top = 501
+        Top = 503
         Width = 266
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3490,6 +3496,7 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 3
+        ExplicitTop = 501
         object RzLabel1: TRzLabel
           Left = 10
           Top = 10
@@ -3542,7 +3549,7 @@ object frmVenda: TfrmVenda
       end
       object pnQuantidade: TPanel
         Left = 424
-        Top = 414
+        Top = 416
         Width = 190
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3551,6 +3558,7 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 4
+        ExplicitTop = 414
         object RzLabel3: TRzLabel
           Left = 10
           Top = 10
@@ -3804,7 +3812,7 @@ object frmVenda: TfrmVenda
       end
       object cpBarra: TdxStatusBar
         Left = 0
-        Top = 724
+        Top = 726
         Width = 1167
         Height = 21
         Panels = <
@@ -3935,10 +3943,11 @@ object frmVenda: TfrmVenda
         Font.Name = 'Tahoma'
         Font.Style = []
         Color = 14540253
+        ExplicitTop = 724
       end
       object Panel12: TPanel
         Left = 0
-        Top = 628
+        Top = 630
         Width = 1167
         Height = 72
         Align = alBottom
@@ -3947,6 +3956,7 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 7
+        ExplicitTop = 628
         object Panel13: TPanel
           Left = 764
           Top = 10
@@ -4198,7 +4208,7 @@ object frmVenda: TfrmVenda
       end
       object barraAtalho: TdxStatusBar
         Left = 0
-        Top = 700
+        Top = 702
         Width = 1167
         Height = 24
         Panels = <
@@ -4326,19 +4336,33 @@ object frmVenda: TfrmVenda
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
             Text = 'CTRL+A - Consumidor'
+            Width = 130
+          end
+          item
+            PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+            PanelStyle.Font.Charset = DEFAULT_CHARSET
+            PanelStyle.Font.Color = clWhite
+            PanelStyle.Font.Height = -11
+            PanelStyle.Font.Name = 'Tahoma'
+            PanelStyle.Font.Style = [fsBold]
+            PanelStyle.ParentFont = False
+            Bevel = dxpbNone
+            Text = 'CTRL+O - Trocar Caixa'
+            Width = 110
           end>
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
         Color = 6960384
+        ExplicitTop = 698
       end
       object cxGrid1: TcxGrid
         Left = 586
         Top = 104
         Width = 571
-        Height = 457
+        Height = 459
         Anchors = [akTop, akRight, akBottom]
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -4347,6 +4371,7 @@ object frmVenda: TfrmVenda
         LookAndFeel.Kind = lfUltraFlat
         LookAndFeel.NativeStyle = True
         LookAndFeel.SkinName = ''
+        ExplicitHeight = 457
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = UniDataSource1
@@ -5080,28 +5105,30 @@ object frmVenda: TfrmVenda
         Left = 12
         Top = 104
         Width = 568
-        Height = 516
+        Height = 518
         Anchors = [akLeft, akTop, akRight, akBottom]
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
         TabOrder = 9
         Visible = False
+        ExplicitHeight = 516
         object pnTouch_Produto: TPanel
           Left = 0
           Top = 124
           Width = 568
-          Height = 392
+          Height = 394
           Align = alClient
           BevelOuter = bvNone
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
+          ExplicitHeight = 392
           object scProduto: TScrollBox
             Left = 0
             Top = 0
             Width = 568
-            Height = 392
+            Height = 394
             HorzScrollBar.Smooth = True
             HorzScrollBar.Style = ssFlat
             HorzScrollBar.Tracking = True
@@ -5115,6 +5142,7 @@ object frmVenda: TfrmVenda
             TabOrder = 0
             OnMouseWheelDown = scGrupoMouseWheelDown
             OnMouseWheelUp = scGrupoMouseWheelUp
+            ExplicitHeight = 392
           end
         end
         object pnTouch_Grupo: TPanel
@@ -5185,7 +5213,7 @@ object frmVenda: TfrmVenda
       end
       object pnBotoesInferior: TPanel
         Left = 586
-        Top = 569
+        Top = 571
         Width = 574
         Height = 53
         Anchors = [akRight, akBottom]
@@ -5195,6 +5223,7 @@ object frmVenda: TfrmVenda
         ParentBackground = False
         TabOrder = 14
         Visible = False
+        ExplicitTop = 569
         object btnCancelaVenda: TAdvGlowButton
           Left = 121
           Top = 5
@@ -6910,7 +6939,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C010102000500540010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF
