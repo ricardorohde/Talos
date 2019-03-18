@@ -1255,11 +1255,9 @@ begin
                 qrServidor.ExecSQL;
 
                 qrServidor.SQL.Clear;
-                qrServidor.SQL.Add('update c000032 set situacao = 2 where NUMERONOTA = ' + QuotedStr(qrpdv.FieldByName('numero').AsString) + ' AND ECF_SERIE = ' + QuotedStr(qrpdv2.FieldByName('ECF').AsString));
+                qrServidor.SQL.Add('update c000032 set situacao = 2 where CODNOTA = ' + QuotedStr(sVendaCancelar));
 //                qrServidor.SQL.Add('delete from c000032 where CODNOTA = ' + QuotedStr(sVendaCancelar));
                 qrServidor.ExecSQL;
-
-                Memo1.Lines.Add('Deletando movimento do cupom ' + sVendaCancelar + ' - ECF: ' + qrpdv2.FieldByName('ECF').AsString);
 
                 qrForma.close;
                 qrForma.sql.clear;
