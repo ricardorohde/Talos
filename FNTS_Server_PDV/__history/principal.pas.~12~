@@ -22,9 +22,6 @@ type
     ImageList2: TImageList;
     Timer1: TTimer;
     Timer3: TTimer;
-    PopupMenu1: TPopupMenu;
-    Abrir1: TMenuItem;
-    Fechar1: TMenuItem;
     s8servidor101: TMenuItem;
     N2: TMenuItem;
     Atualizaragora1: TMenuItem;
