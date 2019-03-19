@@ -43,6 +43,7 @@ type
     N1: TMenuItem;
     ESC: TMenuItem;
     qrEmitirNFCe: TUniQuery;
+    btn2: TBitBtn;
     procedure bt_fechar1Click(Sender: TObject);
     procedure BitBtn11Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -74,8 +75,9 @@ uses funcoes, modulo, cupom_impressao, venda;
 
 procedure TfrmCupom_Menu.bt_fechar1Click(Sender: TObject);
 begin
-  close;
+Close;
 end;
+
 
 (**Procedure para emitir NFCe a partir de cupom **)
 procedure TfrmCupom_Menu.EmitirNFCe;

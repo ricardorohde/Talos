@@ -574,6 +574,15 @@ object frmCupom_Menu: TfrmCupom_Menu
       Appearance.GradientChecked = ggVertical
       Layout = blGlyphTop
     end
+    object btn2: TBitBtn
+      Left = 70
+      Top = 479
+      Width = 75
+      Height = 37
+      Caption = 'ESC &Fechar'
+      TabOrder = 5
+      OnClick = bt_fechar1Click
+    end
   end
   object grid_cupom: TNextGrid
     Left = 14
@@ -874,7 +883,7 @@ object frmCupom_Menu: TfrmCupom_Menu
     object Cancelar1: TMenuItem
       Caption = 'Cancelar'
       ShortCut = 114
-      OnClick = bt_fechar1Click
+      OnClick = AdvGlowButton2Click
     end
     object N1: TMenuItem
       Caption = '-'
