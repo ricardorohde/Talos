@@ -514,14 +514,27 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 10
-      Top = 22
-      Width = 129
-      Height = 23
+      Left = 361
+      Top = 12
+      Width = 85
+      Height = 16
       Caption = 'Digite o CNPJ:'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -20
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 361
+      Top = 78
+      Width = 96
+      Height = 16
+      Caption = 'Digite o Captcha'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
       Font.Name = 'Arial'
       Font.Style = []
       ParentFont = False
@@ -540,8 +553,8 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       ParentFont = False
     end
     object ButBuscar: TBitBtn
-      Left = 296
-      Top = 56
+      Left = 504
+      Top = 80
       Width = 121
       Height = 58
       Caption = 'Consultar'
@@ -592,12 +605,27 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
         FFFFFFFFFFFFFFFFFFFAFAFAE6E6E6D9D8D8DADADAE4E3E4FCFCFCFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFF}
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 2
       OnClick = ButBuscarClick
     end
+    object EditCaptcha: TEdit
+      Left = 361
+      Top = 97
+      Width = 137
+      Height = 41
+      CharCase = ecUpperCase
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnKeyPress = EditCaptchaKeyPress
+    end
     object EditCNPJ: TMaskEdit
-      Left = 10
-      Top = 60
+      Left = 361
+      Top = 31
       Width = 254
       Height = 41
       EditMask = '00.000.000/0000-00;0;_'
@@ -610,11 +638,48 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       ParentFont = False
       TabOrder = 0
       Text = ''
-      OnKeyUp = EditCNPJKeyUp
+    end
+    object Panel3: TPanel
+      Left = 9
+      Top = 11
+      Width = 346
+      Height = 127
+      BevelOuter = bvLowered
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 3
+      object Image1: TImage
+        Left = 1
+        Top = 1
+        Width = 344
+        Height = 106
+        Align = alClient
+        Center = True
+        Proportional = True
+        Stretch = True
+      end
+      object LabAtualizarCaptcha: TLabel
+        Left = 1
+        Top = 107
+        Width = 344
+        Height = 19
+        Cursor = crHandPoint
+        Align = alBottom
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Atualizar Captcha'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold, fsUnderline]
+        ParentFont = False
+        OnClick = LabAtualizarCaptchaClick
+      end
     end
     object ckRemoverEspacosDuplos: TCheckBox
       Left = 10
-      Top = 126
+      Top = 150
       Width = 368
       Height = 17
       Caption = 'Remover espa'#231'os duplos dos dados retornados'
@@ -624,7 +689,7 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 4
     end
   end
   object Panel4: TPanel
@@ -737,6 +802,12 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
     OnTimer = Timer1Timer
     Left = 552
     Top = 304
+  end
+  object ACBrConsultaCNPJ1: TACBrConsultaCNPJ
+    ProxyPort = '8080'
+    PesquisarIBGE = False
+    Left = 408
+    Top = 162
   end
   object IdHTTP1: TIdHTTP
     AllowCookies = True
