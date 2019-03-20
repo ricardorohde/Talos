@@ -56,12 +56,15 @@ type
     Panel1: TPanel;
     Label1: TLabel;
     ButBuscar: TBitBtn;
+    Timer1: TTimer;
     EditFantasia: TEdit;
     Label13: TLabel;
     EditCNPJ: TMaskEdit;
     ckRemoverEspacosDuplos: TCheckBox;
+    ListCNAE2: TListBox;
     Label15: TLabel;
     EditCNAE1: TEdit;
+    Label16: TLabel;
     EditEmail: TEdit;
     Label17: TLabel;
     EditTelefone: TEdit;
@@ -76,12 +79,13 @@ type
     EditIBGEUF: TEdit;
     Label21: TLabel;
     IdHTTP1: TIdHTTP;
-    EditCNAE1Desc: TEdit;
     procedure ButBuscarClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure EditCaptchaKeyPress(Sender: TObject; var Key: Char);
     procedure Button1Click(Sender: TObject);
     procedure AdvMetroButton1Click(Sender: TObject);
-    function ConsultaReceitaWS(Sender: TObject): Boolean;
+    procedure ConsultaReceitaWS(Sender: TObject);
     procedure EditCNPJKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
@@ -131,7 +135,7 @@ begin
       Result.Email := EditEmail.Text;
       Result.Telefone := EditTelefone.Text;
       Result.CNAEPrincipal := EditCNAE1.Text;
-//      Result.CNAESegundarios := ListCNAE2.Items.CommaText;
+      Result.CNAESegundarios := ListCNAE2.Items.CommaText;
       Result.Abertura := StrToDate(EditAbertura.Text);
       Result.IBGEMunic := EditIBGEMunic.Text;
       Result.IBGEUF := EditIBGEUF.Text;
@@ -151,7 +155,7 @@ procedure TfrmConsultaCNPJ.ButBuscarClick(Sender: TObject);
 var
   I: Integer;
 begin
-  frmConsultaCNPJ.ConsultaReceitaWS(Sender);
+   frmConsultaCNPJ.ConsultaReceitaWS(Sender);
 end;
 
 procedure TfrmConsultaCNPJ.Button1Click(Sender: TObject);
@@ -165,29 +169,23 @@ begin
 
 end;
 
+procedure TfrmConsultaCNPJ.EditCaptchaKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    ButBuscarClick(ButBuscar);
+end;
 
 procedure TfrmConsultaCNPJ.EditCNPJKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_RETURN then
-    if not frmConsultaCNPJ.ConsultaReceitaWS(Sender) then begin
-      EditCNPJ.Clear;
-    end
-      else
-      begin
-      Exit;
-      end;
-
-
-
-
-
+   frmConsultaCNPJ.ConsultaReceitaWS(Sender);
 
 end;
 
 procedure TfrmConsultaCNPJ.FormShow(Sender: TObject);
 begin
-
+  Timer1.Enabled := True;
 end;
 
 //procedure TfrmConsultaCNPJ.LabAtualizarCaptchaClick(Sender: TObject);
@@ -256,8 +254,15 @@ end;
 //  end;
 //end;
 
+procedure TfrmConsultaCNPJ.Timer1Timer(Sender: TObject);
+begin
+  //Timer1.Enabled := False;
+  //LabAtualizarCaptchaClick(LabAtualizarCaptcha);
+  EditCNPJ.SetFocus;
+end;
 
-function TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject):Boolean;
+
+procedure TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject);
 var
 str,url,urlImg: string;
   LJsonArr   : TJSONArray;
@@ -290,37 +295,34 @@ MS := TMemoryStream.Create;
 GIf := TGIFImage.Create;
 
 
-
 LJsonValue := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(str),0);
 
-if LJsonValue.GetValue<TJSONString>('status').Value = 'ERROR' then begin
-  Application.MessageBox('CNPJ Inválido ou Rejeitado pela RFB', 'Atenção!', MB_ICONINFORMATION);
-  return False;
-end
-else begin
-
-
 EditRazaoSocial.Text := LJsonValue.GetValue<TJSONString>('nome').Value;
+
 EditPorte.Text := LJsonValue.GetValue<TJSONString>('porte').Value;
+
+//edtUnidadeMedida.Text := LJsonValue.GetValue<TJSONObject>('gtins').GetValue<TJSONObject>('commercial_unit').GetValue<TJSONString>('type_packaging').Value;
+
+
 EditAbertura.Text := LJsonValue.GetValue<TJSONString>('abertura').Value;
+
 EditFantasia.Text := LJsonValue.GetValue<TJSONString>('fantasia').Value;
+
 EditEndereco.Text := LJsonValue.GetValue<TJSONString>('logradouro').Value;
+
 EditNumero.Text := LJsonValue.GetValue<TJSONString>('numero').Value;
+
 EditComplemento.Text := LJsonValue.GetValue<TJSONString>('complemento').Value;
+
 EditBairro.Text := LJsonValue.GetValue<TJSONString>('bairro').Value;
+
 EditCidade.Text := LJsonValue.GetValue<TJSONString>('municipio').Value;
+
 EditUF.Text := LJsonValue.GetValue<TJSONString>('uf').Value;
-EditCEP.Text := LJsonValue.GetValue<TJSONString>('cep').Value;
+
 EditTipo.Text := LJsonValue.GetValue<TJSONString>('tipo').Value;
-EditEmail.Text := LJsonValue.GetValue<TJSONString>('email').Value;
-EditTelefone.Text := LJsonValue.GetValue<TJSONString>('telefone').Value;
-EditCNAE1.Text := LJsonValue.GetValue<TJSONArray>('atividade_principal').Get(0).GetValue<TJSONString>('code').Value;
-EditCNAE1Desc.Text := LJsonValue.GetValue<TJSONArray>('atividade_principal').Get(0).GetValue<TJSONString>('text').Value;
-
-
 
 Screen.Cursor := crDefault;
-end;
 end;
 
 

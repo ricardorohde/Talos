@@ -157,7 +157,7 @@ end;
 procedure TfrmConsultaCNPJ.Button1Click(Sender: TObject);
 begin
   if EditRazaoSocial.Text = '' then begin
-    Application.MessageBox('Dados n„o localizado!', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('Dados n√£o localizado!', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
   Confirma := True;
@@ -172,6 +172,8 @@ begin
   if Key = VK_RETURN then
     if not frmConsultaCNPJ.ConsultaReceitaWS(Sender) then begin
       EditCNPJ.Clear;
+      EditCNPJ.SetFocus;
+      E
     end
       else
       begin
@@ -201,24 +203,24 @@ end;
 //{$ENDIF}
 //begin
 //  {$IFNDEF SUPPORT_PNG}
-//  ShowMessage('AtenÁ„o: Seu Delphi n„o d· suporte nativo a imagens PNG. Queira verificar o cÛdigo fonte deste exemplo para saber como proceder.');
+//  ShowMessage('Aten√ß√£o: Seu Delphi n√£o d√° suporte nativo a imagens PNG. Queira verificar o c√≥digo fonte deste exemplo para saber como proceder.');
 //  Exit;
 //    // COMO PROCEDER:
 //    //
-//    // 1) Caso o site da receita esteja utilizando uma imagem do tipo JPG, vocÍ pode utilizar o cÛdigo comentado abaixo.
-//    //    * Comente ou apague o cÛdigo que trabalha com PNG, incluindo o IFDEF/ENDIF;
-//    //    * descomente a declaraÁ„o da vari·vel jpg
-//    //    * descomente o cÛdigo abaixo;
-//    // 2) Caso o site da receita esteja utilizando uma imagem do tipo PNG, vocÍ ter· que utilizar uma biblioteca de terceiros para
+//    // 1) Caso o site da receita esteja utilizando uma imagem do tipo JPG, voc√™ pode utilizar o c√≥digo comentado abaixo.
+//    //    * Comente ou apague o c√≥digo que trabalha com PNG, incluindo o IFDEF/ENDIF;
+//    //    * descomente a declara√ß√£o da vari√°vel jpg
+//    //    * descomente o c√≥digo abaixo;
+//    // 2) Caso o site da receita esteja utilizando uma imagem do tipo PNG, voc√™ ter√° que utilizar uma biblioteca de terceiros para
 //    //conseguir trabalhar com imagens PNG.
-//    //  Neste caso, recomendamos verificar o manual da biblioteca em como fazer a implementaÁ„o. Algumas sugestıes:
-//    //    * Procure no FÛrum do ACBr sobre os erros que estiver recebendo. Uma das maneiras mais simples est· no link abaixo:
+//    //  Neste caso, recomendamos verificar o manual da biblioteca em como fazer a implementa√ß√£o. Algumas sugest√µes:
+//    //    * Procure no F√≥rum do ACBr sobre os erros que estiver recebendo. Uma das maneiras mais simples est√° no link abaixo:
 //    //      - http://www.projetoacbr.com.br/forum/topic/20087-imagem-png-delphi-7/
 //    //    * O exemplo acima utiliza a biblioteca GraphicEX. Mas existem outras bibliotecas, caso prefira:
 //    //      - http://synopse.info/forum/viewtopic.php?id=115
 //    //      - http://graphics32.org/wiki/
 //    //      - http://cc.embarcadero.com/Item/25631
-//    //      - V·rias outras: http://torry.net/quicksearchd.php?String=png&Title=Yes
+//    //      - V√°rias outras: http://torry.net/quicksearchd.php?String=png&Title=Yes
 //  {$ENDIF}
 //
 //  Stream := TMemoryStream.Create;
@@ -226,7 +228,7 @@ end;
 //    ACBrConsultaCNPJ1.Captcha(Stream);
 //
 //   {$IFDEF DELPHI2009_UP}
-//    //Use esse cÛdigo quando a imagem do site for do tipo PNG
+//    //Use esse c√≥digo quando a imagem do site for do tipo PNG
 //    png := TPngImage.Create;
 //    try
 //      png.LoadFromStream(Stream);
@@ -234,7 +236,7 @@ end;
 //    finally
 //      png.Free;
 //    end;
-//    { //Use esse cÛdigo quando a imagem do site for do tipo JPG
+//    { //Use esse c√≥digo quando a imagem do site for do tipo JPG
 //      Jpg:= TJPEGImage.Create;
 //      try
 //        Jpg.LoadFromStream(Stream);
@@ -257,7 +259,7 @@ end;
 //end;
 
 
-function TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject):Boolean;
+function TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject): Boolean;
 var
 str,url,urlImg: string;
   LJsonArr   : TJSONArray;
@@ -294,8 +296,9 @@ GIf := TGIFImage.Create;
 LJsonValue := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(str),0);
 
 if LJsonValue.GetValue<TJSONString>('status').Value = 'ERROR' then begin
-  Application.MessageBox('CNPJ Inv·lido ou Rejeitado pela RFB', 'AtenÁ„o!', MB_ICONINFORMATION);
-  return False;
+  Application.MessageBox('CNPJ Inv√°lido ou Rejeitado pela RFB', 'Aten√ß√£o!', MB_ICONINFORMATION);
+  Result := False;
+
 end
 else begin
 
@@ -320,7 +323,9 @@ EditCNAE1Desc.Text := LJsonValue.GetValue<TJSONArray>('atividade_principal').Get
 
 
 Screen.Cursor := crDefault;
+Result :=  True;
 end;
+
 end;
 
 

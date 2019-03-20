@@ -4,7 +4,7 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsNone
   Caption = 'Consulta de CNPJ'
-  ClientHeight = 588
+  ClientHeight = 647
   ClientWidth = 632
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,14 +21,13 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
     Left = 0
     Top = 220
     Width = 632
-    Height = 368
+    Height = 427
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     Color = 12579583
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 341
     object Label2: TLabel
       Left = 8
       Top = 11
@@ -191,6 +190,19 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       Width = 90
       Height = 16
       Caption = 'CNAE Principal'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label16: TLabel
+      Left = 8
+      Top = 299
+      Width = 120
+      Height = 16
+      Caption = 'CNAE Secund'#225'rio(s)'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -379,6 +391,7 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       Font.Style = []
       ParentFont = False
       TabOrder = 11
+      Text = '13.835-000'
     end
     object EditIBGEMunic: TEdit
       Left = 377
@@ -406,10 +419,18 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       ParentFont = False
       TabOrder = 4
     end
+    object ListCNAE2: TListBox
+      Left = 8
+      Top = 318
+      Width = 616
+      Height = 59
+      ItemHeight = 13
+      TabOrder = 16
+    end
     object EditCNAE1: TEdit
       Left = 8
       Top = 269
-      Width = 98
+      Width = 616
       Height = 24
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -459,31 +480,18 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       TabOrder = 2
     end
     object Button1: TButton
-      Left = 504
-      Top = 307
+      Left = 505
+      Top = 380
       Width = 120
       Height = 40
       Caption = 'Confirma'
-      TabOrder = 16
+      TabOrder = 17
       OnClick = Button1Click
     end
     object EditIBGEUF: TEdit
       Left = 521
       Top = 171
       Width = 103
-      Height = 24
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 17
-    end
-    object EditCNAE1Desc: TEdit
-      Left = 112
-      Top = 269
-      Width = 510
       Height = 24
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -532,7 +540,7 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       ParentFont = False
     end
     object ButBuscar: TBitBtn
-      Left = 301
+      Left = 296
       Top = 56
       Width = 121
       Height = 58
@@ -632,9 +640,9 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
     object Label20: TLabel
       Left = 56
       Top = 12
-      Width = 286
+      Width = 221
       Height = 23
-      Caption = 'Consulta C.N.P.J. - ReceitaWS'
+      Caption = 'Consulta C.N.P.J. Sefaz'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -19
@@ -722,6 +730,13 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
       Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 552
+    Top = 304
   end
   object IdHTTP1: TIdHTTP
     AllowCookies = True
