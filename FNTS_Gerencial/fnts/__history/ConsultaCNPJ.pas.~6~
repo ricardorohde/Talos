@@ -172,8 +172,14 @@ begin
   if Key = VK_RETURN then
     if not frmConsultaCNPJ.ConsultaReceitaWS(Sender) then begin
       EditCNPJ.Clear;
-      EditCNPJ.SetFocus;
     end
+      else
+      begin
+      Exit;
+      end;
+
+
+
 
 
 
@@ -249,7 +255,9 @@ end;
 //    Stream.Free;
 //  end;
 //end;
-function TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject): Boolean;
+
+
+function TfrmConsultaCNPJ.ConsultaReceitaWS(Sender: TObject):Boolean;
 var
 str,url,urlImg: string;
   LJsonArr   : TJSONArray;
@@ -287,8 +295,7 @@ LJsonValue := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(str),0);
 
 if LJsonValue.GetValue<TJSONString>('status').Value = 'ERROR' then begin
   Application.MessageBox('CNPJ Inválido ou Rejeitado pela RFB', 'Atenção!', MB_ICONINFORMATION);
-  Result := False;
-
+  return False;
 end
 else begin
 
@@ -313,9 +320,7 @@ EditCNAE1Desc.Text := LJsonValue.GetValue<TJSONArray>('atividade_principal').Get
 
 
 Screen.Cursor := crDefault;
-Result :=  True;
 end;
-
 end;
 
 

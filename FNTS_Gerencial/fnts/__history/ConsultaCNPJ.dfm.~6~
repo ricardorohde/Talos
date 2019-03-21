@@ -28,6 +28,7 @@ object frmConsultaCNPJ: TfrmConsultaCNPJ
     Color = 12579583
     ParentBackground = False
     TabOrder = 1
+    ExplicitHeight = 341
     object Label2: TLabel
       Left = 8
       Top = 11
