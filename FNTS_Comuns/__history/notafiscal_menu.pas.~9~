@@ -22,7 +22,7 @@ uses
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus, DBCtrls, Mask, RzEdit,
   RzDBEdit, RzDBBnEd, RzBtnEdt, frxClass, frxPreview, frxDesgn, ExtCtrls, MemDS,
   DBAccess, Wwdatsrc, Buttons, jpeg, ACBrNFe, ACBrNFeDANFEClass,
-  System.TypInfo, Vendedor,
+  System.TypInfo,
   // units nfe acbr - pcnRetConsReciNFe
   pcnConversaoNFe, pcnConversao, ACBrUtil, ACBrDFeUtil, SHDocVw, ComCtrls,
   OleCtrls, FileCtrl, inifiles, AdvReflectionImage, UCBase, AdvMetroButton,
@@ -1973,34 +1973,10 @@ end;
 procedure Tfrmnotafiscal_menu.bincluirClick(Sender: TObject);
 var
   natureza: string;
-  iVendedorCodigo: Integer;
-  sVendedorNome: string;
-
 begin
   // Abre Opçoes de Faturamento
   frmOpNatureza := TfrmOpNatureza.Create(self);
   frmOpNatureza.showmodal;
-
-
-  iVendedorCodigo := 0;
-  sVendedorNome := '';
-
-
-      Application.CreateForm(TfrmVendedor, frmVendedor);
-      try
-        if frmVendedor.ShowModal = mrOk then begin
-          iVendedorCodigo := StrToInt(frmModulo.qrFunci.FieldByName('CODIGO').AsString);
-          sVendedorNome := frmModulo.qrFunci.FieldByName('NOME').AsString;
-        end
-        else begin
-          //result := False;
-          Close;
-          Exit;
-        end
-      finally
-        FreeAndNil(frmVendedor);
-      end;
-
 
   vrecno := qrnota.RecNo;
   vopcao_nfs := 1;
@@ -2013,18 +1989,9 @@ begin
   qrnota.fieldbyname('sit').asstring := 'N';
   qrnota.fieldbyname('movimento').asstring := 'S';
   qrnota.fieldbyname('codfilial').asstring := '000001';
-  if sVendedorNome = '' then begin
-    qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
-  end
-  else
-  begin
-    qrnota.fieldbyname('codvendedor').asstring := FormatFloat('000000', iVendedorCodigo);
-  end;
-
+  qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
   qrnota.fieldbyname('natureza').asstring := frmmodulo.natoperacao;
   qrnota.fieldbyname('presenca_comprador').asinteger := 1;
-
-
 
   frmmodulo.qrconfig.open;
 

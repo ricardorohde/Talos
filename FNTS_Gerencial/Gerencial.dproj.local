@@ -2,8 +2,8 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2017/05/17 23:20:18.000.892,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
-    <Transaction>2017/05/17 23:20:31.000.770,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\Texto.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/05/17 23:20:31.000.770,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\Texto.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm</Transaction>
+    <Transaction>2017/05/17 23:20:31.000.770,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\Texto.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/06/05 17:04:16.000.510,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/06/05 17:04:32.000.165,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ConversaoUnidade.dfm</Transaction>
     <Transaction>2017/06/05 17:04:32.000.165,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ConversaoUnidade.pas</Transaction>
@@ -15,8 +15,8 @@
     <Transaction>2017/06/11 19:36:15.000.148,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\AtualizaNCM.dfm</Transaction>
     <Transaction>2017/06/11 19:36:15.000.148,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\AtualizaNCM.pas</Transaction>
     <Transaction>2017/06/11 20:44:08.000.814,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
-    <Transaction>2017/06/11 20:44:31.000.588,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\DivergenciaAtualizacaoNCM.pas</Transaction>
     <Transaction>2017/06/11 20:44:31.000.588,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\DivergenciaAtualizacaoNCM.dfm</Transaction>
+    <Transaction>2017/06/11 20:44:31.000.588,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\DivergenciaAtualizacaoNCM.pas</Transaction>
     <Transaction>2017/06/13 16:44:06.000.143,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\AtualizaIBPT.pas</Transaction>
     <Transaction>2017/06/21 18:55:21.000.332,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/06/21 18:55:32.000.875,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\IcmsUF.dfm</Transaction>
@@ -26,19 +26,19 @@
     <Transaction>2017/08/30 15:31:58.000.021,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\PartilhaICMS.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/10/09 22:33:47.000.200,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/11/22 20:20:46.000.438,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
-    <Transaction>2017/11/22 20:21:02.000.484,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ItensOrcamento.dfm</Transaction>
     <Transaction>2017/11/22 20:21:02.000.484,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ItensOrcamento.pas</Transaction>
+    <Transaction>2017/11/22 20:21:02.000.484,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\ItensOrcamento.dfm</Transaction>
     <Transaction>2017/11/23 09:57:41.000.783,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/11/23 09:58:06.000.597,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\TextoCartaCobranca.dfm</Transaction>
     <Transaction>2017/11/23 09:58:06.000.597,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\TextoCartaCobranca.pas</Transaction>
     <Transaction>2017/11/27 18:17:39.000.487,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
-    <Transaction>2017/11/27 18:18:01.000.114,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\carta_cobranca.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/11/27 18:18:01.000.114,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\carta_cobranca.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm</Transaction>
+    <Transaction>2017/11/27 18:18:01.000.114,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\carta_cobranca.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/11/27 18:32:52.000.705,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\carta_cobranca.pas=</Transaction>
     <Transaction>2017/11/27 19:05:42.000.242,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\carta_cobranca.pas</Transaction>
     <Transaction>2017/12/04 11:22:37.000.538,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
-    <Transaction>2017/12/04 11:22:50.000.711,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\Impressoras.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm</Transaction>
     <Transaction>2017/12/04 11:22:50.000.711,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\Impressoras.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
+    <Transaction>2017/12/04 11:22:50.000.711,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\Impressoras.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm</Transaction>
     <Transaction>2017/12/06 12:24:45.000.130,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas</Transaction>
     <Transaction>2017/12/06 12:24:55.000.677,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\Extras.dfm</Transaction>
     <Transaction>2017/12/06 12:24:55.000.677,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Gerencial\fnts\Extras.pas</Transaction>
@@ -81,6 +81,8 @@
     <Transaction>2019/02/01 16:04:17.000.135,=C:\Users\allan.santos.MVR\Documents\GitHub\Talos\FNTS_Comuns\UnitVersao.pas</Transaction>
     <Transaction>2019/02/11 10:32:56.000.093,=C:\Users\allan.santos.MVR\Documents\GitHub\Talos\FNTS_Gerencial\fnts\SelecionaEmpresa.pas</Transaction>
     <Transaction>2019/02/12 16:48:12.000.233,=C:\Users\allan.santos.MVR\Documents\GitHub\Talos\FNTS_Gerencial\fnts\produto_importaEAN.pas</Transaction>
+    <Transaction>2019/03/21 15:42:26.000.208,=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Comuns\Vendedor.pas</Transaction>
+    <Transaction>2019/03/21 17:23:17.438,=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Comuns\VendedorConsulta.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Talos"/>
@@ -124,14 +126,16 @@
     <File Path="..\FNTS_Comuns\splash.dfm"/>
     <File Path="..\FNTS_Comuns\Texto.pas"/>
     <File Path="..\FNTS_Comuns\Texto.dfm"/>
+    <File Path="..\FNTS_Comuns\UnitVersao.pas"/>
+    <File Path="..\FNTS_Comuns\UnitVersao.dfm"/>
     <File Path="..\FNTS_Comuns\Unit_ativar.pas"/>
     <File Path="..\FNTS_Comuns\Unit_ativar.dfm"/>
     <File Path="..\FNTS_Comuns\venda_fechamento.pas"/>
     <File Path="..\FNTS_Comuns\venda_fechamento.dfm"/>
     <File Path="..\FNTS_Comuns\venda_impressao.pas"/>
     <File Path="..\FNTS_Comuns\venda_impressao.dfm"/>
-    <File Path="..\FNTS_Comuns\UnitVersao.pas"/>
-    <File Path="..\FNTS_Comuns\UnitVersao.dfm"/>
+    <File Path="..\FNTS_Comuns\Vendedor.pas"/>
+    <File Path="..\FNTS_Comuns\VendedorConsulta.pas"/>
     <File Path="C:"/>
     <File Path="C:\Intro.mp3"/>
     <File Path="fnts"/>

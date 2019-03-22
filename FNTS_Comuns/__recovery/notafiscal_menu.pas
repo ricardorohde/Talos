@@ -1,7 +1,7 @@
 {$I ACBr.inc}
 {
-SituaÁ„o da NFE
-G - 3 - Aguardando ValidaÁ„o
+Situa√ß√£o da NFE
+G - 3 - Aguardando Valida√ß√£o
 V - 4 - Validada
 E - 5 - Enviada, Aguardando Retorno
 A - 6 - Aceita
@@ -22,15 +22,16 @@ uses
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus, DBCtrls, Mask, RzEdit,
   RzDBEdit, RzDBBnEd, RzBtnEdt, frxClass, frxPreview, frxDesgn, ExtCtrls, MemDS,
   DBAccess, Wwdatsrc, Buttons, jpeg, ACBrNFe, ACBrNFeDANFEClass,
-  pcnRetConsReciNFe, System.TypInfo,
-  // units nfe acbr
+  System.TypInfo, Vendedor,
+  // units nfe acbr - pcnRetConsReciNFe
   pcnConversaoNFe, pcnConversao, ACBrUtil, ACBrDFeUtil, SHDocVw, ComCtrls,
   OleCtrls, FileCtrl, inifiles, AdvReflectionImage, UCBase, AdvMetroButton,
   AdvSmoothPanel, AdvSmoothExpanderPanel, System.ImageList, ACBrNFeDANFEFRDM,
   ACBrNFeDANFEFR, ACBrBase, ACBrDFe, JvExMask, JvToolEdit, XMLIntf, XMLDoc,
   ACBrMail, ACBrNFeDANFeRLClass, ACBrDFeSSL, Vcl.Samples.Spin, blcksock,
   ACBrPosPrinter, ACBrNFeDANFeESCPOS, ACBrDANFCeFortesFr, ACBrNFeConfiguracoes,
-  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode;
+  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode,
+  ACBrDFeReport, ACBrDFeDANFeReport;
 
 type
   TvNFe = (v310, v400);
@@ -1156,7 +1157,7 @@ begin
       end else if qrnfe_cliente.fieldbyname('tipo_ie').asstring = 'ISENTO' then begin
         Dest.IE := qrnfe_cliente.fieldbyname('rg').asstring;
         Dest.indIEDest := inIsento;
-      end else if qrnfe_cliente.fieldbyname('tipo_ie').asstring = 'N√O CONTRIBUINTE' then begin
+      end else if qrnfe_cliente.fieldbyname('tipo_ie').asstring = 'N√ÉO CONTRIBUINTE' then begin
         Dest.IE := qrnfe_cliente.fieldbyname('rg').asstring;
         Dest.indIEDest := inNaoContribuinte;
       end;
@@ -1250,8 +1251,8 @@ begin
                 case ICMS.CSOSN of
                   csosn101:
                     begin
-                      ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                      ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                     end;
                   csosn102:
                     begin
@@ -1278,8 +1279,8 @@ begin
                       ICMS.vBCST := qrnota_item.fieldbyname('base_sub').Value;
                       ICMS.pICMSST := 00.00;
                       ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').Value;
-                      ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                      ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                     end;
                   csosn202:
                     begin
@@ -1308,8 +1309,8 @@ begin
                       ICMS.vBCST := qrnota_item.fieldbyname('base_sub').Value;
                       ICMS.pICMSST := 00.00;
                       ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').Value;
-                      ICMS.pCredSN := 0.0; // Colocar o percentual do CrÈdito
-                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do CrÈdito
+                      ICMS.pCredSN := 0.0; // Colocar o percentual do Cr√©dito
+                      ICMS.vCredICMSSN := 0.0; // Colocar o valor do Cr√©dito
                     end;
                 end; // fim do case icms.csosn
               end;
@@ -1463,9 +1464,9 @@ begin
                     csosn101:
                       begin
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
-                    // Colocar o valor do CrÈdito
+                    // Colocar o valor do Cr√©dito
                       end;
                   // qrnota_item.fieldbyname('base_calculo').asfloat
                     csosn102:
@@ -1477,7 +1478,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                     csosn103:
@@ -1489,7 +1490,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                     csosn300:
@@ -1501,7 +1502,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                     csosn400:
@@ -1513,7 +1514,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                     csosn201:
@@ -1525,7 +1526,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                    // Colocar o percentual do CrÈdito
+                    // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                     csosn202:
@@ -1565,7 +1566,7 @@ begin
                         ICMS.pICMSST := 00.00;
                         ICMS.vICMSST := qrnota_item.fieldbyname('icms_sub').AsFloat;
                         ICMS.pCredSN := qrnota_item.fieldbyname('ICMS').asfloat;
-                        // Colocar o percentual do CrÈdito
+                        // Colocar o percentual do Cr√©dito
                         ICMS.vCredICMSSN := (qrnota_item.fieldbyname('valor_icms').asfloat * qrnota_item.fieldbyname('ICMS').asfloat) / 100;
                       end;
                   end; // fim do case icms.csosn
@@ -1603,7 +1604,7 @@ begin
                   ICMS.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
                   ICMS.modBC := dbiPrecoTabelado;
                   IPI.cEnq := '999';
-                  IPI.CST := '99';
+
                   IPI.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
                   IPI.pIPI := qrnota_item.fieldbyname('IPI').asfloat;
                   IPI.vIPI := qrnota_item.fieldbyname('valor_IPI').asfloat;
@@ -1700,9 +1701,9 @@ begin
                 wVTotPartOrig := RoundTo(wVTotPartOrig + lPartOrig, -2);
 
                 if frmmodulo.qrFilial.FieldByName('CRT').AsString = '3' then
-                  InfAdic.InfCpl := InfAdic.InfCpl + ';** EC 87/2015 DIFAL ' + 'valor GNRE UF destinat·rio ' + FormatFloat('#0.00', wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartDest) + ', ' + 'valor GNRE UF remetente ' + FormatFloat('#0.00', 100 - wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartOrig) + ', ' + 'valor FCP R$ ' + FormatFloat('####,##0.00', wVTotFPC) + ' **'
+                  InfAdic.InfCpl := InfAdic.InfCpl + ';** EC 87/2015 DIFAL ' + 'valor GNRE UF destinat√°rio ' + FormatFloat('#0.00', wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartDest) + ', ' + 'valor GNRE UF remetente ' + FormatFloat('#0.00', 100 - wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartOrig) + ', ' + 'valor FCP R$ ' + FormatFloat('####,##0.00', wVTotFPC) + ' **'
                 else
-                  InfAdic.InfCpl := InfAdic.InfCpl + ';** EC 87/2015 DIFAL ' + 'valor GNRE UF destinat·rio ' + FormatFloat('#0.00', wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartDest) + ', ' + 'valor GNRE UF remetente ' + FormatFloat('#0.00', 100 - wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartOrig) + ', ' + 'valor FCP R$ ' + FormatFloat('####,##0.00', wVTotFPC) + ' **';
+                  InfAdic.InfCpl := InfAdic.InfCpl + ';** EC 87/2015 DIFAL ' + 'valor GNRE UF destinat√°rio ' + FormatFloat('#0.00', wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartDest) + ', ' + 'valor GNRE UF remetente ' + FormatFloat('#0.00', 100 - wPercentPartilha) + '% R$ ' + FormatFloat('####,##0.00', wVTotPartOrig) + ', ' + 'valor FCP R$ ' + FormatFloat('####,##0.00', wVTotFPC) + ' **';
 
               end;
             end;
@@ -1746,7 +1747,7 @@ begin
 
     PorcIBPT := RoundTo(((TotalIBPT / Total.ICMSTot.vProd) * 100), -2);
 
-    //RetenÁ„o e Tributos
+    //Reten√ß√£o e Tributos
     if qrnota.fieldbyname('ret_valor_pis').asfloat > 0 then
       Total.retTrib.vRetPIS := qrnota.fieldbyname('ret_valor_pis').asfloat;
     if qrnota.fieldbyname('ret_valor_cofins').asfloat > 0 then
@@ -1919,19 +1920,19 @@ begin
       Transp.Transporta.UF := qrtransportador2.fieldbyname('uf').asstring;
 
       Transp.retTransp.vServ := RoundTo(0.0, -2);
-      ; // X12 - Valor do ServiÁo
+      ; // X12 - Valor do Servi√ßo
       Transp.retTransp.vBCRet := RoundTo(0.0, -2);
       ;
-      // X13 - BC da RetenÁ„o do ICMS
+      // X13 - BC da Reten√ß√£o do ICMS
       Transp.retTransp.pICMSRet := RoundTo(0.0, -2);
       ;
-      // X14 - AlÌquota da RetenÁ„o
+      // X14 - Al√≠quota da Reten√ß√£o
       Transp.retTransp.vICMSRet := RoundTo(0.0, -2);
       ;
       // X15 - Valor do ICMS Retido
       Transp.retTransp.cfop := ''; // X16 - CFOP (Utilizar Tabela de CFOP)
       Transp.retTransp.cMunFG := 0;
-      // X17 - CÛdigo do municÌpio de ocorrÍncia do fato gerador do ICMS do transporte (Tabela do IBGE)
+      // X17 - C√≥digo do munic√≠pio de ocorr√™ncia do fato gerador do ICMS do transporte (Tabela do IBGE)
       Transp.veicTransp.placa := qrnota.FieldByName('placa').asstring;
       Transp.veicTransp.UF := qrnota.FieldByName('placa_uf').asstring;
 
@@ -1955,7 +1956,7 @@ begin
       end;
     end;
 
-    // InformaÁıes complementares
+    // Informa√ß√µes complementares
     InfAdic.infCpl := InfAdic.infCpl + ';' + qrnota.fieldbyname('inf1').asstring + ';' + qrnota.fieldbyname('inf2').asstring + ';' + qrnota.fieldbyname('inf3').asstring + ';' + qrnota.fieldbyname('inf4').asstring + ';' + qrnota.fieldbyname('inf5').asstring;
 
     if xTotalImposto > 0 then
@@ -1972,10 +1973,34 @@ end;
 procedure Tfrmnotafiscal_menu.bincluirClick(Sender: TObject);
 var
   natureza: string;
+  iVendedorCodigo: Integer;
+  sVendedorNome: string;
+
 begin
-  // Abre OpÁoes de Faturamento
+  // Abre Op√ßoes de Faturamento
   frmOpNatureza := TfrmOpNatureza.Create(self);
   frmOpNatureza.showmodal;
+
+
+  iVendedorCodigo := 0;
+  sVendedorNome := '';
+
+
+      Application.CreateForm(TfrmVendedor, frmVendedor);
+      try
+        if frmVendedor.ShowModal = mrOk then begin
+          iVendedorCodigo := StrToInt(frmModulo.qrFunci.FieldByName('CODIGO').AsString);
+          sVendedorNome := frmModulo.qrFunci.FieldByName('NOME').AsString;
+        end
+        else begin
+          //result := False;
+          Close;
+          Exit;
+        end
+      finally
+        FreeAndNil(frmVendedor);
+      end;
+
 
   vrecno := qrnota.RecNo;
   vopcao_nfs := 1;
@@ -1988,9 +2013,18 @@ begin
   qrnota.fieldbyname('sit').asstring := 'N';
   qrnota.fieldbyname('movimento').asstring := 'S';
   qrnota.fieldbyname('codfilial').asstring := '000001';
-  qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
+  if sVendedorNome = '' then begin
+    qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
+  end
+  else
+  begin
+    qrnota.fieldbyname('codvendedor').asstring := FormatFloat('000000', iVendedorCodigo);
+  end;
+
   qrnota.fieldbyname('natureza').asstring := frmmodulo.natoperacao;
   qrnota.fieldbyname('presenca_comprador').asinteger := 1;
+
+
 
   frmmodulo.qrconfig.open;
 
@@ -2109,15 +2143,15 @@ begin
     exit;
 
   if (qrnota.fieldbyname('nfe_situacao').asstring = '6') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e Enviada', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e Enviada', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
   if (qrnota.fieldbyname('nfe_situacao').asstring = '8') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e Cancelada', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e Cancelada', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
   if (qrnota.fieldbyname('nfe_situacao').asstring = '5') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e que est· aguardando o retorno', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e que est√° aguardando o retorno', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
 
@@ -2153,15 +2187,15 @@ begin
   if qrnota.RecordCount = 0 then
     exit;
   if (qrnota.fieldbyname('nfe_situacao').asstring = '6') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e Enviada', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e Enviada', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
   if (qrnota.fieldbyname('nfe_situacao').asstring = '8') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e Cancelada', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e Cancelada', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
   if (qrnota.fieldbyname('nfe_situacao').asstring = '5') then begin
-    Application.MessageBox('N„o È possivel executar esta aÁ„o em uma NF-e que est· aguardando o retorno', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o √© possivel executar esta a√ß√£o em uma NF-e que est√° aguardando o retorno', 'Aten√ß√£o!', MB_ICONINFORMATION);
     Exit;
   end;
 
@@ -2172,7 +2206,7 @@ begin
     query2.sql.add('and valor_pago > 0');
     query2.open;
     if query2.RecordCount > 0 then begin
-      Application.messagebox('Esta nota fiscal possue prestaÁıes que j· foram feito pagamentos! Favor verificar!', 'Aviso', mb_ok + mb_iconerror);
+      Application.messagebox('Esta nota fiscal possue presta√ß√µes que j√° foram feito pagamentos! Favor verificar!', 'Aviso', mb_ok + mb_iconerror);
       exit;
     end;
     query2.close;
@@ -2239,7 +2273,7 @@ begin
     qrnota.delete;
   end
   else begin
-    Application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + mb_iconerror);
   end;
 
 end;
@@ -2379,7 +2413,7 @@ begin
         end;
       end
       else begin
-        Application.messagebox('Cliente n„o encontrado! Favor verificar!', 'AtenÁ„o', mb_ok + mb_iconerror);
+        Application.messagebox('Cliente n√£o encontrado! Favor verificar!', 'Aten√ß√£o', mb_ok + mb_iconerror);
         ecliente.SetFocus;
 
       end;
@@ -2557,12 +2591,12 @@ var
 begin
 
   if qrnota.RecordCount = 0 then begin
-    Application.MessageBox('N„o existe nota fiscal para cancelar', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('N√£o existe nota fiscal para cancelar', 'Aten√ß√£o!', MB_ICONINFORMATION);
     exit;
   end;
 
   if qrnota.fieldbyname('nfe_situacao').asinteger = 8 then begin
-    Application.MessageBox('Nota fiscal j· esta cancelada.', 'AtenÁ„o!', MB_ICONINFORMATION);
+    Application.MessageBox('Nota fiscal j√° esta cancelada.', 'Aten√ß√£o!', MB_ICONINFORMATION);
     exit;
   end;
 
@@ -2579,7 +2613,7 @@ begin
     query2.sql.add('and valor_pago > 0');
     query2.open;
     if query2.RecordCount > 0 then begin
-      Application.messagebox('Esta nota fiscal possue prestaÁıes que j· foram feito pagamentos! Favor verificar!', 'Aviso', mb_ok + mb_iconerror);
+      Application.messagebox('Esta nota fiscal possue presta√ß√µes que j√° foram feito pagamentos! Favor verificar!', 'Aviso', mb_ok + mb_iconerror);
       exit;
     end;
 
@@ -2587,23 +2621,23 @@ begin
 
       sXML := qrnota.fieldbyname('nfe_xml').asstring;
       if sXML = '' then begin
-        Application.MessageBox('Nota fiscal sem XML, impossivel efetuar o cancelamento.', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox('Nota fiscal sem XML, impossivel efetuar o cancelamento.', 'Aten√ß√£o!', MB_ICONINFORMATION);
         exit;
       end;
       if not FileExists(sXML) then begin
-        Application.messagebox('Arquivo XML n„o econtraddo!', 'Erro', mb_ok + mb_iconerror);
+        Application.messagebox('Arquivo XML n√£o econtraddo!', 'Erro', mb_ok + mb_iconerror);
         exit;
       end;
 
       ACBrNFe1.NotasFiscais.Clear;
       if not ACBrNFe1.NotasFiscais.LoadFromFile(sXML) then
-        raise Exception.Create('N„o foi possÌvel carregar o XML da Nota Fiscal EletrÙnica correspondente!');
+        raise Exception.Create('N√£o foi poss√≠vel carregar o XML da Nota Fiscal Eletr√¥nica correspondente!');
 
       NumeroLote := StrToInt(FormatDateTime('yymmddhhmm', NOW));
       if not (InputQuery('WebServices Eventos: Cancelamento', 'Justificativa', vAux)) then
         exit;
       if Length(vAux) < 15 then begin
-        Application.MessageBox('A Justificativa tem que ter no mÌnimo 15 Caracteres.', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.MessageBox('A Justificativa tem que ter no m√≠nimo 15 Caracteres.', 'Aten√ß√£o!', MB_ICONINFORMATION);
         Exit;
       end;
 
@@ -2622,7 +2656,7 @@ begin
       if ACBrNFe1.EnviarEvento(NumeroLote) then begin
         with ACBrNFe1.WebServices.EnvEvento do begin
           if EventoRetorno.retEvento.Items[0].RetInfEvento.cStat <> 135 then begin
-            raise Exception.CreateFmt('Ocorreu o seguinte erro ao cancelar a nota fiscal eletrÙnica:' + sLineBreak + 'CÛdigo:%d' + sLineBreak + 'Motivo: %s', [EventoRetorno.retEvento.Items[0].RetInfEvento.cStat, EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo]);
+            raise Exception.CreateFmt('Ocorreu o seguinte erro ao cancelar a nota fiscal eletr√¥nica:' + sLineBreak + 'C√≥digo:%d' + sLineBreak + 'Motivo: %s', [EventoRetorno.retEvento.Items[0].RetInfEvento.cStat, EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo]);
           end;
 
           DataHoraEvento := EventoRetorno.retEvento.Items[0].RetInfEvento.dhRegEvento;
@@ -2631,7 +2665,7 @@ begin
           CodigoStatus := EventoRetorno.retEvento.Items[0].RetInfEvento.cStat;
           MotivoStatus := EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo;
         end
-          //Criar campos no banco para gravar as informaÁıes acima
+          //Criar campos no banco para gravar as informa√ß√µes acima
 
       end
       else begin
@@ -2735,7 +2769,7 @@ begin
     end;
   end
   else begin
-    Application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + mb_iconerror);
   end;
 end;
 
@@ -2795,7 +2829,7 @@ begin
     exit;
 
   if qrnota.fieldbyname('situacao').asinteger = 1 then begin
-    Application.messagebox('Esta nota fiscal n„o est· cancelada!', 'Erro', mb_ok + mb_iconerror);
+    Application.messagebox('Esta nota fiscal n√£o est√° cancelada!', 'Erro', mb_ok + mb_iconerror);
     exit;
   end;
 
@@ -2839,7 +2873,7 @@ begin
 
   end
   else begin
-    Application.messagebox('Acesso n„o permitido!', 'Erro!', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Erro!', mb_ok + mb_iconerror);
   end;
 end;
 
@@ -2871,7 +2905,7 @@ var
   frete_conta: integer;
   vtransportador_nome, vtransportador_rg: string;
 begin
-  if Application.messagebox('Confirma a exportaÁ„o desta nota fiscal para o sistema de Emiss„o de Nota Fiscal EletrÙnica?', 'Aviso', mb_yesno + mb_iconquestion) = idyes then begin
+  if Application.messagebox('Confirma a exporta√ß√£o desta nota fiscal para o sistema de Emiss√£o de Nota Fiscal Eletr√¥nica?', 'Aviso', mb_yesno + mb_iconquestion) = idyes then begin
     // filial
     query2.close;
     query2.sql.clear;
@@ -2880,7 +2914,7 @@ begin
     query2.open;
 
     if query2.fieldbyname('COD_MUNICIPIO_IBGE').asstring = '' then begin
-      Application.messagebox('CÛdigo do MunicÌpio N„o Informado para a Empresa, Verifique!!!', 'AtenÁ„o', mb_ok + mb_iconerror);
+      Application.messagebox('C√≥digo do Munic√≠pio N√£o Informado para a Empresa, Verifique!!!', 'Aten√ß√£o', mb_ok + mb_iconerror);
       exit;
     end;
 
@@ -2919,7 +2953,7 @@ begin
         '55', // modelo
         '001', // serie
         frmPrincipal.zerarcodigo(qrnota.fieldbyname('numero').asstring, 8),
-        // n˙mero da nf
+        // n√∫mero da nf
         qrnota.fieldbyname('data').AsDateTime, // data de emissao
         qrnota.fieldbyname('data_saida').AsDateTime, // data da saida)
         mov, // 0 - Entrada, 1 - Saida
@@ -3061,7 +3095,7 @@ begin
         frete_conta := 1;
 
       if qrnota.fieldbyname('TRANSPORTADOR').asstring = 'DESTINATARIO' then
-      // quando for o prÛprio destinat·rio
+      // quando for o pr√≥prio destinat√°rio
       begin
         vtransportador_nome := qrnota.fieldbyname('CLIENTE').asstring;
         vtransportador_rg := qrnota.fieldbyname('RG').asstring;
@@ -3116,7 +3150,7 @@ begin
           0, // Desconto,
           qrnota.fieldbyname('total_nota').asfloat // Valor_Liquido:real
         ) then begin
-          showmessage('Falha ao LanÁar o faturamento');
+          showmessage('Falha ao Lan√ßar o faturamento');
           exit;
         end;
 
@@ -3132,7 +3166,7 @@ begin
             // Vencimento:tdatetime;
             query2.fieldbyname('valor').asfloat // Valor:real
           ) then begin
-            showmessage('Falha ao LanÁar a duplicata');
+            showmessage('Falha ao Lan√ßar a duplicata');
             exit;
           end;
         end;
@@ -3143,7 +3177,7 @@ begin
         showmessage('Arquivo de Nota Fiscal criado com sucesso!');
       end
       else begin
-        showmessage('Houve falha na criaÁ„o do arquivo de Nota Fiscal!');
+        showmessage('Houve falha na cria√ß√£o do arquivo de Nota Fiscal!');
       end;
 
     end;
@@ -3220,7 +3254,7 @@ begin
       begin
         if (frmStatus = nil) then
           frmStatus := TfrmStatus.Create(Application);
-        frmStatus.lblStatus.Caption := 'Enviando pedido de InutilizaÁ„o...';
+        frmStatus.lblStatus.Caption := 'Enviando pedido de Inutiliza√ß√£o...';
         frmStatus.Show;
         frmStatus.BringToFront;
       end;
@@ -3252,7 +3286,7 @@ begin
       begin
         if (frmStatus = nil) then
           frmStatus := TfrmStatus.Create(Application);
-        frmStatus.lblStatus.Caption := 'Enviando Carta de CorreÁ„o...';
+        frmStatus.lblStatus.Caption := 'Enviando Carta de Corre√ß√£o...';
         frmStatus.Show;
         frmStatus.BringToFront;
       end;
@@ -3323,7 +3357,7 @@ begin
 //  memoLog.clear;
   ACBrNFe1.WebServices.StatusServico.Executar;
 //  bt_log.Click;
-  Application.MessageBox(PWideChar('Status ServiÁo'+#13+
+  Application.MessageBox(PWideChar('Status Servi√ßo'+#13+
                          'tpAmb: '    +TpAmbToStr(ACBrNFe1.WebServices.StatusServico.tpAmb)+#13+
                          'verAplic: ' +ACBrNFe1.WebServices.StatusServico.verAplic+#13+
                          'cStat: '    +IntToStr(ACBrNFe1.WebServices.StatusServico.cStat)+#13+
@@ -3332,7 +3366,7 @@ begin
                          'dhRecbto: ' +DateTimeToStr(ACBrNFe1.WebServices.StatusServico.dhRecbto)+#13+
                          'tMed: '     +IntToStr(ACBrNFe1.WebServices.StatusServico.TMed)+#13+
                          'dhRetorno: '+DateTimeToStr(ACBrNFe1.WebServices.StatusServico.dhRetorno)+#13+
-                         'xObs: '     +ACBrNFe1.WebServices.StatusServico.xObs),'AtenÁ„o!',MB_ICONINFORMATION);
+                         'xObs: '     +ACBrNFe1.WebServices.StatusServico.xObs),'Aten√ß√£o!',MB_ICONINFORMATION);
 
 
 //  MemoResp.Lines.Text := UTF8Encode(ACBrNFe1.WebServices.StatusServico.RetWS);
@@ -3367,29 +3401,29 @@ begin
 
     4:
       begin // validada
-        if Application.messagebox('Esta nota j· foi validada! Deseja prosseguir?', 'AtenÁ„o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
+        if Application.messagebox('Esta nota j√° foi validada! Deseja prosseguir?', 'Aten√ß√£o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
           exit;
       end;
     5:
       begin // transmitida
-        if Application.messagebox('Esta nota j· foi validada e transmitida! Deseja prosseguir?', 'AtenÁ„o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
+        if Application.messagebox('Esta nota j√° foi validada e transmitida! Deseja prosseguir?', 'Aten√ß√£o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
           exit;
       end;
 
     6:
       begin // Aceita
-        if Application.messagebox('Esta nota j· foi validada/aceita pela receita! Deseja prosseguir?', 'AtenÁ„o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
+        if Application.messagebox('Esta nota j√° foi validada/aceita pela receita! Deseja prosseguir?', 'Aten√ß√£o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
           exit;
       end;
 
     7:
       begin // rejeitada
-        if Application.messagebox('Esta nota j· foi validada e rejeitada! Deseja prosseguir?', 'AtenÁ„o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
+        if Application.messagebox('Esta nota j√° foi validada e rejeitada! Deseja prosseguir?', 'Aten√ß√£o', mb_yesno + MB_ICONWARNING + MB_DEFBUTTON2) = idno then
           exit;
       end;
     8:
       begin // cancelada
-        Application.messagebox('Esta nota j· foi cancelada!', 'Erro', mb_ok + mb_iconerror);
+        Application.messagebox('Esta nota j√° foi cancelada!', 'Erro', mb_ok + mb_iconerror);
         exit;
       end;
   end;
@@ -3401,7 +3435,7 @@ begin
     ACBrNFe1.NotasFiscais.Assinar;
     ACBrNFe1.NotasFiscais.Validar;
     ACBrNFe1.NotasFiscais.Imprimir;
-    if Application.MessageBox('Confirma o envio desta NF-e?', 'AtenÁ„o!', MB_ICONINFORMATION + MB_YESNO) <> mrYes then
+    if Application.MessageBox('Confirma o envio desta NF-e?', 'Aten√ß√£o!', MB_ICONINFORMATION + MB_YESNO) <> mrYes then
       Exit;
 
     ACBrNFe1.NotasFiscais.Items[0].GravarXML(ACBrNFe1.NotasFiscais.Items[0].NomeArq, ACBrNFe1.Configuracoes.Arquivos.PathSalvar);
@@ -3421,12 +3455,12 @@ begin
 
       gridRowChanged(frmnotafiscal_menu);
 
-      ACBrNFeDANFEFR1.ProtocoloNFe := '';
+      ACBrNFeDANFEFR1.Protocolo := '';
       bt_nfe_assinar.Click;
 
     end
     else begin
-      Application.messagebox('Arquivo XML n„o encontrado!', 'Erro', mb_ok + mb_iconerror);
+      Application.messagebox('Arquivo XML n√£o encontrado!', 'Erro', mb_ok + mb_iconerror);
       exit;
     end;
   except
@@ -3455,7 +3489,7 @@ begin
       ACBrNFe1.NotasFiscais.Imprimirpdf;
     end
     else begin
-      Application.messagebox('Arquivo XML n„o econtraddo!', 'Erro', mb_ok + mb_iconerror);
+      Application.messagebox('Arquivo XML n√£o econtraddo!', 'Erro', mb_ok + mb_iconerror);
     end;
   except
     on E: exception do begin
@@ -3490,14 +3524,14 @@ begin
 
     gridRowChanged(frmnotafiscal_menu);
 
-    ACBrNFeDANFEFR1.ProtocoloNFe := '';
+    ACBrNFeDANFEFR1.Protocolo := '';
     // Linha inserida para corrigir problema de impressao do numero do protocolo na nfe.
 
     // bt_nfe_danfe.Click;
 
   end
   else begin
-    Application.messagebox('Arquivo XML n„o econtraddo!', 'Erro', mb_ok + mb_iconerror);
+    Application.messagebox('Arquivo XML n√£o econtraddo!', 'Erro', mb_ok + mb_iconerror);
   end;
 end;
 
@@ -3549,8 +3583,8 @@ begin
       ACBrNFeDANFEFR1.FastFile := 'C:\TALOS\Server\danfe\DANFE.fr3';
       CC := TstringList.Create;
       try
-        //CC.Add('hacmoni.07@gmail.com'); //especifique um email v·lido
-        //CC.Add('hacmoni.07@gmail.com');    //especifique um email v·lido
+        //CC.Add('hacmoni.07@gmail.com'); //especifique um email v√°lido
+        //CC.Add('hacmoni.07@gmail.com');    //especifique um email v√°lido
         ACBrMail1.Clear;
         ACBrMail1.IsHTML := False;
         ACBrMail1.Host := frmmodulo.qrconfigEMAIL_SERVIDOR_SMTP.AsString;
@@ -3572,16 +3606,16 @@ begin
         Texto.Lines.Clear;
         Texto.Lines.Text := frmmodulo.qrDFeConfigNFE_EMAIL_TEXTO.AsString;
         ACBrNFe1.NotasFiscais.Items[0].EnviarEmail(Para, frmmodulo.qrDFeConfigNFE_EMAIL_ASSUNTO.AsString, Texto.Lines, True  // Enviar PDF junto
-        , CC    // Lista com emails que ser„o enviado cÛpias - TStrings
+        , CC    // Lista com emails que ser√£o enviado c√≥pias - TStrings
         , nil); // Lista de anexos - TStrings
         FreeAndNil(Texto);
-        Application.messagebox('E-mail enviado com sucesso!', 'AtenÁ„o!', MB_ICONINFORMATION);
+        Application.messagebox('E-mail enviado com sucesso!', 'Aten√ß√£o!', MB_ICONINFORMATION);
       finally
         CC.Free;
       end;
     end
     else
-      Application.messagebox('XML n„o encontrado na pasta de xmls!', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.messagebox('XML n√£o encontrado na pasta de xmls!', 'Aten√ß√£o!', MB_ICONINFORMATION);
 
   except
     on E: exception do begin
@@ -3611,11 +3645,11 @@ begin
   qryTmp.Open;
   if not qryTmp.IsEmpty then begin
     if (qryTmp.FieldByName('nfe_situacao').AsString = '8') and not (qryTmp.FieldByName('chave').IsNull) then begin
-      Application.MessageBox('N„o È necess·rio Inutilizar uma numeraÁ„o de uma NF ja Cancelada.', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('N√£o √© necess√°rio Inutilizar uma numera√ß√£o de uma NF ja Cancelada.', 'Aten√ß√£o!', MB_ICONINFORMATION);
       Exit;
     end;
     if (qryTmp.FieldByName('nfe_situacao').AsString = '6') then begin
-      Application.MessageBox('N„o È posivel inutilizar um NF enviada.', 'AtenÁ„o!', MB_ICONINFORMATION);
+      Application.MessageBox('N√£o √© posivel inutilizar um NF enviada.', 'Aten√ß√£o!', MB_ICONINFORMATION);
       Exit;
     end;
   end;
@@ -3666,7 +3700,7 @@ begin
       LoadXML(MemoResp, WebBrowser1);
     end
     else begin
-      Application.messagebox('Arquivo XML n„o econtraddo!', 'Erro', mb_ok + mb_iconerror);
+      Application.messagebox('Arquivo XML n√£o econtraddo!', 'Erro', mb_ok + mb_iconerror);
     end;
 
   except
@@ -3692,7 +3726,7 @@ begin
   qrempresa.sql.add('select * from  c000004');
   qrempresa.open;
 
-  if not (InputQuery('WebServices InutilizaÁ„o ', 'Justificativa', Justificativa)) then
+  if not (InputQuery('WebServices Inutiliza√ß√£o ', 'Justificativa', Justificativa)) then
     exit;
 
   Ano := datetostr(qrnota.fieldbyname('DATA').AsDateTime);
@@ -3732,7 +3766,7 @@ end;
 procedure Tfrmnotafiscal_menu.btn464814Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.02') = 'NAO' then begin
-    Application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + mb_iconerror);
     exit;
   end;
   frmcliente := tfrmcliente.Create(self);
@@ -3752,13 +3786,13 @@ begin
   qrempresa.sql.add('select * from c000004');
   qrempresa.open;
   idLote := FormatDateTime('yymmddhhmm', NOW);
-  if not RetornaTexto('Carta de CorreÁ„o - CorreÁ„o a ser considerada', Correcao, True, 539, 661, True, 15, 300) then
+  if not RetornaTexto('Carta de Corre√ß√£o - Corre√ß√£o a ser considerada', Correcao, True, 539, 661, True, 15, 300) then
     Exit;
   ACBrNFe1.EventoNFe.Evento.Clear;
   with ACBrNFe1.EventoNFe.Evento.Add do begin
     nSeqEvento := qrnota.fieldbyname('seqevento').AsInteger + 1;
     if nSeqEvento = 21 then begin
-      ShowMessage('Numero maxÌmo de correÁıes por nota s„o 20, ' + #13 + ' n„o s„o possiveis novas correÁıes nesta nota ' + #13 + inttostr(qrnota.fieldbyname('seqevento').AsInteger) + ' correÁıes ja efetuadas');
+      ShowMessage('Numero max√≠mo de corre√ß√µes por nota s√£o 20, ' + #13 + ' n√£o s√£o possiveis novas corre√ß√µes nesta nota ' + #13 + inttostr(qrnota.fieldbyname('seqevento').AsInteger) + ' corre√ß√µes ja efetuadas');
       exit;
     end
     else begin
@@ -3776,7 +3810,7 @@ begin
   if ACBrNFe1.EnviarEvento(StrToInt(idLote)) then begin
     with ACBrNFe1.WebServices.EnvEvento do begin
       if not (EventoRetorno.retEvento.Items[0].RetInfEvento.cStat in [135, 136]) then begin
-        raise EDatabaseError.CreateFmt('Ocorreu o seguinte erro ao enviar a carta de correÁ„o:' + sLineBreak + 'CÛdigo:%d' + sLineBreak + 'Motivo: %s', [EventoRetorno.retEvento.Items[0].RetInfEvento.cStat, EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo]);
+        raise EDatabaseError.CreateFmt('Ocorreu o seguinte erro ao enviar a carta de corre√ß√£o:' + sLineBreak + 'C√≥digo:%d' + sLineBreak + 'Motivo: %s', [EventoRetorno.retEvento.Items[0].RetInfEvento.cStat, EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo]);
       end;
        // retornos
       DataHoraEvento := EventoRetorno.retEvento.Items[0].RetInfEvento.dhRegEvento;
@@ -3793,7 +3827,7 @@ begin
       if FileExists(sXML) then begin
         ACBrNFeDANFEFR1.FastFileEvento := 'C:\TALOS\Server\danfe\EVENTOS.fr3';
         ACBrNFe1.DANFE.PathPDF := ExtractFilePath(ParamStr(0)) + 'CCePdf\';
-        ACBrNFeDANFEFR1.MostrarPreview := True;
+        ACBrNFeDANFEFR1.MostraPreview := True;
 
         ACBrNFe1.NotasFiscais.Clear;
         ACBrNFe1.NotasFiscais.LoadFromString(sXML);
@@ -3808,7 +3842,7 @@ begin
   end
   else begin
     with ACBrNFe1.WebServices.EnvEvento do begin
-      raise Exception.Create('Ocorreram erros ao enviar a Carta de CorreÁ„o:' + sLineBreak + 'Lote: ' + IntToStr(EventoRetorno.idLote) + sLineBreak + 'Ambiente: ' + TpAmbToStr(EventoRetorno.tpAmb) + sLineBreak + 'Orgao: ' + IntToStr(EventoRetorno.cOrgao) + sLineBreak + sLineBreak + 'Status: ' + IntToStr(EventoRetorno.cStat) + sLineBreak + 'Motivo: ' + EventoRetorno.xMotivo);
+      raise Exception.Create('Ocorreram erros ao enviar a Carta de Corre√ß√£o:' + sLineBreak + 'Lote: ' + IntToStr(EventoRetorno.idLote) + sLineBreak + 'Ambiente: ' + TpAmbToStr(EventoRetorno.tpAmb) + sLineBreak + 'Orgao: ' + IntToStr(EventoRetorno.cOrgao) + sLineBreak + sLineBreak + 'Status: ' + IntToStr(EventoRetorno.cStat) + sLineBreak + 'Motivo: ' + EventoRetorno.xMotivo);
     end;
   end;
 end;
@@ -3816,7 +3850,7 @@ end;
 procedure Tfrmnotafiscal_menu.btnf77786Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '02.01') = 'NAO' then begin
-    Application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + mb_iconerror);
     exit;
   end;
 
@@ -3858,7 +3892,7 @@ end;
 procedure Tfrmnotafiscal_menu.btnrt78942Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.03') = 'NAO' then begin
-    Application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + mb_iconerror);
     exit;
   end;
   FRMFORNECEDOR := TFRMFORNECEDOR.Create(self);
@@ -3869,7 +3903,7 @@ end;
 procedure Tfrmnotafiscal_menu.btnfff403113Click(Sender: TObject);
 begin
   if frmPrincipal.acesso(codigo_usuario, '01.01') = 'NAO' then begin
-    Application.messagebox('Acesso n„o permitido!', 'AtenÁ„o', mb_ok + mb_iconerror);
+    Application.messagebox('Acesso n√£o permitido!', 'Aten√ß√£o', mb_ok + mb_iconerror);
     exit;
   end;
   if frmEMPRESA = nil then begin

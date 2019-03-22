@@ -1989,11 +1989,11 @@ begin
       Application.CreateForm(TfrmVendedor, frmVendedor);
       try
         if frmVendedor.ShowModal = mrOk then begin
-          iVendedorCodigo := StrToInt(frmModulo.qrFunci.FieldByName('CODIGO').AsString);
-          sVendedorNome := frmModulo.qrFunci.FieldByName('NOME').AsString;
+          iVendedorCodigo := StrToInt(frmModulo.Query.FieldByName('CODIGO').AsString);
+          sVendedorNome := frmModulo.Query.FieldByName('NOME').AsString;
         end
         else begin
-          //result := False;
+          result := False;
           Close;
           Exit;
         end
@@ -2013,18 +2013,9 @@ begin
   qrnota.fieldbyname('sit').asstring := 'N';
   qrnota.fieldbyname('movimento').asstring := 'S';
   qrnota.fieldbyname('codfilial').asstring := '000001';
-  if sVendedorNome = '' then begin
-    qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
-  end
-  else
-  begin
-    qrnota.fieldbyname('codvendedor').asstring := FormatFloat('000000', iVendedorCodigo);
-  end;
-
+  qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
   qrnota.fieldbyname('natureza').asstring := frmmodulo.natoperacao;
   qrnota.fieldbyname('presenca_comprador').asinteger := 1;
-
-
 
   frmmodulo.qrconfig.open;
 

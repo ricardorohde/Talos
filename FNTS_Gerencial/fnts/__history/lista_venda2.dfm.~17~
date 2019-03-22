@@ -267,6 +267,7 @@ object frmlista_venda2: Tfrmlista_venda2
         44AE426082}
       Transparent = True
       TabOrder = 1
+      Visible = False
       OnClick = BitBtn1Click
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963

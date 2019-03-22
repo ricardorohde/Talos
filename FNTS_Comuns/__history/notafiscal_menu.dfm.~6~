@@ -3,7 +3,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
   Top = 196
   BorderIcons = []
   BorderStyle = bsNone
-  Caption = 'TALOS 1.0.1.0: NFe 4.10'
+  Caption = 'TALOS 1.0.0.0: NFe 3.12'
   ClientHeight = 680
   ClientWidth = 941
   Color = 11429670
@@ -456,10 +456,10 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     ParentBackground = False
     TabOrder = 2
     object grid: TwwDBGrid
-      Left = -1
-      Top = -2
-      Width = 820
-      Height = 444
+      Left = -6
+      Top = -5
+      Width = 825
+      Height = 438
       ControlType.Strings = (
         'SITUACAO;ImageIndex;Original Size'
         'NFE_SITUACAO;ImageIndex;Original Size')
@@ -477,8 +477,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
         'DESCONTO_ITEM'#9'7'#9'Desc.It'#9'F'
         'BASE_CALCULO'#9'10'#9'Base C'#225'lc.'#9'F'#9'ICMS'
         'VALOR_ICMS'#9'10'#9'Valor'#9'F'#9'ICMS'
-        'NFE_SITUACAO'#9'2'#9'NFe'#9'F'
-        'CODVENDEDOR'#9'6'#9'Vendedor'#9'F')
+        'NFE_SITUACAO'#9'2'#9'NFe'#9'F')
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
@@ -546,6 +545,10 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
         TabOrder = 1
         object TabSheet5: TTabSheet
           Caption = 'Respostas'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object MemoResp: TMemo
             Left = 0
             Top = 0
@@ -637,10 +640,10 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     end
   end
   object Panel2: TPanel
-    Left = 816
+    Left = 825
     Top = 171
-    Width = 123
-    Height = 442
+    Width = 114
+    Height = 452
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
@@ -654,7 +657,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     object bincluir: TAdvGlowButton
       Left = 0
       Top = 0
-      Width = 123
+      Width = 114
       Height = 63
       Align = alTop
       Caption = 'Incluir'
@@ -778,7 +781,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     object balterar: TAdvGlowButton
       Left = 0
       Top = 63
-      Width = 123
+      Width = 114
       Height = 63
       Align = alTop
       Caption = 'Alterar'
@@ -902,7 +905,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     object bexcluir: TAdvGlowButton
       Left = 0
       Top = 126
-      Width = 123
+      Width = 114
       Height = 63
       Align = alTop
       Caption = 'Excluir'
@@ -1039,7 +1042,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     object bitbtn6: TAdvGlowButton
       Left = 0
       Top = 252
-      Width = 123
+      Width = 114
       Height = 63
       Align = alTop
       Caption = 'Relat'#243'rios'
@@ -1290,7 +1293,7 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     object bcancelar: TAdvGlowButton
       Left = 0
       Top = 189
-      Width = 123
+      Width = 114
       Height = 63
       Align = alTop
       Caption = 'Cancelar Nota'

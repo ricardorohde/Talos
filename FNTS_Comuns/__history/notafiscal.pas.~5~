@@ -646,9 +646,29 @@ var
   vpeso_bruto, vpeso_liquido: Double;
   DATA: string;
   nPesoItem: boolean;
+  iVendedorCodigo: Integer;
+  sVendedorNome: string;
+begin
+  // 22/10/2015
 
-  begin
+  iVendedorCodigo := 0;
+  sVendedorNome := '';
 
+    if bIdentificarVendedor = 1 then begin
+      Application.CreateForm(TfrmVendedor, frmVendedor);
+      try
+        if frmVendedor.ShowModal = mrOk then begin
+          iVendedorCodigo := StrToInt(frmModulo.Query.FieldByName('CODIGO').AsString);
+          sVendedorNome := frmModulo.Query.FieldByName('NOME').AsString;
+        end
+        else begin
+          result := False;
+          Close;
+          Exit;
+        end
+      finally
+        FreeAndNil(frmVendedor);
+      end;
   case cb_Finalidade.ItemIndex of
     0:
       frmnotafiscal_menu.qrnota.fieldbyname('TIPO_FINALIDADE').AsInteger := 0;
@@ -734,7 +754,7 @@ var
     query2.sql.add('and valor_pago > 0');
     query2.Open;
     if query2.RecordCount > 0 then begin
-      application.messagebox('Esta nota fiscal possui prestações que já teve pagamentos efetuados! Não será possível recriar as prestações!', 'Aviso', mb_ok + mb_iconwarning);
+      application.messagebox('Esta nota fiscal possue prestações que já foram feito pagamentos! Não será possível recriar as prestações!', 'Aviso', mb_ok + mb_iconwarning);
 
     end
     else begin

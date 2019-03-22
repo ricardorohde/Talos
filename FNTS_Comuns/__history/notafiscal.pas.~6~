@@ -734,7 +734,7 @@ var
     query2.sql.add('and valor_pago > 0');
     query2.Open;
     if query2.RecordCount > 0 then begin
-      application.messagebox('Esta nota fiscal possui prestações que já teve pagamentos efetuados! Não será possível recriar as prestações!', 'Aviso', mb_ok + mb_iconwarning);
+      application.messagebox('Esta nota fiscal possue prestações que já foram feito pagamentos! Não será possível recriar as prestações!', 'Aviso', mb_ok + mb_iconwarning);
 
     end
     else begin

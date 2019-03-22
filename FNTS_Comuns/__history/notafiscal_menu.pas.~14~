@@ -22,15 +22,16 @@ uses
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus, DBCtrls, Mask, RzEdit,
   RzDBEdit, RzDBBnEd, RzBtnEdt, frxClass, frxPreview, frxDesgn, ExtCtrls, MemDS,
   DBAccess, Wwdatsrc, Buttons, jpeg, ACBrNFe, ACBrNFeDANFEClass,
-  pcnRetConsReciNFe, System.TypInfo,
-  // units nfe acbr
+  System.TypInfo, Vendedor,
+  // units nfe acbr - pcnRetConsReciNFe
   pcnConversaoNFe, pcnConversao, ACBrUtil, ACBrDFeUtil, SHDocVw, ComCtrls,
   OleCtrls, FileCtrl, inifiles, AdvReflectionImage, UCBase, AdvMetroButton,
   AdvSmoothPanel, AdvSmoothExpanderPanel, System.ImageList, ACBrNFeDANFEFRDM,
   ACBrNFeDANFEFR, ACBrBase, ACBrDFe, JvExMask, JvToolEdit, XMLIntf, XMLDoc,
   ACBrMail, ACBrNFeDANFeRLClass, ACBrDFeSSL, Vcl.Samples.Spin, blcksock,
   ACBrPosPrinter, ACBrNFeDANFeESCPOS, ACBrDANFCeFortesFr, ACBrNFeConfiguracoes,
-  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode;
+  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode,
+  ACBrDFeReport, ACBrDFeDANFeReport;
 
 type
   TvNFe = (v310, v400);
@@ -1170,10 +1171,11 @@ begin
     qrnota_item.close;
     qrnota_item.sql.clear;
     qrnota_item.sql.add('select c000062.*, c000025.produto, c000025.codbarra cod_barra, c000025.unidade un, c000025.informa_codigo_barra_xml, c000025.CODIGO_ANP, anp.descricao anp_desc');
-    qrnota_item.sql.add('from c000062, c000025, anp where c000062.codproduto = c000025.codigo and c000025.CODIGO_ANP = anp.codigo');
-    qrnota_item.sql.add('and c000062.codnota = ''' + qrnota.fieldbyname('codigo').asstring + '''');
+    qrnota_item.sql.add('from c000062');
+    qrnota_item.sql.add('  inner join c000025 on c000062.codproduto = c000025.codigo');
+    qrnota_item.sql.add('  left join anp on c000025.CODIGO_ANP = anp.codigo');
+    qrnota_item.sql.add('where c000062.codnota = ''' + qrnota.fieldbyname('codigo').asstring + '''');
     qrnota_item.open;
-    qrnota_item.Last;
     qrnota_item.first;
 
     BnF_VEICULO := False;
@@ -1601,7 +1603,11 @@ begin
                   ICMS.vICMS := qrnota_item.fieldbyname('valor_icms').asfloat;
                   ICMS.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
                   ICMS.modBC := dbiPrecoTabelado;
+                  IPI.cEnq := '999';
 
+                  IPI.vBC := qrnota_item.fieldbyname('base_calculo').asfloat;
+                  IPI.pIPI := qrnota_item.fieldbyname('IPI').asfloat;
+                  IPI.vIPI := qrnota_item.fieldbyname('valor_IPI').asfloat;
 
                 // ICMS.orig := oeNacional;
                 end;
@@ -1967,10 +1973,34 @@ end;
 procedure Tfrmnotafiscal_menu.bincluirClick(Sender: TObject);
 var
   natureza: string;
+  iVendedorCodigo: Integer;
+  sVendedorNome: string;
+
 begin
   // Abre Opçoes de Faturamento
   frmOpNatureza := TfrmOpNatureza.Create(self);
   frmOpNatureza.showmodal;
+
+
+  iVendedorCodigo := 0;
+  sVendedorNome := '';
+
+
+      Application.CreateForm(TfrmVendedor, frmVendedor);
+      try
+        if frmVendedor.ShowModal = mrOk then begin
+          iVendedorCodigo := StrToInt(frmModulo.qrFunci.FieldByName('CODIGO').AsString);
+          sVendedorNome := frmModulo.qrFunci.FieldByName('NOME').AsString;
+        end
+        else begin
+          //result := False;
+          Close;
+          Exit;
+        end
+      finally
+        FreeAndNil(frmVendedor);
+      end;
+
 
   vrecno := qrnota.RecNo;
   vopcao_nfs := 1;
@@ -1983,9 +2013,15 @@ begin
   qrnota.fieldbyname('sit').asstring := 'N';
   qrnota.fieldbyname('movimento').asstring := 'S';
   qrnota.fieldbyname('codfilial').asstring := '000001';
+  if sVendedorNome = '' then
   qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
+  else
+  qrnota.fieldbyname('codvendedor').asstring := iVendedorCodigo;
+
   qrnota.fieldbyname('natureza').asstring := frmmodulo.natoperacao;
   qrnota.fieldbyname('presenca_comprador').asinteger := 1;
+  qrnota.fieldbyname('observacao').asstring := 'VENDEDOR: ' + iVendedorCodigo + ' - ' + sVendedorNome;
+
 
   frmmodulo.qrconfig.open;
 
@@ -3416,7 +3452,7 @@ begin
 
       gridRowChanged(frmnotafiscal_menu);
 
-      ACBrNFeDANFEFR1.ProtocoloNFe := '';
+      ACBrNFeDANFEFR1.Protocolo := '';
       bt_nfe_assinar.Click;
 
     end
@@ -3485,7 +3521,7 @@ begin
 
     gridRowChanged(frmnotafiscal_menu);
 
-    ACBrNFeDANFEFR1.ProtocoloNFe := '';
+    ACBrNFeDANFEFR1.Protocolo := '';
     // Linha inserida para corrigir problema de impressao do numero do protocolo na nfe.
 
     // bt_nfe_danfe.Click;
@@ -3788,7 +3824,7 @@ begin
       if FileExists(sXML) then begin
         ACBrNFeDANFEFR1.FastFileEvento := 'C:\TALOS\Server\danfe\EVENTOS.fr3';
         ACBrNFe1.DANFE.PathPDF := ExtractFilePath(ParamStr(0)) + 'CCePdf\';
-        ACBrNFeDANFEFR1.MostrarPreview := True;
+        ACBrNFeDANFEFR1.MostraPreview := True;
 
         ACBrNFe1.NotasFiscais.Clear;
         ACBrNFe1.NotasFiscais.LoadFromString(sXML);
