@@ -267,7 +267,6 @@ object frmlista_venda2: Tfrmlista_venda2
         44AE426082}
       Transparent = True
       TabOrder = 1
-      Visible = False
       OnClick = BitBtn1Click
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
@@ -434,6 +433,7 @@ object frmlista_venda2: Tfrmlista_venda2
         'RESUMO DE VENDAS POR VENDEDOR'
         'VENDAS / COMISS'#195'O'
         'VENDAS / RECEBIMENTO'
+        'VENDAS POR VENDEDOR / LUCRO'
         'RESUMO DE VENDAS / RECEBIMENTO'
         'CURVA ABC DE PRODUTOS'
         'COMISS'#195'O POR VENDA A VISTA/RECEBIMENTOS'
@@ -483,7 +483,7 @@ object frmlista_venda2: Tfrmlista_venda2
         'SELECIONAR')
     end
     object DateEdit1: TJvDateEdit
-      Left = 118
+      Left = 114
       Top = 376
       Width = 102
       Height = 21
@@ -2754,10 +2754,16 @@ object frmlista_venda2: Tfrmlista_venda2
   object qrvenda_produto10: TZQuery
     Connection = frmmodulo.Conexao
     SQL.Strings = (
-      'select codproduto, avg(unitario) media_venda, '
-      'sum(qtde) total_qtde,  avg(unitario)*  sum(qtde) total_geral '
+      'select data, codproduto, avg(unitario) media_venda, '
+      
+        'sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(descon' +
+        'to) total_geral,'
+      'cupom_modelo, codcliente, codvendedor '
       'from c000032 where  movimento in (2,9) '
-      'group by codproduto order by codproduto')
+      
+        'group by codproduto, data, codcliente, codvendedor, cupom_modelo' +
+        ' '
+      'order by data, codproduto')
     Params = <>
     Left = 226
     Top = 273
@@ -2827,6 +2833,36 @@ object frmlista_venda2: Tfrmlista_venda2
       FieldName = 'TOTAL_GERAL'
       ReadOnly = True
     end
+    object qrvenda_produto10DATA: TDateField
+      FieldName = 'DATA'
+    end
+    object qrvenda_produto10CUPOM_MODELO: TWideStringField
+      FieldName = 'CUPOM_MODELO'
+    end
+    object qrvenda_produto10CODCLIENTE: TWideStringField
+      FieldName = 'CODCLIENTE'
+    end
+    object qrvenda_produto10CODVENDEDOR: TWideStringField
+      FieldName = 'CODVENDEDOR'
+    end
+    object qrvenda_produto10vendedor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'vendedor'
+      LookupDataSet = qrvendedor
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CODVENDEDOR'
+      Lookup = True
+    end
+    object qrvenda_produto10cliente: TStringField
+      FieldKind = fkLookup
+      FieldName = 'cliente'
+      LookupDataSet = frmmodulo.qrcliente
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CODCLIENTE'
+      Lookup = True
+    end
   end
   object fsvenda_produto10: TfrxDBDataset
     UserName = 'fsvenda_produto10'
@@ -2836,11 +2872,17 @@ object frmlista_venda2: Tfrmlista_venda2
       'un=un'
       'preco_venda=preco_venda'
       'preco_custo=preco_custo'
+      'alq=alq'
       'CODPRODUTO=CODPRODUTO'
       'MEDIA_VENDA=MEDIA_VENDA'
       'TOTAL_QTDE=TOTAL_QTDE'
       'TOTAL_GERAL=TOTAL_GERAL'
-      'alq=alq')
+      'DATA=DATA'
+      'CUPOM_MODELO=CUPOM_MODELO'
+      'CODCLIENTE=CODCLIENTE'
+      'CODVENDEDOR=CODVENDEDOR'
+      'vendedor=vendedor'
+      'cliente=cliente')
     DataSet = qrvenda_produto10
     BCDToCurrency = False
     Left = 194
@@ -3467,10 +3509,12 @@ object frmlista_venda2: Tfrmlista_venda2
     Active = True
     SQL.Strings = (
       
-        'select codcaixa, data, sum(total) as "Total de Vendas", count(nu' +
-        'mero_cupom_fiscal) as "Clientes"'
-      'from c000048'
-      'group by data, codcaixa'
+        'select vendas.codcaixa, usuarios.nome, vendas.data, sum(vendas.t' +
+        'otal) as "Total de Vendas", count(vendas.numero_cupom_fiscal) as' +
+        ' "Clientes"'
+      'from c000048 vendas, c000008 usuarios'
+      'join c000045 as caixas on vendas.codcaixa = caixas.codigo'
+      'group by data, codcaixa, nome'
       'order by data;')
     Params = <>
     Left = 495
@@ -3490,6 +3534,10 @@ object frmlista_venda2: Tfrmlista_venda2
       FieldName = 'Clientes'
       ReadOnly = True
     end
+    object qrProdutividadeNOME: TWideStringField
+      FieldName = 'NOME'
+      Size = 80
+    end
   end
   object fsProdutividade: TfrxDBDataset
     UserName = 'fsProdutividade'
@@ -3498,7 +3546,8 @@ object frmlista_venda2: Tfrmlista_venda2
       'CODCAIXA=CODCAIXA'
       'DATA=DATA'
       'Total de Vendas=Total de Vendas'
-      'Clientes=Clientes')
+      'Clientes=Clientes'
+      'NOME=NOME')
     DataSet = qrProdutividade
     BCDToCurrency = False
     Left = 495
@@ -3513,7 +3562,7 @@ object frmlista_venda2: Tfrmlista_venda2
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39181.615094942100000000
-    ReportOptions.LastChange = 43471.926684606480000000
+    ReportOptions.LastChange = 43471.985824768500000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3582,20 +3631,6 @@ object frmlista_venda2: Tfrmlista_venda2
           Font.Style = []
           Memo.UTF8W = (
             'DATA')
-          ParentFont = False
-        end
-        object Memo9: TfrxMemoView
-          Left = 140.047310000000000000
-          Top = 16.118120000000000000
-          Width = 64.252010000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            'PDV')
           ParentFont = False
         end
         object Memo10: TfrxMemoView
@@ -3692,7 +3727,7 @@ object frmlista_venda2: Tfrmlista_venda2
         object Memo32: TfrxMemoView
           Left = 82.370130000000000000
           Top = 16.118120000000000000
-          Width = 52.913420000000000000
+          Width = 79.370130000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -3911,7 +3946,7 @@ object frmlista_venda2: Tfrmlista_venda2
         DataSetName = 'fsProdutividade'
         RowCount = 0
         object fsProdutividadeCODCAIXA: TfrxMemoView
-          Left = 120.944960000000000000
+          Left = 83.149660000000000000
           Top = 3.779530000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
@@ -3930,7 +3965,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeTotaldeVendas: TfrxMemoView
           Left = 207.874150000000000000
-          Top = 3.779530000000000000
+          Top = 3.779529999999990000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade
@@ -3956,6 +3991,23 @@ object frmlista_venda2: Tfrmlista_venda2
             '[fsProdutividade."Clientes"]')
           ParentFont = False
         end
+        object fsProdutividadeNOME: TfrxMemoView
+          Left = 132.283550000000000000
+          Top = 3.779530000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataField = 'NOME'
+          DataSet = fsProdutividade
+          DataSetName = 'fsProdutividade'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fsProdutividade."NOME"]')
+          ParentFont = False
+        end
       end
       object GroupFooter1: TfrxGroupFooter
         FillType = ftBrush
@@ -3971,7 +4023,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object Memo3: TfrxMemoView
           Left = 7.559060000000000000
-          Top = 3.779530000000000000
+          Top = 3.779530000000020000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -3985,7 +4037,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeClientes: TfrxMemoView
           Left = 657.638220000000000000
-          Top = 3.779530000000000000
+          Top = 3.779530000000020000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade
@@ -4001,7 +4053,7 @@ object frmlista_venda2: Tfrmlista_venda2
         end
         object fsProdutividadeTotaldeVendas1: TfrxMemoView
           Left = 207.874150000000000000
-          Top = 3.779530000000000000
+          Top = 3.779530000000020000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = fsProdutividade
@@ -4019,5 +4071,53 @@ object frmlista_venda2: Tfrmlista_venda2
         end
       end
     end
+  end
+  object qrCaixas: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      
+        'select caixas.codigo, usuarios.nome from c000045 caixas, c000008' +
+        ' usuarios'
+      'where caixas.codfuncionario = usuarios.codigo'
+      'group by caixas.codigo, usuarios.nome')
+    Params = <>
+    Left = 416
+    Top = 304
+    object qrCaixasCODIGO: TWideStringField
+      FieldName = 'CODIGO'
+      Required = True
+      Size = 6
+    end
+    object qrCaixasNOME: TWideStringField
+      FieldName = 'NOME'
+      Size = 80
+    end
+  end
+  object fsCaixas: TfrxDBDataset
+    UserName = 'fsCaixas'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'CODIGO=CODIGO'
+      'NOME=NOME')
+    DataSet = qrCaixas
+    BCDToCurrency = False
+    Left = 416
+    Top = 256
+  end
+  object qrVenda_Detalhado: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      
+        'select nfce.CODVENDEDOR, SUM(nfce.TOTAL) TOTAL_GERAL from c00004' +
+        '8 nfce '
+      'GROUP BY CODVENDEDOR'
+      'union'
+      
+        'select nfe.CODVENDEDOR, SUM(nfe.TOTAL_NOTA) TOTAL_GERAL from c00' +
+        '0061 nfe '
+      'where NFE_SITUACAO = 6  GROUP BY CODVENDEDOR')
+    Params = <>
+    Left = 384
+    Top = 368
   end
 end

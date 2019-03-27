@@ -370,6 +370,18 @@ type
     qrProdutividadeDATA: TDateField;
     qrProdutividadeTotaldeVendas: TFloatField;
     qrProdutividadeClientes: TIntegerField;
+    qrCaixas: TZQuery;
+    fsCaixas: TfrxDBDataset;
+    qrCaixasCODIGO: TWideStringField;
+    qrCaixasNOME: TWideStringField;
+    qrProdutividadeNOME: TWideStringField;
+    qrVenda_Detalhado: TZQuery;
+    qrvenda_produto10DATA: TDateField;
+    qrvenda_produto10CUPOM_MODELO: TWideStringField;
+    qrvenda_produto10CODCLIENTE: TWideStringField;
+    qrvenda_produto10CODVENDEDOR: TWideStringField;
+    qrvenda_produto10vendedor: TStringField;
+    qrvenda_produto10cliente: TStringField;
     procedure combo_clienteChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -831,7 +843,8 @@ begin
 
     qrProdutividade.CLOSE;
     qrProdutividade.SQL.CLEAR;
-    qrProdutividade.SQL.Add('select codcaixa, data, sum(total) as "Total de Vendas", count(numero_cupom_fiscal) as "Clientes" from c000048 where ' + periodo + SITUACAO + cliente + VENDEDOR + caixa + FORMA + TIPO + ' order by ' + ordem);
+    qrProdutividade.SQL.Add('select codcaixa, data, sum(total) as "Total de Vendas", count(numero_cupom_fiscal) as "Clientes" from c000048 where ' + periodo + SITUACAO + cliente + VENDEDOR + caixa + FORMA + TIPO);
+    qrProdutividade.SQL.Add('group by data, codcaixa order by data');
     qrProdutividade.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     qrProdutividade.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrProdutividade.OPEN;
@@ -842,7 +855,7 @@ begin
     else
       fxProdutividade.LoadFromFile('\TALOS\server\rel\123.fr3');
 
-    fxvenda.ShowReport;
+    fxProdutividade.ShowReport;
   end;
 
   if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
@@ -894,9 +907,9 @@ begin
       qrvenda_produto10.SQL.CLEAR;
 
       if bTodos_Produtos.Checked = false then
-        qrvenda_produto10.SQL.Add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9) and movimento_estoque < 0 and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto order by codproduto')
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9) and movimento_estoque < 0 and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto, data, codcliente, codvendedor, cupom_modelo order by codproduto')
       else
-        qrvenda_produto10.SQL.Add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9,99) and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto order by codproduto');
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9,99) and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto, data, codcliente, codvendedor, cupom_modelo order by data, codproduto');
 
       // qrvenda_produto10.sql.add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9) and movimento_estoque < 0 and '+periodo+cliente+vendedor+produto+' group by codproduto order by codproduto');
       qrvenda_produto10.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
@@ -1003,7 +1016,9 @@ begin
   if combo_relatorio.Text = 'RESUMO DE VENDAS POR VENDEDOR' then begin
     QRVENDA2.CLOSE;
     QRVENDA2.SQL.CLEAR;
-    QRVENDA2.SQL.Add('select CODVENDEDOR, SUM(TOTAL) TOTAL_GERAL from c000048 where ' + periodo + cliente + VENDEDOR + caixa + FORMA + SITUACAO + ' GROUP BY CODVENDEDOR');
+    QRVENDA2.SQL.Add('select nfce.CODVENDEDOR, SUM(nfce.TOTAL) TOTAL_GERAL from c000048 nfce where ' + periodo + cliente + VENDEDOR + caixa + FORMA + SITUACAO + ' GROUP BY CODVENDEDOR');
+    QRVENDA2.SQL.Add('UNION');
+    QRVENDA2.SQL.Add('select nfe.CODVENDEDOR, SUM(nfe.TOTAL_NOTA) TOTAL_GERAL from c000061 nfe where ' + periodo + cliente + VENDEDOR + caixa + FORMA + ' AND NFE_SITUACAO = 6  GROUP BY CODVENDEDOR');
     QRVENDA2.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     QRVENDA2.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     QRVENDA2.OPEN;

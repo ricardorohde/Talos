@@ -722,13 +722,13 @@ begin
                 qrServidor.close;
                 qrServidor.sql.clear;
                 qrServidor.sql.add('insert into c000048');
-                qrServidor.sql.add('(codigo,data,codcliente,codvendedor,');
+                qrServidor.sql.add('(codigo,data,hora,codcliente,codvendedor,');
                 qrServidor.sql.add('codcaixa,total,subtotal,meio_dinheiro,');
                 qrServidor.sql.add('meio_chequeav, meio_chequeap,meio_cartaocred,');
                 qrServidor.SQL.add('meio_cartaodeb,meio_crediario,meio_convenio, desconto,acrescimo,');
                 qrServidor.sql.add('cupom_fiscal,numero_cupom_fiscal, ECF_SERIAL, situacao, contingencia, gerado_nfce, gerou_sat, numero_sat)');
                 qrServidor.sql.add('values');
-                qrServidor.sql.add('(:codigo,:datax,:codcliente,:codvendedor,');
+                qrServidor.sql.add('(:codigo,:datax,:horax,:codcliente,:codvendedor,');
                 qrServidor.sql.add(':codcaixa,:TOTAL,:SUBTOTAL,:DINHEIRO,');
                 qrServidor.sql.add(':CHEQUEAV,:CHEQUEAP,:CARTAOCRED,');
                 qrServidor.SQL.add(':CARTAODEB,:CREDIARIO,:CONVENIO,:DESCONTO,:ACRESCIMO,');
@@ -743,6 +743,7 @@ begin
                 qrServidor.params.parambyname('ecf_serial').asstring := qrPDV.fieldbyname('ecf').asstring;
 
                 qrServidor.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
+                qrServidor.Params.ParamByName('horax').AsTime := qrpdv.fieldbyname('hora').AsDateTime;
                 qrServidor.Params.ParamByName('TOTAL').asFLOAT := qrpdv.fieldbyname('valor_total').asfloat;
                 qrServidor.Params.ParamByName('SUBTOTAL').asFLOAT := qrpdv.fieldbyname('valor_produto').asfloat - qrpdv.fieldbyname('valor_acrescimo').asfloat + qrpdv.fieldbyname('valor_desconto').asfloat;
                 qrServidor.Params.ParamByName('DESCONTO').asFLOAT := qrpdv.fieldbyname('valor_desconto').asfloat;
