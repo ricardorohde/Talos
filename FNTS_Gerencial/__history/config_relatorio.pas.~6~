@@ -57,7 +57,8 @@ frmlista_venda2.combo_relatorio.text := 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS
     frmlista_venda2.lcaixa.visible := TRUE;
     frmlista_venda2.combo_forma.visible := TRUE;
     frmlista_venda2.lforma.visible := TRUE;
- 
+    frmPrincipal.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\com.ini', 'RELATORIOS', 'COMISSAOPORVENDAAVISTA/RECEBIMENTOS', '1');
+
     if chk1.Checked = true then
     frmlista_venda2.combo_relatorio.Items.Add('RELAÇÃO SINTÉTICA');
     frmlista_venda2.combo_relatorio.Text := 'RELAÇÃO SINTÉTICA';

@@ -1,5 +1,7 @@
 program Gerencial;
 
+{$R *.dres}
+
 uses
   Forms,
   Windows,
@@ -376,7 +378,14 @@ uses
   CadastroEtiquetas in 'fnts\CadastroEtiquetas.pas' {frmCadastroEtiquetas},
   ImpressaoEtiquetas in 'fnts\ImpressaoEtiquetas.pas' {frmImpressaoEtiquetas},
   ConsultaCPF in 'fnts\ConsultaCPF.pas' {frmConsultaCPF},
-  ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ};
+  ConsultaCNPJ in 'fnts\ConsultaCNPJ.pas' {frmConsultaCNPJ},
+  AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox},
+  UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao},
+  SelecionaEmpresa in 'fnts\SelecionaEmpresa.pas' {frmSelecionaEmpresa},
+  produto_importaEAN in 'fnts\produto_importaEAN.pas' {frmproduto_importaEAN},
+  Vendedor in '..\FNTS_Comuns\Vendedor.pas',
+  VendedorConsulta in '..\FNTS_Comuns\VendedorConsulta.pas',
+  config_relatorio in 'config_relatorio.pas' {Form1};
 
 {$R *.res}
 
@@ -398,6 +407,12 @@ begin
   Application.CreateForm(TfrmImpressaoEtiquetas, frmImpressaoEtiquetas);
   Application.CreateForm(TfrmConsultaCPF, frmConsultaCPF);
   Application.CreateForm(TfrmConsultaCNPJ, frmConsultaCNPJ);
+  Application.CreateForm(TAboutBox, AboutBox);
+  Application.CreateForm(TFrmVersao, FrmVersao);
+  Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
+  Application.CreateForm(TfrmSelecionaEmpresa, frmSelecionaEmpresa);
+  Application.CreateForm(Tfrmproduto_importaEAN, frmproduto_importaEAN);
+  Application.CreateForm(TForm1, Form1);
   frmsplash.Close;
   FreeAndNil(frmsplash);
   application.ProcessMessages;

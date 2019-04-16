@@ -36,7 +36,7 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
     object lblsubtitulo: TLabel
       Left = 247
       Top = 45
-      Width = 199
+      Width = 200
       Height = 16
       Caption = 'Selecione os Relat'#243'rio(s) Desejado(s)'
       Font.Charset = ANSI_CHARSET
@@ -174,7 +174,6 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
       Height = 25
       Caption = 'Gravar'
       TabOrder = 15
-      OnClick = btngravarClick
     end
     object btncancelar: TButton
       Left = 445

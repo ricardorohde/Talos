@@ -375,6 +375,14 @@ type
     qrCaixasCODIGO: TWideStringField;
     qrCaixasNOME: TWideStringField;
     qrProdutividadeNOME: TWideStringField;
+    qrVenda_Detalhado: TZQuery;
+    qrvenda_produto10DATA: TDateField;
+    qrvenda_produto10CUPOM_MODELO: TWideStringField;
+    qrvenda_produto10CODCLIENTE: TWideStringField;
+    qrvenda_produto10CODVENDEDOR: TWideStringField;
+    qrvenda_produto10vendedor: TStringField;
+    qrvenda_produto10cliente: TStringField;
+    btnconfigrel: TButton;
     procedure combo_clienteChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -393,6 +401,7 @@ type
     procedure combo_marcaChange(Sender: TObject);
     procedure qrvendaCalcFields(DataSet: TDataSet);
     procedure AdvMetroButton1Click(Sender: TObject);
+    procedure btnconfigrelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -408,7 +417,7 @@ implementation
 uses
   loc_cliente, modulo, loc_funci, loc_veiculo, loc_setor, xloc_cliente,
   xloc_funcionario, loc_caixa, xloc_produto, principal, xloc_subgrupo,
-  xloc_fornecedor, xloc_marca;
+  xloc_fornecedor, xloc_marca, produto, fornecedor, config_relatorio;
 
 {$R *.dfm}
 
@@ -900,9 +909,9 @@ begin
       qrvenda_produto10.SQL.CLEAR;
 
       if bTodos_Produtos.Checked = false then
-        qrvenda_produto10.SQL.Add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9) and movimento_estoque < 0 and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto order by codproduto')
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9) and movimento_estoque < 0 and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by data, codproduto, codcliente, codvendedor, cupom_modelo order by data, codproduto')
       else
-        qrvenda_produto10.SQL.Add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9,99) and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by codproduto order by codproduto');
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9,99) and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by data, codproduto,, codcliente, codvendedor, cupom_modelo order by data, codproduto');
 
       // qrvenda_produto10.sql.add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9) and movimento_estoque < 0 and '+periodo+cliente+vendedor+produto+' group by codproduto order by codproduto');
       qrvenda_produto10.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
@@ -914,6 +923,34 @@ begin
       fxvenda.ShowReport;
     end;
   end;
+
+  if combo_relatorio.Text = 'VENDAS POR VENDEDOR / LUCRO' then begin
+      qrvenda_produto10.CLOSE;
+      qrvenda_produto10.SQL.CLEAR;
+
+
+      if not frmPrincipal.autentica('Editar Relatórios', 4) then begin
+       application.MESSAGEBOX('Acesso não permitido!', 'Erro!', mb_ok + mb_iconerror);
+        exit;
+      end;
+
+
+      if bTodos_Produtos.Checked = false then
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9) and movimento_estoque < 0 and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by data, codproduto, codcliente, codvendedor, cupom_modelo order by data, codproduto')
+      else
+        qrvenda_produto10.SQL.Add('select data, codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral, cupom_modelo, codcliente, codvendedor from c000032 where  movimento in (2,9,99) and ' + periodo + SITUACAO + cliente + VENDEDOR + PRODUTO + ' group by data, codproduto,, codcliente, codvendedor, cupom_modelo order by data, codproduto');
+
+      // qrvenda_produto10.sql.add('select codproduto, avg(unitario) media_venda, sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(desconto) total_geral from c000032 where  movimento in (2,9) and movimento_estoque < 0 and '+periodo+cliente+vendedor+produto+' group by codproduto order by codproduto');
+      qrvenda_produto10.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
+      qrvenda_produto10.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
+      qrvenda_produto10.OPEN;
+      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+      FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RESUMO DE VENDAS DE PRODUTOS/LUCRO';
+      fxvenda.LoadFromFile('\TALOS\server\REL\F000032b.fr3');
+      fxvenda.ShowReport;
+  end;
+
+
 
   if combo_relatorio.Text = 'RELAÇÃO ANALÍTICA' then begin
 
@@ -1009,7 +1046,9 @@ begin
   if combo_relatorio.Text = 'RESUMO DE VENDAS POR VENDEDOR' then begin
     QRVENDA2.CLOSE;
     QRVENDA2.SQL.CLEAR;
-    QRVENDA2.SQL.Add('select CODVENDEDOR, SUM(TOTAL) TOTAL_GERAL from c000048 where ' + periodo + cliente + VENDEDOR + caixa + FORMA + SITUACAO + ' GROUP BY CODVENDEDOR');
+    QRVENDA2.SQL.Add('select nfce.CODVENDEDOR, SUM(nfce.TOTAL) TOTAL_GERAL from c000048 nfce where ' + periodo + cliente + VENDEDOR + caixa + FORMA + SITUACAO + ' GROUP BY CODVENDEDOR');
+    QRVENDA2.SQL.Add('UNION');
+    QRVENDA2.SQL.Add('select nfe.CODVENDEDOR, SUM(nfe.TOTAL_NOTA) TOTAL_GERAL from c000061 nfe where ' + periodo + cliente + VENDEDOR + caixa + FORMA + ' AND NFE_SITUACAO = 6  GROUP BY CODVENDEDOR');
     QRVENDA2.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     QRVENDA2.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     QRVENDA2.OPEN;
@@ -1916,6 +1955,11 @@ begin
     fxvenda.LoadFromFile('\TALOS\server\rel\f000181.fr3');
     fxvenda.designreport;
   end;
+end;
+
+procedure Tfrmlista_venda2.btnconfigrelClick(Sender: TObject);
+begin
+frmconfig_relatorio.Show;
 end;
 
 procedure Tfrmlista_venda2.combo_grupoChange(Sender: TObject);

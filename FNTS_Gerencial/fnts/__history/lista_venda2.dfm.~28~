@@ -433,6 +433,7 @@ object frmlista_venda2: Tfrmlista_venda2
         'RESUMO DE VENDAS POR VENDEDOR'
         'VENDAS / COMISS'#195'O'
         'VENDAS / RECEBIMENTO'
+        'VENDAS POR VENDEDOR / LUCRO'
         'RESUMO DE VENDAS / RECEBIMENTO'
         'CURVA ABC DE PRODUTOS'
         'COMISS'#195'O POR VENDA A VISTA/RECEBIMENTOS'
@@ -482,7 +483,7 @@ object frmlista_venda2: Tfrmlista_venda2
         'SELECIONAR')
     end
     object DateEdit1: TJvDateEdit
-      Left = 118
+      Left = 114
       Top = 376
       Width = 102
       Height = 21
@@ -2753,10 +2754,16 @@ object frmlista_venda2: Tfrmlista_venda2
   object qrvenda_produto10: TZQuery
     Connection = frmmodulo.Conexao
     SQL.Strings = (
-      'select codproduto, avg(unitario) media_venda, '
-      'sum(qtde) total_qtde,  avg(unitario)*  sum(qtde) total_geral '
+      'select data, codproduto, avg(unitario) media_venda, '
+      
+        'sum(qtde) total_qtde,  ( avg(unitario) * sum(qtde)) - sum(descon' +
+        'to) total_geral,'
+      'cupom_modelo, codcliente, codvendedor '
       'from c000032 where  movimento in (2,9) '
-      'group by codproduto order by codproduto')
+      
+        'group by codproduto, data, codcliente, codvendedor, cupom_modelo' +
+        ' '
+      'order by data, codproduto')
     Params = <>
     Left = 226
     Top = 273
@@ -2826,6 +2833,36 @@ object frmlista_venda2: Tfrmlista_venda2
       FieldName = 'TOTAL_GERAL'
       ReadOnly = True
     end
+    object qrvenda_produto10DATA: TDateField
+      FieldName = 'DATA'
+    end
+    object qrvenda_produto10CUPOM_MODELO: TWideStringField
+      FieldName = 'CUPOM_MODELO'
+    end
+    object qrvenda_produto10CODCLIENTE: TWideStringField
+      FieldName = 'CODCLIENTE'
+    end
+    object qrvenda_produto10CODVENDEDOR: TWideStringField
+      FieldName = 'CODVENDEDOR'
+    end
+    object qrvenda_produto10vendedor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'vendedor'
+      LookupDataSet = qrvendedor
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CODVENDEDOR'
+      Lookup = True
+    end
+    object qrvenda_produto10cliente: TStringField
+      FieldKind = fkLookup
+      FieldName = 'cliente'
+      LookupDataSet = frmmodulo.qrcliente
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CODCLIENTE'
+      Lookup = True
+    end
   end
   object fsvenda_produto10: TfrxDBDataset
     UserName = 'fsvenda_produto10'
@@ -2835,11 +2872,17 @@ object frmlista_venda2: Tfrmlista_venda2
       'un=un'
       'preco_venda=preco_venda'
       'preco_custo=preco_custo'
+      'alq=alq'
       'CODPRODUTO=CODPRODUTO'
       'MEDIA_VENDA=MEDIA_VENDA'
       'TOTAL_QTDE=TOTAL_QTDE'
       'TOTAL_GERAL=TOTAL_GERAL'
-      'alq=alq')
+      'DATA=DATA'
+      'CUPOM_MODELO=CUPOM_MODELO'
+      'CODCLIENTE=CODCLIENTE'
+      'CODVENDEDOR=CODVENDEDOR'
+      'vendedor=vendedor'
+      'cliente=cliente')
     DataSet = qrvenda_produto10
     BCDToCurrency = False
     Left = 194
@@ -4060,5 +4103,21 @@ object frmlista_venda2: Tfrmlista_venda2
     BCDToCurrency = False
     Left = 416
     Top = 256
+  end
+  object qrVenda_Detalhado: TZQuery
+    Connection = frmmodulo.Conexao
+    SQL.Strings = (
+      
+        'select nfce.CODVENDEDOR, SUM(nfce.TOTAL) TOTAL_GERAL from c00004' +
+        '8 nfce '
+      'GROUP BY CODVENDEDOR'
+      'union'
+      
+        'select nfe.CODVENDEDOR, SUM(nfe.TOTAL_NOTA) TOTAL_GERAL from c00' +
+        '0061 nfe '
+      'where NFE_SITUACAO = 6  GROUP BY CODVENDEDOR')
+    Params = <>
+    Left = 384
+    Top = 368
   end
 end
