@@ -1,0 +1,328 @@
+unit config_relatorio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  Tfrmconfig_relatorio = class(TForm)
+    grprelatorio: TGroupBox;
+    lbltitulo: TLabel;
+    lblsubtitulo: TLabel;
+    chk1: TCheckBox;
+    chk2: TCheckBox;
+    chk3: TCheckBox;
+    chk4: TCheckBox;
+    chk5: TCheckBox;
+    chk6: TCheckBox;
+    chk7: TCheckBox;
+    chk8: TCheckBox;
+    chk9: TCheckBox;
+    chk10: TCheckBox;
+    chk11: TCheckBox;
+    chk12: TCheckBox;
+    chk13: TCheckBox;
+    chk14: TCheckBox;
+    chk15: TCheckBox;
+    btngravar: TButton;
+    btncancelar: TButton;
+    procedure chk15Click(Sender: TObject);
+    procedure btngravarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmconfig_relatorio:Tfrmconfig_relatorio;
+
+implementation
+
+{$R *.dfm}
+
+uses lista_venda2, principal,System.IniFiles;
+
+procedure Tfrmconfig_relatorio.btngravarClick(Sender: TObject);
+begin
+
+if chk10.Checked = true then
+frmlista_venda2.combo_relatorio.Items.Add('COMISSÃO POR VENDA A VISTA/RECEBIMENTOS');
+frmlista_venda2.combo_relatorio.text := 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS';
+    frmlista_venda2.combo_cliente.visible := TRUE;
+    frmlista_venda2.combo_vendedor.visible := TRUE;
+    frmlista_venda2.combo_caixa.visible := TRUE;
+    frmlista_venda2.lcaixa.visible := TRUE;
+    frmlista_venda2.combo_forma.visible := TRUE;
+    frmlista_venda2.lforma.visible := TRUE;
+ 
+    if chk1.Checked = true then
+    frmlista_venda2.combo_relatorio.Items.Add('RELAÇÃO SINTÉTICA');
+    frmlista_venda2.combo_relatorio.Text := 'RELAÇÃO SINTÉTICA';
+    frmlista_venda2.combo_cliente.visible := TRUE;
+    frmlista_venda2.combo_vendedor.visible := TRUE;
+    frmlista_venda2.combo_caixa.visible := TRUE;
+    frmlista_venda2.lcaixa.visible := TRUE;
+    frmlista_venda2.combo_forma.visible := TRUE;
+    frmlista_venda2.lforma.visible := TRUE;
+
+    frmlista_venda2.combo_produto.visible := false;
+    frmlista_venda2.LPRODUTO.visible := false;
+    frmlista_venda2.lgrupo.visible := false;
+    frmlista_venda2.combo_grupo.visible := false;
+
+    frmlista_venda2.lfornecedor.visible := TRUE;
+    frmlista_venda2.combo_fornecedor.visible := TRUE;
+    frmlista_venda2.lmarca.visible := TRUE;
+    frmlista_venda2.combo_marca.visible := TRUE;
+    frmlista_venda2.lsituacao.visible := true;
+    frmlista_venda2.COMBO_SITUACAO.visible := True;
+    frmlista_venda2.bTodos_Produtos.visible := false;
+    frmlista_venda2.Ltipo.visible := True;
+    frmlista_venda2.combo_tipo.visible := True;
+
+if  chk6.Checked = true then
+    frmlista_venda2.combo_relatorio.Items.Add('RESUMO DE VENDAS POR VENDEDOR');
+    frmlista_venda2.combo_relatorio.Text := 'RESUMO DE VENDAS POR VENDEDOR';
+    frmlista_venda2.combo_cliente.visible := TRUE;
+    frmlista_venda2.combo_vendedor.visible := TRUE;
+    frmlista_venda2.combo_caixa.visible := TRUE;
+    frmlista_venda2.lcaixa.visible := TRUE;
+    frmlista_venda2.combo_forma.visible := TRUE;
+    frmlista_venda2.lforma.visible := TRUE;
+
+    frmlista_venda2.combo_produto.visible := false;
+    frmlista_venda2.LPRODUTO.visible := false;
+    frmlista_venda2.lgrupo.visible := false;
+    frmlista_venda2.combo_grupo.visible := false;
+
+    frmlista_venda2.lfornecedor.visible := TRUE;
+    frmlista_venda2.combo_fornecedor.visible := TRUE;
+    frmlista_venda2.lmarca.visible := TRUE;
+    frmlista_venda2.combo_marca.visible := TRUE;
+    frmlista_venda2.bTodos_Produtos.visible := false;
+    frmlista_venda2.Ltipo.visible := False;
+    frmlista_venda2.combo_tipo.visible := False;
+
+
+
+  end;
+
+
+procedure Tfrmconfig_relatorio.chk15Click(Sender: TObject);
+var
+i: Integer;
+checado:Boolean;
+begin
+checado:=false;
+if chk15.checked = True then
+checado:=True;
+for i := 0 to ComponentCount-1 do
+if (Components[i] is TCheckBox) then
+TCheckBox (Components[i]).checked:=checado;
+end;
+
+procedure Tfrmconfig_relatorio.GravarConfiguracao;
+var
+  IniFile: string;
+  Ini: TIniFile;
+  StreamMemo: TMemoryStream;
+begin
+  IniFile := sConfiguracoes;
+  Ini := TIniFile.Create(IniFile);
+  try
+    Ini.WriteInteger('Certificado', 'SSLLib', cbSSLLib.ItemIndex);
+    Ini.WriteInteger('Certificado', 'CryptLib', cbCryptLib.ItemIndex);
+    Ini.WriteInteger('Certificado', 'HttpLib', cbHttpLib.ItemIndex);
+    Ini.WriteInteger('Certificado', 'XmlSignLib', cbXmlSignLib.ItemIndex);
+    Ini.WriteString('Certificado', 'Caminho', edtCaminho.Text);
+    Ini.WriteString('Certificado', 'Senha', edtSenha.Text);
+    Ini.WriteString('Certificado', 'NumSerie', edtNumSerie.Text);
+
+    Ini.WriteBool('Geral', 'PesquisaCodigoProduto', chkPesquisaCodigoProduto.Checked);
+    Ini.WriteBool('Geral', 'PesquisaCodigoBarras', chkPesquisaCodBarras.Checked);
+    Ini.WriteBool('Geral', 'PesquisaNomeProduto', chkPesquisaNomeProd.Checked);
+
+    Ini.WriteBool('Geral', 'AtualizarXML', cbxAtualizarXML.Checked);
+    Ini.WriteBool('Geral', 'ExibirErroSchema', cbxExibirErroSchema.Checked);
+    Ini.WriteString('Geral', 'FormatoAlerta', edtFormatoAlerta.Text);
+    Ini.WriteInteger('Geral', 'FormaEmissao', cbFormaEmissao.ItemIndex);
+    Ini.WriteInteger('Geral', 'ModeloDF', cbModeloDF.ItemIndex);
+    Ini.WriteInteger('Geral', 'VersaoDF', cbVersaoDF.ItemIndex);
+    Ini.WriteString('Geral', 'IdToken', edtIdToken.Text);
+    Ini.WriteString('Geral', 'Token', edtToken.Text);
+    Ini.WriteBool('Geral', 'RetirarAcentos', cbxRetirarAcentos.Checked);
+    Ini.WriteBool('Geral', 'Salvar', ckSalvar.Checked);
+    Ini.WriteString('Geral', 'PathSalvar', edtPathLogs.Text);
+    Ini.WriteString('Geral', 'PathSchemas', edtPathSchemas.Text);
+    Ini.WriteString('Geral', 'CFOP_PADRAO', edCFOP.Text);
+    Ini.WriteString('Geral', 'TIPO CUPOM', edTipoCupom.Text);
+    Ini.WriteBool('Geral', 'VERIFICA_CAIXA', ckVercaixa.Checked);
+    if edImprimeCupomSimples.ItemIndex = 0 then
+      Ini.WriteString('Geral', 'IMPRESSAO CUPOM', 'N')
+    else if edImprimeCupomSimples.ItemIndex = 1 then
+      Ini.WriteString('Geral', 'IMPRESSAO CUPOM', 'S')
+    else if edImprimeCupomSimples.ItemIndex = 2 then
+      Ini.WriteString('Geral', 'IMPRESSAO CUPOM', 'P')
+    else
+      Ini.WriteString('Geral', 'IMPRESSAO CUPOM', 'S');
+
+    if lbImpVendaSimples.Caption <> 'SEM IMPRESSORA DEFINIDA!' then
+      Ini.WriteString('Geral', 'IMPRESSORA VENDA SIMPLES', lbImpVendaSimples.Caption);
+    Ini.WriteBool('Geral', 'Exibir em Tela', cpExibirTela.Checked);
+
+    Ini.WriteBool('Geral', 'UTILIZA TOUCH', edAtivaTouch.Checked);
+    Ini.WriteInteger('Geral', 'Colunas Touch', edColunas.Value);
+    Ini.WriteInteger('Geral', 'Linhas Touch', edLinhasProduto.Value);
+    Ini.WriteInteger('Geral', 'Linhas Touch Grupo', edLinhasGrupo.Value);
+    Ini.WriteInteger('Geral', 'Altura Touch Grupo', edAlturaGrupo.Value);
+    Ini.WriteBool('Geral', 'UTILIZA TECLADO', edTecladoVirtual.Checked);
+
+    Ini.WriteBool('Geral', 'CONTROLE DE SENHA', edUtilizaSenha.Checked);
+
+    qrAlteraSenhaPDV.SQL.Clear;
+    qrAlteraSenhaPDV.SQL.Text := 'SET GENERATOR ULTIMA_SENHA TO ' + IntToStr(edUltimaSenha.Value);
+    qrAlteraSenhaPDV.ExecSQL;
+
+    Ini.WriteBool('Geral', 'IMPRESSORA ESPECIFICA', edImpressoraEspecifica.Checked);
+    if lbImpCozinha.Caption <> 'SEM IMPRESSORA DEFINIDA!' then
+      Ini.WriteString('Geral', 'IMPRESSORA COZINHA', lbImpCozinha.Caption);
+
+    Ini.WriteBool('Geral', 'IMPRESSAO FICHA', edAtivaImpFicha.Checked);
+    if lbImpFicha.Caption <> 'SEM IMPRESSORA DEFINIDA!' then
+      Ini.WriteString('Geral', 'IMPRESSORA FICHA', lbImpFicha.Caption);
+    Ini.WriteString('Geral', 'SEGURANCA FICHA', edCodigo.Text);
+
+    Ini.WriteString('GUILHOTINA', 'HABILITA', BoolToStr(CheckHabGuilhotina.Checked));
+    Ini.WriteString('GUILHOTINA', 'MODELO', ComboGuilhotina.Text);
+
+    Ini.WriteString('GAVETA', 'gavnaof', ComboPortaGaveta.Text);
+    Ini.WriteString('GAVETA', 'LOCAL', IntToStr(rdLocalGaveta.ItemIndex));
+    Ini.WriteInteger('GAVETA', 'MODELO', cbxModelo.ItemIndex);
+
+
+    Ini.WriteString('WebService', 'UF', cbUF.Text);
+    Ini.WriteInteger('WebService', 'Ambiente', rgTipoAmb.ItemIndex);
+    Ini.WriteBool('WebService', 'Visualizar', cbxVisualizar.Checked);
+    Ini.WriteBool('WebService', 'SalvarSOAP', cbxSalvarSOAP.Checked);
+    Ini.WriteBool('WebService', 'AjustarAut', cbxAjustarAut.Checked);
+    Ini.WriteString('WebService', 'Aguardar', edtAguardar.Text);
+    Ini.WriteString('WebService', 'Tentativas', edtTentativas.Text);
+    Ini.WriteString('WebService', 'Intervalo', edtIntervalo.Text);
+    Ini.WriteInteger('WebService', 'TimeOut', seTimeOut.Value);
+    Ini.WriteInteger('WebService', 'SSLType', cbSSLType.ItemIndex);
+    Ini.WriteInteger('WebService', 'FormatoOFF', EdFormatoOff.ItemIndex);
+    Ini.WriteBool('WebService', 'ContingenciaPermanente', edContigenciaPermanente.Checked);
+    Ini.WriteString('WebService', 'MotivoContingencia', edMotivoContingencia.Text);
+    Ini.WriteInteger('WebService', 'VersaoQRCode', edVersaoQR.ItemIndex);
+
+    Ini.WriteString('Proxy', 'Host', edtProxyHost.Text);
+    Ini.WriteString('Proxy', 'Porta', edtProxyPorta.Text);
+    Ini.WriteString('Proxy', 'User', edtProxyUser.Text);
+    Ini.WriteString('Proxy', 'Pass', edtProxySenha.Text);
+
+    Ini.WriteBool('Arquivos', 'Salvar', cbxSalvarArqs.Checked);
+    Ini.WriteBool('Arquivos', 'PastaMensal', cbxPastaMensal.Checked);
+    Ini.WriteBool('Arquivos', 'AddLiteral', cbxAdicionaLiteral.Checked);
+    Ini.WriteBool('Arquivos', 'EmissaoPathNFe', cbxEmissaoPathNFe.Checked);
+    Ini.WriteBool('Arquivos', 'SalvarPathEvento', cbxSalvaPathEvento.Checked);
+    Ini.WriteBool('Arquivos', 'SepararPorCNPJ', cbxSepararPorCNPJ.Checked);
+    Ini.WriteBool('Arquivos', 'SepararPorModelo', cbxSepararPorModelo.Checked);
+    Ini.WriteString('Arquivos', 'PathNFe', edtPathNFe.Text);
+    Ini.WriteString('Arquivos', 'PathCan', edtPathCan.Text);
+    Ini.WriteString('Arquivos', 'PathInu', edtPathInu.Text);
+    Ini.WriteString('Arquivos', 'PathEvento', edtPathEvento.Text);
+
+    Ini.WriteString('Impressao', 'Descricao via estabelecimento', edDescEsta.Text);
+    Ini.WriteInteger('Impressao', 'Espessura Margem', edMargem.Value);
+    Ini.WriteFloat('Impressao', 'Margem Esquerda', edMargEsq.Value);
+    Ini.WriteFloat('Impressao', 'Margem Direita', edMargDir.Value);
+    Ini.WriteFloat('Impressao', 'Margem Superior', edMargSup.Value);
+    Ini.WriteFloat('Impressao', 'Margem Inferior', edMarginf.Value);
+
+    Ini.WriteString('Emitente', 'CNPJ', edtEmitCNPJ.Text);
+    Ini.WriteString('Emitente', 'IE', edtEmitIE.Text);
+    Ini.WriteString('Emitente', 'IM', edtEmitIM.Text);
+    Ini.WriteString('Emitente', 'RazaoSocial', edtEmitRazao.Text);
+    Ini.WriteString('Emitente', 'Fantasia', edtEmitFantasia.Text);
+    Ini.WriteString('Emitente', 'Fone', edtEmitFone.Text);
+    Ini.WriteString('Emitente', 'CEP', edtEmitCEP.Text);
+    Ini.WriteString('Emitente', 'Logradouro', edtEmitLogradouro.Text);
+    Ini.WriteString('Emitente', 'Numero', edtEmitNumero.Text);
+    Ini.WriteString('Emitente', 'Complemento', edtEmitComp.Text);
+    Ini.WriteString('Emitente', 'Bairro', edtEmitBairro.Text);
+    Ini.WriteString('Emitente', 'CodCidade', edtEmitCodCidade.Text);
+    Ini.WriteString('Emitente', 'Cidade', edtEmitCidade.Text);
+    Ini.WriteString('Emitente', 'UF', edtEmitUF.Text);
+    Ini.WriteString('Emitente', 'Serie', edSerie.Text);
+
+
+    INI.WriteInteger('SAT','Modelo',cbxModeloSat.ItemIndex);
+    INI.WriteString('SAT','ArqLog',edLog.Text);
+    INI.WriteString('SAT','NomeDLL',edNomeDLL.Text);
+    INI.WriteString('SAT','CodigoAtivacao',edtCodigoAtivacao.Text);
+    INI.WriteInteger('SAT','Ambiente',cbxAmbiente.ItemIndex);
+    INI.WriteInteger('SAT','PaginaDeCodigo',sePagCod.Value);
+    INI.WriteFloat('SAT','versaoDadosEnt', StringToFloatDef(sfeVersaoEnt.Text,cversaoDadosEnt));
+    INI.WriteBool('SAT','UTF8', cbxUTF8.Checked);
+
+    INI.WriteBool('SAT','FormatarXML', cbxFormatXML.Checked);
+    INI.WriteBool('SAT','SalvarCFe', cbxSalvarCFe.Checked);
+    INI.WriteBool('SAT','SalvarCFeCanc', cbxSalvarCFeCanc.Checked);
+    INI.WriteBool('SAT','SalvarEnvio', cbxSalvarEnvio.Checked);
+    INI.WriteBool('SAT','SepararPorCNPJ', cbxSepararPorCNPJSat.Checked);
+    INI.WriteBool('SAT','SepararPorMES', cbxSepararPorMES.Checked);
+
+    INI.WriteString('Emit','CNPJ',edtEmitCNPJSat.Text);
+    INI.WriteString('Emit','IE',edtEmitIESat.Text);
+    INI.WriteString('Emit','IM',edtEmitIMSat.Text);
+    INI.WriteInteger('Emit','RegTributario',cbxRegTributario.ItemIndex);
+    INI.WriteInteger('Emit','RegTribISSQN',cbxRegTribISSQN.ItemIndex);
+    INI.WriteInteger('Emit','IndRatISSQN',cbxIndRatISSQN.ItemIndex);
+
+    INI.WriteString('SAT','PATH_SALVAR_ENVIO',edPathSalvarXmlSatEnvio.Text);
+    INI.WriteString('SAT','PATH_SALVAR_VENDA',edPathSalvarXmlSatVenda.Text);
+    INI.WriteString('SAT','PATH_SALVAR_CANC',edPathSalvarXmlSatCanc.Text);
+
+    INI.WriteString('SwH','CNPJ',edtSwHCNPJ.Text);
+    INI.WriteString('SwH','Assinatura',edtSwHAssinatura.Lines.Text);
+
+    INI.WriteInteger('Fortes','Largura',seLargura.Value);
+    INI.WriteInteger('Fortes','MargemTopo',seMargemTopo.Value);
+    INI.WriteInteger('Fortes','MargemFundo',seMargemFundo.Value);
+    INI.WriteInteger('Fortes','MargemEsquerda',seMargemEsquerda.Value);
+    INI.WriteInteger('Fortes','MargemDireita',seMargemDireita.Value);
+    INI.WriteBool('Fortes','Preview',cbPreview.Checked);
+
+    INI.WriteString('Printer','Name',lImpressora.Caption);
+
+    INI.WriteInteger('Rede','tipoInter',rgRedeTipoInter.ItemIndex);
+    INI.WriteInteger('Rede','tipoLan',rgRedeTipoLan.ItemIndex);
+    INI.WriteString('Rede','SSID',edRedeSSID.Text);
+    INI.WriteInteger('Rede','seg',cbxRedeSeg.ItemIndex);
+    INI.WriteString('Rede','codigo',edRedeCodigo.Text);
+    INI.WriteString('Rede','lanIP',edRedeIP.Text);
+    INI.WriteString('Rede','lanMask',edRedeMask.Text);
+    INI.WriteString('Rede','lanGW',edRedeGW.Text);
+    INI.WriteString('Rede','lanDNS1',edRedeDNS1.Text);
+    INI.WriteString('Rede','lanDNS2',edRedeDNS2.Text);
+    INI.WriteString('Rede','usuario',edRedeUsuario.Text);
+    INI.WriteString('Rede','senha',edRedeSenha.Text);
+    INI.WriteInteger('Rede','proxy',cbxRedeProxy.ItemIndex);
+    INI.WriteString('Rede','proxy_ip',edRedeProxyIP.Text);
+    INI.WriteInteger('Rede','proxy_porta',edRedeProxyPorta.Value);
+    INI.WriteString('Rede','proxy_user',edRedeProxyUser.Text);
+    INI.WriteString('Rede','proxy_senha',edRedeProxySenha.Text);
+
+    INI.WriteString('Valores','CFOP',edCfopPadrao.Text);
+
+
+  finally
+    Ini.Free;
+  end;
+end;
+
+
+end.

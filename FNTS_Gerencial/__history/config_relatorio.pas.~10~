@@ -30,7 +30,6 @@ type
     btncancelar: TButton;
     procedure chk15Click(Sender: TObject);
     procedure btngravarClick(Sender: TObject);
-    procedure btncancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,17 +44,6 @@ implementation
 {$R *.dfm}
 
 uses lista_venda2, principal,System.IniFiles;
-
-procedure Tfrmconfig_relatorio.btncancelarClick(Sender: TObject);
-var
-i: Integer;
-checado:Boolean;
-begin
-checado:=false;
-for i := 0 to ComponentCount-1 do
-if (Components[i] is TCheckBox) then
-TCheckBox (Components[i]).checked:=checado;
-end;
 
 procedure Tfrmconfig_relatorio.btngravarClick(Sender: TObject);
 begin
@@ -86,10 +74,6 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := True;
     frmlista_venda2.combo_tipo.visible := True;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'RELAÇÃO SINTÉTICA', '0');
    end;
 
   if chk2.Checked = true then begin
@@ -114,11 +98,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := True;
     frmlista_venda2.combo_tipo.visible := True;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'RELAÇÃO ANALÍTICA', '0');
-   end;
+  end;
 
     if chk4.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('VENDAS DE PRODUTOS');
@@ -142,11 +122,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := TRUE;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'VENDAS DE PRODUTOS', '0');
-   end;
+  end;
 
   if chk5.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('RESUMO DE VENDAS DE PRODUTOS');
@@ -172,11 +148,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := TRUE;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'RESUMO DE VENDAS DE PRODUTOS', '0');
-   end;
+  end;
 
   if  chk6.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('RESUMO DE VENDAS POR VENDEDOR');
@@ -200,12 +172,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := False;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'RESUMO DE VENDAS POR VENDEDOR', '0');
-   end;
-
+    end;
 
   if chk7.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('VENDAS / COMISSÃO');
@@ -230,11 +197,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'VENDAS / COMISSÃO', '0');
-   end;
+  end;
 
   if chk8.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('VENDAS / RECEBIMENTO');
@@ -266,12 +229,7 @@ begin
     frmlista_venda2.combo_tipo.visible := false;
     frmlista_venda2.COMBO_SITUACAO.visible := false;
     frmlista_venda2.lsituacao.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'VENDAS / RECEBIMENTO', '0');
-   end;
-
+  end;
 
   if chk9.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('CURVA ABC DE PRODUTOS');
@@ -296,11 +254,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'CURVA ABC DE PRODUTOS', '0');
-   end;
+  end;
 
   if chk10.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('COMISSÃO POR VENDA A VISTA/RECEBIMENTOS');
@@ -311,11 +265,7 @@ begin
     frmlista_venda2.lcaixa.visible := TRUE;
     frmlista_venda2.combo_forma.visible := TRUE;
     frmlista_venda2.lforma.visible := TRUE;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS', '0');
-   end;
+  end;
 
   if chk12.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('RESUMO DE VENDAS / META POR VENDEDOR');
@@ -341,11 +291,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'RESUMO DE VENDAS / META POR VENDEDOR', '0');
-   end;
+  end;
 
   if chk13.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('VENDAS DE PRODUTOS AGRUPADOS POR DIA');
@@ -369,11 +315,7 @@ begin
     frmlista_venda2.bTodos_Produtos.visible := false;
     frmlista_venda2.Ltipo.visible := False;
     frmlista_venda2.combo_tipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'VENDAS DE PRODUTOS AGRUPADOS POR DIA', '0');
-   end;
+  end;
 
   if chk14.Checked = true then begin
     frmlista_venda2.combo_relatorio.Items.Add('FECHAMENTO DA TAXA DE GARÇON');
@@ -399,16 +341,9 @@ begin
     frmlista_venda2.rserial.Visible := False;
     frmlista_venda2.combo_tipo.visible := false;
     frmlista_venda2.Ltipo.visible := false;
-   end
-   else
-   begin
-   frmlista_venda2.GravaIni(ExtractFilePath(Application.ExeName) + 'ini\relatorios.ini', 'RELATORIOS', 'FECHAMENTO DA TAXA DE GARÇON', '0');
-   end;
-
-Application.MessageBox('Feche e Abra o Formulário: "Relatório de Vendas" para que as alterações sejam salvas!!','Atenção', MB_ICONEXCLAMATION);
-
   end;
 
+  end;
 
 
 procedure Tfrmconfig_relatorio.chk15Click(Sender: TObject);

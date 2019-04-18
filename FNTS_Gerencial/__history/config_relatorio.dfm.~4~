@@ -1,9 +1,7 @@
 object frmconfig_relatorio: Tfrmconfig_relatorio
   Left = 0
   Top = 0
-  Align = alCustom
-  BorderIcons = [biSystemMenu]
-  Caption = 'Configurar Relat'#243'rios'
+  Caption = 'Relat'#243'rios'
   ClientHeight = 284
   ClientWidth = 684
   Color = clBtnFace
@@ -13,7 +11,6 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
   object grprelatorio: TGroupBox
@@ -21,14 +18,14 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
     Top = 8
     Width = 666
     Height = 268
-    Caption = 'Configurar'
+    Caption = 'grprelatorio'
     TabOrder = 0
     object lbltitulo: TLabel
-      Left = 103
+      Left = 247
       Top = 17
-      Width = 485
+      Width = 196
       Height = 22
-      Caption = 'Configura'#231#227'o da Listagem dos Relat'#243'rios de Vendas'
+      Caption = 'Relat'#243'rios de Vendas'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -37,7 +34,7 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
       ParentFont = False
     end
     object lblsubtitulo: TLabel
-      Left = 239
+      Left = 247
       Top = 45
       Width = 199
       Height = 16
@@ -178,13 +175,14 @@ object frmconfig_relatorio: Tfrmconfig_relatorio
       Caption = 'Gravar'
       TabOrder = 15
       OnClick = btngravarClick
+      OnExit = btngravarExit
     end
     object btncancelar: TButton
       Left = 445
       Top = 224
       Width = 188
       Height = 25
-      Caption = 'Limpar / Cancelar'
+      Caption = 'Cancelar'
       TabOrder = 16
       OnClick = btncancelarClick
     end

@@ -55,6 +55,8 @@ checado:=false;
 for i := 0 to ComponentCount-1 do
 if (Components[i] is TCheckBox) then
 TCheckBox (Components[i]).checked:=checado;
+
+frmlista_venda2.combo_relatorio.Items.Clear;
 end;
 
 procedure Tfrmconfig_relatorio.btngravarClick(Sender: TObject);
