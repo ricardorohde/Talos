@@ -1669,7 +1669,7 @@ begin
                 lALiqICmsInterno := qryaux.FieldByName('ALIQST').asCurrency;   // INTERNA       18
                 lAliqIcmsImportado := qryaux.FieldByName('ALIQIMPORTADO').asCurrency;  // Importado 4
                 lAliqFCP := qryaux.FieldByName('FCP').asCurrency;
-                wPercentPartilha := 80;
+                wPercentPartilha := 100;
                 if (ICMS.orig = oeEstrangeiraImportacaoDireta) or (ICMS.orig = oeEstrangeiraAdquiridaBrasil) or (ICMS.orig = oeEstrangeiraImportacaoDiretaSemSimilar) or (ICMS.orig = oeEstrangeiraAdquiridaBrasilSemSimilar) then  //1,2,3 -> importados
                   lAliqAux := lAliqIcmsImportado
                 else
