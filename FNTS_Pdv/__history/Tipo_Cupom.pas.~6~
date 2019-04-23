@@ -36,7 +36,7 @@ TipoDeCupom := tcNFCE;
 frmPrincipal.TipoImpressora := SemImpressora;
 frmVenda.CheckConnect := TThreadCheckConnection.GetInstance;
     with frmVenda.CheckConnect do begin
-      OnStatusChange := frmVenda.OnInternetChange;
+      OnStatusChange := OnInternetChange;
       Start;
     end;
 frmtipo_cupom.Close;

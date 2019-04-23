@@ -405,14 +405,12 @@ type
     a, b: Word;
     Carregando: Boolean;
     iImpressora: Integer;
-    CheckConnect: TThreadCheckConnection;
     Touch_Colunas, Touch_Linhas, Touch_linhas_Grupo, Touch_Altura_Grupo: Integer;
     strPizza:tretPizza;
     function ImgTipoImpressora(i: Integer): TImpressora;
     procedure MostraFotoProduto(b: Boolean);
     procedure MostraLogoMarca(b: Boolean);
     procedure CentralizarPanel(p: TPanel);
-    procedure OnInternetChange(LANStatus: TLANStatus; InternetStatus: TInternetStatus; xMsg: string = '');
     procedure MontaTelaTouch;
     procedure MontaGrupos;
     procedure MontaProdutos(Grupo: Integer);
@@ -424,6 +422,8 @@ type
     //procedure VerificaDuplicidade(Qtd: Integer); //função para verificar se passou o código de barras errado no campo de qtd.
   public
     { Public declarations }
+    CheckConnect: TThreadCheckConnection;
+    procedure OnInternetChange(LANStatus: TLANStatus; InternetStatus: TInternetStatus; xMsg: string = '');
     procedure CorEditTotaL;
     function Localizar_Produto(referencia: string): Boolean;
     procedure EnviaContingencia;

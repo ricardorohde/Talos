@@ -28,17 +28,12 @@ implementation
 
 {$R *.dfm}
 
-uses venda, Recebimento, principal,Thread.CheckConnection;
+uses venda, Recebimento, principal;
 
 procedure Tfrmtipo_cupom.AdvSmoothButton1Click(Sender: TObject);
 begin
 TipoDeCupom := tcNFCE;
 frmPrincipal.TipoImpressora := SemImpressora;
-frmVenda.CheckConnect := TThreadCheckConnection.GetInstance;
-    with frmVenda.CheckConnect do begin
-      OnStatusChange := frmVenda.OnInternetChange;
-      Start;
-    end;
 frmtipo_cupom.Close;
 end;
 
