@@ -13,10 +13,8 @@ object frmtipo_cupom: Tfrmtipo_cupom
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel

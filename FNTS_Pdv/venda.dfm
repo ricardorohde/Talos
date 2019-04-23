@@ -17,6 +17,7 @@ object frmVenda: TfrmVenda
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
   OnResize = FormResize
   OnShow = FormShow
@@ -4315,8 +4316,8 @@ object frmVenda: TfrmVenda
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
             MinWidth = 20
-            Text = 'CTRL+E - Mesas'
-            Width = 100
+            Text = 'CTRL+T - Tipo de Cupom'
+            Width = 140
           end
           item
             PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -6925,7 +6926,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C0101020005005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF

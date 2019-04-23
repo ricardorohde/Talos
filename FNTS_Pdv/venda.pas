@@ -398,6 +398,7 @@ type
     procedure ACBrSAT1GetcodigoDeAtivacao(var Chave: AnsiString);
     procedure ACBrSAT1GetsignAC(var Chave: AnsiString);
     procedure mmSatClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     Controle: TControl;
@@ -5228,6 +5229,16 @@ begin
 end;
 
 // -------------------------------------------------------------------------- //
+
+procedure TfrmVenda.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if (shift =[ssCtrl]) and (Key = 84) then begin
+Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
+frmtipo_cupom.ShowModal;
+FreeAndNil(frmtipo_cupom);
+end;
+end;
 
 procedure TfrmVenda.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin

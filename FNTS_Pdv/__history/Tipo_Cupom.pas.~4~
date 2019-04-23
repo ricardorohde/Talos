@@ -14,7 +14,6 @@ type
     AdvSmoothButton1: TAdvSmoothButton;
     procedure AdvSmoothButton4Click(Sender: TObject);
     procedure AdvSmoothButton1Click(Sender: TObject);
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -43,10 +42,4 @@ TipoDeCupom := tcSimples;
 frmPrincipal.TipoImpressora := NaoFiscal;
 frmtipo_cupom.Close;
 end;
-procedure Tfrmtipo_cupom.FormKeyPress(Sender: TObject; var Key: Char);
-begin
-if key = #27 then
-close;
-end;
-
 end.
