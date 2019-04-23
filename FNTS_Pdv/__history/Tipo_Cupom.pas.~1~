@@ -1,0 +1,30 @@
+unit Tipo_Cupom;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxGDIPlusClasses, Vcl.ExtCtrls,
+  AdvGlowButton, System.Actions, Vcl.ActnList, Vcl.StdCtrls, Data.DB, AdvSmoothButton;
+
+type
+  Tfrmtipo_cupom = class(TForm)
+    Panel1: TPanel;
+    AdvSmoothButton4: TAdvSmoothButton;
+    AdvSmoothButton1: TAdvSmoothButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtipo_cupom: Tfrmtipo_cupom;
+
+implementation
+
+{$R *.dfm}
+
+uses venda, Recebimento;
+
+end.

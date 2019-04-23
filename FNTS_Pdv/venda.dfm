@@ -54,7 +54,6 @@ object frmVenda: TfrmVenda
     Color = clBlack
     ParentBackground = False
     TabOrder = 2
-    ExplicitHeight = 745
     object pn_principal: TPanel
       Left = 0
       Top = 0
@@ -65,7 +64,6 @@ object frmVenda: TfrmVenda
       Color = 14086904
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 745
       DesignSize = (
         1167
         747)
@@ -3335,7 +3333,6 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 13
-        ExplicitTop = 501
         object RzLabel4: TRzLabel
           Left = 10
           Top = 10
@@ -3437,7 +3434,6 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 2
-        ExplicitTop = 414
         object lbCodBarras: TRzLabel
           Left = 10
           Top = 10
@@ -3496,7 +3492,6 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 3
-        ExplicitTop = 501
         object RzLabel1: TRzLabel
           Left = 10
           Top = 10
@@ -3558,7 +3553,6 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 4
-        ExplicitTop = 414
         object RzLabel3: TRzLabel
           Left = 10
           Top = 10
@@ -3943,7 +3937,6 @@ object frmVenda: TfrmVenda
         Font.Name = 'Tahoma'
         Font.Style = []
         Color = 14540253
-        ExplicitTop = 724
       end
       object Panel12: TPanel
         Left = 0
@@ -3956,7 +3949,6 @@ object frmVenda: TfrmVenda
         Color = 8536320
         ParentBackground = False
         TabOrder = 7
-        ExplicitTop = 628
         object Panel13: TPanel
           Left = 764
           Top = 10
@@ -4356,7 +4348,6 @@ object frmVenda: TfrmVenda
         Font.Name = 'Tahoma'
         Font.Style = []
         Color = 6960384
-        ExplicitTop = 698
       end
       object cxGrid1: TcxGrid
         Left = 586
@@ -4371,7 +4362,6 @@ object frmVenda: TfrmVenda
         LookAndFeel.Kind = lfUltraFlat
         LookAndFeel.NativeStyle = True
         LookAndFeel.SkinName = ''
-        ExplicitHeight = 457
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = UniDataSource1
@@ -5112,7 +5102,6 @@ object frmVenda: TfrmVenda
         ParentBackground = False
         TabOrder = 9
         Visible = False
-        ExplicitHeight = 516
         object pnTouch_Produto: TPanel
           Left = 0
           Top = 124
@@ -5123,7 +5112,6 @@ object frmVenda: TfrmVenda
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 392
           object scProduto: TScrollBox
             Left = 0
             Top = 0
@@ -5142,7 +5130,6 @@ object frmVenda: TfrmVenda
             TabOrder = 0
             OnMouseWheelDown = scGrupoMouseWheelDown
             OnMouseWheelUp = scGrupoMouseWheelUp
-            ExplicitHeight = 392
           end
         end
         object pnTouch_Grupo: TPanel
@@ -5223,7 +5210,6 @@ object frmVenda: TfrmVenda
         ParentBackground = False
         TabOrder = 14
         Visible = False
-        ExplicitTop = 569
         object btnCancelaVenda: TAdvGlowButton
           Left = 121
           Top = 5
@@ -6939,7 +6925,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C010102000500580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF

@@ -5,8 +5,8 @@
     <Transaction>2017/05/19 00:39:12.000.319,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\teste.dfm</Transaction>
     <Transaction>2017/05/19 00:39:12.000.319,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\teste.pas</Transaction>
     <Transaction>2017/07/04 10:35:28.000.115,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.pas</Transaction>
-    <Transaction>2017/07/04 10:36:01.000.365,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\MensagemAdicional.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.dfm</Transaction>
     <Transaction>2017/07/04 10:36:01.000.365,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\MensagemAdicional.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.pas</Transaction>
+    <Transaction>2017/07/04 10:36:01.000.365,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\MensagemAdicional.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce\Unit1.dfm</Transaction>
     <Transaction>2017/11/05 22:00:40.000.715,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce 4.0\Unit1.pas</Transaction>
     <Transaction>2017/11/05 22:03:22.000.368,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce 4.0\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce 4.0\uBandeira.pas</Transaction>
     <Transaction>2017/11/05 22:03:22.000.368,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce 4.0\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv_Nfce 4.0\uBandeira.dfm</Transaction>
@@ -25,8 +25,8 @@
     <Transaction>2018/06/07 00:04:36.000.700,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\Unit_ativar.pas=</Transaction>
     <Transaction>2018/06/07 00:05:33.000.905,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\LockApplicationInterface.pas=</Transaction>
     <Transaction>2018/06/07 01:15:41.000.678,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
-    <Transaction>2018/06/07 01:15:48.000.931,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Recebimento.dfm</Transaction>
     <Transaction>2018/06/07 01:15:48.000.931,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Recebimento.pas</Transaction>
+    <Transaction>2018/06/07 01:15:48.000.931,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Recebimento.dfm</Transaction>
     <Transaction>2018/06/07 13:26:28.000.006,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
     <Transaction>2018/06/07 13:26:41.000.662,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Receber_Valor.pas</Transaction>
     <Transaction>2018/06/07 13:26:41.000.662,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Receber_Valor.dfm</Transaction>
@@ -36,25 +36,28 @@
     <Transaction>2018/06/07 18:19:37.000.617,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Teclado.pas=</Transaction>
     <Transaction>2018/06/13 12:38:28.000.586,G:\Prog\Store Protheus 8.1\Clientes\Finalizados\NextBH\Fontes\FNTS_Pdv\LongPressEvent.pas=</Transaction>
     <Transaction>2018/07/16 22:06:55.000.812,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
-    <Transaction>2018/07/16 22:13:45.000.017,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\venda_convenio.dfm</Transaction>
     <Transaction>2018/07/16 22:13:45.000.017,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\venda_convenio.pas</Transaction>
+    <Transaction>2018/07/16 22:13:45.000.017,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\venda_convenio.dfm</Transaction>
     <Transaction>2018/07/19 17:06:00.000.913,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Comuns\JustificativaInutilizacaoNFCe.pas</Transaction>
     <Transaction>2018/07/29 16:51:35.000.964,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
     <Transaction>2018/07/29 16:51:46.000.743,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\FechamentoCego.dfm</Transaction>
     <Transaction>2018/07/29 16:51:46.000.743,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\FechamentoCego.pas</Transaction>
     <Transaction>2018/09/05 11:36:58.000.107,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
-    <Transaction>2018/09/05 11:37:21.000.698,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\CuponsSAT.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm</Transaction>
     <Transaction>2018/09/05 11:37:21.000.698,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\CuponsSAT.pas=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.pas</Transaction>
+    <Transaction>2018/09/05 11:37:21.000.698,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\CuponsSAT.dfm=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\Unit1.dfm</Transaction>
     <Transaction>2018/10/09 18:44:39.000.302,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\MontaPizza.pas</Transaction>
     <Transaction>2018/10/09 18:46:44.000.358,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\MontaPizza.pas=</Transaction>
     <Transaction>2018/10/09 18:46:59.000.506,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\MontaPizza.pas</Transaction>
     <Transaction>2018/10/09 18:47:50.000.704,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Cheff\MontaPizza.pas=</Transaction>
     <Transaction>2018/10/09 18:47:56.000.104,=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Pdv\MontaPizza.pas</Transaction>
-    <Transaction>2018/12/15 12:31:28.000.545,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.pas</Transaction>
     <Transaction>2018/12/15 12:31:28.000.545,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.dfm=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.dfm</Transaction>
+    <Transaction>2018/12/15 12:31:28.000.545,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.pas</Transaction>
     <Transaction>2018/12/15 12:31:51.000.264,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.dfm=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.dfm</Transaction>
     <Transaction>2018/12/15 12:31:51.000.264,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.pas=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas</Transaction>
     <Transaction>2018/12/15 12:42:13.000.099,=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas</Transaction>
+    <Transaction>2019/04/22 21:20:18.925,=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
+    <Transaction>2019/04/22 21:55:57.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.pas=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
+    <Transaction>2019/04/22 21:55:57.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.dfm=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Talos"/>
@@ -229,5 +232,7 @@
     <File Path="xloc_produto.dfm"/>
     <File Path="xloc_servico.pas"/>
     <File Path="xloc_servico.dfm"/>
+    <File Path="Tipo_Cupom.pas"/>
+    <File Path="Tipo_Cupom.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

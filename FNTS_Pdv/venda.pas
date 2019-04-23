@@ -534,7 +534,7 @@ uses
   Orcamento_Abrir, IniFiles, contasreceber, os, caixa_abertura, mesas,
   fabricacao, senha_supervisor, ComObj, Constantes, Vendedor, UFuncoes, Comanda,
   MensagemAdicional, impDelivery, frmNFCEs, Vcl.Printers, FechamentoCego,
-  ACBrSATClass, CuponsSAT;
+  ACBrSATClass, CuponsSAT, Tipo_Cupom;
 
 {$R *.dfm}
 
@@ -1912,6 +1912,9 @@ begin
       finally
         FreeAndNil(frmVendedor);
       end;
+      Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
+      frmtipo_cupom.ShowModal;
+      FreeAndNil(frmtipo_cupom);
     end;
     // buscar variaveis do ECF
     // numero do cupom
@@ -2521,7 +2524,12 @@ begin
           finally
             FreeAndNil(frmVendedor);
           end;
+         Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
+         frmtipo_cupom.ShowModal;
+         FreeAndNil(frmtipo_cupom);
         end;
+
+
 
         if (rvalor_total_crediario = 0) and (rvalor_total_convenio = 0) then begin
           bContinua := False;

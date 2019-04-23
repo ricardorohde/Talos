@@ -124,7 +124,7 @@ var
 implementation
 
 uses Receber_Valor, venda, venda_crediario, principal, uBandeira, pcnConversao,
-  System.Math, venda_convenio, senha_supervisor, Tipo_Cupom;
+  System.Math, venda_convenio, senha_supervisor;
 
 {$R *.dfm}
 

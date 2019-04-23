@@ -93,8 +93,7 @@ uses
   FechamentoCego in 'FechamentoCego.pas' {frmFechamentoCego},
   CuponsSAT in 'CuponsSAT.pas' {frmCuponsSAT},
   MontaPizza in 'MontaPizza.pas' {frmMontaPizza},
-  item_cancelamento in 'item_cancelamento.pas' {frmItem_Cancelamento},
-  Tipo_Cupom in 'Tipo_Cupom.pas' {frmtipo_cupom};
+  item_cancelamento in 'item_cancelamento.pas' {frmItem_Cancelamento};
 
 var
   Hand : THandle;
@@ -116,7 +115,6 @@ begin
   Application.CreateForm(TfrmFechamentoCego, frmFechamentoCego);
   Application.CreateForm(TfrmCuponsSAT, frmCuponsSAT);
   Application.CreateForm(TfrmMontaPizza, frmMontaPizza);
-  Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
   frmUtiSplash.Close;
     FreeAndNil(frmUtiSplash);
     application.ProcessMessages;
