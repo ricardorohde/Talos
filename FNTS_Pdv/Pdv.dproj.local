@@ -55,9 +55,9 @@
     <Transaction>2018/12/15 12:31:51.000.264,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.dfm=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.dfm</Transaction>
     <Transaction>2018/12/15 12:31:51.000.264,C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\senha_supervisor.pas=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas</Transaction>
     <Transaction>2018/12/15 12:42:13.000.099,=C:\Users\empresa\Documents\GitHub\Talos\FNTS_Pdv\item_cancelamento.pas</Transaction>
-    <Transaction>2019/04/22 21:20:18.925,=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
-    <Transaction>2019/04/22 21:55:57.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.pas=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
-    <Transaction>2019/04/22 21:55:57.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.dfm=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.dfm</Transaction>
+    <Transaction>2019/04/22 21:20:18.000.925,=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
+    <Transaction>2019/04/22 21:55:57.000.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.pas=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.pas</Transaction>
+    <Transaction>2019/04/22 21:55:57.000.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.dfm=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Talos"/>

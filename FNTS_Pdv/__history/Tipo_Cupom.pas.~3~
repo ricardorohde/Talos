@@ -32,14 +32,12 @@ uses venda, Recebimento, principal;
 procedure Tfrmtipo_cupom.AdvSmoothButton1Click(Sender: TObject);
 begin
 TipoDeCupom := tcNFCE;
-frmPrincipal.TipoImpressora := SemImpressora;
 frmtipo_cupom.Close;
 end;
 
 procedure Tfrmtipo_cupom.AdvSmoothButton4Click(Sender: TObject);
 begin
 TipoDeCupom := tcSimples;
-frmPrincipal.TipoImpressora := NaoFiscal;
 frmtipo_cupom.Close;
 end;
 end.

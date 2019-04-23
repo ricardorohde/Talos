@@ -34,6 +34,8 @@ object frmtipo_cupom: Tfrmtipo_cupom
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
+    ExplicitLeft = -444
+    ExplicitWidth = 891
   end
   object AdvSmoothButton4: TAdvSmoothButton
     Left = 8
