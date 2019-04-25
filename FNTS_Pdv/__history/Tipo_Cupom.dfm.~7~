@@ -16,8 +16,7 @@ object frmtipo_cupom: Tfrmtipo_cupom
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnKeyDown = FormKeyDown
-  OnShow = FormShow
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -67,7 +66,7 @@ object frmtipo_cupom: Tfrmtipo_cupom
     Status.Appearance.Font.Height = -11
     Status.Appearance.Font.Name = 'Tahoma'
     Status.Appearance.Font.Style = []
-    Caption = 'Venda Simples (F10)'
+    Caption = 'Venda Simples'
     Color = 15790320
     ParentFont = False
     Picture.Data = {
@@ -172,7 +171,7 @@ object frmtipo_cupom: Tfrmtipo_cupom
     Status.Appearance.Font.Height = -11
     Status.Appearance.Font.Name = 'Tahoma'
     Status.Appearance.Font.Style = []
-    Caption = 'NFC-e (F11)'
+    Caption = 'NFC-E'
     Color = 15790320
     ParentFont = False
     Picture.Data = {
