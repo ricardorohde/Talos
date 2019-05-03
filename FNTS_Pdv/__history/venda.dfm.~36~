@@ -3,8 +3,8 @@ object frmVenda: TfrmVenda
   Top = 144
   BorderStyle = bsNone
   Caption = 'Venda Balc'#227'o'
-  ClientHeight = 6621
-  ClientWidth = 5160
+  ClientHeight = 747
+  ClientWidth = 1167
   Color = 1261591
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -17,6 +17,7 @@ object frmVenda: TfrmVenda
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
   OnResize = FormResize
   OnShow = FormShow
@@ -47,8 +48,8 @@ object frmVenda: TfrmVenda
   object pnFundo: TPanel
     Left = 0
     Top = 0
-    Width = 5160
-    Height = 6621
+    Width = 1167
+    Height = 747
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
@@ -57,21 +58,21 @@ object frmVenda: TfrmVenda
     object pn_principal: TPanel
       Left = 0
       Top = 0
-      Width = 5160
-      Height = 6621
+      Width = 1167
+      Height = 747
       Align = alClient
       BevelOuter = bvNone
       Color = 14086904
       ParentBackground = False
       TabOrder = 0
       DesignSize = (
-        5160
-        6621)
+        1167
+        747)
       object imgFundo: TImage
         Left = 0
         Top = 0
-        Width = 5160
-        Height = 6504
+        Width = 1167
+        Height = 630
         Align = alClient
         Picture.Data = {
           0D546478536D617274496D616765FFD8FFE000104A46494600010101012C012C
@@ -2373,8 +2374,8 @@ object frmVenda: TfrmVenda
       object CentralizaGrid: TBevel
         Left = 612
         Top = 99
-        Width = 4548
-        Height = 6409
+        Width = 555
+        Height = 535
         Anchors = [akLeft, akTop, akRight, akBottom]
         Shape = bsSpacer
         ExplicitWidth = 664
@@ -2384,7 +2385,7 @@ object frmVenda: TfrmVenda
         Left = 76
         Top = 126
         Width = 538
-        Height = 6158
+        Height = 284
         Anchors = [akLeft, akTop, akBottom]
         Shape = bsSpacer
         ExplicitHeight = 276
@@ -3324,7 +3325,7 @@ object frmVenda: TfrmVenda
       end
       object pnTotal: TPanel
         Left = 348
-        Top = 6377
+        Top = 503
         Width = 266
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3394,7 +3395,7 @@ object frmVenda: TfrmVenda
       object Panel7: TPanel
         Left = 8
         Top = 44
-        Width = 5145
+        Width = 1152
         Height = 54
         Anchors = [akLeft, akTop, akRight]
         BevelOuter = bvNone
@@ -3405,7 +3406,7 @@ object frmVenda: TfrmVenda
         object lb_produto: TRzLabel
           Left = 5
           Top = 5
-          Width = 5135
+          Width = 1142
           Height = 44
           Align = alClient
           Alignment = taCenter
@@ -3425,7 +3426,7 @@ object frmVenda: TfrmVenda
       end
       object pnBarra: TPanel
         Left = 76
-        Top = 6290
+        Top = 416
         Width = 344
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3483,7 +3484,7 @@ object frmVenda: TfrmVenda
       end
       object pnUnitario: TPanel
         Left = 76
-        Top = 6377
+        Top = 503
         Width = 266
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3544,7 +3545,7 @@ object frmVenda: TfrmVenda
       end
       object pnQuantidade: TPanel
         Left = 424
-        Top = 6290
+        Top = 416
         Width = 190
         Height = 82
         Anchors = [akLeft, akBottom]
@@ -3651,7 +3652,7 @@ object frmVenda: TfrmVenda
         end
       end
       object AdvMetroButton2: TAdvMetroButton
-        Left = 5079
+        Left = 1086
         Top = 2
         Width = 36
         Height = 41
@@ -3726,7 +3727,7 @@ object frmVenda: TfrmVenda
         OnClick = AdvMetroButton2Click
       end
       object AdvMetroButton1: TAdvMetroButton
-        Left = 5117
+        Left = 1124
         Top = 2
         Width = 36
         Height = 41
@@ -3806,8 +3807,8 @@ object frmVenda: TfrmVenda
       end
       object cpBarra: TdxStatusBar
         Left = 0
-        Top = 6600
-        Width = 5160
+        Top = 726
+        Width = 1167
         Height = 21
         Panels = <
           item
@@ -3940,8 +3941,8 @@ object frmVenda: TfrmVenda
       end
       object Panel12: TPanel
         Left = 0
-        Top = 6504
-        Width = 5160
+        Top = 630
+        Width = 1167
         Height = 72
         Align = alBottom
         BevelOuter = bvNone
@@ -3950,7 +3951,7 @@ object frmVenda: TfrmVenda
         ParentBackground = False
         TabOrder = 7
         object Panel13: TPanel
-          Left = 4757
+          Left = 764
           Top = 10
           Width = 385
           Height = 52
@@ -3997,7 +3998,7 @@ object frmVenda: TfrmVenda
           end
         end
         object Panel14: TPanel
-          Left = 4589
+          Left = 596
           Top = 10
           Width = 156
           Height = 52
@@ -4044,7 +4045,7 @@ object frmVenda: TfrmVenda
           end
         end
         object Panel15: TPanel
-          Left = 4745
+          Left = 752
           Top = 10
           Width = 12
           Height = 52
@@ -4053,7 +4054,7 @@ object frmVenda: TfrmVenda
           TabOrder = 2
         end
         object Panel11: TPanel
-          Left = 5142
+          Left = 1149
           Top = 10
           Width = 8
           Height = 52
@@ -4062,7 +4063,7 @@ object frmVenda: TfrmVenda
           TabOrder = 3
         end
         object btnFechaCupom: TAdvGlowButton
-          Left = 4427
+          Left = 434
           Top = 10
           Width = 162
           Height = 52
@@ -4200,8 +4201,8 @@ object frmVenda: TfrmVenda
       end
       object barraAtalho: TdxStatusBar
         Left = 0
-        Top = 6576
-        Width = 5160
+        Top = 702
+        Width = 1167
         Height = 24
         Panels = <
           item
@@ -4315,8 +4316,8 @@ object frmVenda: TfrmVenda
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
             MinWidth = 20
-            Text = 'CTRL+E - Mesas'
-            Width = 100
+            Text = 'CTRL+T - Tipo de Cupom'
+            Width = 140
           end
           item
             PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -4328,19 +4329,32 @@ object frmVenda: TfrmVenda
             PanelStyle.ParentFont = False
             Bevel = dxpbNone
             Text = 'CTRL+A - Consumidor'
+            Width = 130
+          end
+          item
+            PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+            PanelStyle.Font.Charset = DEFAULT_CHARSET
+            PanelStyle.Font.Color = clWhite
+            PanelStyle.Font.Height = -11
+            PanelStyle.Font.Name = 'Tahoma'
+            PanelStyle.Font.Style = [fsBold]
+            PanelStyle.ParentFont = False
+            Bevel = dxpbNone
+            Text = 'CTRL+O - Trocar Caixa'
+            Width = 110
           end>
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
         Color = 6960384
       end
       object cxGrid1: TcxGrid
-        Left = 4579
+        Left = 586
         Top = 104
         Width = 571
-        Height = 6333
+        Height = 459
         Anchors = [akTop, akRight, akBottom]
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -4671,7 +4685,7 @@ object frmVenda: TfrmVenda
       object pnBotoes: TPanel
         Left = 694
         Top = 44
-        Width = 4456
+        Width = 463
         Height = 54
         Anchors = [akLeft, akTop, akRight]
         BevelOuter = bvNone
@@ -4681,7 +4695,7 @@ object frmVenda: TfrmVenda
         TabOrder = 10
         Visible = False
         object AdvGlowButton2: TAdvGlowButton
-          Left = 4103
+          Left = 110
           Top = 5
           Width = 116
           Height = 44
@@ -4813,7 +4827,7 @@ object frmVenda: TfrmVenda
           Appearance.GradientChecked = ggVertical
         end
         object AdvGlowButton3: TAdvGlowButton
-          Left = 4219
+          Left = 226
           Top = 5
           Width = 116
           Height = 44
@@ -4951,7 +4965,7 @@ object frmVenda: TfrmVenda
           Appearance.GradientChecked = ggVertical
         end
         object AdvGlowButton4: TAdvGlowButton
-          Left = 4335
+          Left = 342
           Top = 5
           Width = 116
           Height = 44
@@ -5081,8 +5095,8 @@ object frmVenda: TfrmVenda
       object pnTouch: TPanel
         Left = 12
         Top = 104
-        Width = 4561
-        Height = 6392
+        Width = 568
+        Height = 518
         Anchors = [akLeft, akTop, akRight, akBottom]
         BevelOuter = bvNone
         Color = clWhite
@@ -5092,8 +5106,8 @@ object frmVenda: TfrmVenda
         object pnTouch_Produto: TPanel
           Left = 0
           Top = 124
-          Width = 4561
-          Height = 6268
+          Width = 568
+          Height = 394
           Align = alClient
           BevelOuter = bvNone
           Color = clWhite
@@ -5102,8 +5116,8 @@ object frmVenda: TfrmVenda
           object scProduto: TScrollBox
             Left = 0
             Top = 0
-            Width = 4561
-            Height = 6268
+            Width = 568
+            Height = 394
             HorzScrollBar.Smooth = True
             HorzScrollBar.Style = ssFlat
             HorzScrollBar.Tracking = True
@@ -5122,7 +5136,7 @@ object frmVenda: TfrmVenda
         object pnTouch_Grupo: TPanel
           Left = 0
           Top = 0
-          Width = 4561
+          Width = 568
           Height = 106
           Align = alTop
           BevelOuter = bvNone
@@ -5131,7 +5145,7 @@ object frmVenda: TfrmVenda
           object scGrupo: TScrollBox
             Left = 1
             Top = 19
-            Width = 4559
+            Width = 566
             Height = 86
             HorzScrollBar.Smooth = True
             HorzScrollBar.Style = ssFlat
@@ -5150,7 +5164,7 @@ object frmVenda: TfrmVenda
           object Panel1: TPanel
             Left = 1
             Top = 1
-            Width = 4559
+            Width = 566
             Height = 18
             Align = alTop
             BevelOuter = bvNone
@@ -5169,7 +5183,7 @@ object frmVenda: TfrmVenda
         object Panel8: TPanel
           Left = 0
           Top = 106
-          Width = 4561
+          Width = 568
           Height = 18
           Align = alTop
           BevelOuter = bvNone
@@ -5186,8 +5200,8 @@ object frmVenda: TfrmVenda
         end
       end
       object pnBotoesInferior: TPanel
-        Left = 4579
-        Top = 6445
+        Left = 586
+        Top = 571
         Width = 574
         Height = 53
         Anchors = [akRight, akBottom]
@@ -11054,18 +11068,21 @@ object frmVenda: TfrmVenda
     end
   end
   object ACBrSATExtratoFortes1: TACBrSATExtratoFortes
-    ACBrSAT = ACBrSAT1
-    Mask_qCom = '0.000'
-    Mask_vUnCom = '0.00'
-    MostrarPreview = True
-    NomeArquivo = 'satcfe.pdf'
-    SoftwareHouse = 'TALOS 1.0.0.0'
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
     Site = 'http://www.projetoacbr.com.br'
+    MargemInferior = 4.000000000000000000
+    MargemSuperior = 2.000000000000000000
+    MargemEsquerda = 2.000000000000000000
+    MargemDireita = 2.000000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrSAT = ACBrSAT1
     MsgAppQRCode = 
       'Consulte o QR Code pelo aplicativo  "De olho na nota", dispon'#237've' +
       'l na AppStore (Apple) e PlayStore (Android)'
-    Margens.Topo = 5
-    Margens.Fundo = 5
     Left = 142
     Top = 482
   end

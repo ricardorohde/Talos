@@ -3930,13 +3930,35 @@ object frmVenda: TfrmVenda
           item
             PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
             Bevel = dxpbNone
-            Width = 200
+            Width = 150
+          end
+          item
+            PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+            PanelStyle.Font.Charset = DEFAULT_CHARSET
+            PanelStyle.Font.Color = clWindowText
+            PanelStyle.Font.Height = -11
+            PanelStyle.Font.Name = 'Tahoma'
+            PanelStyle.Font.Style = [fsBold]
+            PanelStyle.ParentFont = False
+            Bevel = dxpbNone
+            Text = 'Status Cupom'
+            Width = 85
+          end
+          item
+            PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+            PanelStyle.Font.Charset = DEFAULT_CHARSET
+            PanelStyle.Font.Color = clGreen
+            PanelStyle.Font.Height = -11
+            PanelStyle.Font.Name = 'Tahoma'
+            PanelStyle.Font.Style = [fsBold]
+            PanelStyle.ParentFont = False
+            Bevel = dxpbNone
           end>
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
+        Font.Color = clGreen
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         Color = 14540253
       end
       object Panel12: TPanel
@@ -6926,7 +6948,7 @@ object frmVenda: TfrmVenda
     Left = 656
     Top = 307
     Bitmap = {
-      494C010102000500640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500700010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFCEE7CE00B5DCB300B6DCB400CEE7CE00FFFFFFFFFFFF

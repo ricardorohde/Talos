@@ -35,7 +35,6 @@ procedure Tfrmtipo_cupom.AdvSmoothButton1Click(Sender: TObject);
 begin
 TipoDeCupom := tcNFCE;
 frmPrincipal.TipoImpressora := SemImpressora;
-frmVenda.cpBarra.Panels[13].Text := 'NFC-e';
 frmVenda.CheckConnect := TThreadCheckConnection.GetInstance;
     with frmVenda.CheckConnect do begin
       OnStatusChange := frmVenda.OnInternetChange;
@@ -47,7 +46,6 @@ procedure Tfrmtipo_cupom.AdvSmoothButton4Click(Sender: TObject);
 begin
 TipoDeCupom := tcSimples;
 frmPrincipal.TipoImpressora := NaoFiscal;
-frmVenda.cpBarra.Panels[13].Text := 'Venda Simples';
 frmtipo_cupom.Close;
 end;
 procedure Tfrmtipo_cupom.FormKeyDown(Sender: TObject; var Key: Word;
@@ -60,14 +58,12 @@ end;
 if key = VK_F10 then begin
 TipoDeCupom := tcSimples;
 frmPrincipal.TipoImpressora := NaoFiscal;
-frmVenda.cpBarra.Panels[13].Text := 'Venda Simples';
 frmtipo_cupom.Close;
 end;
 
 if key = VK_F11 then begin
 TipoDeCupom := tcNFCE;
 frmPrincipal.TipoImpressora := SemImpressora;
-frmVenda.cpBarra.Panels[13].Text := 'NFC-e';
 frmVenda.CheckConnect := TThreadCheckConnection.GetInstance;
     with frmVenda.CheckConnect do begin
       OnStatusChange := frmVenda.OnInternetChange;

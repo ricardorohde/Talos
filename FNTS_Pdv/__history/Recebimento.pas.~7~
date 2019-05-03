@@ -172,9 +172,6 @@ begin
     Exit;
   end;
   Continua := True;
-  Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
-  frmtipo_cupom.ShowModal;
-  FreeAndNil(frmtipo_cupom);
   Close;
 end;
 
