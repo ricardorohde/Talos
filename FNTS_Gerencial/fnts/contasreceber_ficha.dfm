@@ -4,7 +4,7 @@ object frmcontasreceber_ficha: Tfrmcontasreceber_ficha
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'CONTAS A RECEBER | Inclus'#227'o'
-  ClientHeight = 267
+  ClientHeight = 275
   ClientWidth = 574
   Color = 7456876
   Font.Charset = ANSI_CHARSET
