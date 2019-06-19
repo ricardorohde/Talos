@@ -94,11 +94,6 @@ end;
 
 procedure Tfrmproduto_atualizapreco.bokClick(Sender: TObject);
 begin
-  if eperc.Value = 0 then
-  begin
-    application.messagebox('Favor informar o percentual!', 'Atenção', mb_ok + MB_ICONERROR);
-    exit;
-  end;
   bar.partscomplete := 0;
   if rproduto.checked then
   begin
