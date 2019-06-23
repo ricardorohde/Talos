@@ -593,7 +593,7 @@ begin
     esubgrupo.text := FRMPRINCIPAL.zerarcodigo(esubgrupo.text, 6);
     if esubgrupo.text <> '000000' then
       if not FRMPRINCIPAL.Locregistro(frmmodulo.qrSUBGRUPO, esubgrupo.text, 'codigo') then begin
-        APPLICATION.MESSAGEBOX('Família não cadastrada!', 'Atenção', mb_ok + mb_iconerror);
+        APPLICATION.MESSAGEBOX('Subgrupo não cadastrado!', 'Atenção', mb_ok + mb_iconerror);
         esubgrupo.setfocus;
         exit;
       end

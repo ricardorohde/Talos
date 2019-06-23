@@ -2970,7 +2970,7 @@ begin
       qrproduto.FieldByName('codsubgrupo').AsString := frmprincipal.zerarcodigo(esubgrupo.Text, 6);
       if esubgrupo.Text <> '000000' then
         if not frmprincipal.Locregistro(FRMMODULO.qrSUBGRUPO, esubgrupo.Text, 'codigo') then begin
-          application.messagebox('Família não cadastrada!', 'Atenção', mb_ok + mb_iconerror);
+          application.messagebox('Subgrupo não cadastrado!', 'Atenção', mb_ok + mb_iconerror);
           esubgrupo.SetFocus;
           exit;
         end

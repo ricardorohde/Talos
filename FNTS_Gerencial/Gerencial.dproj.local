@@ -85,7 +85,7 @@
     <Transaction>2019/03/21 17:23:17.000.438,=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Comuns\VendedorConsulta.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="..\..\Talos"/>
+    <File Path="..\..\talos"/>
     <File Path="..\FNTS_Comuns"/>
     <File Path="..\FNTS_Comuns\AboutTalos.pas"/>
     <File Path="..\FNTS_Comuns\AboutTalos.dfm"/>

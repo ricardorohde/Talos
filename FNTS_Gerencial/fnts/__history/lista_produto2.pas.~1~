@@ -1140,7 +1140,7 @@ begin
     qrproduto.IndexFieldNames := '';
   end;
 
-  if combo_relatorio.Text = 'TABELA DE PREÇOS - POR GRUPO/FAMÍLIA' then begin
+  if combo_relatorio.Text = 'TABELA DE PREÇOS - POR GRUPO/SUBGRUPO' then begin
 
     qrproduto.MasterSource := dssubgrupo;
     qrproduto.MasterFields := 'codigo';
@@ -1155,7 +1155,7 @@ begin
 
     qrproduto.SortedFields := 'produto';
 
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').ASSTRING := 'TABELA DE PREÇOS - GRUPO/FAMÍLIA';
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').ASSTRING := 'TABELA DE PREÇOS - GRUPO/SUBGRUPO';
     fxproduto.LoadFromFile('\TALOS\server\rel\f000019.fr3');
     fxproduto.ShowReport;
     qrproduto.MasterSource := nil;

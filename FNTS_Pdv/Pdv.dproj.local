@@ -60,7 +60,7 @@
     <Transaction>2019/04/22 21:55:57.000.965,C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Unit1.dfm=C:\Users\Allan\Documents\GitHub\Talos\Talos\FNTS_Pdv\Tipo_Cupom.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="..\..\Talos"/>
+    <File Path="..\..\talos"/>
     <File Path="..\FNTS_Comuns"/>
     <File Path="..\FNTS_Comuns\JustificativaInutilizacaoNFCe.pas"/>
     <File Path="..\FNTS_Comuns\JustificativaInutilizacaoNFCe.dfm"/>

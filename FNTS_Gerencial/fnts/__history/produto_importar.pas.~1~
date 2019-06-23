@@ -652,7 +652,7 @@ begin
 
     if not FileExists(edestino.Text + 'cp_gradesgrupo.txt') then
     begin
-      application.messagebox('Arquivo "cp_gradesgrupo.txt" para atualização de grades de famílias não foi encontrado! Favor verificar!', 'Atenção', mb_ok + MB_ICONERROR);
+      application.messagebox('Arquivo "cp_gradesgrupo.txt" para atualização de grades de subgrupos não foi encontrado! Favor verificar!', 'Atenção', mb_ok + MB_ICONERROR);
       rsubgrupo.Checked := False;
     end
     else
@@ -662,7 +662,7 @@ begin
 
       BARRA.Position := 0;
 
-      GROUPBOX2.Caption := 'Aguarde... Atualizando Grades de famílias...';
+      GROUPBOX2.Caption := 'Aguarde... Atualizando Grades de Subgrupos...';
       Application.ProcessMessages;
 
       Memo1.Text := '';
@@ -708,7 +708,7 @@ begin
         if not continua then break;
       end;
       if not continua then exit;
-      GroupBox2.caption := 'Grades de Famílias atualizadas com Sucesso!';
+      GroupBox2.caption := 'Grades de Subgrupos atualizados com Sucesso!';
       if fileexists(edestino.text + 'cp_gradesgrupo.txt') then
         deletefile(edestino.text + 'cp_gradesgrupo.txt');
       rsubgrupo.Checked := False;
@@ -983,7 +983,7 @@ begin
 
     if not FileExists(edestino.Text + 'cp_subgrupo.txt') then
     begin
-      application.messagebox('Arquivo "cp_subgrupo.txt" para atualização de Famílias de produtos não foi encontrado! Favor verificar!', 'Atenção', mb_ok + MB_ICONERROR);
+      application.messagebox('Arquivo "cp_subgrupo.txt" para atualização de Sub-grupos de produtos não foi encontrado! Favor verificar!', 'Atenção', mb_ok + MB_ICONERROR);
       rsubgrupo.Checked := False;
     end
     else

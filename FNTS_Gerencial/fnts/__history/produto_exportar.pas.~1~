@@ -483,7 +483,7 @@ begin
     if rsubgrupo.Checked then // subgrupo de produtos
     begin
 
-      GROUPBOX2.Caption := 'Aguarde... Exportando Famílias...';
+      GROUPBOX2.Caption := 'Aguarde... Exportando Subgrupos...';
       Application.ProcessMessages;
 
       query.Close;
@@ -551,11 +551,11 @@ begin
         if not continua then exit;
 
         closefile(arquivo);
-        GroupBox2.caption := 'Famílias/grades Exportados com Sucesso!'
+        GroupBox2.caption := 'Subgrupos/grades Exportados com Sucesso!'
       end
       else
       begin
-        showmessage('Não foi encontrado nenhum registro de famílias!');
+        showmessage('Não foi encontrado nenhum registro de subgrupo!');
       end;
     end;
 
