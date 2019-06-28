@@ -3,7 +3,7 @@ object frmxloc_subgrupo: Tfrmxloc_subgrupo
   Top = 256
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'FAM'#205'LIA | Localizar'
+  Caption = 'SUBGRUPO | Localizar'
   ClientHeight = 353
   ClientWidth = 708
   Color = clBtnFace
@@ -228,7 +228,6 @@ object frmxloc_subgrupo: Tfrmxloc_subgrupo
       'SUBGRUPO'#9'49'#9'SUBGRUPO'
       'GRUPO'#9'30'#9'GRUPO')
     IniAttributes.Delimiter = ';;'
-    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -256,6 +255,7 @@ object frmxloc_subgrupo: Tfrmxloc_subgrupo
     OnKeyPress = GRIDKeyPress
     PaintOptions.AlternatingRowColor = 15066597
     PaintOptions.ActiveRecordColor = clBlack
+    ExplicitHeight = 293
   end
   object pgrupo: TPanel
     Left = 0
