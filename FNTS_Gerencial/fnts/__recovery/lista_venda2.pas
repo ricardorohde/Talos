@@ -470,9 +470,6 @@ begin
   with Q do
   begin
     Connection := frmmodulo.Conexao;
-    Q := TZQuery.Create(Self);
-
-    Connection := frmmodulo.Conexao;
     SQL.Add('ALTER TABLE c000061 ADD MEIO_DINHEIRO decimal(18,4) default 0, ADD MEIO_CHEQUEAV decimal(18,4) default 0, ADD MEIO_CHEQUEAP decimal(18,4) default 0, ADD MEIO_CARTAOCRED decimal(18,4) default 0');
     try
       ExecSQL;
@@ -482,8 +479,8 @@ begin
     except
 
     end;
-
   end;
+  frmmodulo.Conexao.Reconnect;
 end;
 
 procedure Tfrmlista_venda2.AdvMetroButton1Click(Sender: TObject);
@@ -596,7 +593,7 @@ begin
     if COMBO_SITUACAO.ItemIndex = 2 then
       SITUACAO := ' and situacao = 2';
     if SITUACAO <> '' then
-      FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÇÃO: ' + COMBO_SITUACAO.Text;
+      FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÃ‡ÃƒO: ' + COMBO_SITUACAO.Text;
   end;
 
   if combo_tipo.ItemIndex = 0 then begin
@@ -707,9 +704,9 @@ begin
 
   periodo := ' data >= :datai and data <= :dataf ';
   ordem := 'data, codigo';
-  FRMMODULO.qrrelatorio.fieldbyname('LINHA2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' A ' + DateEdit2.Text;
+  FRMMODULO.qrrelatorio.fieldbyname('LINHA2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' A ' + DateEdit2.Text;
 
-  if combo_relatorio.Text = 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS' then begin
+  if combo_relatorio.Text = 'COMISSÃƒO POR VENDA A VISTA/RECEBIMENTOS' then begin
     if combo_vendedor.Text = 'TODOS' then begin
       qrvendedor.CLOSE;
       qrvendedor.SQL.CLEAR;
@@ -816,8 +813,8 @@ begin
 
     FRMMODULO.ConexaoLocal.Commit;
 
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÓRIO DE COMISSÕES';
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÃ“RIO DE COMISSÃ•ES';
     fxvenda.LoadFromFile('\TALOS\server\REL\F000120.fr3');
     fxvenda.ShowReport;
 
@@ -850,14 +847,14 @@ begin
     qrcondicional.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     qrcondicional.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrcondicional.OPEN;
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
     FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'PRODUTOS VENDIDOS EM CONDICIONAL';
     fxvenda.LoadFromFile('\TALOS\server\REL\F000158.fr3');
     fxvenda.ShowReport;
   end;
 
     if combo_relatorio.Text = 'RELATORIO DE PRODUTIVIDADE' then begin
-//    FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÇÃO: ' + COMBO_SITUACAO.Text;
+//    FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÃ‡ÃƒO: ' + COMBO_SITUACAO.Text;
 
     qrProdutividade.CLOSE;
     qrProdutividade.SQL.CLEAR;
@@ -867,7 +864,7 @@ begin
     qrProdutividade.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrProdutividade.OPEN;
 
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÓRIO DE PRODUTIVIDADE';
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÃ“RIO DE PRODUTIVIDADE';
     if combo_forma.ItemIndex = 0 then
       fxProdutividade.LoadFromFile('\TALOS\server\rel\123.fr3')
     else
@@ -876,8 +873,8 @@ begin
     fxProdutividade.ShowReport;
   end;
 
-  if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
-//    FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÇÃO: ' + COMBO_SITUACAO.Text;
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO SINTÃ‰TICA' then begin
+//    FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring := FRMMODULO.qrrelatorio.fieldbyname('LINHA5').asstring + '  SITUAÃ‡ÃƒO: ' + COMBO_SITUACAO.Text;
 
     qrvenda.CLOSE;
     qrvenda.SQL.CLEAR;
@@ -886,7 +883,7 @@ begin
     qrvenda.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrvenda.OPEN;
 
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÓRIO DE VENDAS';
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÃ“RIO DE VENDAS';
     if combo_forma.ItemIndex = 0 then
       fxvenda.LoadFromFile('\TALOS\server\rel\f000033.fr3')
     else
@@ -896,7 +893,7 @@ begin
   end;
 
   if combo_relatorio.Text = 'RESUMO DE VENDAS DE PRODUTOS' then begin
-    if application.MESSAGEBOX('Deseja agrupar os produtos por preço vendido?', 'Agrupar...', mb_yesno + mb_iconquestion) = idyes then begin
+    if application.MESSAGEBOX('Deseja agrupar os produtos por preÃ§o vendido?', 'Agrupar...', mb_yesno + mb_iconquestion) = idyes then begin
 
       qrvenda_produto.CLOSE;
       qrvenda_produto.SQL.CLEAR;
@@ -915,7 +912,7 @@ begin
       qrvenda_produto.OPEN;
       application.ProcessMessages;
 
-      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
       FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RESUMO DE VENDAS DE PRODUTOS/LUCRO';
       fxvenda.LoadFromFile('\TALOS\server\REL\F000032.fr3');
       fxvenda.ShowReport;
@@ -934,7 +931,7 @@ begin
       qrvenda_produto10.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
       qrvenda_produto10.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
       qrvenda_produto10.OPEN;
-      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
       FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RESUMO DE VENDAS DE PRODUTOS/LUCRO';
       fxvenda.LoadFromFile('\TALOS\server\REL\F000032b.fr3');
       fxvenda.ShowReport;
@@ -946,8 +943,8 @@ begin
       qrvenda_produto10.SQL.CLEAR;
 
 
-      if not frmPrincipal.autentica('Editar Relatórios', 4) then begin
-       application.MESSAGEBOX('Acesso não permitido!', 'Erro!', mb_ok + mb_iconerror);
+      if not frmPrincipal.autentica('Editar RelatÃ³rios', 4) then begin
+       application.MESSAGEBOX('Acesso nÃ£o permitido!', 'Erro!', mb_ok + mb_iconerror);
         exit;
       end;
 
@@ -961,7 +958,7 @@ begin
       qrvenda_produto10.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
       qrvenda_produto10.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
       qrvenda_produto10.OPEN;
-      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+      FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
       FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RESUMO DE VENDAS DE PRODUTOS/LUCRO';
       fxvenda.LoadFromFile('\TALOS\server\REL\F000032b.fr3');
       fxvenda.ShowReport;
@@ -969,7 +966,7 @@ begin
 
 
 
-  if combo_relatorio.Text = 'RELAÇÃO ANALÍTICA' then begin
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO ANALÃTICA' then begin
 
     qrvenda.CLOSE;
     qrvenda.SQL.CLEAR;
@@ -987,8 +984,8 @@ begin
     qrvenda_produto2.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrvenda_produto2.OPEN;
 
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELAÇÃO DE VENDAS ANALÍTICA';
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELAÃ‡ÃƒO DE VENDAS ANALÃTICA';
     fxvenda.LoadFromFile('\TALOS\server\REL\F000034.fr3');
     fxvenda.ShowReport;
   end;
@@ -1055,7 +1052,7 @@ begin
     qrvenda_produto2.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrvenda_produto2.OPEN;
 
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
     FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDA DE PRODUTOS';
     fxvenda.LoadFromFile('\TALOS\server\REL\F000036.fr3');
     fxvenda.ShowReport;
@@ -1090,7 +1087,7 @@ begin
     fxvenda.ShowReport;
   end;
 
-  if combo_relatorio.Text = 'VENDAS / COMISSÃO' then begin
+  if combo_relatorio.Text = 'VENDAS / COMISSÃƒO' then begin
     periodo := ' mov.data >= :datai and mov.data <= :dataf ';
     qrvenda_produto3.CLOSE;
     qrvenda_produto3.SQL.CLEAR;
@@ -1263,7 +1260,7 @@ begin
     qrvenda_produto3.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     qrvenda_produto3.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrvenda_produto3.OPEN;
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDAS/COMISSÃO';
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDAS/COMISSÃƒO';
     fxvenda.LoadFromFile('\TALOS\server\rel\f000038.fr3');
     fxvenda.ShowReport;
   end;
@@ -1315,12 +1312,12 @@ begin
     while not qrvenda_cupom.Eof do begin
       try
         if qrvenda_cupom.fieldbyname('comissao_vendedor').ASFLOAT = 0 then begin
-          showmessage('O vendedor com o código: ' + qrvenda_cupom.fieldbyname('codvendedor').asstring + ' está sem comissão!' + #13 + 'Favor verificar!');
+          showmessage('O vendedor com o cÃ³digo: ' + qrvenda_cupom.fieldbyname('codvendedor').asstring + ' estÃ¡ sem comissÃ£o!' + #13 + 'Favor verificar!');
           break;
           exit;
         end;
       except
-        showmessage('O vendedor com o código: ' + qrvenda_cupom.fieldbyname('codvendedor').asstring + ' está sem comissão!' + #13 + 'Favor verificar!');
+        showmessage('O vendedor com o cÃ³digo: ' + qrvenda_cupom.fieldbyname('codvendedor').asstring + ' estÃ¡ sem comissÃ£o!' + #13 + 'Favor verificar!');
         break;
         exit;
       end;
@@ -1352,7 +1349,7 @@ begin
     qrcontasreceber.OPEN;
     qrcontasreceber.REFRESH;
     if qrvenda_cupom.IsEmpty then begin
-      Application.MessageBox('Não existem dados para imprimir!','Atenção!',MB_ICONINFORMATION);
+      Application.MessageBox('NÃ£o existem dados para imprimir!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
       Exit;
     end;
     FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDAS/RECEBIMENTO';
@@ -1490,7 +1487,7 @@ begin
     qrmeta.Params.ParamByName('datai').asdatetime := DateEdit1.Date;
     qrmeta.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrmeta.OPEN;
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÓRIO DE VENDAS/METAS';
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'RELATÃ“RIO DE VENDAS/METAS';
     fxvenda.LoadFromFile('\TALOS\server\rel\f000181.fr3');
     fxvenda.ShowReport;
   end;
@@ -1548,12 +1545,12 @@ begin
     qrvenda_produto2.Params.ParamByName('dataf').asdatetime := DateEdit2.Date;
     qrvenda_produto2.OPEN;
 
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
     FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDA DE PRODUTOS POR DIA';
     fxvenda.LoadFromFile('\TALOS\server\rel\F000183.fr3');
     fxvenda.ShowReport;
   end;
-  if combo_relatorio.Text = 'FECHAMENTO DA TAXA DE GARÇON' then begin
+  if combo_relatorio.Text = 'FECHAMENTO DA TAXA DE GARÃ‡ON' then begin
     if combo_vendedor.Text = 'TODOS' then
       VENDEDOR := ''
     else begin
@@ -1568,8 +1565,8 @@ begin
     qrTaxaGarcom.SQL.Add('and fec.data_fechamento >= ' + QuotedStr(FormatDateTime('DD.MM.YYYY', DateEdit1.Date)) + ' and fec.data_fechamento <= ' + QuotedStr(FormatDateTime('DD.MM.YYYY', DateEdit2.Date)));
     qrTaxaGarcom.Open;
 
-    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÍODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
-    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'FECHAMENTO DA TAXA DE GARÇON';
+    FRMMODULO.qrrelatorio.fieldbyname('linha2').asstring := 'PERÃODO: ' + DateEdit1.Text + ' a ' + DateEdit2.Text;
+    FRMMODULO.qrrelatorio.fieldbyname('LINHA1').asstring := 'FECHAMENTO DA TAXA DE GARÃ‡ON';
     fxvenda.LoadFromFile('\TALOS\server\rel\F000213.fr3');
     fxvenda.ShowReport;
 
@@ -1581,18 +1578,18 @@ end;
 procedure Tfrmlista_venda2.combo_relatorioChange(Sender: TObject);
 begin
 
-  { RELAÇÃO SINTÉTICA
-    RELAÇÃO ANALÍTICA
+  { RELAÃ‡ÃƒO SINTÃ‰TICA
+    RELAÃ‡ÃƒO ANALÃTICA
     VENDAS DE PRODUTOS
     RESUMO DE VENDAS DE PRODUTOS
-    VENDAS / COMISSÃO
+    VENDAS / COMISSÃƒO
     CURVA ABC DE PRODUTOS
     RESUMO DE VENDAS POR VENDEDOR }
 
 //  COMBO_SITUACAO.visible := false;
 //  lsituacao.visible := false;
 
-  if combo_relatorio.Text = 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS' then begin
+  if combo_relatorio.Text = 'COMISSÃƒO POR VENDA A VISTA/RECEBIMENTOS' then begin
     combo_cliente.visible := TRUE;
     combo_vendedor.visible := TRUE;
     combo_caixa.visible := TRUE;
@@ -1616,7 +1613,7 @@ begin
     COMBO_SITUACAO.visible := True;
   end;
 
-  if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO SINTÃ‰TICA' then begin
     combo_cliente.visible := TRUE;
     combo_vendedor.visible := TRUE;
     combo_caixa.visible := TRUE;
@@ -1662,7 +1659,7 @@ begin
     combo_tipo.visible := False;
   end;
 
-  if combo_relatorio.Text = 'RELAÇÃO ANALÍTICA' then begin
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO ANALÃTICA' then begin
     combo_cliente.visible := TRUE;
     combo_vendedor.visible := TRUE;
     combo_caixa.visible := false;
@@ -1741,7 +1738,7 @@ begin
     END;
   }
 
-  if combo_relatorio.Text = 'VENDAS / COMISSÃO' then begin
+  if combo_relatorio.Text = 'VENDAS / COMISSÃƒO' then begin
     combo_cliente.visible := TRUE;
     combo_vendedor.visible := TRUE;
 
@@ -1895,12 +1892,12 @@ begin
     Ltipo.visible := False;
     combo_tipo.visible := false;
   end;
-  if combo_relatorio.Text = 'FECHAMENTO DA TAXA DE GARÇON' then begin
+  if combo_relatorio.Text = 'FECHAMENTO DA TAXA DE GARÃ‡ON' then begin
     combo_cliente.visible := False;
     lcliente.Visible := False;
     combo_vendedor.visible := TRUE;
     lvendedor.Visible := True;
-    lvendedor.Caption := 'Garçom:';
+    lvendedor.Caption := 'GarÃ§om:';
     combo_fornecedor.visible := False;
     lfornecedor.visible := False;
     combo_marca.visible := False;
@@ -1930,8 +1927,8 @@ end;
 
 procedure Tfrmlista_venda2.BitBtn1Click(Sender: TObject);
 begin
-  if not frmPrincipal.autentica('Editar Relatórios', 4) then begin
-    application.MESSAGEBOX('Acesso não permitido!', 'Erro!', mb_ok + mb_iconerror);
+  if not frmPrincipal.autentica('Editar RelatÃ³rios', 4) then begin
+    application.MESSAGEBOX('Acesso nÃ£o permitido!', 'Erro!', mb_ok + mb_iconerror);
     exit;
   end;
 
@@ -1940,7 +1937,7 @@ begin
     fxvenda.designreport;
   end;
 
-  if combo_relatorio.Text = 'RELAÇÃO SINTÉTICA' then begin
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO SINTÃ‰TICA' then begin
     fxvenda.LoadFromFile('\TALOS\server\rel\f000033.fr3');
     fxvenda.designreport;
   end;
@@ -1949,7 +1946,7 @@ begin
     fxvenda.designreport;
   end;
 
-  if combo_relatorio.Text = 'RELAÇÃO ANALÍTICA' then begin
+  if combo_relatorio.Text = 'RELAÃ‡ÃƒO ANALÃTICA' then begin
 
     fxvenda.LoadFromFile('\TALOS\server\REL\F000034.fr3');
     fxvenda.designreport;
@@ -1963,7 +1960,7 @@ begin
     fxvenda.designreport;
   end;
 
-  if combo_relatorio.Text = 'VENDAS / COMISSÃO' then begin
+  if combo_relatorio.Text = 'VENDAS / COMISSÃƒO' then begin
     fxvenda.LoadFromFile('\TALOS\server\rel\f000038.fr3');
     fxvenda.designreport;
   end;
@@ -1978,7 +1975,7 @@ begin
     fxvenda.designreport;
 
   end;
-  if combo_relatorio.Text = 'COMISSÃO POR VENDA A VISTA/RECEBIMENTOS' then begin
+  if combo_relatorio.Text = 'COMISSÃƒO POR VENDA A VISTA/RECEBIMENTOS' then begin
     fxvenda.LoadFromFile('\TALOS\server\rel\f000120.fr3');
     fxvenda.designreport;
   end;
