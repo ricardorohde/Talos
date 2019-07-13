@@ -3,7 +3,7 @@ object frmloc_subgrupo: Tfrmloc_subgrupo
   Top = 123
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'FAM'#205'LIA DE PRODUTOS | Localizar...'
+  Caption = 'SUBGRUPO DE PRODUTOS | Localizar...'
   ClientHeight = 333
   ClientWidth = 356
   Color = clBtnFace
@@ -36,7 +36,6 @@ object frmloc_subgrupo: Tfrmloc_subgrupo
       'CODIGO'#9'7'#9'C'#243'digo'
       'SUBGRUPO'#9'45'#9'Subgrupo')
     IniAttributes.Delimiter = ';;'
-    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -56,6 +55,8 @@ object frmloc_subgrupo: Tfrmloc_subgrupo
     OnKeyPress = DBGrid1KeyPress
     PaintOptions.AlternatingRowColor = 16316664
     PaintOptions.ActiveRecordColor = clBlack
+    ExplicitTop = 33
+    ExplicitHeight = 282
   end
   object Panel1: TPanel
     Left = 0
