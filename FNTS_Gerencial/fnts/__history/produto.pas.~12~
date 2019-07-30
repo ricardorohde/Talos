@@ -22,7 +22,20 @@ uses
   cxGrid, cxCheckBox, cxCalc, cxBlobEdit, cxContainer, cxTextEdit, cxMaskEdit,
   cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBExtLookupComboBox, cxMemo,
   cxImageComboBox, System.ImageList, Vcl.ImgList, cxButtonEdit, cxCurrencyEdit,
-  cxButtons;
+  cxButtons, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  dxSkinscxPCPainter;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -1074,6 +1087,14 @@ type
     qrprodutoPIZZA: TWideStringField;
     DBCheckBox7: TDBCheckBox;
     cxButton1: TcxButton;
+    btnCodigoEAN: TAdvGlowButton;
+    btnDtlPrc: TButton;
+    qrTabelaPrecoPRECOVENDA_DINHEIRO: TFloatField;
+    qrTabelaPrecoPRECOVENDA_CARTAO: TFloatField;
+    edGridTabelaDBTableView1PRECOVENDA_DINHEIRO: TcxGridDBColumn;
+    edGridTabelaDBTableView1PRECOVENDA_CARTAO: TcxGridDBColumn;
+    qrprodutoPRECOVENDA_DINHEIRO: TFloatField;
+    qrprodutoPRECOVENDA_CARTAO: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -1308,6 +1329,7 @@ type
     procedure RzDBButtonEdit7ButtonClick(Sender: TObject);
     procedure eNCMExit(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
+    procedure btnCodigoEANClick(Sender: TObject);
   private
     { Private declarations }
     UsaCadastroSimples: Boolean;
@@ -1339,7 +1361,7 @@ uses
   xloc_produto, produto_atualizapreco, xloc_cst, inventario, baixa_estoque,
   servico, loc_aliquota, Produto_consultaserial, produto_movimentar, unNFe2,
   produto_serial_ficha, fornecedor_codigo, Ncm, CEST, xloc_csosn,
-  ConversaoUnidade, xloc_cfop;
+  ConversaoUnidade, xloc_cfop, produto_importaEAN;
 
 {$R *.dfm}
 
@@ -2079,7 +2101,7 @@ begin
       FRMMODULO.qrgrade_produto.REFRESH;
     end
     else begin
-      Showmessage('O subgrupo a qual este produto pertence não possue grade! Favor verificar!');
+      Showmessage('A família a qual este produto pertence não possue grade! Favor verificar!');
     end;
   except
   end;
@@ -2955,7 +2977,7 @@ begin
       qrproduto.FieldByName('codsubgrupo').AsString := frmprincipal.zerarcodigo(esubgrupo.Text, 6);
       if esubgrupo.Text <> '000000' then
         if not frmprincipal.Locregistro(FRMMODULO.qrSUBGRUPO, esubgrupo.Text, 'codigo') then begin
-          application.messagebox('Subgrupo não cadastrado!', 'Atenção', mb_ok + mb_iconerror);
+          application.messagebox('Família não cadastrada!', 'Atenção', mb_ok + mb_iconerror);
           esubgrupo.SetFocus;
           exit;
         end
@@ -3344,6 +3366,8 @@ begin
 end;
 
 procedure Tfrmproduto.qrTabelaPrecoBeforePost(DataSet: TDataSet);
+var
+ Q: TZQuery;
 begin
   if (qrTabelaPrecoTIPO_TABELA.AsString = 'A') then begin
     if qrTabelaPrecoQUANTIDADE_INICIAL.AsFloat <= 0 then begin
@@ -3388,6 +3412,15 @@ begin
     Abort;
   end;
   qrTabelaPrecoCOD_PRODUTO.AsString := qrprodutoCODIGO.AsString;
+
+  if (qrTabelaPrecoPRECOVENDA_DINHEIRO.Value > 0) or (qrTabelaPrecoPRECOVENDA_CARTAO.Value > 0) then
+  begin
+    qrProduto.Edit;
+    qrprodutoPRECOVENDA_DINHEIRO.Value := qrTabelaPrecoPRECOVENDA_DINHEIRO.Value;
+    qrprodutoPRECOVENDA_CARTAO.Value   := qrTabelaPrecoPRECOVENDA_CARTAO.Value;
+    qrProduto.Post;
+  end;
+
 end;
 
 procedure Tfrmproduto.qrcomposicao_produtoBeforeInsert(DataSet: TDataSet);
@@ -5016,6 +5049,25 @@ begin
     else
       edGridTabelaDBTableView1.Columns[2].Selected;
   end;
+end;
+
+procedure Tfrmproduto.btnCodigoEANClick(Sender: TObject);
+var
+frmproduto_importaEAN: Tfrmproduto_importaEAN;
+begin
+
+frmproduto_importaEAN := Tfrmproduto_importaEAN.Create(self);
+
+frmproduto_importaEAN.Show();
+
+//frmproduto_importaEAN.Close;
+//
+//
+//
+//
+//Self.Show;
+//Self.COMBOCODBARRA.SetFocus;
+
 end;
 
 procedure Tfrmproduto.btcancelarClick(Sender: TObject);

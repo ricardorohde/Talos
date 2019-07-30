@@ -68,8 +68,6 @@ type
     QRPRODUTOCEST: TWideStringField;
     QRPRODUTOORIGEM: TIntegerField;
     QRPRODUTOCODIGO_ANP: TWideStringField;
-    QRPRODUTOPRECOVENDA_DINHEIRO: TFloatField;
-    QRPRODUTOPRECOVENDA_CARTAO: TFloatField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dsEtiquetaStateChange(Sender: TObject);
