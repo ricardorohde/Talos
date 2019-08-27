@@ -849,7 +849,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 5
     ShowExpander = False
@@ -1764,7 +1764,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
     Top = 244
   end
   object fxvenda: TfrxReport
-    Version = '5.3.16'
+    Version = '5.2.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]

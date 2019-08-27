@@ -1455,7 +1455,7 @@ object Form_sobre: TForm_sobre
     object Label56: TLabel
       Left = 59
       Top = 13
-      Width = 302
+      Width = 301
       Height = 23
       Caption = 'Sobre o sistema TALOS 1.0.1.0'
       Font.Charset = ANSI_CHARSET

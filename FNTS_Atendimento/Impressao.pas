@@ -95,10 +95,14 @@ type
     qrorcamento_produtoCOD_BARRAS: TWideStringField;
     qrorcamento_produtoCODBARRA: TWideStringField;
     qrorcamento_produtoPRODUTO: TWideStringField;
+    qrorcamentoCOMPLEMENTO: TWideStringField;
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
     procedure AdvMetroButton1Click(Sender: TObject);
+    procedure AdvSmoothExpanderPanel1KeyPress(Sender: TObject; var Key: Char);
+    procedure edtipoSelect(Sender: TObject);
+    procedure edViasChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -124,15 +128,20 @@ begin
   qrorcamento_produto.Close;
   qrorcamento_produto.Params.Items[0].Value := Numero;
   qrorcamento_produto.Open;
+
   if edtipo.ItemIndex = 0 then begin
     fxVENDA.LoadFromFile('\TALOS\SERVER\rel\F000210.fr3');
     fxVENDA.PrintOptions.PrintMode := pmDefault;
-  end else begin
+  end
+  else
+  begin
     fxVENDA.LoadFromFile('\TALOS\SERVER\rel\F000211.fr3');
     fxVENDA.PrintOptions.PrintMode := pmSplit;
   end;
+
   fxVENDA.PrintOptions.Copies := edVias.Value;
-  fxVENDA.ShowReport;
+  fxVENDA.PrintOptions.ShowDialog := False;
+  fxVENDA.Print;
   Close;
 end;
 
@@ -158,9 +167,35 @@ begin
   end;
 end;
 
+
+
 procedure TfrmImpressao.FormShow(Sender: TObject);
 begin
   CarregaDados;
+
+  // Deixando modelo Bobina como padrao
+  edtipo.ItemIndex := 1;
+
+  AdvSmoothExpanderPanel1.SetFocus;
+end;
+
+procedure TfrmImpressao.AdvSmoothExpanderPanel1KeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+    AdvGlowButton1.Click
+  else if Key = #27 then
+    AdvGlowButton2.Click;
+end;
+
+procedure TfrmImpressao.edtipoSelect(Sender: TObject);
+begin
+  AdvSmoothExpanderPanel1.SetFocus;
+end;
+
+procedure TfrmImpressao.edViasChange(Sender: TObject);
+begin
+  AdvSmoothExpanderPanel1.SetFocus;
 end;
 
 end.

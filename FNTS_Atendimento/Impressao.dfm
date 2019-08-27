@@ -17,7 +17,7 @@ object frmImpressao: TfrmImpressao
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 160
+    Left = 221
     Top = 128
     Width = 38
     Height = 25
@@ -30,7 +30,7 @@ object frmImpressao: TfrmImpressao
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 24
+    Left = 17
     Top = 54
     Width = 66
     Height = 25
@@ -71,8 +71,9 @@ object frmImpressao: TfrmImpressao
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
+    OnKeyPress = AdvSmoothExpanderPanel1KeyPress
     TabOrder = 0
     ShowExpander = False
     ExpanderColor = 16445929
@@ -169,7 +170,7 @@ object frmImpressao: TfrmImpressao
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -204,7 +205,7 @@ object frmImpressao: TfrmImpressao
       Top = 22
       Width = 100
       Height = 61
-      Caption = 'F2 | Imprimir'
+      Caption = 'Enter | Imprimir'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -423,30 +424,31 @@ object frmImpressao: TfrmImpressao
     end
   end
   object edtipo: TComboBox
-    Left = 24
+    Left = 17
     Top = 80
-    Width = 257
-    Height = 33
+    Width = 285
+    Height = 31
     BevelEdges = []
     Color = 16044273
     Ctl3D = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 2
     Text = 'edtipo'
+    OnSelect = edtipoSelect
     Items.Strings = (
       'A4 Meia Folha'
       'Impressora T'#233'rminca Bobina ')
   end
   object edVias: TSpinEdit
-    Left = 160
-    Top = 155
-    Width = 121
+    Left = 221
+    Top = 156
+    Width = 81
     Height = 35
     Color = 16044273
     Font.Charset = DEFAULT_CHARSET
@@ -462,6 +464,7 @@ object frmImpressao: TfrmImpressao
     ShowHint = False
     TabOrder = 3
     Value = 1
+    OnChange = edViasChange
   end
   object fsSimples_produto: TfrxDBDataset
     UserName = 'fsSimples_produto'
@@ -531,6 +534,7 @@ object frmImpressao: TfrmImpressao
       'ATACADO_VAREJO=ATACADO_VAREJO'
       'CLIENTE=CLIENTE'
       'ENDERECO=ENDERECO'
+      'COMPLEMENTO=COMPLEMENTO'
       'BAIRRO=BAIRRO'
       'CIDADE=CIDADE'
       'UF=UF'
@@ -549,7 +553,7 @@ object frmImpressao: TfrmImpressao
     Top = 138
   end
   object fxvenda: TfrxReport
-    Version = '5.3.16'
+    Version = '5.2.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -558,7 +562,7 @@ object frmImpressao: TfrmImpressao
     PrintOptions.PrintMode = pmSplit
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39680.409495254600000000
-    ReportOptions.LastChange = 42976.749973078700000000
+    ReportOptions.LastChange = 43703.754868692130000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -594,7 +598,7 @@ object frmImpressao: TfrmImpressao
       Font.Name = 'Tahoma'
       Font.Style = []
       PaperWidth = 100.000000000000000000
-      PaperHeight = 140.000000000000000000
+      PaperHeight = 150.000000000000000000
       PaperSize = 256
       LeftMargin = 6.400000000000000000
       RightMargin = 7.000000000000000000
@@ -605,7 +609,7 @@ object frmImpressao: TfrmImpressao
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Height = 15.559084410000000000
-        Top = 207.874150000000000000
+        Top = 396.850650000000000000
         Width = 327.307298000000000000
         DataSet = fsSimples_produto
         DataSetName = 'fsSimples_produto'
@@ -683,13 +687,13 @@ object frmImpressao: TfrmImpressao
       end
       object PageHeader1: TfrxPageHeader
         FillType = ftBrush
-        Height = 128.504020000000000000
+        Height = 317.480520000000000000
         Top = 18.897650000000000000
         Width = 327.307298000000000000
         object Memo1: TfrxMemoView
           Align = baCenter
           Left = 92.598485000000000000
-          Top = 4.000000000000000000
+          Top = 3.000000000000000000
           Width = 142.110328000000000000
           Height = 15.118120000000000000
           AutoWidth = True
@@ -709,7 +713,7 @@ object frmImpressao: TfrmImpressao
         object Memo3: TfrxMemoView
           Align = baCenter
           Left = 84.283519000000000000
-          Top = 70.811070000000000000
+          Top = 161.811070000000000000
           Width = 158.740260000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -726,8 +730,8 @@ object frmImpressao: TfrmImpressao
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 188.220594000000000000
-          Top = 46.913420000000000000
+          Left = 180.220594000000000000
+          Top = 137.913420000000000000
           Width = 41.574830000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -744,7 +748,7 @@ object frmImpressao: TfrmImpressao
         end
         object Memo7: TfrxMemoView
           Left = 6.803154000000000000
-          Top = 46.913420000000000000
+          Top = 137.913420000000000000
           Width = 45.354360000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -762,7 +766,7 @@ object frmImpressao: TfrmImpressao
         object Memo12: TfrxMemoView
           Align = baCenter
           Left = 93.732344000000000000
-          Top = 97.267780000000000000
+          Top = 194.267780000000000000
           Width = 139.842610000000000000
           Height = 12.472440940000000000
           AutoWidth = True
@@ -780,7 +784,7 @@ object frmImpressao: TfrmImpressao
         end
         object Memo17: TfrxMemoView
           Left = 12.472449000000000000
-          Top = 109.606370000000000000
+          Top = 211.606370000000000000
           Width = 90.708720000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -798,7 +802,7 @@ object frmImpressao: TfrmImpressao
         end
         object Memo18: TfrxMemoView
           Left = 199.559184000000000000
-          Top = 109.606370000000000000
+          Top = 211.606370000000000000
           Width = 71.811070000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -816,8 +820,8 @@ object frmImpressao: TfrmImpressao
         end
         object Line3: TfrxLineView
           Align = baCenter
-          Left = 1.890004945000001000
-          Top = 26.456710000000000000
+          Left = 1.890004945000000000
+          Top = 111.267780000000000000
           Width = 323.527288110000000000
           Color = clBlack
           Frame.Width = 0.500000000000000000
@@ -826,7 +830,7 @@ object frmImpressao: TfrmImpressao
         object Memo61: TfrxMemoView
           Align = baCenter
           Left = 109.606370000000000000
-          Top = 29.236240000000000000
+          Top = 120.236240000000000000
           Width = 108.094558000000000000
           Height = 15.118120000000000000
           AutoWidth = True
@@ -844,17 +848,8 @@ object frmImpressao: TfrmImpressao
         end
         object Line1: TfrxLineView
           Align = baCenter
-          Left = 1.890004945000001000
-          Top = 94.488249999999990000
-          Width = 323.527288110000000000
-          Color = clBlack
-          Frame.Width = 0.500000000000000000
-          Diagonal = True
-        end
-        object Line2: TfrxLineView
-          Align = baCenter
-          Left = 1.890004945000001000
-          Top = 128.504020000000000000
+          Left = 1.890004945000000000
+          Top = 186.858380000000000000
           Width = 323.527288110000000000
           Color = clBlack
           Frame.Width = 0.500000000000000000
@@ -862,7 +857,7 @@ object frmImpressao: TfrmImpressao
         end
         object Memo10: TfrxMemoView
           Left = 54.913420000000000000
-          Top = 46.913420000000000000
+          Top = 137.913420000000000000
           Width = 64.252010000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -878,8 +873,8 @@ object frmImpressao: TfrmImpressao
           ParentFont = False
         end
         object Memo11: TfrxMemoView
-          Left = 233.574954000000000000
-          Top = 46.913420000000000000
+          Left = 226.574954000000000000
+          Top = 137.913420000000000000
           Width = 83.149660000000000000
           Height = 11.338590000000000000
           AutoWidth = True
@@ -894,16 +889,338 @@ object frmImpressao: TfrmImpressao
             'Emiss'#227'o: [fsRel."DATA"]')
           ParentFont = False
         end
+        object Memo13: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 229.212740000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'End:')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          Left = 50.692950000000000000
+          Top = 229.212740000000000000
+          Width = 268.346493310000000000
+          Height = 11.338590000000000000
+          DataField = 'ENDERECO'
+          DataSet = fxRel
+          DataSetName = 'fsRel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fsRel."ENDERECO"]')
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 274.448980000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Telefone:')
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          Left = 50.692950000000000000
+          Top = 274.448980000000000000
+          Width = 268.346493310000000000
+          Height = 11.338590000000000000
+          DataField = 'TELEFONE1'
+          DataSet = fxRel
+          DataSetName = 'fsRel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fsRel."TELEFONE1"]')
+          ParentFont = False
+        end
+        object Memo19: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 259.330860000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Bairro:')
+          ParentFont = False
+        end
+        object Memo20: TfrxMemoView
+          Left = 51.692950000000000000
+          Top = 259.330860000000000000
+          Width = 268.346493310000000000
+          Height = 11.338590000000000000
+          DataField = 'BAIRRO'
+          DataSet = fxRel
+          DataSetName = 'fsRel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fsRel."BAIRRO"]')
+          ParentFont = False
+        end
+        object Memo21: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 244.330860000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Cpmto:')
+          ParentFont = False
+        end
+        object Memo22: TfrxMemoView
+          Left = 50.692950000000000000
+          Top = 244.330860000000000000
+          Width = 268.346493310000000000
+          Height = 11.338590000000000000
+          DataField = 'COMPLEMENTO'
+          DataSet = fxRel
+          DataSetName = 'fsRel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fsRel."COMPLEMENTO"]')
+          ParentFont = False
+        end
+        object Memo23: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 46.118120000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'CNPJ:')
+          ParentFont = False
+        end
+        object Memo24: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 61.236240000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'End:')
+          ParentFont = False
+        end
+        object Memo25: TfrxMemoView
+          Left = 161.740260000000000000
+          Top = 46.118120000000000000
+          Width = 15.118120000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'IE:')
+          ParentFont = False
+        end
+        object Memo26: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 75.574830000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Bairro:')
+          ParentFont = False
+        end
+        object Memo27: TfrxMemoView
+          Left = 7.559060000000000000
+          Top = 91.472480000000000000
+          Width = 34.015770000000000000
+          Height = 11.338590000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Telefone'
+            ':')
+          ParentFont = False
+        end
+        object Memo28: TfrxMemoView
+          Align = baCenter
+          Left = 92.598485000000000000
+          Top = 24.338590000000000000
+          Width = 142.110328000000000000
+          Height = 15.118120000000000000
+          StretchMode = smActualHeight
+          AutoWidth = True
+          DataField = 'NOME'
+          DataSet = frmmodulo.fxemitente
+          DataSetName = 'fxemitente'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[fxemitente."NOME"]')
+          ParentFont = False
+        end
+        object Memo29: TfrxMemoView
+          Left = 45.354360000000000000
+          Top = 46.574830000000000000
+          Width = 105.826840000000000000
+          Height = 11.338590000000000000
+          DataField = 'CNPJ'
+          DataSet = frmmodulo.fxemitente
+          DataSetName = 'fxemitente'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fxemitente."CNPJ"]')
+          ParentFont = False
+        end
+        object Memo30: TfrxMemoView
+          Left = 45.354360000000000000
+          Top = 59.913420000000000000
+          Width = 275.905690000000000000
+          Height = 11.338590000000000000
+          DataField = 'ENDERECO'
+          DataSet = frmmodulo.fxemitente
+          DataSetName = 'fxemitente'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fxemitente."ENDERECO"]')
+          ParentFont = False
+        end
+        object Memo31: TfrxMemoView
+          Left = 45.354360000000000000
+          Top = 75.031540000000000000
+          Width = 275.905690000000000000
+          Height = 11.338590000000000000
+          DataField = 'BAIRRO'
+          DataSet = frmmodulo.fxemitente
+          DataSetName = 'fxemitente'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fxemitente."BAIRRO"]')
+          ParentFont = False
+        end
+        object Memo32: TfrxMemoView
+          Left = 45.354360000000000000
+          Top = 90.149660000000000000
+          Width = 275.905690000000000000
+          Height = 11.338590000000000000
+          DataField = 'TELEFONE'
+          DataSet = frmmodulo.fxemitente
+          DataSetName = 'fxemitente'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fxemitente."TELEFONE"]')
+          ParentFont = False
+        end
+        object Memo33: TfrxMemoView
+          Left = 181.637910000000000000
+          Top = 45.795300000000000000
+          Width = 79.370130000000000000
+          Height = 11.338590000000000000
+          DataField = 'IE'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Memo.UTF8W = (
+            '[fxemitente."IE"]')
+          ParentFont = False
+        end
+        object Line2: TfrxLineView
+          Align = baCenter
+          Left = 1.890004945000000000
+          Top = 294.803340000000000000
+          Width = 323.527288110000000000
+          Color = clBlack
+          Frame.Width = 0.500000000000000000
+          Diagonal = True
+        end
       end
       object Footer1: TfrxFooter
         FillType = ftBrush
         Height = 49.133890000000000000
-        Top = 245.669450000000000000
+        Top = 434.645950000000000000
         Width = 327.307298000000000000
         object Memo41: TfrxMemoView
           Align = baCenter
-          Left = 95.622108999999990000
-          Top = 17.897649999999970000
+          Left = 95.622109000000000000
+          Top = 17.897650000000000000
           Width = 136.063080000000000000
           Height = 26.456710000000000000
           AutoWidth = True
@@ -1079,12 +1396,12 @@ object frmImpressao: TfrmImpressao
   end
   object qrorcamento: TZQuery
     Connection = frmmodulo.Conexao
-    Active = True
     SQL.Strings = (
       'select'
       '  pre.*,'
       '  cli.nome cliente,'
       '  cli.endereco,'
+      '  cli.complemento,'
       '  cli.bairro,'
       '  cli.cidade,'
       '  cli.uf,'
@@ -1210,6 +1527,10 @@ object frmImpressao: TfrmImpressao
     end
     object qrorcamentoENDERECO: TWideStringField
       FieldName = 'ENDERECO'
+      Size = 80
+    end
+    object qrorcamentoCOMPLEMENTO: TWideStringField
+      FieldName = 'COMPLEMENTO'
       Size = 80
     end
     object qrorcamentoBAIRRO: TWideStringField

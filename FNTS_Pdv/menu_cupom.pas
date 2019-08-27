@@ -105,7 +105,7 @@ begin
     {$REGION 'Emitir a NFCe'}
     try
       // prepara
-      if not TfrmVenda.PrepararNFCE then
+      if not frmVenda.PrepararNFCE then
         Exit;
       // imprime
       if nfce_autorizada then begin

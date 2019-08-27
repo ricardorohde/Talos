@@ -39,7 +39,9 @@ uses
   Unit_ativar in '..\FNTS_Comuns\Unit_ativar.pas' {Form_ativar},
   NumeroFicha in 'NumeroFicha.pas' {frmNumeroFicha},
   Impressao in 'Impressao.pas' {frmImpressao},
-  contantes in '..\FNTS_Comuns\contantes.pas';
+  contantes in '..\FNTS_Comuns\contantes.pas',
+  AboutTalos in '..\FNTS_Comuns\AboutTalos.pas' {AboutBox},
+  UnitVersao in '..\FNTS_Comuns\UnitVersao.pas' {FrmVersao};
 
 {$R *.res}
 
@@ -54,5 +56,7 @@ begin
   Application.CreateForm(TForm_ativar, Form_ativar);
   Application.CreateForm(TfrmNumeroFicha, frmNumeroFicha);
   Application.CreateForm(TfrmImpressao, frmImpressao);
+  Application.CreateForm(TAboutBox, AboutBox);
+  Application.CreateForm(TFrmVersao, FrmVersao);
   Application.Run;
 end.

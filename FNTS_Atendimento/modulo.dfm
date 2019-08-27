@@ -9,6 +9,7 @@ object frmmodulo: Tfrmmodulo
     AutoCommit = False
     ReadOnly = True
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     SQLHourGlass = True
     HostName = ''
     Port = 0

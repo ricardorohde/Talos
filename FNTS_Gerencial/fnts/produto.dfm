@@ -1817,8 +1817,8 @@ object frmproduto: Tfrmproduto
     Top = 326
     Width = 922
     Height = 294
-    ActivePage = PageSheet9
-    ActivePageIndex = 0
+    ActivePage = PageSheet14
+    ActivePageIndex = 8
     AdaptiveColors = True
     BackgroundColor = clBtnFace
     BackgroundKind = bkSolid
@@ -10490,6 +10490,8 @@ object frmproduto: Tfrmproduto
         Color = 6723891
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 72
+        ExplicitTop = -6
         object Label104: TLabel
           Left = 69
           Top = 119
@@ -10534,6 +10536,8 @@ object frmproduto: Tfrmproduto
             Height = 239
             Align = alClient
             TabOrder = 0
+            ExplicitLeft = 1
+            ExplicitTop = -1
             object edGridTabelaDBTableView1: TcxGridDBTableView
               Navigator.Buttons.CustomButtons = <>
               DataController.DataSource = dsTabelaPreco
@@ -10565,34 +10569,44 @@ object frmproduto: Tfrmproduto
                     ImageIndex = 2
                     Value = 'P'
                   end>
-                Width = 121
+                Width = 92
               end
               object edGridTabelaDBTableView1QUANTIDADE_INICIAL: TcxGridDBColumn
                 Caption = 'Qtde Inicial'
                 DataBinding.FieldName = 'QUANTIDADE_INICIAL'
-                Width = 103
+                Width = 68
               end
               object edGridTabelaDBTableView1QUANTIDADE_FINAL: TcxGridDBColumn
                 Caption = 'Qtde Final'
                 DataBinding.FieldName = 'QUANTIDADE_FINAL'
-                Width = 102
+                Width = 58
               end
               object edGridTabelaDBTableView1VALOR_VENDA: TcxGridDBColumn
                 Caption = 'Valor de Venda'
                 DataBinding.FieldName = 'VALOR_VENDA'
                 SortIndex = 0
                 SortOrder = soDescending
-                Width = 104
+                Width = 102
+              end
+              object edGridTabelaDBTableView1PRECOVENDA_DINHEIRO: TcxGridDBColumn
+                Caption = 'Valor (Dinheiro)'
+                DataBinding.FieldName = 'PRECOVENDA_DINHEIRO'
+                Width = 89
+              end
+              object edGridTabelaDBTableView1PRECOVENDA_CARTAO: TcxGridDBColumn
+                Caption = 'Valor (Cart'#227'o)'
+                DataBinding.FieldName = 'PRECOVENDA_CARTAO'
+                Width = 84
               end
               object edGridTabelaDBTableView1VALIDADE_INICIO: TcxGridDBColumn
                 Caption = 'Validade Inicial'
                 DataBinding.FieldName = 'VALIDADE_INICIO'
-                Width = 102
+                Width = 81
               end
               object edGridTabelaDBTableView1VALIDADE_FIM: TcxGridDBColumn
                 Caption = 'Validade Final'
                 DataBinding.FieldName = 'VALIDADE_FIM'
-                Width = 103
+                Width = 79
               end
             end
             object edGridTabelaLevel1: TcxGridLevel
@@ -11228,8 +11242,8 @@ object frmproduto: Tfrmproduto
     end
   end
   object pficha3: TPanel
-    Left = -1
-    Top = 123
+    Left = 0
+    Top = 122
     Width = 922
     Height = 206
     BevelOuter = bvNone
@@ -11655,7 +11669,7 @@ object frmproduto: Tfrmproduto
     end
     object GroupBox7: TGroupBox
       Left = 458
-      Top = 68
+      Top = 71
       Width = 160
       Height = 94
       Caption = 'Pre'#231'os'
@@ -11737,10 +11751,10 @@ object frmproduto: Tfrmproduto
         DisplayFormat = '###,###,##0.00000'
       end
       object AdvGlowButton1: TAdvGlowButton
-        Left = 122
-        Top = 21
+        Left = 126
+        Top = 7
         Width = 32
-        Height = 56
+        Height = 50
         Caption = 'F7'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -11834,6 +11848,20 @@ object frmproduto: Tfrmproduto
         Appearance.GradientMirrorDown = ggVertical
         Appearance.GradientChecked = ggVertical
         Layout = blGlyphTop
+      end
+      object btnDtlPrc: TButton
+        Left = 115
+        Top = 59
+        Width = 23
+        Height = 18
+        Caption = '...'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
       end
     end
     object GroupBox2: TGroupBox
@@ -13369,8 +13397,8 @@ object frmproduto: Tfrmproduto
     SQL.Strings = (
       'select * from c000032')
     Params = <>
-    Left = 96
-    Top = 360
+    Left = 132
+    Top = 344
     object StringField14: TStringField
       DisplayLabel = 'CLIENTE'
       DisplayWidth = 28
@@ -14523,6 +14551,12 @@ object frmproduto: Tfrmproduto
       FieldName = 'PIZZA'
       Size = 1
     end
+    object qrprodutoPRECOVENDA_DINHEIRO: TFloatField
+      FieldName = 'PRECOVENDA_DINHEIRO'
+    end
+    object qrprodutoPRECOVENDA_CARTAO: TFloatField
+      FieldName = 'PRECOVENDA_CARTAO'
+    end
   end
   object qrpreco: TZQuery
     Connection = frmmodulo.Conexao
@@ -15153,8 +15187,8 @@ object frmproduto: Tfrmproduto
         Name = 'codpro'
         ParamType = ptInput
       end>
-    Left = 324
-    Top = 401
+    Left = 156
+    Top = 521
     ParamData = <
       item
         DataType = ftString
@@ -15178,8 +15212,8 @@ object frmproduto: Tfrmproduto
   end
   object dsExtras: TDataSource
     DataSet = qrExtras
-    Left = 384
-    Top = 400
+    Left = 155
+    Top = 568
   end
   object qrTmp: TZQuery
     Connection = frmmodulo.Conexao
@@ -15203,8 +15237,8 @@ object frmproduto: Tfrmproduto
         Name = 'codpro'
         ParamType = ptUnknown
       end>
-    Left = 244
-    Top = 497
+    Left = 132
+    Top = 393
     ParamData = <
       item
         DataType = ftUnknown
@@ -15231,8 +15265,8 @@ object frmproduto: Tfrmproduto
     SQL.Strings = (
       'select * from tipo_servico')
     Params = <>
-    Left = 744
-    Top = 376
+    Left = 224
+    Top = 520
     object qrTipoServicoID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -15247,8 +15281,8 @@ object frmproduto: Tfrmproduto
   end
   object dsTipoServico: TDataSource
     DataSet = qrTipoServico
-    Left = 632
-    Top = 464
+    Left = 224
+    Top = 569
   end
   object qrExtraProduto: TZQuery
     Connection = frmmodulo.Conexao
@@ -15289,6 +15323,7 @@ object frmproduto: Tfrmproduto
     Connection = frmmodulo.Conexao
     BeforePost = qrTabelaPrecoBeforePost
     AfterPost = qrTabelaPrecoAfterPost
+    Active = True
     SQL.Strings = (
       'select'
       '  tp.*'
@@ -15301,8 +15336,8 @@ object frmproduto: Tfrmproduto
         Name = 'cod'
         ParamType = ptInput
       end>
-    Left = 324
-    Top = 457
+    Left = 84
+    Top = 521
     ParamData = <
       item
         DataType = ftString
@@ -15338,18 +15373,26 @@ object frmproduto: Tfrmproduto
     object qrTabelaPrecoVALIDADE_FIM: TDateField
       FieldName = 'VALIDADE_FIM'
     end
+    object qrTabelaPrecoPRECOVENDA_DINHEIRO: TFloatField
+      FieldName = 'PRECOVENDA_DINHEIRO'
+      DisplayFormat = 'R$ #,##0.00'
+    end
+    object qrTabelaPrecoPRECOVENDA_CARTAO: TFloatField
+      FieldName = 'PRECOVENDA_CARTAO'
+      DisplayFormat = 'R$ #,##0.00'
+    end
   end
   object dsTabelaPreco: TDataSource
     DataSet = qrTabelaPreco
     OnStateChange = dsTabelaPrecoStateChange
-    Left = 384
-    Top = 456
+    Left = 83
+    Top = 568
   end
   object imgPreco: TImageList
-    Left = 479
-    Top = 443
+    Left = 215
+    Top = 395
     Bitmap = {
-      494C010103000500180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101030005001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFD1D1
       D100ABB0B5006C7D8F00AFB4B800D5D5D500DBDBDB00FFFFFFFFFFFFFFFFFFFF
@@ -15489,10 +15532,10 @@ object frmproduto: Tfrmproduto
       000000000000}
   end
   object ImageList1: TImageList
-    Left = 223
-    Top = 374
+    Left = 215
+    Top = 342
     Bitmap = {
-      494C010102000500180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
@@ -15633,16 +15676,16 @@ object frmproduto: Tfrmproduto
   end
   object dsANP: TDataSource
     DataSet = qrANP
-    Left = 144
-    Top = 560
+    Left = 28
+    Top = 568
   end
   object qrANP: TZQuery
     Connection = frmmodulo.Conexao
     SQL.Strings = (
       'select * from anp')
     Params = <>
-    Left = 180
-    Top = 561
+    Left = 28
+    Top = 521
     object qrANPCODIGO: TWideStringField
       FieldName = 'CODIGO'
       Size = 10
@@ -15653,8 +15696,8 @@ object frmproduto: Tfrmproduto
     end
   end
   object cxGridViewRepository1: TcxGridViewRepository
-    Left = 383
-    Top = 574
+    Left = 31
+    Top = 350
     object vTabANT: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dsANP
