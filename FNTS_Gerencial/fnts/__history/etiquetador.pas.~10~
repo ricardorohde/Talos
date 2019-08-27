@@ -140,8 +140,6 @@ type
     QRPRODUTOCOMPOSICAO1: TWideStringField;
     QRPRODUTOCOMPOSICAO2: TWideStringField;
     qretiqUNIDADE: TWideStringField;
-    RCodigoBarrasGrade: TwwDBEdit;
-    fsEtiqueta: TfrxDBDataset;
     procedure FormShow(Sender: TObject);
     procedure bfecharClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -2993,9 +2991,8 @@ begin
         if resultado_pesquisa1 <> '' then
         begin
           qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-          qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
+          qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
           qretiqcodbarra.AsString := resultado_pesquisa2;
-
 //          qretiqcodbarra.Lookup := false;
 
         end;
@@ -3038,7 +3035,7 @@ begin
             if resultado_pesquisa1 <> '' then
             begin
               qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-              qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
+              qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
               qretiqcodbarra.AsString := resultado_pesquisa2;
               //qretiqcodbarra.Lookup := false;
 
@@ -3089,11 +3086,9 @@ begin
           frmetiqueta_grade.showmODal;
           if resultado_pesquisa1 <> '' then
           begin
-            qretiq.Edit;
             qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-            qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
-            qretiqcodbarra.AsString := resultado_pesquisa2;
-
+            qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
+             qretiqcodbarra.AsString := resultado_pesquisa2;
 //             qretiqcodbarra.Lookup := false;
 
           end;

@@ -24,12 +24,16 @@ object frmetiquetador: Tfrmetiquetador
     Top = 43
     Width = 611
     Height = 425
+    ControlInfoInDataset = False
     ControlType.Strings = (
       'CODPRODUTO;CustomEdit;COMBOCODIGO;F'
+      'CODBARRA;CustomEdit;COMBOCODIGO;F'
       'PRODUTO;CustomEdit;COMBOPRODUTO;F'
-      'VALOR;CustomEdit;RVALOR;F')
+      'VALOR;CustomEdit;RVALOR;F'
+      'GRADE;CustomEdit;RCodigoBarrasGrade;F')
     Selected.Strings = (
       'CODPRODUTO'#9'6'#9'CODPRODUTO'#9#9
+      'codbarra'#9'10'#9'CODBARRA'#9'F'#9
       'QTDE'#9'10'#9'QTDE'#9#9
       'PRODUTO'#9'80'#9'PRODUTO'#9#9
       'VALOR'#9'10'#9'VALOR'#9#9
@@ -53,6 +57,7 @@ object frmetiquetador: Tfrmetiquetador
     TitleFont.Style = []
     TitleLines = 1
     TitleButtons = False
+    OnKeyPress = wwDBGrid1KeyPress
     PaintOptions.AlternatingRowColor = 14540253
   end
   object pimprimir: THeaderView
@@ -103,8 +108,8 @@ object frmetiquetador: Tfrmetiquetador
         Caption = 'Impressora: '
       end
       object ComboBox1: TComboBox
-        Left = 80
-        Top = 41
+        Left = 82
+        Top = 39
         Width = 320
         Height = 21
         Style = csDropDownList
@@ -271,10 +276,11 @@ object frmetiquetador: Tfrmetiquetador
     end
   end
   object COMBOPRODUTO: TwwDBLookupCombo
-    Left = 144
+    Left = 270
     Top = 56
     Width = 121
     Height = 21
+    ControlInfoInDataset = False
     DropDownAlignment = taLeftJustify
     DataField = 'produto'
     DataSource = dsetiq
@@ -288,10 +294,11 @@ object frmetiquetador: Tfrmetiquetador
     OnExit = COMBOPRODUTOExit
   end
   object COMBOCODIGO: TwwDBLookupComboDlg
-    Left = 16
+    Left = 8
     Top = 56
     Width = 121
     Height = 21
+    ControlInfoInDataset = False
     GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
     GridColor = clWhite
     GridTitleAlignment = taLeftJustify
@@ -351,8 +358,8 @@ object frmetiquetador: Tfrmetiquetador
     end
   end
   object RVALOR: TwwDBEdit
-    Left = 328
-    Top = 56
+    Left = 397
+    Top = 54
     Width = 121
     Height = 21
     DataField = 'VALOR'
@@ -1255,7 +1262,7 @@ object frmetiquetador: Tfrmetiquetador
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 12
     ShowExpander = False
@@ -1353,9 +1360,21 @@ object frmetiquetador: Tfrmetiquetador
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
+  end
+  object RCodigoBarrasGrade: TwwDBEdit
+    Left = 469
+    Top = 56
+    Width = 121
+    Height = 21
+    DataField = 'codbarra'
+    DataSource = dsetiq
+    TabOrder = 13
+    UnboundDataType = wwDefault
+    WantReturns = False
+    WordWrap = False
   end
   object dsetiq: TwwDataSource
     DataSet = qretiq
@@ -1364,11 +1383,60 @@ object frmetiquetador: Tfrmetiquetador
   end
   object qretiq: TZQuery
     Connection = frmmodulo.ConexaoLocal
+    AutoCalcFields = False
+    CachedUpdates = True
     SQL.Strings = (
       'SELECT * FROM CL00005')
+    ParamCheck = False
     Params = <>
+    UpdateMode = umUpdateAll
     Left = 413
     Top = 221
+    object qretiqCODPRODUTO: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qretiqcodbarra: TStringField
+      DisplayLabel = 'CODBARRA'
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'codbarra'
+      LookupDataSet = frmmodulo.qrproduto
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'CODBARRA'
+      KeyFields = 'codproduto'
+      Size = 13
+      Lookup = True
+    end
+    object qretiqQTDE: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'QTDE'
+    end
+    object qretiqPRODUTO: TWideStringField
+      DisplayWidth = 80
+      FieldName = 'PRODUTO'
+      Size = 80
+    end
+    object qretiqVALOR: TFloatField
+      DisplayWidth = 10
+      FieldName = 'VALOR'
+    end
+    object qretiqTAMANHO: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'TAMANHO'
+      Size = 10
+    end
+    object qretiqTEXTO: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'TEXTO'
+      Size = 25
+    end
+    object qretiqGRADE: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'GRADE'
+      Size = 25
+    end
     object qretiqultima_compra: TDateField
       DisplayWidth = 10
       FieldKind = fkLookup
@@ -1435,49 +1503,10 @@ object frmetiquetador: Tfrmetiquetador
       Size = 40
       Lookup = True
     end
-    object qretiqcodbarra: TStringField
-      FieldKind = fkLookup
-      FieldName = 'codbarra'
-      LookupDataSet = frmmodulo.qrproduto
-      LookupKeyFields = 'codigo'
-      LookupResultField = 'CODBARRA'
-      KeyFields = 'codproduto'
+    object qretiqUNIDADE: TWideStringField
+      FieldName = 'UNIDADE'
       Visible = False
-      Size = 13
-      Lookup = True
-    end
-    object qretiqCODPRODUTO: TWideStringField
-      DisplayWidth = 6
-      FieldName = 'CODPRODUTO'
-      Size = 6
-    end
-    object qretiqQTDE: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'QTDE'
-    end
-    object qretiqPRODUTO: TWideStringField
-      DisplayWidth = 80
-      FieldName = 'PRODUTO'
-      Size = 80
-    end
-    object qretiqVALOR: TFloatField
-      DisplayWidth = 10
-      FieldName = 'VALOR'
-    end
-    object qretiqTAMANHO: TWideStringField
-      DisplayWidth = 10
-      FieldName = 'TAMANHO'
-      Size = 10
-    end
-    object qretiqTEXTO: TWideStringField
-      DisplayWidth = 25
-      FieldName = 'TEXTO'
-      Size = 25
-    end
-    object qretiqGRADE: TWideStringField
-      DisplayWidth = 25
-      FieldName = 'GRADE'
-      Size = 25
+      Size = 2
     end
   end
   object PopupMenu1: TPopupMenu
@@ -1512,15 +1541,15 @@ object frmetiquetador: Tfrmetiquetador
     Top = 189
   end
   object fxproduto: TfrxReport
-    Version = '5.3.16'
+    Version = '5.2.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
     PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Default'
+    PrintOptions.Printer = 'Argox OS-214TT PPLA'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39188.459351666700000000
-    ReportOptions.LastChange = 39297.741084884300000000
+    ReportOptions.LastChange = 43676.852842488430000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1530,6 +1559,10 @@ object frmetiquetador: Tfrmetiquetador
     Left = 381
     Top = 189
     Datasets = <
+      item
+        DataSet = fsEtiqueta
+        DataSetName = 'fsetiqueta'
+      end
       item
         DataSet = fsproduto
         DataSetName = 'fsproduto'
@@ -1541,150 +1574,169 @@ object frmetiquetador: Tfrmetiquetador
       Width = 1000.000000000000000000
     end
     object Page1: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
+      PaperWidth = 99.000000000000000000
+      PaperHeight = 89.000000000000000000
+      PaperSize = 256
       LeftMargin = 4.700000000000000000
       RightMargin = 4.700000000000000000
-      TopMargin = 12.000000000000000000
-      ColumnWidth = 98.000000000000000000
+      Columns = 2
+      ColumnWidth = 46.100000000000000000
+      ColumnPositions.Strings = (
+        '0'
+        '46,10')
       object MasterData1: TfrxMasterData
         FillType = ftBrush
-        Height = 96.000000000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -8
+        Font.Name = 'Arial'
+        Font.Style = []
+        Height = 336.377952760000000000
+        ParentFont = False
         Top = 18.897650000000000000
-        Width = 758.173718000000100000
-        Columns = 2
-        ColumnWidth = 374.173228346457000000
-        ColumnGap = 11.338582677165400000
+        Width = 174.236333000000000000
         DataSet = fsproduto
         DataSetName = 'fsproduto'
         RowCount = 0
-        object Memo1: TfrxMemoView
-          Left = 7.559060000000000000
-          Width = 355.275820000000000000
-          Height = 15.118120000000000000
-          DataField = 'PRODUTO'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
+        object BarCode1: TfrxBarCodeView
+          Left = 7.779530000000000000
+          Top = 253.126160000000000000
+          Width = 103.000000000000000000
+          Height = 37.795275590000000000
+          BarType = bcCodeEAN13
+          Expression = '<fsetiqueta."GRADE">'
+          Rotation = 0
+          Text = '12345678'
+          WideBarRatio = 2.000000000000000000
+          Zoom = 1.000000000000000000
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
+          Font.Color = clBlack
+          Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8W = (
-            '[fsproduto."PRODUTO"]')
-          ParentFont = False
         end
         object Memo2: TfrxMemoView
-          Left = 7.559060000000000000
-          Top = 15.118120000000000000
-          Width = 109.606370000000000000
-          Height = 15.118120000000000000
-          DataField = 'CODIGO'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[fsproduto."CODIGO"]')
-          ParentFont = False
-        end
-        object Memo3: TfrxMemoView
-          Left = 7.559060000000000000
-          Top = 30.236240000000000000
-          Width = 355.275820000000000000
-          Height = 15.118120000000000000
-          DataField = 'FORNECEDOR'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[fsproduto."FORNECEDOR"]')
-          ParentFont = False
-        end
-        object Memo4: TfrxMemoView
-          Left = 7.559060000000000000
-          Top = 45.354360000000000000
-          Width = 355.275820000000000000
-          Height = 15.118120000000000000
-          DataField = 'MARCA'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[fsproduto."MARCA"]')
-          ParentFont = False
-        end
-        object Memo5: TfrxMemoView
-          Left = 253.228510000000000000
-          Top = 60.472480000000000000
-          Width = 109.606370000000000000
-          Height = 15.118120000000000000
-          DataField = 'PRECO'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = 'R$ ###,###,##0.00'
+          Left = 118.944960000000000000
+          Top = 248.008040000000000000
+          Width = 26.456710000000000000
+          Height = 45.354360000000000000
+          DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = []
+          Font.Style = [fsBold]
           HAlign = haRight
           Memo.UTF8W = (
             '[fsproduto."PRECO"]')
           ParentFont = False
+          Rotation = 90
         end
-        object Memo6: TfrxMemoView
-          Left = 124.724490000000000000
-          Top = 15.118120000000000000
-          Width = 238.110390000000000000
-          Height = 15.118120000000000000
-          DataField = 'CODBARRA'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
+        object Memo3: TfrxMemoView
+          Left = 4.000000000000000000
+          Top = 124.165430000000000000
+          Width = 147.401670000000000000
+          Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Arial'
+          Font.Height = -8
+          Font.Name = 'Arial Black'
           Font.Style = []
           Memo.UTF8W = (
-            '[fsproduto."CODBARRA"]')
+            '[fsproduto."PRODUTO"]')
           ParentFont = False
         end
-        object Memo7: TfrxMemoView
-          Left = 7.559060000000000000
-          Top = 60.472480000000000000
-          Width = 211.653680000000000000
-          Height = 15.118120000000000000
-          DataField = 'RESTRITO'
-          DataSet = fsproduto
-          DataSetName = 'fsproduto'
-          DisplayFormat.DecimalSeparator = ','
+        object BarCode2: TfrxBarCodeView
+          Left = 8.559060000000000000
+          Top = 200.771800000000000000
+          Width = 103.000000000000000000
+          Height = 37.795275590000000000
+          BarType = bcCodeEAN13
+          Expression = '<fsetiqueta."GRADE">'
+          Rotation = 0
+          Text = '12345678'
+          WideBarRatio = 2.000000000000000000
+          Zoom = 1.000000000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+        end
+        object BarCode3: TfrxBarCodeView
+          Left = 8.559060000000000000
+          Top = 151.740260000000000000
+          Width = 103.000000000000000000
+          Height = 37.795275590000000000
+          BarType = bcCodeEAN13
+          Expression = '<fsetiqueta."GRADE">'
+          Rotation = 0
+          Text = '12345678'
+          WideBarRatio = 2.000000000000000000
+          Zoom = 1.000000000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+        end
+        object Memo1: TfrxMemoView
+          Left = 15.118120000000000000
+          Top = 80.267780000000000000
+          Width = 132.283550000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          Memo.UTF8W = (
+            'PRAZO DE TROCA 15 DIAS  '
+            'AP'#211'S A COMPRA'
+            ' ')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          Left = 15.559060000000000000
+          Top = 102.047310000000000000
+          Width = 117.165430000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'Arial'
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          Memo.UTF8W = (
+            '_____ / _____ / _____')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Left = 35.456710000000000000
+          Top = 28.897650000000000000
+          Width = 94.488250000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = '@MingLiU-ExtB'
           Font.Style = []
           Memo.UTF8W = (
-            '[fsproduto."RESTRITO"]')
+            'CARVALI')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          Left = 54.795300000000000000
+          Top = 51.574830000000010000
+          Width = 52.913420000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -32
+          Font.Name = 'Angelique ma douce Colombe'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Boutique')
           ParentFont = False
         end
       end
@@ -1997,5 +2049,29 @@ object frmetiquetador: Tfrmetiquetador
     Params = <>
     Left = 349
     Top = 221
+  end
+  object fsEtiqueta: TfrxDBDataset
+    UserName = 'fsetiqueta'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'CODPRODUTO=CODPRODUTO'
+      'codbarra=CODBARRA'
+      'QTDE=QTDE'
+      '-PRODUTO=PRODUTO'
+      '-VALOR=VALOR'
+      'TAMANHO=TAMANHO'
+      'TEXTO=TEXTO'
+      'GRADE=GRADE'
+      '-ultima_compra=ultima_compra'
+      '-localizacao=LOCALIZACAO'
+      '-fornecedor=FORNECEDOR'
+      '-marca=MARCA'
+      '-complemento=COMPLEMENTO'
+      '-auto_aplicacao=auto_aplicacao'
+      '-UNIDADE=UNIDADE')
+    DataSet = qretiq
+    BCDToCurrency = False
+    Left = 325
+    Top = 197
   end
 end

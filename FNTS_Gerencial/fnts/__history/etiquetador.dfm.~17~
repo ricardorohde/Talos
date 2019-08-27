@@ -24,6 +24,7 @@ object frmetiquetador: Tfrmetiquetador
     Top = 43
     Width = 611
     Height = 425
+    ControlInfoInDataset = False
     ControlType.Strings = (
       'CODPRODUTO;CustomEdit;COMBOCODIGO;F'
       'CODBARRA;CustomEdit;COMBOCODIGO;F'
@@ -31,7 +32,7 @@ object frmetiquetador: Tfrmetiquetador
       'VALOR;CustomEdit;RVALOR;F')
     Selected.Strings = (
       'CODPRODUTO'#9'6'#9'CODPRODUTO'#9#9
-      'CODBARRA'#9'10'#9'CODBARRA'#9#9
+      'codbarra'#9'10'#9'CODBARRA'#9'F'#9
       'QTDE'#9'10'#9'QTDE'#9#9
       'PRODUTO'#9'80'#9'PRODUTO'#9#9
       'VALOR'#9'10'#9'VALOR'#9#9
@@ -55,6 +56,7 @@ object frmetiquetador: Tfrmetiquetador
     TitleFont.Style = []
     TitleLines = 1
     TitleButtons = False
+    OnKeyPress = wwDBGrid1KeyPress
     PaintOptions.AlternatingRowColor = 14540253
   end
   object pimprimir: THeaderView
@@ -277,6 +279,7 @@ object frmetiquetador: Tfrmetiquetador
     Top = 56
     Width = 121
     Height = 21
+    ControlInfoInDataset = False
     DropDownAlignment = taLeftJustify
     DataField = 'produto'
     DataSource = dsetiq
@@ -294,6 +297,7 @@ object frmetiquetador: Tfrmetiquetador
     Top = 56
     Width = 121
     Height = 21
+    ControlInfoInDataset = False
     GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
     GridColor = clWhite
     GridTitleAlignment = taLeftJustify
@@ -1359,26 +1363,6 @@ object frmetiquetador: Tfrmetiquetador
       OnClick = AdvMetroButton1Click
     end
   end
-  object COMBOCODBARRAS: TwwDBLookupComboDlg
-    Left = 143
-    Top = 103
-    Width = 121
-    Height = 21
-    GridOptions = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgPerfectRowFit]
-    GridColor = clWhite
-    GridTitleAlignment = taLeftJustify
-    Caption = 'Lookup'
-    MaxWidth = 0
-    MaxHeight = 209
-    DataField = 'codbarra'
-    DataSource = dsetiq
-    LookupTable = frmmodulo.qrproduto
-    LookupField = 'CODBARRA'
-    TabOrder = 13
-    AutoDropDown = False
-    ShowButton = True
-    AllowClearKey = False
-  end
   object dsetiq: TwwDataSource
     DataSet = qretiq
     Left = 285
@@ -1386,11 +1370,60 @@ object frmetiquetador: Tfrmetiquetador
   end
   object qretiq: TZQuery
     Connection = frmmodulo.ConexaoLocal
+    AutoCalcFields = False
+    CachedUpdates = True
     SQL.Strings = (
       'SELECT * FROM CL00005')
+    ParamCheck = False
     Params = <>
+    UpdateMode = umUpdateAll
     Left = 413
     Top = 221
+    object qretiqCODPRODUTO: TWideStringField
+      DisplayWidth = 6
+      FieldName = 'CODPRODUTO'
+      Size = 6
+    end
+    object qretiqcodbarra: TStringField
+      DisplayLabel = 'CODBARRA'
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'codbarra'
+      LookupDataSet = frmmodulo.qrproduto
+      LookupKeyFields = 'codigo'
+      LookupResultField = 'CODBARRA'
+      KeyFields = 'codproduto'
+      Size = 13
+      Lookup = True
+    end
+    object qretiqQTDE: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'QTDE'
+    end
+    object qretiqPRODUTO: TWideStringField
+      DisplayWidth = 80
+      FieldName = 'PRODUTO'
+      Size = 80
+    end
+    object qretiqVALOR: TFloatField
+      DisplayWidth = 10
+      FieldName = 'VALOR'
+    end
+    object qretiqTAMANHO: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'TAMANHO'
+      Size = 10
+    end
+    object qretiqTEXTO: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'TEXTO'
+      Size = 25
+    end
+    object qretiqGRADE: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'GRADE'
+      Size = 25
+    end
     object qretiqultima_compra: TDateField
       DisplayWidth = 10
       FieldKind = fkLookup
@@ -1457,52 +1490,9 @@ object frmetiquetador: Tfrmetiquetador
       Size = 40
       Lookup = True
     end
-    object qretiqcodbarra: TStringField
-      FieldKind = fkLookup
-      FieldName = 'codbarra'
-      LookupDataSet = frmmodulo.qrproduto
-      LookupKeyFields = 'codigo'
-      LookupResultField = 'CODBARRA'
-      KeyFields = 'codproduto'
-      Visible = False
-      Size = 13
-      Lookup = True
-    end
-    object qretiqCODPRODUTO: TWideStringField
-      DisplayWidth = 6
-      FieldName = 'CODPRODUTO'
-      Size = 6
-    end
-    object qretiqQTDE: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'QTDE'
-    end
-    object qretiqPRODUTO: TWideStringField
-      DisplayWidth = 80
-      FieldName = 'PRODUTO'
-      Size = 80
-    end
-    object qretiqVALOR: TFloatField
-      DisplayWidth = 10
-      FieldName = 'VALOR'
-    end
-    object qretiqTAMANHO: TWideStringField
-      DisplayWidth = 10
-      FieldName = 'TAMANHO'
-      Size = 10
-    end
-    object qretiqTEXTO: TWideStringField
-      DisplayWidth = 25
-      FieldName = 'TEXTO'
-      Size = 25
-    end
-    object qretiqGRADE: TWideStringField
-      DisplayWidth = 25
-      FieldName = 'GRADE'
-      Size = 25
-    end
     object qretiqUNIDADE: TWideStringField
       FieldName = 'UNIDADE'
+      Visible = False
       Size = 2
     end
   end

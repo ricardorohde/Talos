@@ -140,8 +140,6 @@ type
     QRPRODUTOCOMPOSICAO1: TWideStringField;
     QRPRODUTOCOMPOSICAO2: TWideStringField;
     qretiqUNIDADE: TWideStringField;
-    RCodigoBarrasGrade: TwwDBEdit;
-    fsEtiqueta: TfrxDBDataset;
     procedure FormShow(Sender: TObject);
     procedure bfecharClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -173,7 +171,6 @@ type
     procedure bdescontoClick(Sender: TObject);
     procedure edescontoExit(Sender: TObject);
     procedure AdvMetroButton1Click(Sender: TObject);
-    procedure wwDBGrid1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -2993,10 +2990,7 @@ begin
         if resultado_pesquisa1 <> '' then
         begin
           qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-          qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
-          qretiqcodbarra.AsString := resultado_pesquisa2;
-
-//          qretiqcodbarra.Lookup := false;
+          qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
 
         end;
       end;
@@ -3038,9 +3032,7 @@ begin
             if resultado_pesquisa1 <> '' then
             begin
               qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-              qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
-              qretiqcodbarra.AsString := resultado_pesquisa2;
-              //qretiqcodbarra.Lookup := false;
+              qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
 
             end;
           end;
@@ -3089,12 +3081,8 @@ begin
           frmetiqueta_grade.showmODal;
           if resultado_pesquisa1 <> '' then
           begin
-            qretiq.Edit;
             qretiq.FIELDBYNAME('tamanho').ASSTRING := resultado_pesquisa1;
-            qretiq.FIELDBYNAME('GRADE').ASSTRING := resultado_pesquisa2;
-            qretiqcodbarra.AsString := resultado_pesquisa2;
-
-//             qretiqcodbarra.Lookup := false;
+            qretiq.FIELDBYNAME('CODBARRA').ASSTRING := resultado_pesquisa2;
 
           end;
         end;
@@ -3284,11 +3272,6 @@ begin
   end;
   QRPRODUTO.FIELDBYNAME('RESTRITO').ASSTRING := CODIG;
 
-end;
-
-procedure Tfrmetiquetador.wwDBGrid1KeyPress(Sender: TObject; var Key: Char);
-begin
-qretiq.ReadOnly;
 end;
 
 procedure Tfrmetiquetador.BitBtn3Click(Sender: TObject);

@@ -108,15 +108,13 @@ object frmetiquetador: Tfrmetiquetador
         Caption = 'Impressora: '
       end
       object ComboBox1: TComboBox
-        Left = 82
-        Top = 39
+        Left = 80
+        Top = 41
         Width = 320
         Height = 21
         Style = csDropDownList
         Color = 15916445
-        ItemIndex = 2
         TabOrder = 0
-        Text = '3 - Etiqueta Comum'
         OnChange = ComboBox1Change
         OnEnter = ComboBox1Enter
         OnExit = ComboBox1Exit
@@ -144,15 +142,13 @@ object frmetiquetador: Tfrmetiquetador
           '19-Bobina | 3,6 cm x 2,1 cm | 03 Fileiras Referencia./Tamanho')
       end
       object combo_impressora: TComboBox
-        Left = 82
+        Left = 79
         Top = 64
         Width = 321
         Height = 21
         Style = csDropDownList
         Color = 15916445
-        ItemIndex = 1
         TabOrder = 1
-        Text = 'ZEBRA'
         OnEnter = combo_impressoraEnter
         OnExit = combo_impressoraExit
         OnKeyPress = ComboBox1KeyPress
@@ -1553,7 +1549,7 @@ object frmetiquetador: Tfrmetiquetador
     PrintOptions.Printer = 'Argox OS-214TT PPLA'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39188.459351666700000000
-    ReportOptions.LastChange = 43679.557475150460000000
+    ReportOptions.LastChange = 43676.852842488430000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1599,8 +1595,8 @@ object frmetiquetador: Tfrmetiquetador
         ParentFont = False
         Top = 18.897650000000000000
         Width = 174.236333000000000000
-        DataSet = fsEtiqueta
-        DataSetName = 'fsetiqueta'
+        DataSet = fsproduto
+        DataSetName = 'fsproduto'
         RowCount = 0
         object BarCode1: TfrxBarCodeView
           Left = 7.779530000000000000
@@ -1621,11 +1617,9 @@ object frmetiquetador: Tfrmetiquetador
         end
         object Memo2: TfrxMemoView
           Left = 118.944960000000000000
-          Top = 251.787570000000000000
-          Width = 22.677180000000000000
-          Height = 37.795300000000000000
-          DataSet = fsEtiqueta
-          DataSetName = 'fsetiqueta'
+          Top = 248.008040000000000000
+          Width = 26.456710000000000000
+          Height = 45.354360000000000000
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
@@ -1635,14 +1629,14 @@ object frmetiquetador: Tfrmetiquetador
           Font.Style = [fsBold]
           HAlign = haRight
           Memo.UTF8W = (
-            '[fsetiqueta."VALOR"]')
+            '[fsproduto."PRECO"]')
           ParentFont = False
           Rotation = 90
         end
         object Memo3: TfrxMemoView
           Left = 4.000000000000000000
           Top = 124.165430000000000000
-          Width = 139.842610000000000000
+          Width = 147.401670000000000000
           Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1650,13 +1644,8 @@ object frmetiquetador: Tfrmetiquetador
           Font.Name = 'Arial Black'
           Font.Style = []
           Memo.UTF8W = (
-            '[fsetiqueta."PRODUTO"] [fsetiqueta."TAMANHO"] ')
+            '[fsproduto."PRODUTO"]')
           ParentFont = False
-          Formats = <
-            item
-            end
-            item
-            end>
         end
         object BarCode2: TfrxBarCodeView
           Left = 8.559060000000000000
@@ -1736,38 +1725,18 @@ object frmetiquetador: Tfrmetiquetador
             'CARVALI')
           ParentFont = False
         end
-        object fsetiquetaTAMANHO: TfrxMemoView
-          Left = 117.165430000000000000
-          Top = 158.740260000000000000
-          Width = 34.015770000000000000
-          Height = 18.897650000000000000
-          DataField = 'TAMANHO'
-          DataSet = fsEtiqueta
-          DataSetName = 'fsetiqueta'
+        object Memo6: TfrxMemoView
+          Left = 54.795300000000000000
+          Top = 51.574830000000010000
+          Width = 52.913420000000000000
+          Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -32
+          Font.Name = 'Angelique ma douce Colombe'
           Font.Style = []
           Memo.UTF8W = (
-            '[fsetiqueta."TAMANHO"]')
-          ParentFont = False
-        end
-        object fsetiquetaTAMANHO1: TfrxMemoView
-          Left = 117.165430000000000000
-          Top = 207.874150000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
-          DataField = 'TAMANHO'
-          DataSet = fsEtiqueta
-          DataSetName = 'fsetiqueta'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[fsetiqueta."TAMANHO"]')
+            'Boutique')
           ParentFont = False
         end
       end
@@ -1790,7 +1759,7 @@ object frmetiquetador: Tfrmetiquetador
       'MARCA=MARCA'
       'ESTOQUE=ESTOQUE'
       'PRECO=PRECO')
-    DataSet = QRPRODUTO
+    DataSet = frmPrincipal.qrproduto
     BCDToCurrency = False
     Left = 317
     Top = 189
@@ -2093,13 +2062,13 @@ object frmetiquetador: Tfrmetiquetador
       'TAMANHO=TAMANHO'
       'TEXTO=TEXTO'
       'GRADE=GRADE'
-      '-ultima_compra=ultima_compra'
-      '-localizacao=LOCALIZACAO'
-      '-fornecedor=FORNECEDOR'
-      '-marca=MARCA'
-      '-complemento=COMPLEMENTO'
-      '-auto_aplicacao=auto_aplicacao'
-      '-UNIDADE=UNIDADE')
+      'ultima_compra=ultima_compra'
+      'localizacao=LOCALIZACAO'
+      'fornecedor=FORNECEDOR'
+      'marca=MARCA'
+      'complemento=COMPLEMENTO'
+      'auto_aplicacao=auto_aplicacao'
+      'UNIDADE=UNIDADE')
     DataSet = qretiq
     BCDToCurrency = False
     Left = 325
