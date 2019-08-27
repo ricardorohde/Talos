@@ -1088,6 +1088,13 @@ type
     DBCheckBox7: TDBCheckBox;
     cxButton1: TcxButton;
     btnCodigoEAN: TAdvGlowButton;
+    btnDtlPrc: TButton;
+    qrTabelaPrecoPRECOVENDA_DINHEIRO: TFloatField;
+    qrTabelaPrecoPRECOVENDA_CARTAO: TFloatField;
+    edGridTabelaDBTableView1PRECOVENDA_DINHEIRO: TcxGridDBColumn;
+    edGridTabelaDBTableView1PRECOVENDA_CARTAO: TcxGridDBColumn;
+    qrprodutoPRECOVENDA_DINHEIRO: TFloatField;
+    qrprodutoPRECOVENDA_CARTAO: TFloatField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -3359,6 +3366,8 @@ begin
 end;
 
 procedure Tfrmproduto.qrTabelaPrecoBeforePost(DataSet: TDataSet);
+var
+ Q: TZQuery;
 begin
   if (qrTabelaPrecoTIPO_TABELA.AsString = 'A') then begin
     if qrTabelaPrecoQUANTIDADE_INICIAL.AsFloat <= 0 then begin
@@ -3403,6 +3412,14 @@ begin
     Abort;
   end;
   qrTabelaPrecoCOD_PRODUTO.AsString := qrprodutoCODIGO.AsString;
+
+  if (qrTabelaPrecoPRECOVENDA_DINHEIRO.Value > 0) or (qrTabelaPrecoPRECOVENDA_CARTAO.Value > 0) then
+  begin
+    qrProduto.Edit;
+    qrprodutoPRECOVENDA_DINHEIRO.Value := qrTabelaPrecoPRECOVENDA_DINHEIRO.Value;
+    qrprodutoPRECOVENDA_CARTAO.Value   := qrTabelaPrecoPRECOVENDA_CARTAO.Value;
+    qrProduto.Post;
+  end;
 end;
 
 procedure Tfrmproduto.qrcomposicao_produtoBeforeInsert(DataSet: TDataSet);
