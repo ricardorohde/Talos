@@ -140,6 +140,7 @@ begin
   end;
 
   fxVENDA.PrintOptions.Copies := edVias.Value;
+  fxVENDA.PrepareReport;
   fxVENDA.PrintOptions.ShowDialog := False;
   fxVENDA.Print;
   Close;
