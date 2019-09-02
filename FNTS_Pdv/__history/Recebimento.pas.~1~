@@ -168,15 +168,13 @@ end;
 procedure TfrmRecebimento.Action10Execute(Sender: TObject);
 begin
   if Saldo > 0 then begin
-    Application.MessageBox('Existe saldo a receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Existe saldo a receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Continua := True;
-  if bPerguntaTipoCupom  then begin
   Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
   frmtipo_cupom.ShowModal;
   FreeAndNil(frmtipo_cupom);
-  end;
   Close;
 end;
 
@@ -191,7 +189,7 @@ var
   Valor:tValorReceber;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Valor := RetornaValorRecebimento(Saldo, True, tmDinheiro,tvRecebimento);
@@ -220,7 +218,7 @@ var
   Valor:tValorReceber;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Valor := RetornaValorRecebimento(Saldo, False, tmCrediario, tvRecebimento);
@@ -258,7 +256,7 @@ var
   calConvenio:Double;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   with frmVenda do begin
@@ -306,7 +304,7 @@ var
   Banceira: TBaneira;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Valor := RetornaValorRecebimento(Saldo, False, tmCartaoCredito, tvRecebimento);
@@ -342,7 +340,7 @@ var
   Banceira: TBaneira;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Valor := RetornaValorRecebimento(Saldo, False, tmCartaoDebito, tvRecebimento);
@@ -377,7 +375,7 @@ var
   rd:Double;
 begin
   if Recebido > 0 then begin
-    Application.MessageBox('NÃ£o Ã© permitido dar desconto apÃ³s lanÃ§amento de recebimento!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não é permitido dar desconto após lançamento de recebimento!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   TotalReceber := RoundTo(TotalReceber + NovoDesconto,-2);
@@ -412,7 +410,7 @@ var
   Valor:tValorReceber;
 begin
   if Saldo <= 0 then begin
-    Application.MessageBox('NÃ£o existe mais saldo para receber!','AtenÃ§Ã£o!',MB_ICONINFORMATION);
+    Application.MessageBox('Não existe mais saldo para receber!','Atenção!',MB_ICONINFORMATION);
     Exit;
   end;
   Valor := RetornaValorRecebimento(Saldo, False, tmCrediario, tvRecebimento);
