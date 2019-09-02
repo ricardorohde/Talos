@@ -1337,8 +1337,8 @@ type
     qrImpDeliveryEXTRA: TBlobField;
     qrImpDeliveryCOMPLEMENTO: TStringField;
     qrImpDeliveryID_ITEM: TIntegerField;
-    ACBRNFCe: TACBrNFe;
     ACBRDANFENFCe: TACBrNFeDANFCEFR;
+    ACBRNFCe: TACBrNFe;
     procedure BalancaLePeso(Peso: Double; Resposta: string);
     procedure DataModuleCreate(Sender: TObject);
     procedure ACBRNFCeStatusChange(Sender: TObject);
@@ -1746,6 +1746,7 @@ begin
       ACBRNFCe.DANFE.TipoDANFE := tiNFCe;
     if (EditLogoMarca <> '') and (FileExists(EditLogoMarca)) then
       ACBRNFCe.DANFE.Logo := EditLogoMarca;
+    ACBRDANFENFCe.Create();
     ACBRDANFENFCe.FastFile := 'C:\TALOS\pdv\Schemas\DANFeNFCe.fr3';
 
     edtcfop := Ini.ReadString('Geral', 'CFOP_PADRAO', '5101');

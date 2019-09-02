@@ -1070,7 +1070,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '''');
+          query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -3290,7 +3290,7 @@ begin
       total_acrescimo := 0;
       qrfilial.Open;
       with ACBRNFCe.NotasFiscais.add.NFe do begin
-        Ide.cNF := StrToInt(NumNFe) + 1;
+        Ide.cNF := StrToInt(NumNFe);
         Ide.natOp := 'VENDA AO CONSUMIDOR FINAL';
 
         if tipo_pgto = 1 then

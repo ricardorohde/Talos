@@ -6392,6 +6392,22 @@ object frmModulo: TfrmModulo
     Left = 536
     Top = 496
   end
+  object ACBRDANFENFCe: TACBrNFeDANFCEFR
+    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
+    MargemInferior = 0.800000000000000000
+    MargemSuperior = 0.800000000000000000
+    MargemEsquerda = 0.600000000000000000
+    MargemDireita = 0.510000000000000000
+    CasasDecimais.Formato = tdetInteger
+    CasasDecimais.qCom = 2
+    CasasDecimais.vUnCom = 2
+    CasasDecimais.MaskqCom = ',0.00'
+    CasasDecimais.MaskvUnCom = ',0.00'
+    ACBrNFe = ACBRNFCe
+    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
+    Left = 328
+    Top = 504
+  end
   object ACBRNFCe: TACBrNFe
     Configuracoes.Geral.SSLLib = libNone
     Configuracoes.Geral.SSLCryptLib = cryNone
@@ -6407,22 +6423,5 @@ object frmModulo: TfrmModulo
     DANFE = ACBRDANFENFCe
     Left = 416
     Top = 512
-  end
-  object ACBRDANFENFCe: TACBrNFeDANFCEFR
-    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
-    MargemInferior = 0.800000000000000000
-    MargemSuperior = 0.800000000000000000
-    MargemEsquerda = 0.600000000000000000
-    MargemDireita = 0.510000000000000000
-    CasasDecimais.Formato = tdetInteger
-    CasasDecimais.qCom = 2
-    CasasDecimais.vUnCom = 2
-    CasasDecimais.MaskqCom = ',0.00'
-    CasasDecimais.MaskvUnCom = ',0.00'
-    ACBrNFe = ACBRNFCe
-    FastFile = 'C:\TALOS\pdv\Schemas\DANFeNFCe.fr3'
-    BorderIcon = [biSystemMenu, biMinimize, biMaximize]
-    Left = 800
-    Top = 432
   end
 end
