@@ -1062,8 +1062,6 @@ begin
     chkPesquisaCodBarras.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoBarras', True);
     chkPesquisaNomeProd.Checked := Ini.ReadBool('Geral', 'PesquisaNomeProduto', True);
 
-    chkPerguntaTipoCupom.Checked := Ini.ReadBool('Geral', 'PerguntaTipoCupom', True);
-
 
     cbxAtualizarXML.Checked := Ini.ReadBool('Geral', 'AtualizarXML', False);
     cbxExibirErroSchema.Checked := Ini.ReadBool('Geral', 'ExibirErroSchema', False);

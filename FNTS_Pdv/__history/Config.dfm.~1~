@@ -1062,14 +1062,6 @@ object frmConfig: TfrmConfig
           TabOrder = 2
         end
       end
-      object CheckBox2: TCheckBox
-        Left = 21
-        Top = 25
-        Width = 180
-        Height = 17
-        Caption = 'Pesquisa por C'#243'digo do Produto'
-        TabOrder = 9
-      end
     end
     object PageSheet4: TPageSheet
       Left = 0
@@ -4268,14 +4260,6 @@ object frmConfig: TfrmConfig
       OnClick = AdvMetroButton1Click
     end
   end
-  object chkPerguntaTipoCupom: TCheckBox
-    Left = 325
-    Top = 192
-    Width = 205
-    Height = 17
-    Caption = 'Pergunta o tipo de cupom na venda?'
-    TabOrder = 3
-  end
   object OpenPictureDialog1: TOpenPictureDialog
     Left = 637
     Top = 79
@@ -4382,8 +4366,8 @@ object frmConfig: TfrmConfig
     Connection = frmModulo.Conexao_Servidor
     SQL.Strings = (
       'SELECT GEN_ID(ULTIMA_SENHA, 0) senha FROM RDB$DATABASE;')
-    Left = 741
-    Top = 79
+    Left = 517
+    Top = 159
     object qrSenhaPDVSENHA: TLargeintField
       FieldName = 'SENHA'
       ReadOnly = True
@@ -4393,8 +4377,8 @@ object frmConfig: TfrmConfig
     Connection = frmModulo.Conexao_Servidor
     SQL.Strings = (
       '')
-    Left = 693
-    Top = 79
+    Left = 565
+    Top = 143
   end
   object ACBrGAV1: TACBrGAV
     Porta = 'COM1'

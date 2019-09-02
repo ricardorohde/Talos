@@ -209,9 +209,6 @@ var
   bHabLogoMarca: Boolean; // Logo Marca PDV
 
   bBusca_foto_produto: boolean; // buscar foto do produto
-
-  bPerguntaTipoCupom: Boolean; // Se aparece a pergunta do tipo de cupom depois de fechar a venda
-
   iPesquisa_produto: integer; // listar no grid do form produto_consulta os itens filtrados
                                  // 0 - pesquisa feita no form de pesquisa
                                  // 1 - pesquisa feita na venda
@@ -820,8 +817,6 @@ begin
     TipoDeCupom := tcNFCE
   else
     TipoDeCupom := tcSimples;
-
-  bPerguntaTipoCupom := Boolean.Parse(LerINi(ExtractFilePath(Application.ExeName) + 'CFG\cfg.ini','Geral', 'PerguntaTipoCupom', 'True'));
 
   dData_Sistema := Date;
   dData_Movimento := dData_Sistema;

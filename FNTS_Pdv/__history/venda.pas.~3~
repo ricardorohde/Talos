@@ -1070,7 +1070,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE ''%' + AnsiUpperCase(referencia) + '%''');
+          query.sql.add('where upper(REFERENCIA) LIKE ''' + AnsiUpperCase(referencia) + '''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -1082,7 +1082,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like ''%' + AnsiUpperCase(referencia) + '%''');
+            query.sql.add('where upper(nome) like %''' + AnsiUpperCase(referencia) + '%''');
             query.sql.add('order by nome');
             query.open;
 
@@ -1913,12 +1913,9 @@ begin
       finally
         FreeAndNil(frmVendedor);
       end;
-
-      if bPerguntaTipoCupom then begin
       Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
       frmtipo_cupom.ShowModal;
       FreeAndNil(frmtipo_cupom);
-      end;
     end;
     // buscar variaveis do ECF
     // numero do cupom
@@ -2528,13 +2525,9 @@ begin
           finally
             FreeAndNil(frmVendedor);
           end;
-
-        if bPerguntaTipoCupom then begin
          Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
          frmtipo_cupom.ShowModal;
          FreeAndNil(frmtipo_cupom);
-        end;
-
         end;
 
 

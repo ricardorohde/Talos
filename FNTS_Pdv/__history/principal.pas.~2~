@@ -821,7 +821,7 @@ begin
   else
     TipoDeCupom := tcSimples;
 
-  bPerguntaTipoCupom := Boolean.Parse(LerINi(ExtractFilePath(Application.ExeName) + 'CFG\cfg.ini','Geral', 'PerguntaTipoCupom', 'True'));
+                 LerIni(sConfiguracoes, 'Geral', 'PerguntaTipoCupom', True);
 
   dData_Sistema := Date;
   dData_Movimento := dData_Sistema;
