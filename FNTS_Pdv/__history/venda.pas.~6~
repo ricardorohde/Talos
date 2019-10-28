@@ -1188,7 +1188,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like ''%' + referencia + '%''');
+            query.sql.add('where upper(nome) like %''' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin

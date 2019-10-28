@@ -1188,7 +1188,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like ''%' + referencia + '%''');
+            query.sql.add('where upper(nome) like %''' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin
@@ -3479,9 +3479,7 @@ begin
                   total_produtos := RoundTo(total_produtos + Prod.vProd, -2);
                   if qrfilial.fieldbyname('CRT').asinteger = 1 then begin
                     with ICMS do begin
-                      if QRCSOSN.FieldByName('csosn').AsString = '' then
-                        ICMS.CSOSN := csosn102
-                      else if (QRCSOSN.fieldbyname('csosn').asstring = '101') then
+                      if (QRCSOSN.fieldbyname('csosn').asstring = '101') then
                         ICMS.CSOSN := csosn101
                       else if (QRCSOSN.fieldbyname('csosn').asstring = '102') then
                         ICMS.CSOSN := csosn102

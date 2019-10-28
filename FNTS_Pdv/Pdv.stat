@@ -2,15 +2,15 @@
 
 
 
-EditorSecs=213450
-DesignerSecs=26342
-InspectorSecs=9046
-CompileSecs=19371916
-OtherSecs=41164
+EditorSecs=215131
+DesignerSecs=26435
+InspectorSecs=9075
+CompileSecs=19767940
+OtherSecs=41564
 StartTime=07/03/2018 21:30:52
 RealKeys=0
 EffectiveKeys=0
-DebugSecs=281712
+DebugSecs=282846
 EditorSecs=198049
 DesignerSecs=24962
 InspectorSecs=8886

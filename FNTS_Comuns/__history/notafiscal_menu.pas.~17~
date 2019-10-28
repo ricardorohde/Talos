@@ -22,15 +22,16 @@ uses
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus, DBCtrls, Mask, RzEdit,
   RzDBEdit, RzDBBnEd, RzBtnEdt, frxClass, frxPreview, frxDesgn, ExtCtrls, MemDS,
   DBAccess, Wwdatsrc, Buttons, jpeg, ACBrNFe, ACBrNFeDANFEClass,
-  pcnRetConsReciNFe, System.TypInfo,
-  // units nfe acbr
+  System.TypInfo, Vendedor,
+  // units nfe acbr - pcnRetConsReciNFe
   pcnConversaoNFe, pcnConversao, ACBrUtil, ACBrDFeUtil, SHDocVw, ComCtrls,
   OleCtrls, FileCtrl, inifiles, AdvReflectionImage, UCBase, AdvMetroButton,
   AdvSmoothPanel, AdvSmoothExpanderPanel, System.ImageList, ACBrNFeDANFEFRDM,
   ACBrNFeDANFEFR, ACBrBase, ACBrDFe, JvExMask, JvToolEdit, XMLIntf, XMLDoc,
   ACBrMail, ACBrNFeDANFeRLClass, ACBrDFeSSL, Vcl.Samples.Spin, blcksock,
   ACBrPosPrinter, ACBrNFeDANFeESCPOS, ACBrDANFCeFortesFr, ACBrNFeConfiguracoes,
-  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode;
+  ACBrDFeOpenSSL, ACBrNFeNotasFiscais, pcnNFeRTXT, ACBrDFeConfiguracoes, synacode,
+  ACBrDFeReport, ACBrDFeDANFeReport;
 
 type
   TvNFe = (v310, v400);
@@ -1668,7 +1669,7 @@ begin
                 lALiqICmsInterno := qryaux.FieldByName('ALIQST').asCurrency;   // INTERNA       18
                 lAliqIcmsImportado := qryaux.FieldByName('ALIQIMPORTADO').asCurrency;  // Importado 4
                 lAliqFCP := qryaux.FieldByName('FCP').asCurrency;
-                wPercentPartilha := 80;
+                wPercentPartilha := 100;
                 if (ICMS.orig = oeEstrangeiraImportacaoDireta) or (ICMS.orig = oeEstrangeiraAdquiridaBrasil) or (ICMS.orig = oeEstrangeiraImportacaoDiretaSemSimilar) or (ICMS.orig = oeEstrangeiraAdquiridaBrasilSemSimilar) then  //1,2,3 -> importados
                   lAliqAux := lAliqIcmsImportado
                 else
@@ -1972,10 +1973,34 @@ end;
 procedure Tfrmnotafiscal_menu.bincluirClick(Sender: TObject);
 var
   natureza: string;
+  iVendedorCodigo: Integer;
+  sVendedorNome: string;
+
 begin
   // Abre Opçoes de Faturamento
   frmOpNatureza := TfrmOpNatureza.Create(self);
   frmOpNatureza.showmodal;
+
+
+  iVendedorCodigo := 0;
+  sVendedorNome := '';
+
+
+      Application.CreateForm(TfrmVendedor, frmVendedor);
+      try
+        if frmVendedor.ShowModal = mrOk then begin
+          iVendedorCodigo := StrToInt(frmModulo.qrFunci.FieldByName('CODIGO').AsString);
+          sVendedorNome := frmModulo.qrFunci.FieldByName('NOME').AsString;
+        end
+        else begin
+          //result := False;
+          Close;
+          Exit;
+        end
+      finally
+        FreeAndNil(frmVendedor);
+      end;
+
 
   vrecno := qrnota.RecNo;
   vopcao_nfs := 1;
@@ -1988,9 +2013,18 @@ begin
   qrnota.fieldbyname('sit').asstring := 'N';
   qrnota.fieldbyname('movimento').asstring := 'S';
   qrnota.fieldbyname('codfilial').asstring := '000001';
-  qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
+  if sVendedorNome = '' then begin
+    qrnota.fieldbyname('codvendedor').asstring := 'S/VEND';
+  end
+  else
+  begin
+    qrnota.fieldbyname('codvendedor').asstring := FormatFloat('000000', iVendedorCodigo);
+  end;
+
   qrnota.fieldbyname('natureza').asstring := frmmodulo.natoperacao;
   qrnota.fieldbyname('presenca_comprador').asinteger := 1;
+
+
 
   frmmodulo.qrconfig.open;
 
