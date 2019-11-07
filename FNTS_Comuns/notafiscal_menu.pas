@@ -1016,7 +1016,7 @@ begin
 
     Ide.natOp := qrnota.fieldbyname('natureza').asstring;
     Ide.nNF := StrToInt(qrnota.fieldbyname('numero').asstring);
-    Ide.cNF := StrToInt(qrnota.fieldbyname('numero').asstring);
+    Ide.cNF := StrToInt(qrnota.fieldbyname('numero').asstring)+1;
     Ide.modelo := 55;
     Ide.serie := StrToInt(qrnota.fieldbyname('serie_nf').asstring);
     Ide.dEmi := qrnota.fieldbyname('data').AsDateTime;

@@ -3,7 +3,7 @@
         <ProjectGuid>{213CAD52-BB44-4CDB-91C4-44F935F3354C}</ProjectGuid>
         <MainSource>Gerencial.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -1234,8 +1234,7 @@
         </DCCReference>
         <DCCReference Include="..\FNTS_Comuns\Vendedor.pas"/>
         <DCCReference Include="..\FNTS_Comuns\VendedorConsulta.pas"/>
-        <None Include="..\FNTS_Comuns\Intro.mp3"/>
-        <RcItem Include="C:\Intro.mp3">
+        <RcItem Include="C:\TALOS\server\img\Intro.mp3">
             <ContainerId>ResourceItem</ContainerId>
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>Intro</ResourceId>
@@ -1277,19 +1276,13 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="2">
-                <DeployFile LocalName="..\FNTS_Comuns\Intro.mp3" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="C:\TALOS\Server\Gerencial.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="C:\TALOS\Server\Gerencial.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Gerencial.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="C:\TALOS\Server\Gerencial.exe" Configuration="Release" Class="ProjectOutput">
+                <DeployFile LocalName="C:\TALOS\Server\Gerencial.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Gerencial.exe</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -1307,7 +1300,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="C:\Intro.mp3" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="C:\TALOS\server\img\Intro.mp3" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

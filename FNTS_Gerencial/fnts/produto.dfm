@@ -3160,6 +3160,7 @@ object frmproduto: Tfrmproduto
               TabOrder = 24
               ValueChecked = 'S'
               ValueUnchecked = 'N'
+              Visible = False
               OnClick = edControlaEstoqueClick
             end
             object cxButton1: TcxButton
@@ -5866,25 +5867,6 @@ object frmproduto: Tfrmproduto
             TitleLines = 1
             TitleButtons = False
           end
-          object DBCheckBox2: TDBCheckBox
-            Left = 188
-            Top = 38
-            Width = 105
-            Height = 17
-            Caption = 'Utilizar Grade'
-            DataField = 'USA_GRADE'
-            DataSource = dsproduto2
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            ValueChecked = '1'
-            ValueUnchecked = '0'
-            OnClick = DBCheckBox2Click
-          end
           object bitbtn8: TAdvGlowButton
             Left = 176
             Top = 79
@@ -6152,6 +6134,27 @@ object frmproduto: Tfrmproduto
             Appearance.GradientMirrorDown = ggVertical
             Appearance.GradientChecked = ggVertical
             Layout = blGlyphTop
+          end
+          object DBCheckBox2: TDBCheckBox
+            Left = 163
+            Top = 30
+            Width = 118
+            Height = 31
+            Caption = 'Utilizar Grade'
+            Color = clBlack
+            DataField = 'USA_GRADE'
+            DataSource = dsproduto2
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+            TabOrder = 1
+            ValueChecked = '1'
+            ValueUnchecked = '0'
+            OnClick = DBCheckBox2Click
           end
         end
       end
@@ -13080,7 +13083,6 @@ object frmproduto: Tfrmproduto
     BeforeInsert = qrcomposicao_produtoBeforeInsert
     BeforeEdit = qrcomposicao_produtoBeforeEdit
     BeforePost = qrcomposicao_produtoBeforePost
-    Active = True
     SQL.Strings = (
       'select * from c000027')
     Params = <>
@@ -13123,7 +13125,6 @@ object frmproduto: Tfrmproduto
   end
   object qrproduto_loc: TZQuery
     Connection = frmmodulo.Conexao
-    Active = True
     SQL.Strings = (
       'select * from c000025')
     Params = <>

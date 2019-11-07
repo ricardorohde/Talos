@@ -1,5 +1,7 @@
 program Gerencial;
 
+
+
 {$R *.dres}
 
 uses

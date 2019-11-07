@@ -424,6 +424,8 @@ type
     chkPesquisaCodigoProduto: TCheckBox;
     chkPesquisaCodBarras: TCheckBox;
     chkPesquisaNomeProd: TCheckBox;
+    CheckBox2: TCheckBox;
+    chkPerguntaTipoCupom: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure EditLogoMarcaClickBtn(Sender: TObject);
@@ -856,6 +858,8 @@ begin
     Ini.WriteBool('Geral', 'PesquisaCodigoBarras', chkPesquisaCodBarras.Checked);
     Ini.WriteBool('Geral', 'PesquisaNomeProduto', chkPesquisaNomeProd.Checked);
 
+    Ini.WriteBool('Geral', 'PerguntaTipoCupom', chkPerguntaTipoCupom.Checked);
+
     Ini.WriteBool('Geral', 'AtualizarXML', cbxAtualizarXML.Checked);
     Ini.WriteBool('Geral', 'ExibirErroSchema', cbxExibirErroSchema.Checked);
     Ini.WriteString('Geral', 'FormatoAlerta', edtFormatoAlerta.Text);
@@ -1057,6 +1061,8 @@ begin
     chkPesquisaCodigoProduto.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoProduto', True);
     chkPesquisaCodBarras.Checked := Ini.ReadBool('Geral', 'PesquisaCodigoBarras', True);
     chkPesquisaNomeProd.Checked := Ini.ReadBool('Geral', 'PesquisaNomeProduto', True);
+
+    chkPerguntaTipoCupom.Checked := Ini.ReadBool('Geral', 'PerguntaTipoCupom', True);
 
 
     cbxAtualizarXML.Checked := Ini.ReadBool('Geral', 'AtualizarXML', False);

@@ -172,9 +172,11 @@ begin
     Exit;
   end;
   Continua := True;
+  if bPerguntaTipoCupom  then begin
   Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
   frmtipo_cupom.ShowModal;
   FreeAndNil(frmtipo_cupom);
+  end;
   Close;
 end;
 

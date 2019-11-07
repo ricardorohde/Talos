@@ -1070,7 +1070,7 @@ begin
           query.close;
           query.sql.clear;
           query.sql.add('select * from ESTOQUE');
-          query.sql.add('where upper(REFERENCIA) LIKE %''' + AnsiUpperCase(referencia) + '%''');
+          query.sql.add('where upper(REFERENCIA) LIKE ''%' + AnsiUpperCase(referencia) + '%''');
           query.sql.add('order by REFERENCIA, COR, TAMANHO');
           query.open;
 
@@ -1082,7 +1082,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + AnsiUpperCase(referencia) + '%''');
+            query.sql.add('where upper(nome) like ''%' + AnsiUpperCase(referencia) + '%''');
             query.sql.add('order by nome');
             query.open;
 
@@ -1188,7 +1188,7 @@ begin
             query.close;
             query.sql.clear;
             query.sql.add('select * from ESTOQUE');
-            query.sql.add('where upper(nome) like %''' + referencia + '%''');
+            query.sql.add('where upper(nome) like ''%' + referencia + '%''');
             query.sql.add('order by nome');
             query.open;
             if query.RecordCount > 0 then begin
@@ -1913,9 +1913,12 @@ begin
       finally
         FreeAndNil(frmVendedor);
       end;
+
+      if bPerguntaTipoCupom then begin
       Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
       frmtipo_cupom.ShowModal;
       FreeAndNil(frmtipo_cupom);
+      end;
     end;
     // buscar variaveis do ECF
     // numero do cupom
@@ -2525,9 +2528,13 @@ begin
           finally
             FreeAndNil(frmVendedor);
           end;
+
+        if bPerguntaTipoCupom then begin
          Application.CreateForm(Tfrmtipo_cupom, frmtipo_cupom);
          frmtipo_cupom.ShowModal;
          FreeAndNil(frmtipo_cupom);
+        end;
+
         end;
 
 
@@ -3290,7 +3297,7 @@ begin
       total_acrescimo := 0;
       qrfilial.Open;
       with ACBRNFCe.NotasFiscais.add.NFe do begin
-        Ide.cNF := StrToInt(NumNFe);
+        Ide.cNF := StrToInt(NumNFe) + 1;
         Ide.natOp := 'VENDA AO CONSUMIDOR FINAL';
 
         if tipo_pgto = 1 then
@@ -3472,7 +3479,9 @@ begin
                   total_produtos := RoundTo(total_produtos + Prod.vProd, -2);
                   if qrfilial.fieldbyname('CRT').asinteger = 1 then begin
                     with ICMS do begin
-                      if (QRCSOSN.fieldbyname('csosn').asstring = '101') then
+                      if QRCSOSN.FieldByName('csosn').AsString = '' then
+                        ICMS.CSOSN := csosn102
+                      else if (QRCSOSN.fieldbyname('csosn').asstring = '101') then
                         ICMS.CSOSN := csosn101
                       else if (QRCSOSN.fieldbyname('csosn').asstring = '102') then
                         ICMS.CSOSN := csosn102
