@@ -3,7 +3,7 @@ object frmImpressao: TfrmImpressao
   Top = 0
   BorderStyle = bsNone
   Caption = 'frmImpressao'
-  ClientHeight = 266
+  ClientHeight = 329
   ClientWidth = 463
   Color = 12055985
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object frmImpressao: TfrmImpressao
   TextHeight = 13
   object Label1: TLabel
     Left = 221
-    Top = 128
+    Top = 156
     Width = 38
     Height = 25
     Caption = 'Vias'
@@ -31,7 +31,7 @@ object frmImpressao: TfrmImpressao
   end
   object Label2: TLabel
     Left = 17
-    Top = 54
+    Top = 72
     Width = 66
     Height = 25
     Caption = 'Modelo'
@@ -178,12 +178,14 @@ object frmImpressao: TfrmImpressao
     Left = 328
     Top = 48
     Width = 135
-    Height = 218
+    Height = 281
     Align = alRight
     BevelOuter = bvNone
     Color = 5460819
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 54
+    ExplicitHeight = 283
     object bgravar: TBitBtn
       Left = 246
       Top = 40
@@ -202,7 +204,7 @@ object frmImpressao: TfrmImpressao
     end
     object AdvGlowButton1: TAdvGlowButton
       Left = 17
-      Top = 22
+      Top = 16
       Width = 100
       Height = 61
       Caption = 'Enter | Imprimir'
@@ -294,7 +296,7 @@ object frmImpressao: TfrmImpressao
     end
     object AdvGlowButton2: TAdvGlowButton
       Left = 17
-      Top = 137
+      Top = 202
       Width = 100
       Height = 61
       Caption = 'Esc | Cancelar'
@@ -425,7 +427,7 @@ object frmImpressao: TfrmImpressao
   end
   object edtipo: TComboBox
     Left = 17
-    Top = 80
+    Top = 103
     Width = 285
     Height = 31
     BevelEdges = []
@@ -447,7 +449,7 @@ object frmImpressao: TfrmImpressao
   end
   object edVias: TSpinEdit
     Left = 221
-    Top = 156
+    Top = 187
     Width = 81
     Height = 35
     Color = 16044273
@@ -465,6 +467,128 @@ object frmImpressao: TfrmImpressao
     TabOrder = 3
     Value = 1
     OnChange = edViasChange
+  end
+  object btnEditar: TAdvGlowButton
+    Left = 17
+    Top = 156
+    Width = 88
+    Height = 77
+    Caption = 'Editar Impress'#227'o'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ImageIndex = 49
+    FocusType = ftHot
+    NotesFont.Charset = DEFAULT_CHARSET
+    NotesFont.Color = clWindowText
+    NotesFont.Height = -11
+    NotesFont.Name = 'Tahoma'
+    NotesFont.Style = []
+    ParentFont = False
+    Picture.Data = {
+      89504E470D0A1A0A0000000D49484452000000280000002808060000008CFEB8
+      6D000000097048597300000EC300000EC301C76FA864000000206348524D0000
+      7A25000080830000F9FF000080E8000052080001155800003A970000176FD75A
+      1F900000080B4944415478DACCD97D6C13E71D07F09F5475121D952A5A69FFAC
+      D3289D265835A125B109797142C8DDD94E020DB4B0499B52606BA5ADDBA4B132
+      A4556AB796A24E9BAA092DB11D423A12C0F6DDD971DEB0EF9CB3F3421A62DFD9
+      0E792D813681F212C668422821C0777FD87971088C12A3ED8FEF1F7792ED8F7E
+      CFFD9EE7B9C7648042F3938B20196EFB89D30432F679881D70934915A864A081
+      8A232E2A39554F464D244EE557731AFF4B5613AAD888E067557E8455F97156E5
+      C7D930FF0513155A594DA8E1547E37A7896B8D9A40A68848C5AA48E65E0F15F5
+      7AC81C13C974AA8E8C61810C37A4F86F2FF0D0C302370D355249C4B5C21415F7
+      729AD0CFAA3C66137622E95AE5C1869C60C373D79C269CE134E1FD6255FCAEB9
+      AF9E8AFBEA5300ECF7103B5847665578D2D4E3DE6F54F96BCC6298870CA33AC1
+      85F969362A5614F7D43D6BEE7191A9770940535F3D3103EE6263B7E334137282
+      7944583292071376820D39AF7231A1CCDCEB79303007CA6CB2A150365AC90085
+      D89848A690F06EFC0B970EBB27E138D6A80A07385520C32D3F65A395B2E77972
+      A010E5DF519262B81324C3949FD88850C37539929EA3C7926E07D89053CA9B94
+      C87027788F87760C2BB3F9C5676DB46D58A202D559FBB8404C220BEF6F083B82
+      5B3FF5D2EB9FB72599A8683240E644364FB6D2A698E75DA6F358CA61C6308F8D
+      1A8F1F0CD991DEE78069C1C8309FD851A2BA8EBC3C1E24F36490CC93012A9A0C
+      10157DE68967B4810A46EAF20AC20E70E1D4E372634EBC346447D5D166FC5EF2
+      E0C5E1633086797033D35098C7C690031BCEBACB8A461B665D543AECA5D23312
+      BDD2D7F484A9C33EC6849D60B514E25401B99A1DABFA6B61713601BF3E819BEF
+      04B1ED1311DF3F6D4F42322A0F63C7316CE96D7C76CB59894A87BD44259764DA
+      7459216EC8B39FE9B2A7B672AA80DCB01DAB066B61B33701BF6AC1B57D41E08F
+      ADF8EA9D20B6758A5873DA0E5358981BEA2E3B98C1BA639B2EB5D0A64B32D1AB
+      917A7A55F32C3386F8E9422DF5B817BBAA50712E0A0C4F60E2BD202EEF6EC2C5
+      0F03B8FB761078BB0DBF531A90363837F9331A0FF6A4035B55F79A6DD17AA22D
+      BD8D648EBAF716861D29C399540772C34EAC8CCAA8383B088C7D852BD33731FA
+      C518C6DE5770717723A6FFDC0EECE9C09BF65AAC39550B738F7BF6F38561274C
+      51B17C4B6F2351912612A70AA34CCA2AE7408EE6C10BAA07555D1F00572630F6
+      6F60F4FC059CBB3D8991F397817D9DC05B4194B90F6345EB47D07B2D60424E98
+      6373484E15BE2CD2C427C918115E60538C5BD9D381EAF6B700D70A4CB5EFC4E7
+      5781D1ABC0C8B98B980270F7F435BC565385E5ED1F41275B917EBC1C19BE38D2
+      944032AA139C269410A709BF792CB8A63598F66663D2FD6D8CB7EDC4C8D5BBB8
+      3901DC1D9BC0CF340F962B7F85CE67815EB24227DB90B60892D3041B7111B166
+      A9CBD9BDB8D5B8E5CDC2B8AF00D77DF9B8E17E1E38F173E05F17F0D32E1F9EAE
+      FB003AC91AC7CD4BBAB7228174C01C7381D58400B15131C8869C4B6A8838AE7D
+      1637EDCDC6B86F03AEFBF231EEDB08F87440D32A94491F627973353216C1CD22
+      672AD9ED80F954DD10B12A7F6EE9954BE01A17E20AE2385F067649EFC571BE8A
+      FBE2663233DC8521C7156255FE466A8775212E1DBBA47D784A72252A6779206E
+      3E522759AF3F127031DCE2958BE39649AE459FB9FF960C9FE53AB161FEC2D759
+      7B1FA5728F824BE42A313D6207DBED4C5143CCE1764AFBF04D49FC5AC39A1C0B
+      7472E530B151F1D8C374F1C33744BC72719CED117171A05EB6B513A70A7BFED7
+      0DB1E8F32759B14EB6FE938C1171CDFF43432C06CCF457FE988C9A40ACCA5FB9
+      1F70A32A6275A405D5ED7B1E77432CCC2DBDDFF61495F6369029EAFACBFDB65B
+      2FC55AF0B7CE3F01F5DFC3B4370B1389E52BB50DB1707AB1422F5B8F64B65412
+      6D0DBBA934243EC79D74C6378BF37085AA801F6A3EF485DF0094745C6BCA7D4C
+      0D313F366448E558EF2FD765B758898ACE1DA7E2F33E62FADD36E664F2963F5F
+      75214BF5E074E40D2062C64D85C1974D06C09791D286485A8B7DE558277FECCB
+      0F8894A7F0449BCFCBB4F9BC422F7F7AFC69AED33135FFEC255BF5A05015705B
+      DD0EC4F2811E33D096061C4FC38E143644F2F01E40764BF5CADC80937294A344
+      A57D2EDAD2E7A2D2C13A6207C4ED05A1B9D7CE2CD583ADEA510C7495A1ABB30C
+      8D5DBFC5D1136FE235793F9EF139528E4BF75520D35FBB373FE02483524B06E5
+      0891695C8E6742A6E289162A8AD559D9C4DB1DA30A2889F2C8E9A8C1F38D87F0
+      ADE6C378CE6BC777A45A644A96940D6B7C5A29875EAA500C8A87F2142F199426
+      32284D443BCE0467F3FA483BFD64C8471B4FDA6536F1BECA6802F2A30DC8EAA8
+      C5DAE672A4FB52875A50BDFE6CFFC1273604AAC8A054CE860AA794B9DC0AD086
+      A900E55D97888D082DECC9F8E111A70930F7B861E8A8415A737CAF963A5C0574
+      92A537C7DFF08C41F19341F19141F1CE86B2A02C482BE522406C8F48A66EA186
+      09C7CF05E7237FD4FC8F14222B9AF592F51B86163FE52B9D6450DA9272FF03CC
+      8848E6DE7A62FADDBBB86EC72D26E404AB0930C7968ECC902CD04916AC93ABFE
+      B04E3E483AA982725ABC94A7B491415192F2E013D6FE7A6287EAC81C16561A63
+      AEAA9943C7A5212DD04B95AE4CB972ED7A7F35E9E5434B00F6D5133B9838E51F
+      6AA4624DCC3046C4BF7311F1E20C32EDBEC87BEE8DEB24AB2D53B6E667F93FA6
+      F5721565FA0F915EAE4A1170A0818A23E2CCDF10CB8C9A506CEEA93B90DB7158
+      4EF759FA7592F5720231AE93AC57F4926D482FD9827AD96AD5C9B6ED3AC9B642
+      2F592953B65196BF9A32E5830F05FCCF00AAD5CA2D4DE4BAAB0000000049454E
+      44AE426082}
+    Transparent = True
+    TabOrder = 4
+    OnClick = btnEditarClick
+    Appearance.BorderColor = 12631218
+    Appearance.BorderColorHot = 10079963
+    Appearance.BorderColorDown = 4548219
+    Appearance.Color = 14671574
+    Appearance.ColorTo = 15000283
+    Appearance.ColorChecked = 7915518
+    Appearance.ColorCheckedTo = 11918331
+    Appearance.ColorDisabled = 15921906
+    Appearance.ColorDisabledTo = 15921906
+    Appearance.ColorDown = 7778289
+    Appearance.ColorDownTo = 4296947
+    Appearance.ColorHot = 15465983
+    Appearance.ColorHotTo = 11332863
+    Appearance.ColorMirror = 14144974
+    Appearance.ColorMirrorTo = 15197664
+    Appearance.ColorMirrorHot = 5888767
+    Appearance.ColorMirrorHotTo = 10807807
+    Appearance.ColorMirrorDown = 946929
+    Appearance.ColorMirrorDownTo = 5021693
+    Appearance.ColorMirrorChecked = 10480637
+    Appearance.ColorMirrorCheckedTo = 5682430
+    Appearance.ColorMirrorDisabled = 11974326
+    Appearance.ColorMirrorDisabledTo = 15921906
+    Appearance.GradientHot = ggVertical
+    Appearance.GradientMirrorHot = ggVertical
+    Appearance.GradientDown = ggVertical
+    Appearance.GradientMirrorDown = ggVertical
+    Appearance.GradientChecked = ggVertical
+    Layout = blGlyphTop
   end
   object fsSimples_produto: TfrxDBDataset
     UserName = 'fsSimples_produto'
@@ -500,8 +624,8 @@ object frmImpressao: TfrmImpressao
       'PRODUTO=produto')
     DataSet = qrorcamento_produto
     BCDToCurrency = False
-    Left = 78
-    Top = 146
+    Left = 222
+    Top = 58
   end
   object fxRel: TfrxDBDataset
     UserName = 'fsRel'
@@ -511,6 +635,7 @@ object frmImpressao: TfrmImpressao
       'CODCAIXA=CODCAIXA'
       'CODVENDEDOR=CODVENDEDOR'
       'DATA=DATA'
+      'HORA=HORA'
       'CODCLIENTE=CODCLIENTE'
       'OBS=OBS'
       'MEIO_DINHEIRO=MEIO_DINHEIRO'
@@ -549,8 +674,8 @@ object frmImpressao: TfrmImpressao
       'VENDEDOR=VENDEDOR')
     DataSet = qrorcamento
     BCDToCurrency = False
-    Left = 22
-    Top = 138
+    Left = 182
+    Top = 50
   end
   object fxvenda: TfrxReport
     Version = '5.2.3'
@@ -562,7 +687,7 @@ object frmImpressao: TfrmImpressao
     PrintOptions.PrintMode = pmSplit
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39680.409495254600000000
-    ReportOptions.LastChange = 43703.754868692130000000
+    ReportOptions.LastChange = 43747.050512546300000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -570,8 +695,8 @@ object frmImpressao: TfrmImpressao
       'begin'
       ''
       'end.')
-    Left = 54
-    Top = 202
+    Left = 142
+    Top = 50
     Datasets = <
       item
         DataSet = fxRel
@@ -730,7 +855,7 @@ object frmImpressao: TfrmImpressao
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 180.220594000000000000
+          Left = 170.984354000000000000
           Top = 137.913420000000000000
           Width = 41.574830000000000000
           Height = 11.338590000000000000
@@ -873,9 +998,9 @@ object frmImpressao: TfrmImpressao
           ParentFont = False
         end
         object Memo11: TfrxMemoView
-          Left = 226.574954000000000000
+          Left = 215.338714000000000000
           Top = 137.913420000000000000
-          Width = 83.149660000000000000
+          Width = 49.133890000000000000
           Height = 11.338590000000000000
           AutoWidth = True
           DataSet = fxRel
@@ -886,7 +1011,7 @@ object frmImpressao: TfrmImpressao
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           Memo.UTF8W = (
-            'Emiss'#227'o: [fsRel."DATA"]')
+            '[fsRel."DATA"] ')
           ParentFont = False
         end
         object Memo13: TfrxMemoView
@@ -1211,6 +1336,23 @@ object frmImpressao: TfrmImpressao
           Frame.Width = 0.500000000000000000
           Diagonal = True
         end
+        object Memo34: TfrxMemoView
+          Left = 270.787570000000000000
+          Top = 138.063080000000000000
+          Width = 52.913420000000000000
+          Height = 11.338590000000000000
+          AutoWidth = True
+          DataSet = fxRel
+          DataSetName = 'fsRel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -8
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          Memo.UTF8W = (
+            '[fsRel."HORA"] ')
+          ParentFont = False
+        end
       end
       object Footer1: TfrxFooter
         FillType = ftBrush
@@ -1241,9 +1383,9 @@ object frmImpressao: TfrmImpressao
         end
         object Memo9: TfrxMemoView
           Align = baCenter
-          Left = 139.086704000000000000
+          Left = 133.417409000000000000
           Top = 4.000000000000000000
-          Width = 49.133890000000000000
+          Width = 60.472480000000000000
           Height = 11.338590000000000000
           AutoWidth = True
           DataSet = fxRel
@@ -1285,8 +1427,8 @@ object frmImpressao: TfrmImpressao
         ParamType = ptUnknown
         Value = '000007'
       end>
-    Left = 160
-    Top = 214
+    Left = 144
+    Top = 118
     ParamData = <
       item
         DataType = ftWideString
@@ -1426,8 +1568,8 @@ object frmImpressao: TfrmImpressao
         ParamType = ptInput
         Value = '000007'
       end>
-    Left = 240
-    Top = 208
+    Left = 144
+    Top = 168
     ParamData = <
       item
         DataType = ftString
@@ -1450,6 +1592,9 @@ object frmImpressao: TfrmImpressao
     end
     object qrorcamentoDATA: TDateField
       FieldName = 'DATA'
+    end
+    object qrorcamentoHORA: TTimeField
+      FieldName = 'HORA'
     end
     object qrorcamentoCODCLIENTE: TWideStringField
       FieldName = 'CODCLIENTE'

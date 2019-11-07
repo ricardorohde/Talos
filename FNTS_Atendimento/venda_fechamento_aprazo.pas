@@ -166,6 +166,7 @@ begin
       frmmodulo.QRORCAMENTO.Edit;
     frmmodulo.QRORCAMENTO.fieldbyname('codigo').asstring         := codigo_venda;
     frmmodulo.QRORCAMENTO.fieldbyname('data').asstring           := frmvenda_pdv.ldata_venda.Caption;
+    frmmodulo.QRORCAMENTO.fieldbyname('hora').asstring           := frmvenda_pdv.lhora_venda.Caption;
     frmmodulo.QRORCAMENTO.fieldbyname('codcliente').asstring     := frmmodulo.qrcliente.fieldbyname('codigo').asstring;
     frmmodulo.QRORCAMENTO.fieldbyname('codvendedor').asstring    := frmmodulo.qrfunci.fieldbyname('codigo').asstring;
     frmmodulo.QRORCAMENTO.fieldbyname('codcaixa').asstring       := '000099';

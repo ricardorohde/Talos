@@ -603,6 +603,7 @@ type
     qrorcamento_produtoSITUACAO: TIntegerField;
     qrorcamento_produtoSERIAL_CODINT: TWideStringField;
     qrorcamento_produtoCOD_BARRAS: TWideStringField;
+    qrorcamentoHORA: TTimeField;
     procedure qrMestreAfterPost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private

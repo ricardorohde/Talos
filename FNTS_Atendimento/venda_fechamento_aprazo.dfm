@@ -3,7 +3,7 @@ object frmvenda_fechamento_aprazo: Tfrmvenda_fechamento_aprazo
   Top = 256
   BorderStyle = bsNone
   Caption = 'ATENDIMENTO | Fechamento '#224' Prazo'
-  ClientHeight = 286
+  ClientHeight = 285
   ClientWidth = 462
   Color = 14086904
   Font.Charset = ANSI_CHARSET
@@ -636,7 +636,7 @@ object frmvenda_fechamento_aprazo: Tfrmvenda_fechamento_aprazo
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 10
     ShowExpander = False
@@ -734,7 +734,7 @@ object frmvenda_fechamento_aprazo: Tfrmvenda_fechamento_aprazo
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
@@ -889,7 +889,7 @@ object frmvenda_fechamento_aprazo: Tfrmvenda_fechamento_aprazo
     end
   end
   object fxvenda: TfrxReport
-    Version = '5.3.16'
+    Version = '5.2.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]

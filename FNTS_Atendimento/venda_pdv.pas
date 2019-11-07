@@ -291,6 +291,12 @@ type
     procedure evendedorExit(Sender: TObject);
     procedure btvenClick(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
+    procedure Label14Click(Sender: TObject);
+    procedure Label37Click(Sender: TObject);
+    procedure Label36Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -343,8 +349,11 @@ begin
   qrproduto.open;
   ldata_venda.Caption := frmmodulo.qrcaixa_operador.fieldbyname('data').asstring;
   eproduto.CharCase := ecUpperCase;
-  cdsvenda_produto.Close;
-  cdsvenda_produto.CreateDataSet;
+  if not ABRE_ORCAMENTO then
+  begin
+    cdsvenda_produto.Close;
+    cdsvenda_produto.CreateDataSet;
+  end;
   item := 1;
   EVendEDOR.SETFOCUS;
   ultima_pesquisa := '';
@@ -358,6 +367,36 @@ begin
     else
       PreVenda_TipoFixa := taUsuario;
   end;
+end;
+
+procedure Tfrmvenda_pdv.Image2Click(Sender: TObject);
+begin
+  FinalizarVenda1Click(Sender);
+end;
+
+procedure Tfrmvenda_pdv.Label14Click(Sender: TObject);
+begin
+  FinalizarVenda1Click(Sender);
+end;
+
+procedure Tfrmvenda_pdv.Image3Click(Sender: TObject);
+begin
+  ExcluirItem1Click(Sender);
+end;
+
+procedure Tfrmvenda_pdv.Label37Click(Sender: TObject);
+begin
+  ExcluirItem1Click(Sender);
+end;
+
+procedure Tfrmvenda_pdv.Image4Click(Sender: TObject);
+begin
+  CancelarVenda1Click(Sender);
+end;
+
+procedure Tfrmvenda_pdv.Label36Click(Sender: TObject);
+begin
+  CancelarVenda1Click(Sender);
 end;
 
 procedure Tfrmvenda_pdv.bvendedorClick(Sender: TObject);
@@ -764,10 +803,12 @@ begin
   frmvenda_fechamento_aPRAZO := tfrmvenda_fechamento_aPRAZO.create(self);
   frmvenda_fechamento_aPRAZO.rsubtotal.Value := StrToFloat(ltotal.caption);
   frmvenda_fechamento_aPRAZO.rtotal.value := StrToFloat(ltotal.caption);
-  if NaoExibeTelaFechamento then begin
-    if Application.MessageBox('Finalizar a Pré-venda?','Atenção!',MB_ICONQUESTION+MB_YESNO)=mrYes then
+  if NaoExibeTelaFechamento then
+  begin
+    if Application.MessageBox('Finalizar a Pré-venda?','Atenção!',MB_ICONQUESTION+MB_YESNO) = mrYes then
       frmvenda_fechamento_aPRAZO.bgravar.Click
-  end else
+  end
+  else
     frmvenda_fechamento_aPRAZO.showmodal;
 end;
 
@@ -908,25 +949,45 @@ begin
 end;
 
 procedure Tfrmvenda_pdv.eclienteExit(Sender: TObject);
+var
+  k: Char;
 begin
   COMBOBOX1.ItemIndex := 0;
-  ecliente.Text := frmmodulo.qrcliente.fieldbyname('codigo').asstring;
-  qrpessoas.close;
-  qrpessoas.SQL.clear;
-  qrpessoas.SQL.add('select * from c000070 where codcliente = '''+frmmodulo.qrcliente.fieldbyname('codigo').asstring+'''');
-  qrpessoas.Open;
-  IF QRPESSOAS.RecordCount > 0 then begin
-    ComboBox1.Clear;
-    COMBOBOX1.ItemS.Add('O MESMO');
-    QRPESSOAS.First;
-    WHILE NOT QRPESSOAS.EOF DO begin
-      COMBOBOX1.Items.ADD(QRPESSOAS.FIELDBYNAME('NOME').ASSTRING+' - '+QRPESSOAS.FIELDBYNAME('PARENTESCO').ASSTRING);
-      QRPESSOAS.NEXT;
+  with qrpessoas do
+  begin
+    Close;
+    SQL.Clear;
+    if eCliente.Text = '' then
+    begin
+      eCliente.Text := '014698'; // Balcao
+      k := Char(13);
+      eClienteKeyPress(Self, k);
+      SQL.Add('SELECT * FROM c000070 WHERE codcliente = 014698');
+    end
+    else
+    begin
+      ecliente.Text := frmmodulo.qrcliente.fieldbyname('codigo').asstring;
+      SQL.Add('SELECT * FROM c000070 WHERE codcliente = ''' + frmmodulo.qrcliente.fieldbyname('codigo').asstring + '''');
     end;
-    COMBOBOX1.ItemIndex := 0;
-    COMBOBOX1.SetFocus;
-  end else
-    eProduto.setfocus;
+
+    Open;
+
+    if RecordCount > 0 then
+    begin
+      ComboBox1.Clear;
+      COMBOBOX1.ItemS.Add('O MESMO');
+      QRPESSOAS.First;
+      while not EoF do
+      begin
+        ComboBox1.Items.ADD(FieldByName('NOME').AsString + ' - ' + FieldByName('PARENTESCO').AsString);
+        Next;
+      end;
+      ComboBox1.ItemIndex := 0;
+      ComboBox1.SetFocus;
+    end
+    else
+      eProduto.setfocus;
+  end;
 end;
 
 procedure Tfrmvenda_pdv.ComboBox1Exit(Sender: TObject);

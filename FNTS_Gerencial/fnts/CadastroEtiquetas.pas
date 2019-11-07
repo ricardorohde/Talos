@@ -127,13 +127,16 @@ end;
 
 procedure TfrmCadastroEtiquetas.btnEditarClick(Sender: TObject);
 begin
-  if (qrEtiquetaCAMINHO.IsNull) then begin
+  if (qrEtiquetaCAMINHO.IsNull) then
+  begin
     fxproduto.Clear;
     fxproduto.DesignReport;
     if not (qrEtiqueta.State in [dsEdit, dsInsert]) then
       qrEtiqueta.Edit;
     qrEtiquetaCAMINHO.AsString := fxproduto.FileName;
-  end else begin
+  end
+  else
+  begin
     if not FileExists(qrEtiquetaCAMINHO.AsString) then begin
       Application.MessageBox('Arquivo de impressão da etoqueta inválido!','Atenção!',MB_ICONINFORMATION);
       Exit;

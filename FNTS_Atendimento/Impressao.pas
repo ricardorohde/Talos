@@ -96,6 +96,8 @@ type
     qrorcamento_produtoCODBARRA: TWideStringField;
     qrorcamento_produtoPRODUTO: TWideStringField;
     qrorcamentoCOMPLEMENTO: TWideStringField;
+    qrorcamentoHORA: TTimeField;
+    btnEditar: TAdvGlowButton;
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
@@ -103,6 +105,7 @@ type
     procedure AdvSmoothExpanderPanel1KeyPress(Sender: TObject; var Key: Char);
     procedure edtipoSelect(Sender: TObject);
     procedure edViasChange(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -142,6 +145,7 @@ begin
   fxVENDA.PrintOptions.Copies := edVias.Value;
   fxVENDA.PrepareReport;
   fxVENDA.PrintOptions.ShowDialog := False;
+  //fxVENDA.ShowReport();
   fxVENDA.Print;
   Close;
 end;
@@ -197,6 +201,31 @@ end;
 procedure TfrmImpressao.edViasChange(Sender: TObject);
 begin
   AdvSmoothExpanderPanel1.SetFocus;
+end;
+
+procedure TfrmImpressao.btnEditarClick(Sender: TObject);
+begin
+  qrorcamento.Close;
+  qrorcamento.Params.Items[0].Value := Numero;
+  qrorcamento.Open;
+  qrorcamento_produto.Close;
+  qrorcamento_produto.Params.Items[0].Value := Numero;
+  qrorcamento_produto.Open;
+
+  if edtipo.ItemIndex = 0 then begin
+    fxVENDA.LoadFromFile('\TALOS\SERVER\rel\F000210.fr3');
+    fxVENDA.PrintOptions.PrintMode := pmDefault;
+  end
+  else
+  begin
+    fxVENDA.LoadFromFile('\TALOS\SERVER\rel\F000211.fr3');
+    fxVENDA.PrintOptions.PrintMode := pmSplit;
+  end;
+
+  fxVENDA.PrintOptions.Copies := edVias.Value;
+  fxVENDA.PrepareReport;
+  fxVENDA.PrintOptions.ShowDialog := True;
+  fxVENDA.DesignReport;
 end;
 
 end.

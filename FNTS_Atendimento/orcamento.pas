@@ -121,10 +121,13 @@ uses modulo, venda_pdv, principal;
 
 procedure Tfrmorcamento.ipodePesquisa1Click(Sender: TObject);
 begin
-  LOC.SETFOCUS;
-  if lpesquisa.Caption = 'F3 | Número:' THEN BEGIN lpesquisa.Caption := 'F3 | Tudo:'; EXIT;END;
-  if lpesquisa.Caption = 'F3 | Cliente:' THEN BEGIN lpesquisa.Caption := 'F3 | Número:';EXIT;END;
-  if lpesquisa.Caption = 'F3 | Tudo:' THEN BEGIN lpesquisa.Caption := 'F3 | Cliente:'; EXIT;END;
+  Loc.SetFocus;
+
+  if lpesquisa.Caption = 'F3 | Cliente:'  then begin lpesquisa.Caption := 'F3 | CPF/CNPJ:'; exit; end;
+  if lpesquisa.Caption = 'F3 | CPF/CNPJ:' then begin lpesquisa.Caption := 'F3 | Telefone:'; exit; end;
+  if lpesquisa.Caption = 'F3 | Telefone:' then begin lpesquisa.Caption := 'F3 | Número:';   exit; end;
+  if lpesquisa.Caption = 'F3 | Número:'   then begin lpesquisa.Caption := 'F3 | Tudo:';     exit; end;
+  if lpesquisa.Caption = 'F3 | Tudo:'     then begin lpesquisa.Caption := 'F3 | Cliente:';  exit; end;
 end;
 procedure Tfrmorcamento.Sair1Click(Sender: TObject);
 begin
@@ -146,30 +149,41 @@ begin
 end;
 
 procedure Tfrmorcamento.Abrir1Click(Sender: TObject);
-var i : integer;
+var
+  i: integer;
 begin
   ABRE_ORCAMENTO := TRUE;
   FRMVENDA_PDV := TFRMVENDA_PDV.CREATE(SELF);
-  WITH FRMVENDA_PDV DO
-  BEGIN
+  with FRMVENDA_PDV do
+  begin
     cdsvenda_produto.Close;
     cdsvenda_produto.createDataSet;
 
-    qrorcamento_produto.Close;
-    QRORCAMENTO_PRODUTO.SQL.CLEAR;
-    QRORCAMENTO_PRODUTO.SQL.ADD('select * from c000075 where codnota = '''+qrorcamento.fieldbyname('codigo').asstring+''' order by codigo');
-    QRORCAMENTO_PRODUTO.OPEN;
+    with qrorcamento_produto do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT * FROM c000075 WHERE codnota = '''+qrorcamento.fieldbyname('codigo').asstring+'''');
+      SQL.Add('ORDER BY codigo');
+      Open;
+    end;;
 
-    frmmodulo.qrcliente.CLOSE;
-    FRMMODULO.QRCLIENTE.SQL.CLEAR;
-    FRMMODULO.QRCLIENTE.SQL.ADD('SELECT * FROM C000007 WHERE CODIGO = '''+qrorcamento.fieldbyname('codCLIENTE').asstring+'''');
-    FRMMODULO.QRCLIENTE.OPEN;
+    with FrmModulo.QrCliente do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT * FROM C000007 WHERE CODIGO = '''+qrorcamento.fieldbyname('codCLIENTE').asstring+'''');
+      Open;
+    end;
 
-    i := 1;  item := 0;
+    i := 1;
+    item := 0;
+
     qrorcamento_produto.First;
     while not qrorcamento_produto.Eof do
     begin
       item := item + 1;
+
       cdsvenda_produto.Insert;
       cdsvenda_produto.fieldbyname('item').asstring       := frmprincipal.zerarcodigo(inttostr(item),3);
       cdsvenda_produto.fieldbyname('produto').asstring    := qrorcamento_produto.fieldbyname('produto').asstring;
@@ -181,6 +195,7 @@ begin
       cdsvenda_produto.fieldbyname('acrescimo').asfloat   := qrorcamento_produto.fieldbyname('acrescimo').asfloat;
       cdsvenda_produto.fieldbyname('numeracao').asstring  := qrorcamento_produto.fieldbyname('unidade').AsString;
       cdsvenda_produto.Post;
+
       qrorcamento_produto.Next;
     end;
 
@@ -192,7 +207,8 @@ begin
     enomevendedor.text := qrorcamento.fieldbyname('vendedor').asstring;
     ltotal.Caption := formatfloat('##########0.00',qrorcamento.fieldbyname('subtotal').asfloat);
     litem.Caption := frmprincipal.zerarcodigo(inttostr(item),3);
-  END;
+  end;
+
   NUMERO_ORCAMENTO := qrorcamento.fieldbyname('codigo').asstring;
   FRMVENDA_PDV.ShowModal;
   qrorcamento.Refresh;
@@ -241,43 +257,60 @@ end;
 
 procedure Tfrmorcamento.BitBtn1Click(Sender: TObject);
 begin
-    try
-    qrorcamento.close;
-    qrorcamento.SQL.Clear;
-    if (lpesquisa.Caption = 'F3 | Cliente:') then
+  try
+    with qrorcamento do
     begin
-      qrorcamento.sql.add('select orc.*, cli.nome from c000074 orc, c000007 cli');
-      qrorcamento.sql.add('where orc.codcliente = cli.codigo and orc.tipo = 9');
-      qrorcamento.sql.add('and orc.data between :datai and :dataf');
-      qrorcamento.sql.add('and upper(nome) like '''+ansiuppercase(loc.text)+'%'' order by orc.data');
-      qrorcamento.ParamByName('datai').asdatetime := ed_inicial.date;
-      qrorcamento.ParamByName('dataf').asdatetime := ed_final.Date;
-    end
-    ELSE if (lpesquisa.Caption = 'F3 | Número:') then
-    begin
-      qrorcamento.sql.add('select orc.*, cli.nome from c000074 orc, c000007 cli');
-      qrorcamento.sql.add('where orc.codcliente = cli.codigo and orc.tipo = 9');
-      qrorcamento.sql.add('and orc.data between :datai and :dataf');
-      qrorcamento.sql.add('and upper(ORC.codigo) like '''+ansiuppercase(loc.text)+'%''order by orc.data');
-      qrorcamento.ParamByName('datai').asdatetime := ed_inicial.date;
-      qrorcamento.ParamByName('dataf').asdatetime := ed_final.Date;
-    end
-    ELSE IF (lpesquisa.Caption = 'F3 | Tudo:') then
-    begin
-      qrorcamento.sql.add('select orc.*, cli.nome from c000074 orc, c000007 cli');
-      qrorcamento.sql.add('where orc.codcliente = cli.codigo and orc.tipo = 9');
-      qrorcamento.sql.add('and orc.data between :datai and :dataf order by orc.data');
-      qrorcamento.ParamByName('datai').asdatetime := ed_inicial.date;
-      qrorcamento.ParamByName('dataf').asdatetime := ed_final.Date;
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT orc.*, cli.* FROM c000074 orc, c000007 cli');
+      SQL.Add('WHERE orc.codcliente = cli.codigo');    // AND orc.tipo = 9
+      SQL.Add('AND orc.data BETWEEN :datai AND :dataf');
 
+      if (lpesquisa.Caption = 'F3 | Cliente:') then
+      begin
+        SQL.Add('AND UPPER(cli.NOME) LIKE ''' + AnsiUppercase(Loc.text) + '%''');
+        ParamByName('datai').asdatetime := ed_inicial.date;
+        ParamByName('dataf').asdatetime := ed_final.Date;
+      end
+      else if (lpesquisa.Caption = 'F3 | CPF/CNPJ:') then
+      begin
+        SQL.Add('AND cli.CPF LIKE ''' + Loc.text + '%''');
+        ParamByName('datai').asdatetime := ed_inicial.date;
+        ParamByName('dataf').asdatetime := ed_final.Date;
+      end
+      else if (lpesquisa.Caption = 'F3 | Telefone:') then
+      begin
+        SQL.Add('AND (' +
+        'cli.telefone1 LIKE '''    + Loc.text + '%'''  +
+        'OR cli.telefone2 LIKE ''' + Loc.text + '%'''  +
+        'OR cli.telefone3 LIKE ''' + Loc.text + '%'''  +
+        'OR cli.celular LIKE '''   + Loc.text + '%'')' );
+        ParamByName('datai').asdatetime := ed_inicial.date;
+        ParamByName('dataf').asdatetime := ed_final.Date;
+      end
+      else if (lpesquisa.Caption = 'F3 | Número:') then
+      begin
+        SQL.Add('AND orc.codigo LIKE ''' + Loc.text + '%''');
+        ParamByName('datai').asdatetime := ed_inicial.date;
+        ParamByName('dataf').asdatetime := ed_final.Date;
+      end
+      else if (lpesquisa.Caption = 'F3 | Tudo:') then
+      begin
+        ParamByName('datai').asdatetime := ed_inicial.date;
+        ParamByName('dataf').asdatetime := ed_final.Date;
+      end;
+
+      SQL.Add('ORDER BY orc.data');
+      Open;
     end;
-    qrorcamento.open;
-    except
-      showmessage('Parâmetro inválido!');
-    end;
+  except
+    ShowMessage('Parâmetro inválido!');
+  end;
 
-    IF qrorcamento.RecordCount = 0 THEN FRMPRINCIPAL.msg('INFO','Nenhum registro encontrado!',false,false,true,'') else grid.setfocus;
-
+  if qrorcamento.RecordCount = 0 then
+    FrmPrincipal.msg('INFO','Nenhum registro encontrado!',false,false,true,'')
+  else
+    grid.setfocus;
 end;
 
 procedure Tfrmorcamento.gridKeyPress(Sender: TObject; var Key: Char);

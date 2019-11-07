@@ -160,7 +160,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
     end
   end
   object wwDBGrid1: TwwDBGrid
-    Left = -1
+    Left = 0
     Top = 147
     Width = 779
     Height = 326
@@ -974,6 +974,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
       Font.Style = []
       ParentFont = False
       Transparent = True
+      OnClick = Label14Click
     end
     object Label37: TLabel
       Left = 37
@@ -988,6 +989,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
       Font.Style = []
       ParentFont = False
       Transparent = True
+      OnClick = Label37Click
     end
     object Label36: TLabel
       Left = 37
@@ -1002,6 +1004,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
       Font.Style = []
       ParentFont = False
       Transparent = True
+      OnClick = Label36Click
     end
     object LDATA_VENDA: TLabel
       Left = 5
@@ -1064,6 +1067,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
         6EA3B62D6E321761B985BDF0FA64278660B98E424F6112D90DADE796153C863E
         7FDDFE3D7C856516FADB2C1DAB544874E00EBE21CD2FE8A447E1ED8BACE11FBE
         3B4E02FDC8BB390000000049454E44AE426082}
+      OnClick = Image2Click
     end
     object Image3: TImage
       Left = 8
@@ -1094,6 +1098,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
         6EA3B62D6E321761B985BDF0FA64278660B98E424F6112D90DADE796153C863E
         7FDDFE3D7C856516FADB2C1DAB544874E00EBE21CD2FE8A447E1ED8BACE11FBE
         3B4E02FDC8BB390000000049454E44AE426082}
+      OnClick = Image3Click
     end
     object Image4: TImage
       Left = 8
@@ -1124,12 +1129,13 @@ object frmvenda_pdv: Tfrmvenda_pdv
         6EA3B62D6E321761B985BDF0FA64278660B98E424F6112D90DADE796153C863E
         7FDDFE3D7C856516FADB2C1DAB544874E00EBE21CD2FE8A447E1ED8BACE11FBE
         3B4E02FDC8BB390000000049454E44AE426082}
+      OnClick = Image4Click
     end
   end
   object dsvenda_produto: TDataSource
     DataSet = cdsVenda_Produto
-    Left = 371
-    Top = 212
+    Left = 379
+    Top = 348
   end
   object qrproduto: TZQuery
     Connection = frmmodulo.Conexao_produto
@@ -1138,7 +1144,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
       'select * from c000025')
     Params = <>
     Left = 371
-    Top = 244
+    Top = 196
     object qrprodutoCODIGO: TWideStringField
       FieldName = 'CODIGO'
       Required = True
@@ -1701,12 +1707,12 @@ object frmvenda_pdv: Tfrmvenda_pdv
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 499
-    Top = 212
+    Left = 163
+    Top = 196
   end
   object PopupMenu1: TPopupMenu
-    Left = 467
-    Top = 212
+    Left = 107
+    Top = 196
     object RepetirpesquisadeProdutos1: TMenuItem
       Caption = 'Repetir pesquisa de Produtos'
       Enabled = False
@@ -1744,16 +1750,16 @@ object frmvenda_pdv: Tfrmvenda_pdv
     SQL.Strings = (
       'select * from c000049')
     Params = <>
-    Left = 467
-    Top = 244
+    Left = 515
+    Top = 196
   end
   object qrpessoas: TZQuery
     Connection = frmmodulo.Conexao
     SQL.Strings = (
       'select * from c000070')
     Params = <>
-    Left = 499
-    Top = 244
+    Left = 595
+    Top = 196
   end
   object qrestoque: TZQuery
     Connection = frmmodulo.Conexao
@@ -1761,7 +1767,7 @@ object frmvenda_pdv: Tfrmvenda_pdv
       'select * from c000100')
     Params = <>
     Left = 435
-    Top = 244
+    Top = 196
   end
   object fxvenda: TfrxReport
     Version = '5.2.3'
@@ -1779,8 +1785,8 @@ object frmvenda_pdv: Tfrmvenda_pdv
       'begin'
       ''
       'end.')
-    Left = 435
-    Top = 212
+    Left = 283
+    Top = 196
     Datasets = <>
     Variables = <>
     Style = <>
@@ -2143,8 +2149,8 @@ object frmvenda_pdv: Tfrmvenda_pdv
     Restrictions = []
     RTLLanguage = False
     MemoParentFont = False
-    Left = 403
-    Top = 212
+    Left = 227
+    Top = 196
   end
   object cdsVenda_Produto: TClientDataSet
     Aggregates = <>
@@ -2250,8 +2256,8 @@ object frmvenda_pdv: Tfrmvenda_pdv
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 432
-    Top = 312
+    Left = 376
+    Top = 272
     object cdsVenda_ProdutoITEM: TWideStringField
       DisplayLabel = 'Item'
       DisplayWidth = 4

@@ -658,7 +658,6 @@ object frmCadastroEtiquetas: TfrmCadastroEtiquetas
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 42
     object Label2: TLabel
       Left = 16
       Top = 13

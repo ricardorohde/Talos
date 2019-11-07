@@ -493,6 +493,9 @@ object frmmodulo: Tfrmmodulo
     object qrorcamentoDATA: TDateField
       FieldName = 'DATA'
     end
+    object qrorcamentoHORA: TTimeField
+      FieldName = 'HORA'
+    end
   end
   object qrorcamento_produto: TZQuery
     Connection = Conexao

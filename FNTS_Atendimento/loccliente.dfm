@@ -140,6 +140,23 @@ object frmloccliente: Tfrmloccliente
       ParentFont = False
       Transparent = True
     end
+    object lblNovoCli: TLabel
+      Left = 587
+      Top = 17
+      Width = 109
+      Height = 18
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'F1 | Novo Cliente'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+      OnClick = lblNovoCliClick
+    end
     object AdvMetroButton1: TAdvMetroButton
       Left = -3
       Top = 0
@@ -231,6 +248,11 @@ object frmloccliente: Tfrmloccliente
       Caption = 'Tipo de Pesquisa'
       ShortCut = 114
       OnClick = ipodePesquisa1Click
+    end
+    object NovoCliente1: TMenuItem
+      Caption = 'Novo Cliente'
+      ShortCut = 112
+      OnClick = NovoCliente1Click
     end
   end
 end

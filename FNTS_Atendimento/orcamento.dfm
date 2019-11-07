@@ -243,7 +243,7 @@ object frmorcamento: Tfrmorcamento
   end
   object grid: TwwDBGrid
     Left = 0
-    Top = 95
+    Top = 96
     Width = 648
     Height = 400
     Selected.Strings = (
@@ -339,7 +339,7 @@ object frmorcamento: Tfrmorcamento
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 3
     ShowExpander = False
@@ -437,14 +437,14 @@ object frmorcamento: Tfrmorcamento
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
   end
   object dsorcamento: TDataSource
     DataSet = qrorcamento
-    Left = 272
-    Top = 376
+    Left = 144
+    Top = 288
   end
   object qrorcamento: TZQuery
     Connection = frmmodulo.Conexao
@@ -453,7 +453,7 @@ object frmorcamento: Tfrmorcamento
         'select orc.*, cli.nome from c000074 orc, c000007 cli where orc.c' +
         'odcliente = cli.codigo')
     Params = <>
-    Left = 224
+    Left = 144
     Top = 224
     object qrorcamentoCODIGO: TWideStringField
       DisplayLabel = 'C'#243'digo'
@@ -602,7 +602,7 @@ object frmorcamento: Tfrmorcamento
     SQL.Strings = (
       'select * from c000075')
     Params = <>
-    Left = 320
+    Left = 384
     Top = 224
     object qrorcamento_produtoproduto: TStringField
       FieldKind = fkLookup
@@ -711,12 +711,12 @@ object frmorcamento: Tfrmorcamento
     SQL.Strings = (
       'select * from c000076')
     Params = <>
-    Left = 280
+    Left = 256
     Top = 224
   end
   object PopupMenu1: TPopupMenu
-    Left = 408
-    Top = 248
+    Left = 344
+    Top = 152
     object ipodePesquisa1: TMenuItem
       Caption = 'Tipo de Pesquisa'
       ShortCut = 114
@@ -742,13 +742,13 @@ object frmorcamento: Tfrmorcamento
     SQL.Strings = (
       'select * from c000025')
     Params = <>
-    Left = 352
+    Left = 480
     Top = 224
   end
   object query: TZQuery
     Connection = frmmodulo.Conexao
     Params = <>
-    Left = 472
-    Top = 192
+    Left = 568
+    Top = 232
   end
 end
