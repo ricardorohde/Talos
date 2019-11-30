@@ -15,7 +15,7 @@
     <Transaction>2019/08/24 17:00:21.000.879,=C:\Users\rlpbu\Documents\GitHub\talos\FNTS_Comuns\UnitVersao.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="..\..\talos"/>
+    <File Path="..\..\Talos"/>
     <File Path="..\FNTS_Comuns"/>
     <File Path="..\FNTS_Comuns\AboutTalos.pas"/>
     <File Path="..\FNTS_Comuns\AboutTalos.dfm"/>

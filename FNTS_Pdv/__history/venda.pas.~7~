@@ -3897,8 +3897,8 @@ begin
                ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
                ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
                ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
-
-               //GerarNFCe(vAux);        <---- essa instrução fazia gerar 2 xml's e imprimir em duas vias
+               
+               GerarNFCe(vAux);
                ACBRNFCe.NotasFiscais.Assinar;
                ACBRNFCe.NotasFiscais.Validar;
                enviadoemcontingencia := True;
@@ -3916,8 +3916,7 @@ begin
               ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.tpEmis := teOffLine;
                ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.dhCont := Now;
                ACBrNFCe.NotasFiscais.Items[0].NFe.Ide.xJust  := 'Nota fiscal emitida em contingência';
-
-               //GerarNFCe(vAux);     <---- essa instrução fazia gerar 2 xml's e imprimir em duas vias
+               GerarNFCe(vAux);
                ACBRNFCe.NotasFiscais.Assinar;
                ACBRNFCe.NotasFiscais.Validar;
                enviadoemcontingencia := True;

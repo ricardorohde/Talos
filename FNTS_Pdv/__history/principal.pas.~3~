@@ -338,7 +338,7 @@ uses
   modulo, funcoes, venda, senha, msg_Operador, Orcamento, produto_consulta,
   Orcamento_Abrir, Math, caixa_abertura, notafiscal_menu, config_balanca, Config,
   UtiSplash, UFuncoes, sobre, contasreceber, frmNFCEs, senha_supervisor,
-  FechamentoCego, caixa_fechamento, Tipo_Cupom, UnitVersao;
+  FechamentoCego, caixa_fechamento, Tipo_Cupom;
 
 
 {$R *.dfm}
@@ -690,11 +690,6 @@ begin
     bIdentifica_consumidor := true
   else
     bIdentifica_consumidor := false;
-
-  frmversao:= TFrmVersao.Create(Self);
-  Label17.Caption := 'TALOS ' + FrmVersao.GetBuildInfoAsString + ' - Ponto de Vendas';
-  Label1.Caption := 'TALOS ' + FrmVersao.GetBuildInfoAsString;
-
 end;
 
 // -------------------------------------------------------------------------- //

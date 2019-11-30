@@ -2614,7 +2614,7 @@ begin
 
   end;
    frmversao:= TFrmVersao.Create(Self);
-   lbTitulo.Caption:='TALOS - '+frmversao.GetBuildInfoAsString();
+   lbTitulo.Caption:='TALOS '+frmversao.GetBuildInfoAsString();
 end;
 
 procedure TfrmPrincipal.FormResize(Sender: TObject);

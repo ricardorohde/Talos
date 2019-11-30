@@ -120,7 +120,7 @@ var
 implementation
 
 uses venda_pdv, venda_inicio, mensagem, modulo, mensagem_senha, orcamento,
-  preco, senha, loccliente, cliente_info, os_menu, sobre, Unit_ativar, UnitVersao;
+  preco, senha, loccliente, cliente_info, os_menu, sobre, Unit_ativar;
 
 {$R *.dfm}
 
@@ -396,7 +396,6 @@ begin
    r := TIdIPWatch.Create(nil);
    Label1.Caption := r.LocalIP;
    r.free;
-   Label17.Caption := 'TALOS - ' + UnitVersao.FrmVersao.GetBuildInfoAsString;
 end;
 
 procedure Tfrmprincipal.FormResize(Sender: TObject);

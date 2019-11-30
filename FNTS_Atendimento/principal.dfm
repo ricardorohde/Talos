@@ -2350,7 +2350,7 @@ object frmprincipal: Tfrmprincipal
       ParentBackground = False
       ParentFont = False
       TabOrder = 6
-      Version = '6.1.0.3'
+      Version = '6.1.0.0'
     end
     object Panel4: TPanel
       Left = 265
@@ -2457,7 +2457,7 @@ object frmprincipal: Tfrmprincipal
           DA2F51BC9B974E87E538931C3EF38D4DC487FF0010D528CCBE4DEFF700000000
           49454E44AE426082}
         TabOrder = 0
-        Version = '2.1.1.1'
+        Version = '2.1.0.1'
         OnClick = isairClick
         TMSStyle = 0
       end
@@ -2565,7 +2565,7 @@ object frmprincipal: Tfrmprincipal
         4F7D819FD720E7718F8F7513B85F8EFBFEFF56F99F000300809067C4CDF3F88A
         0000000049454E44AE426082}
       TabOrder = 1
-      Version = '2.1.1.1'
+      Version = '2.1.0.1'
       OnClick = ivendaClick
       TMSStyle = 0
     end
@@ -2652,7 +2652,7 @@ object frmprincipal: Tfrmprincipal
         8F9ED645F02B062008C9E199D959C8923CEC5970D74DF0256DA6BD74ED7FFF80
         B6B97BCBE17A8CF15F010600C9768E094622DC7F0000000049454E44AE426082}
       TabOrder = 2
-      Version = '2.1.1.1'
+      Version = '2.1.0.1'
       OnClick = iorcamentoClick
       TMSStyle = 0
     end
@@ -2807,7 +2807,7 @@ object frmprincipal: Tfrmprincipal
         1B6E1B59277E6D2DBF76FF7900D11B1CFF52AF0ABC0EE0D7FD55830DAD13FF5F
         D8FE1FE0ADDE7EED01FE0771BF177273045C260000000049454E44AE426082}
       TabOrder = 3
-      Version = '2.1.1.1'
+      Version = '2.1.0.1'
       OnClick = iprecoClick
       TMSStyle = 0
     end
@@ -2936,7 +2936,7 @@ object frmprincipal: Tfrmprincipal
         D0A658609A963E49EF67681934B3F8DC63C7AE7651FF5F010600A1E60B61C8AC
         85F10000000049454E44AE426082}
       TabOrder = 4
-      Version = '2.1.1.1'
+      Version = '2.1.0.1'
       OnClick = bclienteClick
       TMSStyle = 0
     end
@@ -3039,7 +3039,7 @@ object frmprincipal: Tfrmprincipal
         F6C2CFAFB825DB5067A005B03A30FE5948054F6577FC6B41402761B78A43D97C
         A1049EEFFF478001005874F740A7E3C4B80000000049454E44AE426082}
       TabOrder = 5
-      Version = '2.1.1.1'
+      Version = '2.1.0.1'
       OnClick = iOSClick
       TMSStyle = 0
     end
@@ -3073,7 +3073,7 @@ object frmprincipal: Tfrmprincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 10
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     Align = alTop
     TabOrder = 1
     ShowExpander = False
@@ -3085,7 +3085,7 @@ object frmprincipal: Tfrmprincipal
     object Label17: TLabel
       Left = 11
       Top = 13
-      Width = 497
+      Width = 399
       Height = 32
       Caption = 'TALOS 1.0.0.0 - Atendimento'
       Font.Charset = ANSI_CHARSET
@@ -3168,7 +3168,7 @@ object frmprincipal: Tfrmprincipal
         02BDFA9959ED6306174FF9AED7EE64DEC1F283D82F0106008690EEE7FB647FE2
         0000000049454E44AE426082}
       TabOrder = 0
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton1Click
     end
     object AdvMetroButton2: TAdvMetroButton
@@ -3247,7 +3247,7 @@ object frmprincipal: Tfrmprincipal
         6984AC202E42751297CED7DA93E2B3D973F5D8ABD273F799D45D641A5CCEA1E1
         65B5119A54FB20C0004E7B10B44195D3E70000000049454E44AE426082}
       TabOrder = 1
-      Version = '1.1.2.0'
+      Version = '1.1.1.0'
       OnClick = AdvMetroButton2Click
     end
   end
@@ -3285,7 +3285,7 @@ object frmprincipal: Tfrmprincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     TabOrder = 2
     ShowExpander = False
     ExpanderColor = 16445929
@@ -3327,7 +3327,7 @@ object frmprincipal: Tfrmprincipal
     Fill.ShadowColor = clNone
     Fill.ShadowOffset = 0
     Fill.Glow = gmNone
-    Version = '1.1.1.0'
+    Version = '1.1.0.0'
     TabOrder = 3
     ShowExpander = False
     ExpanderColor = 16445929
@@ -3533,7 +3533,7 @@ object frmprincipal: Tfrmprincipal
     Left = 681
     Top = 430
     Bitmap = {
-      494C010164006900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010164006900080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000A0010000010020000000000000A0
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

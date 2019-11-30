@@ -394,9 +394,9 @@ object frmPrincipal: TfrmPrincipal
     object Label17: TLabel
       Left = 64
       Top = 12
-      Width = 416
+      Width = 382
       Height = 32
-      Caption = 'TALOS 1.0.1.106 - Server PDV'
+      Caption = 'TALOS 1.0.0.0 - Server PDV'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27

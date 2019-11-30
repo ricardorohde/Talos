@@ -396,7 +396,7 @@ begin
    r := TIdIPWatch.Create(nil);
    Label1.Caption := r.LocalIP;
    r.free;
-   Label17.Caption := 'TALOS - ' + UnitVersao.FrmVersao.GetBuildInfoAsString;
+   Label17.Caption :=
 end;
 
 procedure Tfrmprincipal.FormResize(Sender: TObject);
