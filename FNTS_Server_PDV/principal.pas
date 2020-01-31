@@ -633,7 +633,20 @@ begin
                   qrServidor.Params.ParamByName('XMLENVIO').AsMemo := qrpdv.FieldByName('XMLENVIO').AsString;
                   qrServidor.Params.ParamByName('XMLCACNELAMENTO').AsMemo := qrpdv.FieldByName('XMLCACNELAMENTO').AsString;
                   qrServidor.Params.ParamByName('cupom').AsString := qrpdv.FieldByName('cupom').AsString;
-                  qrServidor.ExecSQL;
+                  try
+                  qrServidor.ExecSQL;     //Problemas de insert com multiplos caixas e nfce já existente
+                  except
+                  on E: Exception do begin
+                    if E.Message = 'violation of PRIMARY or UNIQUE KEY constraint "PK_NFCE" on table "NFCE"' then begin
+                    Memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - Erro na gravação da NFC-e (Violação de Chave Primária na tabela NFCE)' );
+                    Memo1.Lines.Add('Entrada de NFCE duplicada no servidor, o sistema irá considerar com já exportado.');
+                    Memo1.Lines.Add('');
+                    end;
+
+                  end
+
+                  end;
+
                 end;
                 qrPDV_Tabela.close;
                 qrPDV_Tabela.SQL.clear;
