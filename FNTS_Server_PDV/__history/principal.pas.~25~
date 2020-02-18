@@ -9,7 +9,7 @@ uses
   inifiles, DB, MemDS, DBAccess, Menus, pngimage, XPMan, sSkinManager, acPNG,
   PageView, AdvGlowButton, AdvMetroButton, AdvSmoothPanel,
   AdvSmoothExpanderPanel, UniProvider, InterBaseUniProvider, Uni, System.ImageList,
-  JPEG, Consts, TlHelp32;
+  JPEG, Consts, TlHelp32, DASQLMonitor, UniSQLMonitor;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -115,6 +115,7 @@ type
     qrItemSubVALOR_TOTAL: TFloatField;
     qrItemSubCST: TStringField;
     NxCheckBoxColumn3: TNxCheckBoxColumn;
+    UniSQLMonitor1: TUniSQLMonitor;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -633,7 +634,20 @@ begin
                   qrServidor.Params.ParamByName('XMLENVIO').AsMemo := qrpdv.FieldByName('XMLENVIO').AsString;
                   qrServidor.Params.ParamByName('XMLCACNELAMENTO').AsMemo := qrpdv.FieldByName('XMLCACNELAMENTO').AsString;
                   qrServidor.Params.ParamByName('cupom').AsString := qrpdv.FieldByName('cupom').AsString;
-                  qrServidor.ExecSQL;
+                  try
+                  qrServidor.ExecSQL;     //Problemas de insert com multiplos caixas e nfce já existente
+                  except
+                  on E: Exception do begin
+                    if E.Message = 'violation of PRIMARY or UNIQUE KEY constraint "PK_NFCE" on table "NFCE"' then begin
+                    Memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - Erro na gravação da NFC-e (Violação de Chave Primária na tabela NFCE)' );
+                    Memo1.Lines.Add('Entrada de NFCE duplicada no servidor, o sistema irá considerar com já exportado.');
+                    Memo1.Lines.Add('');
+                    end;
+
+                  end
+
+                  end;
+
                 end;
                 qrPDV_Tabela.close;
                 qrPDV_Tabela.SQL.clear;
@@ -1845,7 +1859,10 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
                               qrpdv.ExecSQL;
                             except
+                              on E: EXCEPTION do begin
                               memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.Lines.Add('Erro: ' + E.Message);
+
                               qrPDV.close;
                               qrPDV.sql.clear;
                               qrpdv.sql.Add('select codigo from estoque');
@@ -1853,6 +1870,8 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               qrpdv.open;
                               if qrPDV.RecordCount = 0 then
                                 bflag := false;
+                              end;
+
                             end;
                           end;
                         end;
@@ -3522,6 +3541,7 @@ begin
                   qrpdv.sql.add('combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml,');
                   qrpdv.sql.add('pizza');
+                  qrpdv.sql.add('USA_GRADE');
 
 
                   qrpdv.sql.add(') values (');
@@ -3555,6 +3575,8 @@ begin
                   qrpdv.sql.add(':combo,');
                   qrpdv.sql.add(':informa_codigo_barra_xml,');
                   qrpdv.sql.add(':pizza');
+                  qrpdv.sql.add(':usa_grade');
+
 
                   qrpdv.sql.add(')');
 
@@ -3617,6 +3639,9 @@ begin
                   qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
                   qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
                   qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 1;
+
+                  qrPDV.Debug := true;
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin

@@ -46,7 +46,6 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 0
       Visible = False
-      OnClick = pnlAvisoClick
     end
   end
   object pnTitulo: TPanel
@@ -200,8 +199,6 @@ object frmPrincipal: TfrmPrincipal
         Options = [goGrid, goHeader, goSelectFullRow]
         TabOrder = 2
         TabStop = True
-        ExplicitLeft = -24
-        ExplicitTop = 70
         object NxNumberColumn2: TNxNumberColumn
           DefaultValue = '0'
           DefaultWidth = 38
@@ -1635,7 +1632,6 @@ object frmPrincipal: TfrmPrincipal
       '  sub.qtde,'
       '  pro.ALIQUOTA,'
       '  pro.UNIDADE,'
-      '  pro.USA_GRADE,'
       '  ite.item,'
       '  ite.csosn,'
       '  ite.classificacao_fiscal,'
@@ -1738,168 +1734,11 @@ object frmPrincipal: TfrmPrincipal
       Required = True
       Size = 3
     end
-    object qrItemSubUSA_GRADE: TIntegerField
-      FieldName = 'USA_GRADE'
-      ReadOnly = True
-    end
   end
   object UniSQLMonitor1: TUniSQLMonitor
     Options = [moDialog, moSQLMonitor, moDBMonitor, moCustom, moHandled]
     DBMonitorOptions.Host = '127.0.0.1'
     Left = 496
     Top = 352
-  end
-  object qrItem: TUniQuery
-    Connection = conexao_pdv
-    SQL.Strings = (
-      'select * from estoque')
-    Left = 157
-    Top = 435
-    object qrItemCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Required = True
-    end
-    object qrItemCOD_BARRA: TStringField
-      FieldName = 'COD_BARRA'
-      Size = 15
-    end
-    object qrItemNOME: TStringField
-      FieldName = 'NOME'
-      Required = True
-      Size = 80
-    end
-    object qrItemUNIDADE: TStringField
-      FieldName = 'UNIDADE'
-      Size = 5
-    end
-    object qrItemPRECO_VENDA: TFloatField
-      FieldName = 'PRECO_VENDA'
-    end
-    object qrItemPRECO_PROMOCAO: TFloatField
-      FieldName = 'PRECO_PROMOCAO'
-    end
-    object qrItemINICIO_PROMOCAO: TDateField
-      FieldName = 'INICIO_PROMOCAO'
-    end
-    object qrItemFINAL_PROMOCAO: TDateField
-      FieldName = 'FINAL_PROMOCAO'
-    end
-    object qrItemCST: TStringField
-      FieldName = 'CST'
-      Size = 3
-    end
-    object qrItemALIQUOTA: TFloatField
-      FieldName = 'ALIQUOTA'
-    end
-    object qrItemDESCONTO_MAXIMO: TFloatField
-      FieldName = 'DESCONTO_MAXIMO'
-    end
-    object qrItemST: TStringField
-      FieldName = 'ST'
-      Size = 1
-    end
-    object qrItemESTOQUE: TFloatField
-      FieldName = 'ESTOQUE'
-    end
-    object qrItemIAT: TStringField
-      FieldName = 'IAT'
-      Required = True
-      Size = 1
-    end
-    object qrItemIPPT: TStringField
-      FieldName = 'IPPT'
-      Required = True
-      Size = 1
-    end
-    object qrItemSITUACAO: TIntegerField
-      FieldName = 'SITUACAO'
-      Required = True
-    end
-    object qrItemREFERENCIA: TStringField
-      FieldName = 'REFERENCIA'
-    end
-    object qrItemTAMANHO: TStringField
-      FieldName = 'TAMANHO'
-      FixedChar = True
-      Size = 5
-    end
-    object qrItemCOR: TStringField
-      FieldName = 'COR'
-      FixedChar = True
-      Size = 5
-    end
-    object qrItemDESCRICAO_COR: TStringField
-      FieldName = 'DESCRICAO_COR'
-      Size = 50
-    end
-    object qrItemDESCRICAO_MARCA: TStringField
-      FieldName = 'DESCRICAO_MARCA'
-      Size = 50
-    end
-    object qrItemNCM: TStringField
-      FieldName = 'NCM'
-      Size = 25
-    end
-    object qrItemPRECO_VENDA2: TFloatField
-      FieldName = 'PRECO_VENDA2'
-    end
-    object qrItemPRECO_VENDA3: TFloatField
-      FieldName = 'PRECO_VENDA3'
-    end
-    object qrItemPRECO_VENDA4: TFloatField
-      FieldName = 'PRECO_VENDA4'
-    end
-    object qrItemALIQNACIONAL: TFloatField
-      FieldName = 'ALIQNACIONAL'
-    end
-    object qrItemCFOP: TStringField
-      FieldName = 'CFOP'
-      Size = 4
-    end
-    object qrItemFOTOBD: TBlobField
-      FieldName = 'FOTOBD'
-    end
-    object qrItemACRECIMO_MAXIMO: TFloatField
-      FieldName = 'ACRECIMO_MAXIMO'
-    end
-    object qrItemCSOSN: TStringField
-      FieldName = 'CSOSN'
-      Size = 3
-    end
-    object qrItemGRUPO: TStringField
-      FieldName = 'GRUPO'
-      Size = 6
-    end
-    object qrItemUSA_BALANCA: TIntegerField
-      FieldName = 'USA_BALANCA'
-    end
-    object qrItemUSA_TB_PC: TStringField
-      FieldName = 'USA_TB_PC'
-      Size = 3
-    end
-    object qrItemCODIGO_ANP: TStringField
-      FieldName = 'CODIGO_ANP'
-      Size = 10
-    end
-    object qrItemCOMBO: TStringField
-      FieldName = 'COMBO'
-      Size = 1
-    end
-    object qrItemINFORMA_CODIGO_BARRA_XML: TStringField
-      FieldName = 'INFORMA_CODIGO_BARRA_XML'
-      Size = 1
-    end
-    object qrItemPIZZA: TStringField
-      FieldName = 'PIZZA'
-      Size = 1
-    end
-    object qrItemUSA_GRADE: TIntegerField
-      FieldName = 'USA_GRADE'
-    end
-  end
-  object qrServidor_Grade: TUniQuery
-    Connection = conexao_servidor
-    Left = 77
-    Top = 443
   end
 end

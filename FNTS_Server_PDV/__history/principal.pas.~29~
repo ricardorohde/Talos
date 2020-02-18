@@ -9,7 +9,7 @@ uses
   inifiles, DB, MemDS, DBAccess, Menus, pngimage, XPMan, sSkinManager, acPNG,
   PageView, AdvGlowButton, AdvMetroButton, AdvSmoothPanel,
   AdvSmoothExpanderPanel, UniProvider, InterBaseUniProvider, Uni, System.ImageList,
-  JPEG, Consts, TlHelp32;
+  JPEG, Consts, TlHelp32, DASQLMonitor, UniSQLMonitor;
 
 const
   OffsetMemoryStream: Int64 = 0;
@@ -115,6 +115,7 @@ type
     qrItemSubVALOR_TOTAL: TFloatField;
     qrItemSubCST: TStringField;
     NxCheckBoxColumn3: TNxCheckBoxColumn;
+    UniSQLMonitor1: TUniSQLMonitor;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -633,7 +634,20 @@ begin
                   qrServidor.Params.ParamByName('XMLENVIO').AsMemo := qrpdv.FieldByName('XMLENVIO').AsString;
                   qrServidor.Params.ParamByName('XMLCACNELAMENTO').AsMemo := qrpdv.FieldByName('XMLCACNELAMENTO').AsString;
                   qrServidor.Params.ParamByName('cupom').AsString := qrpdv.FieldByName('cupom').AsString;
-                  qrServidor.ExecSQL;
+                  try
+                  qrServidor.ExecSQL;     //Problemas de insert com multiplos caixas e nfce já existente
+                  except
+                  on E: Exception do begin
+                    if E.Message = 'violation of PRIMARY or UNIQUE KEY constraint "PK_NFCE" on table "NFCE"' then begin
+                    Memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - Erro na gravação da NFC-e (Violação de Chave Primária na tabela NFCE)' );
+                    Memo1.Lines.Add('Entrada de NFCE duplicada no servidor, o sistema irá considerar com já exportado.');
+                    Memo1.Lines.Add('');
+                    end;
+
+                  end
+
+                  end;
+
                 end;
                 qrPDV_Tabela.close;
                 qrPDV_Tabela.SQL.clear;
@@ -1845,7 +1859,10 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
                               qrpdv.ExecSQL;
                             except
+                              on E: EXCEPTION do begin
                               memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.Lines.Add('Erro: ' + E.Message);
+
                               qrPDV.close;
                               qrPDV.sql.clear;
                               qrpdv.sql.Add('select codigo from estoque');
@@ -1853,6 +1870,8 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               qrpdv.open;
                               if qrPDV.RecordCount = 0 then
                                 bflag := false;
+                              end;
+
                             end;
                           end;
                         end;
@@ -1894,455 +1913,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
 
                 //UPDATE PARA INCLUSAO DA GRADE
 
-                 case qrservidor.fieldbyname('movimento').asinteger of
-                    1: {inclusao}
-                      begin
-                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - PRODUTO GRADE - ' + qrservidor.fieldbyname('codregistro').asstring);
-
-                        qrServidor_Tabela.Close;
-                        qrServidor_Tabela.sql.clear;
-                        qrServidor_Tabela.sql.add('select c000025.*, c000100.Estoque_atual, c000021.*');
-                        qrServidor_Tabela.sql.add('from c000025, c000100');
-                        qrServidor_Tabela.sql.add('where c000025.codigo = c000100.codproduto');
-                        qrServidor_Tabela.sql.add('where c00002.codigo = c000100.codproduto');
-                        qrservidor_tabela.sql.add('and c000025.codigo = ''' + qrservidor.fieldbyname('codregistro').asstring + '''');
-                        qrservidor_tabela.open;
-
-                        if qrservidor_tabela.RecordCount > 0 then begin
-                          try
-                            qrpdv.close;
-                            qrpdv.sql.clear;
-                            qrpdv.sql.add('insert into ESTOQUE (');
-                            qrpdv.sql.add('CODIGO,');
-                            qrpdv.sql.add('COD_BARRA,');
-                            qrpdv.sql.add('NOME,');
-                            qrpdv.sql.add('UNIDADE,');
-                            qrpdv.sql.add('PRECO_VENDA,');
-                            qrpdv.sql.add('PRECO_PROMOCAO,');
-                            qrpdv.sql.add('INICIO_PROMOCAO,');
-                            qrpdv.sql.add('FINAL_PROMOCAO,');
-                            qrpdv.sql.add('CST,');
-                            qrpdv.sql.add('ALIQUOTA,');
-                            qrpdv.sql.add('DESCONTO_MAXIMO,');
-                            qrpdv.sql.add('ACRECIMO_MAXIMO,');
-                            qrpdv.sql.add('ST,');
-                            qrpdv.sql.add('ESTOQUE,');
-                            qrpdv.sql.add('IAT,');
-                            qrpdv.sql.add('IPPT,');
-                            qrpdv.sql.add('SITUACAO,');
-                            qrpdv.sql.add('CFOP,');
-                            qrpdv.sql.add('NCM,');
-                            qrpdv.sql.add('ALIQNACIONAL,');
-                            qrpdv.sql.add('fotobd,');
-                            qrpdv.sql.add('csosn,');
-                            qrpdv.sql.add('grupo,');
-                            qrpdv.sql.add('usa_balanca,');
-                            qrpdv.sql.add('usa_tb_pc,');
-                            qrpdv.sql.add('CODIGO_ANP,');
-                            qrpdv.sql.add('combo,');
-                            qrpdv.sql.add('informa_codigo_barra_xml,');
-                            qrpdv.sql.add('pizza');
-
-                            qrpdv.sql.add(') values (');
-
-                            qrpdv.sql.add(':CODIGO,');
-                            qrpdv.sql.add(':COD_BARRA,');
-                            qrpdv.sql.add(':NOME,');
-                            qrpdv.sql.add(':UNIDADE,');
-                            qrpdv.sql.add(':PRECO_VENDA,');
-                            qrpdv.sql.add(':PRECO_PROMOCAO,');
-                            qrpdv.sql.add(':INICIO_PROMOCAO,');
-                            qrpdv.sql.add(':FINAL_PROMOCAO,');
-                            qrpdv.sql.add(':CST,');
-                            qrpdv.sql.add(':ALIQUOTA,');
-                            qrpdv.sql.add(':DESCONTO_MAXIMO,');
-                            qrpdv.sql.add(':ACRECIMO_MAXIMO,');
-                            qrpdv.sql.add(':ST,');
-                            qrpdv.sql.add(':ESTOQUE,');
-                            qrpdv.sql.add(':IAT,');
-                            qrpdv.sql.add(':IPPT,');
-                            qrpdv.sql.add(':SITUACAO,');
-                            qrpdv.sql.add(':CFOP,');
-                            qrpdv.sql.add(':NCM,');
-                            qrpdv.sql.add(':ALIQNACIONAL,');
-                            qrpdv.sql.add(':fotobd,');
-                            qrpdv.sql.add(':csosn,');
-                            qrpdv.sql.add(':grupo,');
-                            qrpdv.sql.add(':usa_balanca,');
-                            qrpdv.sql.add(':usa_tb_pc,');
-                            qrpdv.sql.add(':CODIGO_ANP,');
-                            qrpdv.sql.add(':combo,');
-                            qrpdv.sql.add(':informa_codigo_barra_xml,');
-                            qrpdv.sql.add(':pizza');
-
-
-                            qrpdv.sql.add(')');
-
-                            qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('codigo').asstring;
-                            qrpdv.parambyname('COD_BARRA').asstring := copy(qrservidor_tabela.fieldbyname('codbarra').asstring, 1, 15);
-                            qrpdv.parambyname('NOME').asstring := copy(qrservidor_tabela.fieldbyname('produto').asstring, 1, 80);
-                            qrpdv.parambyname('UNIDADE').AsString := qrservidor_tabela.fieldbyname('unidade').asstring;
-                            qrpdv.parambyname('PRECO_VENDA').asfloat := Arredondar(qrservidor_tabela.fieldbyname('precovenda').asfloat, 2);
-                            qrpdv.parambyname('PRECO_PROMOCAO').asfloat := Arredondar(qrservidor_tabela.fieldbyname('preco_promocao').asfloat, 2);
-                            qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
-                            qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                            qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
-                            qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
-                            qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := qrConfServerDESCONTO_PRODUTO.AsFloat;
-                            qrpdv.parambyname('ACRECIMO_MAXIMO').asfloat := qrConfServerACRESCIMO_PRODUTO.AsFloat;
-                            qrpdv.parambyname('SITUACAO').AsInteger := 0;
-                            qrpdv.parambyname('CFOP').AsString := qrservidor_tabela.fieldbyname('IND_CFOP_NFCE').asstring;
-                            ;
-                            qrpdv.parambyname('csosn').AsString := qrservidor_tabela.fieldbyname('csosn').asstring;
-                            qrpdv.parambyname('grupo').AsString := qrservidor_tabela.fieldbyname('codgrupo').asstring;
-                            if qrservidor_tabela.fieldbyname('PESAGEM_AUOTMATICA').AsString = 'S' then
-                              qrpdv.parambyname('usa_balanca').AsInteger := 1
-                            else
-                              qrpdv.parambyname('usa_balanca').AsInteger := 2;
-                            qrpdv.parambyname('usa_tb_pc').AsString := qrservidor_tabela.fieldbyname('usa_tb_pc').asstring;
-
-                            scst := qrservidor_tabela.fieldbyname('cst').asstring;
-
-                            if (scst = '060') or (scst = '010') or (scst = '070') then
-                              qrpdv.Params.ParamByName('st').asSTRING := 'F'
-                            else if (scst = '040') or (scst = '030') then
-                              qrpdv.Params.ParamByName('st').asSTRING := 'I'
-                            else if (scst = '041') or (scst = '050') or (scst = '051') or (scst = '090') then
-                              qrpdv.Params.ParamByName('st').asSTRING := 'N'
-                            else
-                              qrpdv.ParamByName('st').asSTRING := 'T';
-
-                            qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
-                            qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
-                            qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
-                            qrpdv.parambyname('NCM').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
-                            if not qrservidor_tabela.fieldbyname('fotobd').IsNull then begin
-                              MemoryStream := TMemoryStream.Create;
-                              Jpg := TJpegImage.Create;
-                              (qrservidor_tabela.fieldbyname('fotobd') as tblobfield).SaveToStream(MemoryStream);
-                              MemoryStream.Position := OffsetMemoryStream;
-                              qrpdv.parambyname('fotobd').LoadFromStream(MemoryStream, ftGraphic);
-                              freeandnil(MemoryStream);
-                            end
-                            else
-                              qrpdv.parambyname('fotobd').Clear;
-                            qrIBPT.Close;
-                            qrIBPT.ParamByName('NCM').Value := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
-                            qrIBPT.Open;
-                            if not qrIBPT.IsEmpty then
-                              qrpdv.parambyname('ALIQNACIONAL').AsFloat := qrIBPTALIQNAC.AsFloat
-                            else
-                              qrpdv.parambyname('ALIQNACIONAL').AsFloat := 0;
-                            qrpdv.parambyname('CODIGO_ANP').AsString := qrservidor_tabela.fieldbyname('CODIGO_ANP').AsString;
-                            qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
-                            qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
-                            qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
-                            qrpdv.ExecSQL;
-                          except
-                            on E: Exception do begin
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-
-                              qrPDV.close;
-                              qrPDV.sql.clear;
-                              qrpdv.sql.Add('select codigo from estoque');
-                              qrPDV.sql.Add('where codigo = ' + inttostr(StrToInt(qrservidor.fieldbyname('codregistro').asstring)));
-                              qrpdv.open;
-                              if qrPDV.RecordCount = 0 then
-                                bflag := false;
-                            end;
-                          end;
-                        end;
-
-                      end;
-                    2: {alteracao}
-                      begin
-                        qrServidor_Tabela.Close;
-                        qrServidor_Tabela.sql.clear;
-                        qrServidor_Tabela.sql.add('select c000025.*, c000100.Estoque_atual');
-                        qrServidor_Tabela.sql.add('from c000025, c000100');
-                        qrServidor_Tabela.sql.add('where c000025.codigo = c000100.codproduto');
-                        qrservidor_tabela.sql.add('and c000025.codigo = ''' + qrservidor.fieldbyname('codregistro').asstring + '''');
-                        qrservidor_tabela.open;
-
-                        if qrservidor_tabela.RecordCount > 0 then begin
-                          qrpdv_tabela.close;
-                          qrpdv_tabela.sql.clear;
-                          qrpdv_tabela.sql.add('select * from ESTOQUE where codigo = ' + inttostr(strtoint(qrservidor_tabela.fieldbyname('codigo').asstring)));
-                          qrpdv_tabela.Open;
-
-                          if qrpdv_tabela.RecordCount > 0 then begin
-                            // achou o registro e processar com a atualizacao
-                            memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                            try
-                              qrpdv.close;
-                              qrpdv.sql.clear;
-                              qrpdv.sql.add('update ESTOQUE set');
-                              qrpdv.sql.add('COD_BARRA = :COD_BARRA,');
-                              qrpdv.sql.add('NOME = :NOME,');
-                              qrpdv.sql.add('UNIDADE = :UNIDADE,');
-                              qrpdv.sql.add('PRECO_VENDA = :PRECO_VENDA,');
-                              qrpdv.sql.add('PRECO_PROMOCAO = :PRECO_PROMOCAO,');
-                              qrpdv.sql.add('INICIO_PROMOCAO = :INICIO_PROMOCAO,');
-                              qrpdv.sql.add('FINAL_PROMOCAO = :FINAL_PROMOCAO,');
-                              qrpdv.sql.add('CST = :CST,');
-                              qrpdv.sql.add('ALIQUOTA = :ALIQUOTA,');
-                              qrpdv.sql.add('DESCONTO_MAXIMO = :DESCONTO_MAXIMO,');
-                              qrpdv.sql.add('ACRECIMO_MAXIMO = :ACRECIMO_MAXIMO,');
-                              qrpdv.sql.add('ST = :ST,');
-                              qrpdv.sql.add('ESTOQUE = :ESTOQUE,');
-                              qrpdv.sql.add('IAT = :IAT,');
-                              qrpdv.sql.add('IPPT = :IPPT,');
-                              qrpdv.sql.add('SITUACAO = :SITUACAO,');
-                              qrpdv.sql.add('CFOP = :CFOP,');
-                              qrpdv.sql.add('NCM = :NCM,');
-                              qrpdv.sql.add('ALIQNACIONAL = :ALIQNACIONAL,');
-                              qrpdv.sql.add('fotobd = :fotobd,');
-                              qrpdv.sql.add('csosn = :csosn,');
-                              qrpdv.sql.add('grupo = :grupo,');
-                              qrpdv.sql.add('usa_balanca = :usa_balanca,');
-                              qrpdv.sql.add('usa_tb_pc = :usa_tb_pc,');
-                              qrpdv.sql.add('CODIGO_ANP = :CODIGO_ANP,');
-                              qrpdv.sql.add('combo = :combo,');
-                              qrpdv.sql.add('informa_codigo_barra_xml = :informa_codigo_barra_xml,');
-                              qrpdv.sql.add('pizza = :pizza');
-
-
-                              qrpdv.sql.add('where codigo = :codigo');
-
-                              qrpdv.parambyname('CODIGO').asinteger := strtoint(qrservidor_tabela.fieldbyname('codigo').asstring);
-                              qrpdv.parambyname('COD_BARRA').asstring := copy(qrservidor_tabela.fieldbyname('codbarra').asstring, 1, 15);
-                              qrpdv.parambyname('NOME').asstring := copy(qrservidor_tabela.fieldbyname('produto').asstring, 1, 80);
-                              qrpdv.parambyname('UNIDADE').AsString := qrservidor_tabela.fieldbyname('unidade').asstring;
-                              qrpdv.parambyname('PRECO_VENDA').asfloat := Arredondar(qrservidor_tabela.fieldbyname('precovenda').asfloat, 2);
-                              qrpdv.parambyname('PRECO_PROMOCAO').asfloat := Arredondar(qrservidor_tabela.fieldbyname('preco_promocao').asfloat, 2);
-                              qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
-                              qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                              qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
-                              qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
-                              qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := qrConfServerDESCONTO_PRODUTO.AsFloat;
-                              qrpdv.parambyname('ACRECIMO_MAXIMO').asfloat := qrConfServerACRESCIMO_PRODUTO.AsFloat;
-                              qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
-                              qrpdv.parambyname('CFOP').AsString := qrservidor_tabela.fieldbyname('IND_CFOP_NFCE').asstring;
-                              qrpdv.parambyname('csosn').AsString := qrservidor_tabela.fieldbyname('csosn').asstring;
-                              qrpdv.parambyname('grupo').AsString := qrservidor_tabela.fieldbyname('codgrupo').asstring;
-                              if qrservidor_tabela.fieldbyname('PESAGEM_AUOTMATICA').AsString = 'S' then
-                                qrpdv.parambyname('usa_balanca').AsInteger := 1
-                              else
-                                qrpdv.parambyname('usa_balanca').AsInteger := 2;
-                              qrpdv.parambyname('usa_tb_pc').AsString := qrservidor_tabela.fieldbyname('usa_tb_pc').asstring;
-
-                              scst := qrservidor_tabela.fieldbyname('cst').asstring;
-
-                              if (scst = '060') or (scst = '010') or (scst = '070') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'F'
-                              else if (scst = '040') or (scst = '030') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'I'
-                              else if (scst = '041') or (scst = '050') or (scst = '051') or (scst = '090') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'N'
-                              else
-                                qrpdv.ParamByName('st').asSTRING := 'T';
-
-                              qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
-                              qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
-                              qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
-                              qrpdv.parambyname('NCM').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
-                              if not qrservidor_tabela.fieldbyname('fotobd').IsNull then begin
-                                MemoryStream := TMemoryStream.Create;
-                                Jpg := TJpegImage.Create;
-                                (qrservidor_tabela.fieldbyname('fotobd') as tblobfield).SaveToStream(MemoryStream);
-                                MemoryStream.Position := OffsetMemoryStream;
-                                qrpdv.parambyname('fotobd').LoadFromStream(MemoryStream, ftGraphic);
-                                freeandnil(MemoryStream);
-                              end
-                              else
-                                qrpdv.parambyname('fotobd').Clear;
-                              qrIBPT.Close;
-                              qrIBPT.ParamByName('NCM').Value := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
-                              qrIBPT.Open;
-                              if not qrIBPT.IsEmpty then
-                                qrpdv.parambyname('ALIQNACIONAL').AsFloat := qrIBPTALIQNAC.AsFloat
-                              else
-                                qrpdv.parambyname('ALIQNACIONAL').AsFloat := 0;
-                              qrpdv.parambyname('CODIGO_ANP').AsString := qrservidor_tabela.fieldbyname('CODIGO_ANP').AsString;
-                              qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
-                              qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
-                              qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
-                              qrpdv.ExecSQL;
-                            except
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                              bflag := false;
-                            end;
-                          end
-                          else begin
-                            // nao existe este registro no pdv... fazer a inclusao
-                            try
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                              qrpdv.close;
-                              qrpdv.sql.clear;
-                              qrpdv.sql.add('insert into ESTOQUE (');
-                              qrpdv.sql.add('CODIGO,');
-                              qrpdv.sql.add('COD_BARRA,');
-                              qrpdv.sql.add('NOME,');
-                              qrpdv.sql.add('UNIDADE,');
-                              qrpdv.sql.add('PRECO_VENDA,');
-                              qrpdv.sql.add('PRECO_PROMOCAO,');
-                              qrpdv.sql.add('INICIO_PROMOCAO,');
-                              qrpdv.sql.add('FINAL_PROMOCAO,');
-                              qrpdv.sql.add('CST,');
-                              qrpdv.sql.add('ALIQUOTA,');
-                              qrpdv.sql.add('DESCONTO_MAXIMO,');
-                              qrpdv.sql.add('ACRECIMO_MAXIMO,');
-                              qrpdv.sql.add('ST,');
-                              qrpdv.sql.add('ESTOQUE,');
-                              qrpdv.sql.add('IAT,');
-                              qrpdv.sql.add('IPPT,');
-                              qrpdv.sql.add('CFOP,');
-                              qrpdv.sql.add('NCM');
-                              qrpdv.sql.add('SITUACAO,');
-                              qrpdv.sql.add('fotobd,');
-                              qrpdv.sql.add('csosn,');
-                              qrpdv.sql.add('grupo,');
-                              qrpdv.sql.add('usa_balanca,');
-                              qrpdv.sql.add('usa_tb_pc,');
-                              qrpdv.sql.add('CODIGO_ANP,');
-                              qrpdv.sql.add('combo,');
-                              qrpdv.sql.add('informa_codigo_barra_xml,');
-                              qrpdv.sql.add('pizza');
-
-                              qrpdv.sql.add(') values (');
-
-                              qrpdv.sql.add(':CODIGO,');
-                              qrpdv.sql.add(':COD_BARRA,');
-                              qrpdv.sql.add(':NOME,');
-                              qrpdv.sql.add(':UNIDADE,');
-                              qrpdv.sql.add(':PRECO_VENDA,');
-                              qrpdv.sql.add(':PRECO_PROMOCAO,');
-                              qrpdv.sql.add(':INICIO_PROMOCAO,');
-                              qrpdv.sql.add(':FINAL_PROMOCAO,');
-                              qrpdv.sql.add(':CST,');
-                              qrpdv.sql.add(':ALIQUOTA,');
-                              qrpdv.sql.add(':DESCONTO_MAXIMO,');
-                              qrpdv.sql.add(':ACRECIMO_MAXIMO,');
-                              qrpdv.sql.add(':ST,');
-                              qrpdv.sql.add(':ESTOQUE,');
-                              qrpdv.sql.add(':IAT,');
-                              qrpdv.sql.add(':IPPT,');
-                              qrpdv.sql.add(':CFOP,');
-                              qrpdv.sql.add(':NCM');
-                              qrpdv.sql.add(':SITUACAO,');
-                              qrpdv.sql.add(':fotobd,');
-                              qrpdv.sql.add(':csosn,');
-                              qrpdv.sql.add(':grupo,');
-                              qrpdv.sql.add(':usa_balanca,');
-                              qrpdv.sql.add(':usa_tb_pc,');
-                              qrpdv.sql.add(':CODIGO_ANP,');
-                              qrpdv.sql.add(':combo,');
-                              qrpdv.sql.add(':informa_codigo_barra_xml,');
-                              qrpdv.sql.add(':pizza');
-
-                              qrpdv.sql.add(')');
-
-                              qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('codigo').asstring;
-                              qrpdv.parambyname('COD_BARRA').asstring := copy(qrservidor_tabela.fieldbyname('codbarra').asstring, 1, 15);
-                              qrpdv.parambyname('NOME').asstring := copy(qrservidor_tabela.fieldbyname('produto').asstring, 1, 80);
-                              qrpdv.parambyname('UNIDADE').AsString := qrservidor_tabela.fieldbyname('unidade').asstring;
-                              qrpdv.parambyname('PRECO_VENDA').asfloat := Arredondar(qrservidor_tabela.fieldbyname('precovenda').asfloat, 2);
-                              qrpdv.parambyname('PRECO_PROMOCAO').asfloat := Arredondar(qrservidor_tabela.fieldbyname('preco_promocao').asfloat, 2);
-                              qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
-                              qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                              qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
-                              qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
-                              qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := qrConfServerDESCONTO_PRODUTO.AsFloat;
-                              qrpdv.parambyname('ACRECIMO_MAXIMO').asfloat := qrConfServerACRESCIMO_PRODUTO.AsFloat;
-                              qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
-                              qrpdv.parambyname('CFOP').AsString := qrservidor_tabela.fieldbyname('IND_CFOP_NFCE').asstring;
-                              qrpdv.parambyname('NCM').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
-                              qrpdv.parambyname('csosn').asstring := qrservidor_tabela.fieldbyname('csosn').AsString;
-                              qrpdv.parambyname('grupo').asstring := qrservidor_tabela.fieldbyname('codgrupo').AsString;
-                              if qrservidor_tabela.fieldbyname('PESAGEM_AUOTMATICA').AsString = 'S' then
-                                qrpdv.parambyname('usa_balanca').AsInteger := 1
-                              else
-                                qrpdv.parambyname('usa_balanca').AsInteger := 2;
-                              qrpdv.parambyname('usa_tb_pc').asstring := qrservidor_tabela.fieldbyname('usa_tb_pc').AsString;
-
-                              if not qrservidor_tabela.fieldbyname('fotobd').IsNull then begin
-                                MemoryStream := TMemoryStream.Create;
-                                Jpg := TJpegImage.Create;
-                                (qrservidor_tabela.fieldbyname('fotobd') as tblobfield).SaveToStream(MemoryStream);
-                                MemoryStream.Position := OffsetMemoryStream;
-                                qrpdv.parambyname('fotobd').LoadFromStream(MemoryStream, ftGraphic);
-                                freeandnil(MemoryStream);
-                              end
-                              else
-                                qrpdv.parambyname('fotobd').Clear;
-
-                              scst := qrservidor_tabela.fieldbyname('cst').asstring;
-
-                              if (scst = '060') or (scst = '010') or (scst = '070') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'F'
-                              else if (scst = '040') or (scst = '030') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'I'
-                              else if (scst = '041') or (scst = '050') or (scst = '051') or (scst = '090') then
-                                qrpdv.Params.ParamByName('st').asSTRING := 'N'
-                              else
-                                qrpdv.ParamByName('st').asSTRING := 'T';
-
-                              qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
-                              qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
-                              qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
-                              qrpdv.parambyname('CODIGO_ANP').AsString := qrservidor_tabela.fieldbyname('CODIGO_ANP').AsString;
-                              qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
-                              qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
-                              qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
-                              qrpdv.ExecSQL;
-                            except
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                              qrPDV.close;
-                              qrPDV.sql.clear;
-                              qrpdv.sql.Add('select codigo from estoque');
-                              qrPDV.sql.Add('where codigo = ' + inttostr(StrToInt(qrservidor.fieldbyname('codregistro').asstring)));
-                              qrpdv.open;
-                              if qrPDV.RecordCount = 0 then
-                                bflag := false;
-                            end;
-                          end;
-                        end;
-                      end;
-                    3: {exclusao}
-                      begin
-                        try
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - EXC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                          qrpdv.close;
-                          qrpdv.sql.clear;
-                          qrpdv.sql.add('delete from estoque where codigo = :codigo');
-                          qrpdv.parambyname('CODIGO').asinteger := strtoint(qrservidor.fieldbyname('codregistro').asstring);
-                          qrpdv.ExecSQL;
-                        except
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - EXC - PRODUTO - ' + qrservidor.fieldbyname('codregistro').asstring);
-                          bflag := FALSE;
-                        end;
-                      end;
-                  end;
-
-                  if bflag then begin
-                    try
-
-                      // atualizar a flag no servidor
-                      qrservidor_tabela.close;
-                      qrservidor_tabela.sql.clear;
-                      qrservidor_tabela.sql.add('update c000058 set');
-                      qrservidor_tabela.sql.add('C' + Zerar(grid.cell[0, I].asstring, 2) + ' = 1');
-                      qrservidor_tabela.sql.add('where codigo = ' + qrServidor.fieldbyname('codigo').asstring);
-                      qrservidor_tabela.ExecSQL;
-                      memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ATUALIZOU PRODUTO - ' + qrServidor.fieldbyname('codREGISTRO').asstring);
-                    except
-                      on E: EXCEPTION do
-                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ERRO: ' + E.MESSAGE);
-                    end;
-                  end;
-                  qrservidor.Next
-                end;
-
+                
                 //FIM DA INCLUSAO DA GRADE
 
 
@@ -3701,7 +3272,8 @@ begin
                   qrpdv.sql.add('CODIGO_ANP,');
                   qrpdv.sql.add('combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza');
+                  qrpdv.sql.add('pizza,');
+                  qrpdv.sql.add('USA_GRADE');
 
 
                   qrpdv.sql.add(') values (');
@@ -3735,6 +3307,7 @@ begin
                   qrpdv.sql.add(':combo,');
                   qrpdv.sql.add(':informa_codigo_barra_xml,');
                   qrpdv.sql.add(':pizza');
+                  qrpdv.sql.add(':usa_grade');
 
                   qrpdv.sql.add(')');
 
@@ -3838,7 +3411,8 @@ begin
                   qrpdv.sql.add('CODIGO_ANP = :CODIGO_ANP,');
                   qrpdv.sql.add('combo = :combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml = :informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza = :pizza');
+                  qrpdv.sql.add('pizza = :pizza,');
+                  qrpdv.sql.add('usa_grade = :usa_grade');
 
                   qrpdv.sql.add('where codigo = :codigo');
 
@@ -3900,6 +3474,7 @@ begin
                   qrpdv.parambyname('combo').asstring := qrservidor_tabela.fieldbyname('combo').AsString;
                   qrpdv.parambyname('informa_codigo_barra_xml').asstring := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
                   qrpdv.parambyname('pizza').asstring := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 0;
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
@@ -3910,6 +3485,287 @@ begin
               end;
               qrServidor_Tabela.Next;
             end;
+
+
+          // -------------- UPDATE PARA INCLUSÃO DA GRADE -----------------
+
+
+            qrServidor_Tabela.Close;
+            qrServidor_Tabela.sql.clear;
+            qrServidor_Tabela.sql.add('select c000025.*, c000100.Estoque_atual, c000021.codigo codigograde, c000021.codproduto codproduto, c000021.codbarra codbarragrade, c000021.numeracao numeracao');
+            qrServidor_Tabela.sql.add('from c000025, c000100, c000021');
+            qrServidor_Tabela.sql.add('where c000025.codigo = c000100.codproduto');
+            qrServidor_Tabela.sql.add('and c000025.codigo = c000021.codproduto');
+            qrServidor_Tabela.sql.add('and c000025.tipo = ' + QuotedStr('00 - Mercadoria para Revenda'));
+            qrServidor_Tabela.SQL.Add('order by c000025.codigo');
+            qrservidor_tabela.open;
+            qrServidor_Tabela.First;
+
+
+            while not qrservidor_tabela.eof do begin
+              Application.ProcessMessages;
+
+              qrPDV.close;
+              qrPDV.sql.clear;
+              qrpdv.sql.Add('select codigo from estoque');
+              qrPDV.SQL.Add('where codigo = ' + inttostr(StrToInt(copy(qrservidor_tabela.fieldbyname('codproduto').asstring,3,6) + copy(qrservidor_tabela.fieldbyname('codigograde').asstring,3,6))));
+              qrPDV.open;
+              if qrPDV.RecordCount = 0 then begin
+                try
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - PRODUTO DE GRADE - ' + copy(qrservidor_tabela.fieldbyname('codproduto').asstring,3,6) + copy(qrservidor_tabela.fieldbyname('codigograde').asstring,3,6));
+                  qrpdv.close;
+                  qrpdv.sql.clear;
+                  qrpdv.sql.add('insert into ESTOQUE (');
+                  qrpdv.sql.add('CODIGO,');
+                  qrpdv.sql.add('COD_BARRA,');
+                  qrpdv.sql.add('NOME,');
+                  qrpdv.sql.add('UNIDADE,');
+                  qrpdv.sql.add('PRECO_VENDA,');
+                  qrpdv.sql.add('PRECO_PROMOCAO,');
+                  qrpdv.sql.add('INICIO_PROMOCAO,');
+                  qrpdv.sql.add('FINAL_PROMOCAO,');
+                  qrpdv.sql.add('CST,');
+                  qrpdv.sql.add('ALIQUOTA,');
+                  qrpdv.sql.add('DESCONTO_MAXIMO,');
+                  qrpdv.sql.add('ACRECIMO_MAXIMO,');
+                  qrpdv.sql.add('ST,');
+                  qrpdv.sql.add('ESTOQUE,');
+                  qrpdv.sql.add('IAT,');
+                  qrpdv.sql.add('IPPT,');
+                  qrpdv.sql.add('SITUACAO,');
+                  qrpdv.sql.add('CFOP,');
+                  qrpdv.sql.add('NCM,');
+                  qrpdv.sql.add('ALIQNACIONAL,');
+                  qrpdv.sql.add('fotobd,');
+                  qrpdv.sql.add('csosn,');
+                  qrpdv.sql.add('grupo,');
+                  qrpdv.sql.add('usa_balanca,');
+                  qrpdv.sql.add('usa_tb_pc,');
+                  qrpdv.sql.add('CODIGO_ANP,');
+                  qrpdv.sql.add('combo,');
+                  qrpdv.sql.add('informa_codigo_barra_xml,');
+                  qrpdv.sql.add('pizza,');
+                  qrpdv.sql.add('USA_GRADE');
+
+
+                  qrpdv.sql.add(') values (');
+
+                  qrpdv.sql.add(':CODIGO,');
+                  qrpdv.sql.add(':COD_BARRA,');
+                  qrpdv.sql.add(':NOME,');
+                  qrpdv.sql.add(':UNIDADE,');
+                  qrpdv.sql.add(':PRECO_VENDA,');
+                  qrpdv.sql.add(':PRECO_PROMOCAO,');
+                  qrpdv.sql.add(':INICIO_PROMOCAO,');
+                  qrpdv.sql.add(':FINAL_PROMOCAO,');
+                  qrpdv.sql.add(':CST,');
+                  qrpdv.sql.add(':ALIQUOTA,');
+                  qrpdv.sql.add(':DESCONTO_MAXIMO,');
+                  qrpdv.sql.add(':ACRECIMO_MAXIMO,');
+                  qrpdv.sql.add(':ST,');
+                  qrpdv.sql.add(':ESTOQUE,');
+                  qrpdv.sql.add(':IAT,');
+                  qrpdv.sql.add(':IPPT,');
+                  qrpdv.sql.add(':SITUACAO,');
+                  qrpdv.sql.add(':CFOP,');
+                  qrpdv.sql.add(':NCM,');
+                  qrpdv.sql.add(':ALIQNACIONAL,');
+                  qrpdv.sql.add(':fotobd,');
+                  qrpdv.sql.add(':csosn,');
+                  qrpdv.sql.add(':grupo,');
+                  qrpdv.sql.add(':usa_balanca,');
+                  qrpdv.sql.add(':usa_tb_pc,');
+                  qrpdv.sql.add(':CODIGO_ANP,');
+                  qrpdv.sql.add(':combo,');
+                  qrpdv.sql.add(':informa_codigo_barra_xml,');
+                  qrpdv.sql.add(':pizza,');
+                  qrpdv.sql.add(':usa_grade');
+
+
+                  qrpdv.sql.add(')');
+
+                  qrpdv.parambyname('CODIGO').asstring := copy(qrservidor_tabela.fieldbyname('codproduto').asstring,3,6) + copy(qrservidor_tabela.fieldbyname('codigograde').asstring,3,6) ;
+                  qrpdv.parambyname('COD_BARRA').asstring := copy(qrservidor_tabela.fieldbyname('codbarragrade').asstring, 1, 15);
+                  qrpdv.parambyname('NOME').asstring := copy(qrservidor_tabela.fieldbyname('produto').asstring, 1, 40) + ' - ' + qrservidor_tabela.fieldbyname('numeracao').asstring;
+                  qrpdv.parambyname('UNIDADE').AsString := qrservidor_tabela.fieldbyname('unidade').asstring;
+                  qrpdv.parambyname('PRECO_VENDA').asfloat := Arredondar(qrservidor_tabela.fieldbyname('precovenda').asfloat, 2);
+                  qrpdv.parambyname('PRECO_PROMOCAO').asfloat := Arredondar(qrservidor_tabela.fieldbyname('preco_promocao').asfloat, 2);
+                  qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
+                  qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
+                  qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+                  qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
+                  qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := qrConfServerDESCONTO_PRODUTO.AsFloat;
+                  qrpdv.parambyname('ACRECIMO_MAXIMO').asfloat := qrConfServerACRESCIMO_PRODUTO.AsFloat;
+                  qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+                  qrpdv.parambyname('CFOP').AsString := qrservidor_tabela.fieldbyname('IND_CFOP_NFCE').AsString;
+                  qrpdv.parambyname('csosn').AsString := qrservidor_tabela.fieldbyname('csosn').AsString;
+                  qrpdv.parambyname('grupo').AsString := qrservidor_tabela.fieldbyname('codgrupo').AsString;
+                  if qrservidor_tabela.fieldbyname('PESAGEM_AUOTMATICA').AsString = 'S' then
+                    qrpdv.parambyname('usa_balanca').AsInteger := 1
+                  else
+                    qrpdv.parambyname('usa_balanca').AsInteger := 2;
+                  qrpdv.parambyname('usa_tb_pc').AsString := qrservidor_tabela.fieldbyname('usa_tb_pc').AsString;
+
+                  scst := qrservidor_tabela.fieldbyname('cst').asstring;
+
+                  if (scst = '060') or (scst = '010') or (scst = '070') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                  else if (scst = '040') or (scst = '030') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                  else if (scst = '041') or (scst = '050') or (scst = '051') or (scst = '090') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                  else
+                    qrpdv.ParamByName('st').asSTRING := 'T';
+
+                  qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
+                  qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
+                  qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+                  qrpdv.parambyname('NCM').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
+                  if not qrservidor_tabela.fieldbyname('fotobd').IsNull then begin
+                    MemoryStream := TMemoryStream.Create;
+                    Jpg := TJpegImage.Create;
+                    (qrservidor_tabela.fieldbyname('fotobd') as tblobfield).SaveToStream(MemoryStream);
+                    MemoryStream.Position := OffsetMemoryStream;
+                    qrpdv.parambyname('fotobd').LoadFromStream(MemoryStream, ftGraphic);
+                    freeandnil(MemoryStream);
+                  end
+                  else
+                    qrpdv.parambyname('fotobd').Clear;
+
+                  qrIBPT.Close;
+                  qrIBPT.ParamByName('NCM').Value := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
+                  qrIBPT.Open;
+                  if not qrIBPT.IsEmpty then
+                    qrpdv.parambyname('ALIQNACIONAL').AsFloat := qrIBPTALIQNAC.AsFloat
+                  else
+                    qrpdv.parambyname('ALIQNACIONAL').AsFloat := 0;
+                  qrpdv.parambyname('CODIGO_ANP').AsString := qrservidor_tabela.fieldbyname('CODIGO_ANP').AsString;
+                  qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
+                  qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
+                  qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 1;
+
+                  qrPDV.Debug := true;
+                  qrpdv.ExecSQL;
+                except
+                  on E: Exception do begin
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - PRODUTO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                    Memo1.LINES.Add('Mensagem: ' + E.message);
+                  end;
+                end;
+              end
+              else begin
+                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - PRODUTO DE GRADE - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                try
+                  qrpdv.close;
+                  qrpdv.sql.clear;
+                  qrpdv.sql.add('update ESTOQUE set');
+                  qrpdv.sql.add('COD_BARRA = :COD_BARRA,');
+                  qrpdv.sql.add('NOME = :NOME,');
+                  qrpdv.sql.add('UNIDADE = :UNIDADE,');
+                  qrpdv.sql.add('PRECO_VENDA = :PRECO_VENDA,');
+                  qrpdv.sql.add('PRECO_PROMOCAO = :PRECO_PROMOCAO,');
+                  qrpdv.sql.add('INICIO_PROMOCAO = :INICIO_PROMOCAO,');
+                  qrpdv.sql.add('FINAL_PROMOCAO = :FINAL_PROMOCAO,');
+                  qrpdv.sql.add('CST = :CST,');
+                  qrpdv.sql.add('ALIQUOTA = :ALIQUOTA,');
+                  qrpdv.sql.add('DESCONTO_MAXIMO = :DESCONTO_MAXIMO,');
+                  qrpdv.sql.add('ACRECIMO_MAXIMO = :ACRECIMO_MAXIMO,');
+                  qrpdv.sql.add('ST = :ST,');
+                  qrpdv.sql.add('ESTOQUE = :ESTOQUE,');
+                  qrpdv.sql.add('IAT = :IAT,');
+                  qrpdv.sql.add('IPPT = :IPPT, ');
+                  qrpdv.sql.add('SITUACAO = :SITUACAO,');
+                  qrpdv.sql.add('CFOP = :CFOP,');
+                  qrpdv.sql.add('NCM = :NCM,');
+                  qrpdv.sql.add('ALIQNACIONAL = :ALIQNACIONAL,');
+                  qrpdv.sql.add('fotobd = :fotobd,');
+                  qrpdv.sql.add('csosn = :csosn,');
+                  qrpdv.sql.add('grupo = :grupo,');
+                  qrpdv.sql.add('usa_balanca = :usa_balanca,');
+                  qrpdv.sql.add('usa_tb_pc = :usa_tb_pc,');
+                  qrpdv.sql.add('CODIGO_ANP = :CODIGO_ANP,');
+                  qrpdv.sql.add('combo = :combo,');
+                  qrpdv.sql.add('informa_codigo_barra_xml = :informa_codigo_barra_xml,');
+                  qrpdv.sql.add('pizza = :pizza,');
+                  qrpdv.sql.add('usa_grade = :usa_grade');
+
+                  qrpdv.sql.add('where codigo = :codigo');
+
+                  qrpdv.parambyname('CODIGO').asinteger := strtoint(qrservidor_tabela.fieldbyname('codigo').asstring);
+                  qrpdv.parambyname('COD_BARRA').asstring := copy(qrservidor_tabela.fieldbyname('codbarra').asstring, 1, 15);
+                  qrpdv.parambyname('NOME').asstring := copy(qrservidor_tabela.fieldbyname('produto').asstring, 1, 80);
+                  qrpdv.parambyname('UNIDADE').AsString := qrservidor_tabela.fieldbyname('unidade').asstring;
+                  qrpdv.parambyname('PRECO_VENDA').asfloat := Arredondar(qrservidor_tabela.fieldbyname('precovenda').asfloat, 2);
+                  qrpdv.parambyname('PRECO_PROMOCAO').asfloat := Arredondar(qrservidor_tabela.fieldbyname('preco_promocao').asfloat, 2);
+                  qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
+                  qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
+                  qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+                  qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
+                  qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := qrConfServerDESCONTO_PRODUTO.AsFloat;
+                  qrpdv.parambyname('ACRECIMO_MAXIMO').asfloat := qrConfServerACRESCIMO_PRODUTO.AsFloat;
+                  qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+                  qrpdv.parambyname('CFOP').AsString := qrservidor_tabela.fieldbyname('IND_CFOP_NFCE').AsString;
+                  qrpdv.parambyname('csosn').AsString := qrservidor_tabela.fieldbyname('csosn').AsString;
+                  qrpdv.parambyname('grupo').AsString := qrservidor_tabela.fieldbyname('codgrupo').AsString;
+                  if qrservidor_tabela.fieldbyname('PESAGEM_AUOTMATICA').AsString = 'S' then
+                    qrpdv.parambyname('usa_balanca').AsInteger := 1
+                  else
+                    qrpdv.parambyname('usa_balanca').AsInteger := 2;
+                  qrpdv.parambyname('usa_tb_pc').AsString := qrservidor_tabela.fieldbyname('usa_tb_pc').AsString;
+
+                  if not qrservidor_tabela.fieldbyname('fotobd').IsNull then begin
+                    MemoryStream := TMemoryStream.Create;
+                    Jpg := TJpegImage.Create;
+                    (qrservidor_tabela.fieldbyname('fotobd') as tblobfield).SaveToStream(MemoryStream);
+                    MemoryStream.Position := OffsetMemoryStream;
+                    qrpdv.parambyname('fotobd').LoadFromStream(MemoryStream, ftGraphic);
+                    freeandnil(MemoryStream);
+                  end
+                  else
+                    qrpdv.parambyname('fotobd').Clear;
+                  scst := qrservidor_tabela.fieldbyname('cst').asstring;
+
+                  if (scst = '060') or (scst = '010') or (scst = '070') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                  else if (scst = '040') or (scst = '030') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                  else if (scst = '041') or (scst = '050') or (scst = '051') or (scst = '090') then
+                    qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                  else
+                    qrpdv.ParamByName('st').asSTRING := 'T';
+
+                  qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
+                  qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
+                  qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+                  qrpdv.parambyname('NCM').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
+                  qrIBPT.Close;
+                  qrIBPT.ParamByName('NCM').Value := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').AsString;
+                  qrIBPT.Open;
+                  if not qrIBPT.IsEmpty then
+                    qrpdv.parambyname('ALIQNACIONAL').AsFloat := qrIBPTALIQNAC.AsFloat
+                  else
+                    qrpdv.parambyname('ALIQNACIONAL').AsFloat := 0;
+                  qrpdv.parambyname('CODIGO_ANP').asstring := qrservidor_tabela.fieldbyname('CODIGO_ANP').AsString;
+                  qrpdv.parambyname('combo').asstring := qrservidor_tabela.fieldbyname('combo').AsString;
+                  qrpdv.parambyname('informa_codigo_barra_xml').asstring := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
+                  qrpdv.parambyname('pizza').asstring := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 1;
+                  qrpdv.ExecSQL;
+                except
+                  on E: Exception do begin
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - PRODUTO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                    Memo1.LINES.Add('Mensagem: ' + E.message);
+                  end;
+                end;
+              end;
+              qrServidor_Tabela.Next;
+            end;
+
+
+
+          // -------------- FIM DA INCLUSÃO DA GRADE ---------------------
+
 
             qrServidor_Tabela.Close;
             qrServidor_Tabela.sql.clear;

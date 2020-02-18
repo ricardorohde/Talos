@@ -386,8 +386,7 @@ uses
   SelecionaEmpresa in 'fnts\SelecionaEmpresa.pas' {frmSelecionaEmpresa},
   produto_importaEAN in 'fnts\produto_importaEAN.pas' {frmproduto_importaEAN},
   Vendedor in '..\FNTS_Comuns\Vendedor.pas',
-  VendedorConsulta in '..\FNTS_Comuns\VendedorConsulta.pas',
-  produto_importaWeb in 'fnts\produto_importaWeb.pas' {frmproduto_importaWeb};
+  VendedorConsulta in '..\FNTS_Comuns\VendedorConsulta.pas';
 
 {$R *.res}
 
