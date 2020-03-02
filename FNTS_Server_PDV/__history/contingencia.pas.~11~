@@ -1,0 +1,173 @@
+unit contingencia;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, NxColumnClasses, NxColumns,
+  NxScrollControl, NxCustomGridControl, NxCustomGrid, NxGrid, AdvGlowButton,
+  Vcl.StdCtrls, Vcl.Mask, JvExMask, JvToolEdit, Vcl.ExtCtrls, AdvMetroButton,
+  AdvSmoothPanel, AdvSmoothExpanderPanel, Vcl.ComCtrls, PageView, principal,
+  Data.DB, MemDS, DBAccess, Uni, sMaskEdit, sCustomComboEdit, sToolEdit,
+  Vcl.Grids, Vcl.DBGrids, JvExDBGrids, JvDBGrid, System.Generics.Collections,
+  NxDBColumns6, NxGridView6, NxControls6, NxCustomGrid6,
+  NxVirtualGrid6, NxDBGrid6, NxColumns6;
+
+type
+
+  TForm1 = class(TForm)
+    PageView1: TPageView;
+    PageSheet1: TPageSheet;
+    Panel3: TPanel;
+    Label3: TLabel;
+    ed_server: TEdit;
+    ed_server_database: TEdit;
+    PageSheet2: TPageSheet;
+    Memo1: TMemo;
+    Label2: TLabel;
+    Label1: TLabel;
+    Label4: TLabel;
+    AdvGlowButton1: TAdvGlowButton;
+    qrPDV_Contingencia: TUniQuery;
+    dataini: TsDateEdit;
+    datafim: TsDateEdit;
+    grid: TJvDBGrid;
+    ds_nfce: TDataSource;
+    qrTemp: TUniQuery;
+    Label5: TLabel;
+    cbResolvido: TComboBox;
+    AdvGlowButton2: TAdvGlowButton;
+    NextGrid1: TNextGrid;
+    NxTextColumn1: TNxTextColumn;
+    NxTextColumn2: TNxTextColumn;
+    NxTextColumn3: TNxTextColumn;
+    NxTextColumn4: TNxTextColumn;
+    NxTextColumn5: TNxTextColumn;
+    NxTextColumn6: TNxTextColumn;
+    NxTextColumn7: TNxTextColumn;
+    NxTextColumn8: TNxTextColumn;
+    NxCheckBoxColumn1: TNxCheckBoxColumn;
+    NextDBGrid61: TNextDBGrid6;
+    NxDBTextColumn61: TNxDBTextColumn6;
+    NxDBTextColumn62: TNxDBTextColumn6;
+    NxDBTextColumn63: TNxDBTextColumn6;
+    NxDBTextColumn64: TNxDBTextColumn6;
+    NxDBTextColumn65: TNxDBTextColumn6;
+    NxDBTextColumn66: TNxDBTextColumn6;
+    NxDBTextColumn67: TNxDBTextColumn6;
+    NxDBTextColumn68: TNxDBTextColumn6;
+    NxDBCheckBoxColumn61: TNxDBCheckBoxColumn6;
+
+    procedure FormCreate(Sender: TObject);
+    procedure AdvGlowButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.AdvGlowButton1Click(Sender: TObject);
+var
+I,J: Integer;
+begin
+ if frmPrincipal.conexao_servidor.Connected then begin
+      try
+
+
+
+
+        for I := 0 to frmPrincipal.grid.RowCount - 1 do begin
+          if frmPrincipal.grid.Cell[4, I].AsBoolean then begin
+            if frmPrincipal.verifica_conexao('PDV', frmPrincipal.grid.CELL[1, I].ASSTRING, frmPrincipal.GRID.CELL[2, I].ASSTRING) then begin
+              frmPrincipal.grid.CELL[3, I].AsInteger := 0;
+               // E S T A C A O   PARA   S E R V I D O R
+
+                ds_nfce.Enabled := true;
+                qrPDV_Contingencia.SQL.Clear;
+                qrPDV_Contingencia.SQL.Add('select nf.*,' + frmPrincipal.grid.CELL[0, I].ASSTRING + ' as PDV, case when situacao = 0 then ' + QuotedStr('Emitido') + ' else ' + QuotedStr('Cancelado') + ' end des_sit ');
+                qrPDV_Contingencia.SQL.Add('from NFCE nf where contingencia =' + QuotedStr('S'));
+
+                if dataini.Date > 0 then begin
+                  qrPDV_Contingencia.SQL.Add('and data >= :pdataini ');
+                  qrPDV_Contingencia.ParamByName('pdataini').AsDateTime := dataini.Date;
+                end;
+
+                if datafim.Date > 0 then begin
+                  qrPDV_Contingencia.SQL.Add('and data <= :pdatafin ');
+                  qrPDV_Contingencia.ParamByName('pdatafin').AsDateTime := datafim.Date;
+                 end;
+
+                if cbResolvido.Text = 'Sim' then
+                qrPDV_Contingencia.SQL.Add('and ENVIADOCONTINGENCIA ='  + QuotedStr('S'))
+                else if cbResolvido.Text = 'Não' then
+                qrPDV_Contingencia.SQL.Add('and ENVIADOCONTINGENCIA ='  + QuotedStr('N'));
+
+
+
+                qrPDV_Contingencia.SQL.Add('order by numero');
+                qrPDV_Contingencia.Open;
+                qrPDV_Contingencia.First;
+
+                grid.Refresh;
+
+
+
+
+
+               end else begin
+                frmPrincipal.verifica_conexao('PDV', frmPrincipal.grid.CELL[1, I-1].ASSTRING, frmPrincipal.GRID.CELL[2, I-1].ASSTRING);
+
+                ds_nfce.Enabled := true;
+                qrPDV_Contingencia.SQL.Clear;
+                qrPDV_Contingencia.SQL.Add('select nf.*,' + frmPrincipal.grid.CELL[0, I].ASSTRING + ' as PDV, case when situacao = 0 then ' + QuotedStr('Emitido') + ' else ' + QuotedStr('Cancelado') + ' end des_sit ');
+                qrPDV_Contingencia.SQL.Add('from NFCE nf where contingencia =' + QuotedStr('S'));
+
+                if dataini.Date > 0 then begin
+                  qrPDV_Contingencia.SQL.Add('and data >= :pdataini ');
+                  qrPDV_Contingencia.ParamByName('pdataini').AsDateTime := dataini.Date;
+                end;
+
+                if datafim.Date > 0 then begin
+                  qrPDV_Contingencia.SQL.Add('and data <= :pdatafin ');
+                  qrPDV_Contingencia.ParamByName('pdatafin').AsDateTime := datafim.Date;
+                 end;
+
+                if cbResolvido.Text = 'Sim' then
+                qrPDV_Contingencia.SQL.Add('and ENVIADOCONTINGENCIA ='  + QuotedStr('S'))
+                else if cbResolvido.Text = 'Não' then
+                qrPDV_Contingencia.SQL.Add('and ENVIADOCONTINGENCIA ='  + QuotedStr('N'));
+
+
+
+                qrPDV_Contingencia.SQL.Add('order by numero');
+                qrPDV_Contingencia.Open;
+                qrPDV_Contingencia.First;
+
+                NextGrid1.
+               end;
+          end;
+        end;
+      finally
+
+      end;
+ end;
+
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+    ed_server.Text := principal.frmPrincipal.ed_server.Text;
+    ed_server_database.text := principal.frmPrincipal.ed_server_database.Text;
+    qrPDV_Contingencia.Connection := principal.frmPrincipal.conexao_pdv;
+end;
+
+
+end.

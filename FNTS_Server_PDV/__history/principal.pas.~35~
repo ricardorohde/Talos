@@ -311,7 +311,7 @@ begin
     end;
   end
   else begin
-    Memo1.Lines.Add('Erro - Tabela Mestre - Mensagem: NÃ£o foi encontrado a entrada ' + tabela + ' na tabela de sequencia!');
+    Memo1.Lines.Add('Erro - Tabela Mestre - Mensagem: Não foi encontrado a entrada ' + tabela + ' na tabela de sequencia!');
   end;
 end;
 
@@ -467,7 +467,7 @@ begin
         pnlAviso.Visible := True;
         pnlAviso.Repaint;
 
-        memo1.lines.add('Iniciando processo de atualizaÃ§Ã£o em ' + DateToStr(date) + ' as ' + timetostr(time));
+        memo1.lines.add('Iniciando processo de atualização em ' + DateToStr(date) + ' as ' + timetostr(time));
 
         for I := 0 to grid.RowCount - 1 do begin
           if grid.Cell[4, I].AsBoolean then begin
@@ -677,12 +677,12 @@ begin
                   qrServidor.Params.ParamByName('XMLCACNELAMENTO').AsMemo := qrpdv.FieldByName('XMLCACNELAMENTO').AsString;
                   qrServidor.Params.ParamByName('cupom').AsString := qrpdv.FieldByName('cupom').AsString;
                   try
-                  qrServidor.ExecSQL;     //Problemas de insert com multiplos caixas e nfce jÃ¡ existente
+                  qrServidor.ExecSQL;     //Problemas de insert com multiplos caixas e nfce já existente
                   except
                   on E: Exception do begin
                     if E.Message = 'violation of PRIMARY or UNIQUE KEY constraint "PK_NFCE" on table "NFCE"' then begin
-                    Memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - Erro na gravaÃ§Ã£o da NFC-e (ViolaÃ§Ã£o de Chave PrimÃ¡ria na tabela NFCE)' );
-                    Memo1.Lines.Add('Entrada de NFCE duplicada no servidor, o sistema irÃ¡ considerar com jÃ¡ exportado.');
+                    Memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - Erro na gravação da NFC-e (Violação de Chave Primária na tabela NFCE)' );
+                    Memo1.Lines.Add('Entrada de NFCE duplicada no servidor, o sistema irá considerar com já exportado.');
                     Memo1.Lines.Add('');
                     end;
 
@@ -918,7 +918,7 @@ begin
                             qrMovCartao.parambyname('liquido').AsFloat := qrFormaCartaoVALOR.AsFloat;
                           end;
                           qrMovCartao.parambyname('data_recebimento').asdatetime := qrpdv.FieldByName('data').AsDateTime + (qrbanco.FieldByName('rec_CREDITO').AsInteger * qrFormaCartaoPRESTACAO.AsInteger);
-                          // cair todas no mesmo dia quem fica devendo Ã© o cliente
+                          // cair todas no mesmo dia quem fica devendo é o cliente
                           qrMovCartao.parambyname('situacao').asstring := 'ABERTO';
                           qrMovCartao.parambyname('tipo').asstring := 'CREDITO';
                           qrMovCartao.parambyname('parcela').AsInteger := qrFormaCartaoPRESTACAO.AsInteger;
@@ -1134,7 +1134,7 @@ begin
 
                       qrServidor.Params.ParamByName('QTDE').ASFLOAT := qrItemSubQTDE.ASFLOAT;
 
-                      //se estÃ¡ marcado para nÃ£o considerar estoque, zera a movimentaÃ§Ã£o
+                      //se está marcado para não considerar estoque, zera a movimentação
                       if not grid.Cell[5, I].AsBoolean then
                       qrItemSubQTDE.AsFloat := 0;
 
@@ -1219,7 +1219,7 @@ begin
 
                     qrServidor.Params.ParamByName('QTDE').ASFLOAT := qrPDV3.FIELDBYNAME('QTDE').ASFLOAT;
 
-                     //se estÃ¡ marcado para nÃ£o considerar estoque, zera a movimentaÃ§Ã£o
+                     //se está marcado para não considerar estoque, zera a movimentação
                      if not grid.Cell[5, I].AsBoolean then
                      qrServidor.Params.ParamByName('MOVIMENTO_ESTOQUE').ASFLOAT := 0
                      else
@@ -1296,7 +1296,7 @@ begin
 
                       except
                       on E:Exception do begin
-                        Memo1.Lines.Add('Erro na atualizaÃ§Ã£o de grade do produto ao tentar deduzir ' + qrPDV3.FIELDBYNAME('QTDE').AsString + ' unidades do produto ' +
+                        Memo1.Lines.Add('Erro na atualização de grade do produto ao tentar deduzir ' + qrPDV3.FIELDBYNAME('QTDE').AsString + ' unidades do produto ' +
                         'de codigo de barras ' +  qrItem.FieldByName('COD_BARRA').ASSTRING + ' - ' + E.Message );
                       end;
 
@@ -2260,7 +2260,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                             bflag := FALSE;
 
                             if POS('FOREIGN', AnsiUpperCase(E.Message)) > 0 then
-                              memo1.lines.add('*** Cliente acima nÃ£o pode ser apagado, pois existe cupom em seu nome!');
+                              memo1.lines.add('*** Cliente acima não pode ser apagado, pois existe cupom em seu nome!');
 
                           end;
                         end;
@@ -2450,7 +2450,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
 
 
 
-                // CONVÃŠNIO
+                // CONVÊNIO
                 qrServidor.close;
                 qrServidor.sql.Clear;
                 qrServidor.sql.add('select * from c000058');
@@ -2466,7 +2466,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                   case qrservidor.fieldbyname('movimento').asinteger of
                     1: {inclusao}
                       begin
-                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CONVÃŠNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CONVÊNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
                         qrServidor_Tabela.Close;
                         qrServidor_Tabela.sql.clear;
                         qrServidor_Tabela.sql.add('select *');
@@ -2516,7 +2516,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                             qrpdv.ExecSQL;
                           end;
                         except
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÃŠNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÊNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
                           bflag := false;
                         end;
                       end;
@@ -2564,7 +2564,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               qrpdv.parambyname('desconto').AsFloat := qrservidor_tabela.fieldbyname('desconto').AsFloat;
                               qrpdv.ExecSQL;
                             except
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CONVÃŠNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CONVÊNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
                               bflag := FALSE;
                             end;
                           end
@@ -2611,7 +2611,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               end;
                             except
                               on E: exception do begin
-                                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÃŠNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÊNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
                                 memo1.lines.add('* ' + E.message);
                                 bflag := false;
                               end;
@@ -2623,7 +2623,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                     3: {exclusao}
                       begin
                         try
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - EXC - CONVÃŠNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
+                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - EXC - CONVÊNIO - ' + qrservidor.fieldbyname('codregistro').asstring);
                           qrpdv.close;
                           qrpdv.sql.clear;
                           qrpdv.sql.add('delete from CONVENIO where codigo = :codigo');
@@ -2647,7 +2647,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                       qrservidor_tabela.sql.add('C' + Zerar(grid.cell[0, I].asstring, 2) + ' = 1');
                       qrservidor_tabela.sql.add('where codigo = ' + qrServidor.fieldbyname('codigo').asstring);
                       qrservidor_tabela.ExecSQL;
-                      memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ATUALIZOU CONVÃŠNIO - ' + qrServidor.fieldbyname('codREGISTRO').asstring);
+                      memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ATUALIZOU CONVÊNIO - ' + qrServidor.fieldbyname('codREGISTRO').asstring);
                     except
                       on E: EXCEPTION do
                         memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ERRO: ' + E.MESSAGE);
@@ -2881,7 +2881,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
 
 
 
-                // 18 - TABELA DE PREÃ‡O
+                // 18 - TABELA DE PREÇO
                 qrServidor.close;
                 qrServidor.sql.Clear;
                 qrServidor.sql.add('select * from c000058');
@@ -2897,7 +2897,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                   case qrservidor.fieldbyname('movimento').asinteger of
                     1: {inclusao}
                       begin
-                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                        memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                         qrServidor_Tabela.Close;
                         qrServidor_Tabela.sql.clear;
                         qrServidor_Tabela.sql.add('select *');
@@ -2945,7 +2945,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                             qrpdv.ExecSQL;
                           end;
                         except
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                           qrPDV.close;
                           qrpdv.sql.clear;
                           qrPDV.sql.Add('select id from tabela_preco');
@@ -2970,7 +2970,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                           qrpdv_tabela.Open;
                           if qrPDV_Tabela.RecordCount > 0 then begin
                             try
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                               qrpdv.close;
                               qrpdv.sql.clear;
                               qrpdv.sql.add('update tabela_preco set');
@@ -2999,7 +2999,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                                 qrpdv.parambyname('validade_fim').Clear;
                               qrpdv.ExecSQL;
                             except
-                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                               bflag := FALSE;
                             end;
                           end
@@ -3045,7 +3045,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                               end;
                             except
                               on E: exception do begin
-                                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                                 memo1.lines.add('* ' + E.message);
                                 qrPDV.close;
                                 qrpdv.sql.clear;
@@ -3063,7 +3063,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                     3: {exclusao}
                       begin
                         try
-                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - EXC - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                          memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - EXC - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                           qrpdv.close;
                           qrpdv.sql.clear;
                           qrpdv.sql.add('delete from tabela_preco where id = :id');
@@ -3071,7 +3071,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                           qrpdv.ExecSQL;
                         except
                           on E: Exception do begin
-                            memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - EXC - TABELA DE PREÃ‡O - ' + qrservidor.fieldbyname('codregistro').asstring);
+                            memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - EXC - TABELA DE PREÇO - ' + qrservidor.fieldbyname('codregistro').asstring);
                             bflag := FALSE;
                           end;
                         end;
@@ -3087,7 +3087,7 @@ if qrforma.fieldbyname('valor').asfloat = qrForma.fieldbyname('valor_total').asf
                       qrservidor_tabela.sql.add('C' + Zerar(grid.cell[0, I].asstring, 2) + ' = 1');
                       qrservidor_tabela.sql.add('where codigo = ' + qrServidor.fieldbyname('codigo').asstring);
                       qrservidor_tabela.ExecSQL;
-                      memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ATUALIZOU TABELA DE PREÃ‡O - ' + qrServidor.fieldbyname('codREGISTRO').asstring);
+                      memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ATUALIZOU TABELA DE PREÇO - ' + qrServidor.fieldbyname('codREGISTRO').asstring);
                     except
                       on E: EXCEPTION do
                         memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ERRO: ' + E.MESSAGE);
@@ -3170,7 +3170,7 @@ begin
    hMutex := CreateMutex(0, TRUE, 'Server_PDV');
     if GetLastError = ERROR_ALREADY_EXISTS then begin
     beep;
-    ShowMessage('JÃ¡ existe um Servidor do PDV em execuÃ§Ã£o. Verifique a sua barra de tarefas!');
+    ShowMessage('Já existe um Servidor do PDV em execução. Verifique a sua barra de tarefas!');
     Application.Terminate;
     end;
   if not pnlAviso.Visible then begin
@@ -3277,7 +3277,7 @@ begin
     Exit;
 
   try
-    if Application.MessageBox('Deseja Limpar os dados existentes nas tabelas antes da Carga Geral?', 'AtenÃ§Ã£o!', MB_ICONQUESTION + MB_YESNO) = mrYes then
+    if Application.MessageBox('Deseja Limpar os dados existentes nas tabelas antes da Carga Geral?', 'Atenção!', MB_ICONQUESTION + MB_YESNO) = mrYes then
       LimpaDados := True
     else
       LimpaDados := False;
@@ -3290,7 +3290,7 @@ begin
     Timer1.Enabled := false;
 
     if conexao_servidor.Connected then begin
-      memo1.lines.add('Iniciando processo de atualizaÃ§Ã£o GERAL em ' + DateToStr(date) + ' as ' + timetostr(time));
+      memo1.lines.add('Iniciando processo de atualização GERAL em ' + DateToStr(date) + ' as ' + timetostr(time));
 
       for I := 0 to grid.RowCount - 1 do begin
         if grid.cell[4, I].AsBoolean then begin
@@ -3580,7 +3580,7 @@ begin
             end;
 
 
-          // -------------- UPDATE PARA INCLUSÃƒO DA GRADE -----------------
+          // -------------- UPDATE PARA INCLUSÃO DA GRADE -----------------
 
 
             qrServidor_Tabela.Close;
@@ -3857,7 +3857,7 @@ begin
 
 
 
-          // -------------- FIM DA INCLUSÃƒO DA GRADE ---------------------
+          // -------------- FIM DA INCLUSÃO DA GRADE ---------------------
 
 
             qrServidor_Tabela.Close;
@@ -4016,7 +4016,7 @@ begin
               qrpdv.Open;
               if qrPDV.RecordCount = 0 then begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CONVÃŠNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CONVÊNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
                   qrLimiteConvenio.Close;
                   qrLimiteConvenio.Params.Items[0].Value := qrservidor_tabela.fieldbyname('codigo').asstring;
                   qrLimiteConvenio.Open;
@@ -4057,14 +4057,14 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÃŠNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CONVÊNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
               end
               else begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - CONVÃŠNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - CONVÊNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
                   qrLimiteConvenio.Close;
                   qrLimiteConvenio.Params.Items[0].Value := qrservidor_tabela.fieldbyname('codigo').asstring;
                   qrLimiteConvenio.Open;
@@ -4093,7 +4093,7 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CONVÃŠNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CONVÊNIO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
@@ -4180,7 +4180,7 @@ begin
             qrServidor_Tabela.First;
 
             if LimpaDados then begin
-              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - LIMPANDO - CARTÃƒO/FINANCEIRA');
+              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - LIMPANDO - CARTÃO/FINANCEIRA');
               try
                 qrpdv.close;
                 qrpdv.sql.clear;
@@ -4188,7 +4188,7 @@ begin
                 qrpdv.ExecSQL;
               except
                 on E: Exception do begin
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - LIMPANDO - CARTÃƒO/FINANCEIRA');
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - LIMPANDO - CARTÃO/FINANCEIRA');
                   Memo1.LINES.Add('Mensagem: ' + E.message);
                 end;
               end;
@@ -4203,7 +4203,7 @@ begin
               qrpdv.Open;
               if qrPDV.RecordCount = 0 then begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CARTÃƒO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - CARTÃO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
                   qrpdv.close;
                   qrpdv.sql.clear;
                   qrpdv.sql.add('insert into bancos (');
@@ -4234,14 +4234,14 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CARTÃƒO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - CARTÃO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
               end
               else begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - CARTÃƒO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - CARTÃO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
                   qrpdv.close;
                   qrpdv.sql.clear;
                   qrpdv.sql.add('update bancos set');
@@ -4263,7 +4263,7 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CARTÃƒO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - CARTÃO/FINANCEIRA - ' + qrservidor_tabela.fieldbyname('numero').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
@@ -4384,7 +4384,7 @@ begin
             qrServidor_Tabela.First;
 
             if LimpaDados then begin
-              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - LIMPANDO - TABELA DE PREÃ‡O');
+              memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - LIMPANDO - TABELA DE PREÇO');
               try
                 qrpdv.close;
                 qrpdv.sql.clear;
@@ -4392,7 +4392,7 @@ begin
                 qrpdv.ExecSQL;
               except
                 on E: Exception do begin
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - LIMPANDO - TABELA DE PREÃ‡O');
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - LIMPANDO - TABELA DE PREÇO');
                   Memo1.LINES.Add('Mensagem: ' + E.message);
                 end;
               end;
@@ -4407,7 +4407,7 @@ begin
               qrpdv.Open;
               if qrPDV.RecordCount = 0 then begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - TABELA DE PREÃ‡O - ' + qrservidor_tabela.fieldbyname('id').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - INC - TABELA DE PREÇO - ' + qrservidor_tabela.fieldbyname('id').asstring);
                   qrpdv.close;
                   qrpdv.sql.clear;
                   qrpdv.sql.add('insert into tabela_preco (');
@@ -4446,14 +4446,14 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÃ‡O - ' + qrservidor_tabela.fieldbyname('id').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - INC - TABELA DE PREÇO - ' + qrservidor_tabela.fieldbyname('id').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
               end
               else begin
                 try
-                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - TABELA DE PREÃ‡O - ' + qrservidor_tabela.fieldbyname('ID').asstring);
+                  memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - TABELA DE PREÇO - ' + qrservidor_tabela.fieldbyname('ID').asstring);
                   qrpdv.close;
                   qrpdv.sql.clear;
                   qrpdv.sql.add('update tabela_preco set');
@@ -4483,7 +4483,7 @@ begin
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
-                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - TABELA DE PREÃ‡O - ' + qrservidor_tabela.fieldbyname('id').asstring);
+                    memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' ERRO - ALT - TABELA DE PREÇO - ' + qrservidor_tabela.fieldbyname('id').asstring);
                     Memo1.LINES.Add('Mensagem: ' + E.message);
                   end;
                 end;
@@ -4703,8 +4703,8 @@ var
   Factor, Fraction: Extended;
 begin
   Factor := IntPower(10, Decimals);
-  { A conversÃ£o para string e depois para float evita
-    erros de arredondamentos indesejÃ¡veis. }
+  { A conversão para string e depois para float evita
+    erros de arredondamentos indesejáveis. }
   Value := StrToFloat(FloatToStr(Value * Factor));
   Result := Int(Value);
   Fraction := Frac(Value);
@@ -4733,7 +4733,7 @@ begin
         Reg.DeleteKey('pdv_server');
       Reg.CloseKey;
     except
-      Application.MessageBox('NÃ£o foi possivel concluir a operaÃ§Ã£o, tente executar este software como adminitrador!', 'AtenÃ§Ã£o!', MB_ICONASTERISK);
+      Application.MessageBox('Não foi possivel concluir a operação, tente executar este software como adminitrador!', 'Atenção!', MB_ICONASTERISK);
       edInicia.Checked := False;
     end;
   finally

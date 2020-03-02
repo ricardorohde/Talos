@@ -16,7 +16,6 @@ object frmPrincipal: TfrmPrincipal
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel2: TPanel
@@ -47,6 +46,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 0
       Visible = False
+      OnClick = pnlAvisoClick
     end
   end
   object pnTitulo: TPanel
@@ -395,9 +395,9 @@ object frmPrincipal: TfrmPrincipal
     object Label17: TLabel
       Left = 64
       Top = 12
-      Width = 382
+      Width = 416
       Height = 32
-      Caption = 'TALOS 1.0.0.0 - Server PDV'
+      Caption = 'TALOS 1.0.1.112 - Server PDV'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -27
@@ -717,11 +717,11 @@ object frmPrincipal: TfrmPrincipal
     end
     object AdvGlowButton3: TAdvGlowButton
       Left = 0
-      Top = 201
+      Top = 268
       Width = 156
       Height = 67
       Align = alTop
-      Caption = 'Log'
+      Caption = 'Conting'#234'ncia'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -824,6 +824,8 @@ object frmPrincipal: TfrmPrincipal
       Appearance.GradientMirrorDown = ggVertical
       Appearance.GradientChecked = ggVertical
       Layout = blGlyphTop
+      ExplicitLeft = 6
+      ExplicitTop = 284
     end
     object AdvGlowButton4: TAdvGlowButton
       Left = 0
@@ -935,6 +937,116 @@ object frmPrincipal: TfrmPrincipal
       TabOrder = 4
       OnClick = edIniciaClick
     end
+    object AdvGlowButton5: TAdvGlowButton
+      Left = 0
+      Top = 201
+      Width = 156
+      Height = 67
+      Align = alTop
+      Caption = 'Log'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+        B10000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000032269545874584D4C3A636F6D2E61646F62652E786D7000
+        000000003C3F787061636B657420626567696E3D22EFBBBF222069643D225735
+        4D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D70
+        6D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A
+        786D70746B3D2241646F626520584D5020436F726520352E332D633031312036
+        362E3134353636312C20323031322F30322F30362D31343A35363A3237202020
+        2020202020223E203C7264663A52444620786D6C6E733A7264663D2268747470
+        3A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E
+        7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61
+        626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F
+        62652E636F6D2F7861702F312E302F2220786D6C6E733A786D704D4D3D226874
+        74703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F222078
+        6D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F
+        7861702F312E302F73547970652F5265736F75726365526566232220786D703A
+        43726561746F72546F6F6C3D2241646F62652050686F746F73686F7020435336
+        202857696E646F7773292220786D704D4D3A496E7374616E636549443D22786D
+        702E6969643A4230433943313642423443343131453542304241413043444437
+        3546373336412220786D704D4D3A446F63756D656E7449443D22786D702E6469
+        643A423043394331364342344334313145354230424141304344443735463733
+        3641223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E
+        7374616E636549443D22786D702E6969643A4230433943313639423443343131
+        453542304241413043444437354637333641222073745265663A646F63756D65
+        6E7449443D22786D702E6469643A423043394331364142344334313145354230
+        4241413043444437354637333641222F3E203C2F7264663A4465736372697074
+        696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F78
+        7061636B657420656E643D2272223F3E344532F7000003B14944415478DAEC9A
+        5B6C4C511486CF998BA9F486AAA890D6AD82B834A408C20B1A211A51C4034124
+        AE0F1E34243CA8BB072F54FA2444225E24423482D29286C6BD69A896AAC6A5AA
+        3AAA146DC7F8D7F84F7272329D767A0E0FCDDEC997999E39B3F6FEF75A6767D6
+        9FEAC16050EB0DC3A5F592A18428214A8812A28428217686472FBBD1D53D3E30
+        020C0529A03F4803CDE00D5FDF825AD010E5FC03196B08E3A6F0BDC46D02F5E0
+        1DA801DF220A89F0991B0C07D3C10230062481383008B472E132411DB80B6E81
+        27E07B3736673C980F667193E2193F113432C667F01ADC04C5A00A74840BA86B
+        F7AE5BAFF5E504ABC162E0E5F5DF4432F01EC472F7FA84E2FC45C64370069CE3
+        42CCA31FC801ABC05CD3F500633730132914E43695BF7C2EE5731A5CB666C82A
+        642AD807B2F8B7A4B6940164675AC0174E1663DAC1649009E681B1CCF433B003
+        1432D634900FA670512F99C1DBE00317D6C44C0C60861259D633C16C90CA5877
+        C01E50124EC872708A3BFD009C0457A2AC7B1F777A23C8E6B59D5CDC2196A52C
+        FE04B8D655DD5B863C430BC116308359DC060A0C2147F8C065B34C0E823CF0CB
+        E641B2161CE7C6C868E72E1E05767B87EDE0001F8322390C44883CA8C378C32E
+        70D8C1537109B8C05A5FCF8C3B3536B16A428F80D4F24FD3874F1D3EDE4B58FF
+        72105C743876ADE97DB38BC79991EA7887278B339D3A310EC736D62A6B0F782C
+        F5AAFF835F0EC6D1EC7138B6AE7E6B29214A8812A28428214A8812A284FC2717
+        A507DFF1997E08B6776606F460B8E90FE86C85DBA269C03C917E5132F064309A
+        AE471AFB749D13B7D2BAA906CF4139F86889EFE282DC96D8C9ECEFD3C1043A29
+        09BC37486F409ABE0ABA27E5167746D7C24C645C6CE1EB38B08C365066149913
+        FFE92A1D9452F6FB1D8CEFE73D13C1063A35E95164EC31DBDAB314F5D524C865
+        EE47249D83D942E6D13C33BAC632EE7A15773CC8E65F1AA791142EBB3A076C26
+        F93419FC9C4C32994BDC8C514C1FAC12BC62168CE736895E9A5443065D980CB6
+        CC86A71030322E3DFB7D7E2196AE46025328CACFD3A7EA8EDBE1E5A462256DA5
+        B9574F4323C0324C65EB5B409BA8C2D26A7736C464980496823534087FB0EB94
+        2A7A21422AB90063270AE9763CB2F1E026D3C45867B97E89164E9D8DD8A3C07E
+        B0827F4BE956BB68BCD5F0E231B0C8A608199F5802B92C598D59C8B129428618
+        7B2B595E9269B1571B252392B244D67B314BC0C9B19BA5B19747AAE6E0719DC5
+        57BF870FB0D7749C3A3D8A18BBCDE1B8011E42A1D8BAFA870125440951429410
+        254409D1B43F020C0053B9E92EBBD022830000000049454E44AE426082}
+      Transparent = True
+      TabOrder = 5
+      OnClick = AdvGlowButton3Click
+      Appearance.BorderColor = 12631218
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 14671574
+      Appearance.ColorTo = 15000283
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 14144974
+      Appearance.ColorMirrorTo = 15197664
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+      Layout = blGlyphTop
+    end
   end
   object icone: TRzTrayIcon
     Animate = True
@@ -951,7 +1063,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 328
     Top = 162
     Bitmap = {
-      494C010102000500180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500400010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1094,7 +1206,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 552
     Top = 186
     Bitmap = {
-      494C010104000900180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000900400010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1633,6 +1745,7 @@ object frmPrincipal: TfrmPrincipal
       '  sub.qtde,'
       '  pro.ALIQUOTA,'
       '  pro.UNIDADE,'
+      '  pro.USA_GRADE,'
       '  ite.item,'
       '  ite.csosn,'
       '  ite.classificacao_fiscal,'
@@ -1735,5 +1848,168 @@ object frmPrincipal: TfrmPrincipal
       Required = True
       Size = 3
     end
+    object qrItemSubUSA_GRADE: TIntegerField
+      FieldName = 'USA_GRADE'
+      ReadOnly = True
+    end
+  end
+  object UniSQLMonitor1: TUniSQLMonitor
+    Options = [moDialog, moSQLMonitor, moDBMonitor, moCustom, moHandled]
+    DBMonitorOptions.Host = '127.0.0.1'
+    Left = 496
+    Top = 352
+  end
+  object qrItem: TUniQuery
+    Connection = conexao_pdv
+    SQL.Strings = (
+      'select * from estoque')
+    Left = 157
+    Top = 435
+    object qrItemCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Required = True
+    end
+    object qrItemCOD_BARRA: TStringField
+      FieldName = 'COD_BARRA'
+      Size = 15
+    end
+    object qrItemNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 80
+    end
+    object qrItemUNIDADE: TStringField
+      FieldName = 'UNIDADE'
+      Size = 5
+    end
+    object qrItemPRECO_VENDA: TFloatField
+      FieldName = 'PRECO_VENDA'
+    end
+    object qrItemPRECO_PROMOCAO: TFloatField
+      FieldName = 'PRECO_PROMOCAO'
+    end
+    object qrItemINICIO_PROMOCAO: TDateField
+      FieldName = 'INICIO_PROMOCAO'
+    end
+    object qrItemFINAL_PROMOCAO: TDateField
+      FieldName = 'FINAL_PROMOCAO'
+    end
+    object qrItemCST: TStringField
+      FieldName = 'CST'
+      Size = 3
+    end
+    object qrItemALIQUOTA: TFloatField
+      FieldName = 'ALIQUOTA'
+    end
+    object qrItemDESCONTO_MAXIMO: TFloatField
+      FieldName = 'DESCONTO_MAXIMO'
+    end
+    object qrItemST: TStringField
+      FieldName = 'ST'
+      Size = 1
+    end
+    object qrItemESTOQUE: TFloatField
+      FieldName = 'ESTOQUE'
+    end
+    object qrItemIAT: TStringField
+      FieldName = 'IAT'
+      Required = True
+      Size = 1
+    end
+    object qrItemIPPT: TStringField
+      FieldName = 'IPPT'
+      Required = True
+      Size = 1
+    end
+    object qrItemSITUACAO: TIntegerField
+      FieldName = 'SITUACAO'
+      Required = True
+    end
+    object qrItemREFERENCIA: TStringField
+      FieldName = 'REFERENCIA'
+    end
+    object qrItemTAMANHO: TStringField
+      FieldName = 'TAMANHO'
+      FixedChar = True
+      Size = 5
+    end
+    object qrItemCOR: TStringField
+      FieldName = 'COR'
+      FixedChar = True
+      Size = 5
+    end
+    object qrItemDESCRICAO_COR: TStringField
+      FieldName = 'DESCRICAO_COR'
+      Size = 50
+    end
+    object qrItemDESCRICAO_MARCA: TStringField
+      FieldName = 'DESCRICAO_MARCA'
+      Size = 50
+    end
+    object qrItemNCM: TStringField
+      FieldName = 'NCM'
+      Size = 25
+    end
+    object qrItemPRECO_VENDA2: TFloatField
+      FieldName = 'PRECO_VENDA2'
+    end
+    object qrItemPRECO_VENDA3: TFloatField
+      FieldName = 'PRECO_VENDA3'
+    end
+    object qrItemPRECO_VENDA4: TFloatField
+      FieldName = 'PRECO_VENDA4'
+    end
+    object qrItemALIQNACIONAL: TFloatField
+      FieldName = 'ALIQNACIONAL'
+    end
+    object qrItemCFOP: TStringField
+      FieldName = 'CFOP'
+      Size = 4
+    end
+    object qrItemFOTOBD: TBlobField
+      FieldName = 'FOTOBD'
+    end
+    object qrItemACRECIMO_MAXIMO: TFloatField
+      FieldName = 'ACRECIMO_MAXIMO'
+    end
+    object qrItemCSOSN: TStringField
+      FieldName = 'CSOSN'
+      Size = 3
+    end
+    object qrItemGRUPO: TStringField
+      FieldName = 'GRUPO'
+      Size = 6
+    end
+    object qrItemUSA_BALANCA: TIntegerField
+      FieldName = 'USA_BALANCA'
+    end
+    object qrItemUSA_TB_PC: TStringField
+      FieldName = 'USA_TB_PC'
+      Size = 3
+    end
+    object qrItemCODIGO_ANP: TStringField
+      FieldName = 'CODIGO_ANP'
+      Size = 10
+    end
+    object qrItemCOMBO: TStringField
+      FieldName = 'COMBO'
+      Size = 1
+    end
+    object qrItemINFORMA_CODIGO_BARRA_XML: TStringField
+      FieldName = 'INFORMA_CODIGO_BARRA_XML'
+      Size = 1
+    end
+    object qrItemPIZZA: TStringField
+      FieldName = 'PIZZA'
+      Size = 1
+    end
+    object qrItemUSA_GRADE: TIntegerField
+      FieldName = 'USA_GRADE'
+    end
+  end
+  object qrServidor_Grade: TUniQuery
+    Connection = conexao_servidor
+    Left = 77
+    Top = 443
   end
 end

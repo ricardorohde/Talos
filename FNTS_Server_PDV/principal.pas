@@ -47,7 +47,7 @@ type
     Panel1: TPanel;
     AdvGlowButton1: TAdvGlowButton;
     AdvGlowButton2: TAdvGlowButton;
-    AdvGlowButton3: TAdvGlowButton;
+    btnContingencia: TAdvGlowButton;
     AdvGlowButton4: TAdvGlowButton;
     N1: TMenuItem;
     conexao_servidor: TUniConnection;
@@ -157,6 +157,7 @@ type
     qrItemPIZZA: TStringField;
     qrItemUSA_GRADE: TIntegerField;
     qrServidor_Grade: TUniQuery;
+    AdvGlowButton5: TAdvGlowButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -169,19 +170,21 @@ type
     procedure iconeLButtonDblClick(Sender: TObject);
     procedure AdvMetroButton2Click(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
-    procedure AdvGlowButton3Click(Sender: TObject);
+    procedure btnContingenciaClick(Sender: TObject);
     procedure AdvGlowButton4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure edIniciaClick(Sender: TObject);
     procedure conexao_servidorError(Sender: TObject; E: EDAError; var Fail: Boolean);
     procedure conexao_pdvError(Sender: TObject; E: EDAError; var Fail: Boolean);
     procedure pnlAvisoClick(Sender: TObject);
+   function verifica_conexao(tipo: string; server: string; base: string): boolean;
+    procedure AdvGlowButton5Click(Sender: TObject);
   private
     { Private declarations }
     function Cript(Action, Src: string): string;
     function codifica(tabela: string; qtde_digitos: integer): string;
     function Zerar(texto: string; qtde: integer): string; // Acrescentar Zeros a esquerda em uma String
-    function verifica_conexao(tipo: string; server: string; base: string): boolean;
+
     function verifica_crediario(cod_cliente: string): Real;
     procedure AdicionarCaixas;
     procedure AdicionarUsuarios;
@@ -213,7 +216,7 @@ const
 implementation
 
 uses
-  Math, md52, System.Win.Registry;
+  Math, md52, System.Win.Registry, contingencia;
 
 {$R *.dfm}
 
@@ -4646,14 +4649,21 @@ begin
     Timer1Timer(frmPrincipal);
 end;
 
-procedure TfrmPrincipal.AdvGlowButton3Click(Sender: TObject);
+procedure TfrmPrincipal.btnContingenciaClick(Sender: TObject);
 begin
-  PageView1.ActivePageIndex := 1;
+  Timer1.Enabled := False;
+  contingencia.Form1.ShowModal;
+  Timer1.Enabled := True;
 end;
 
 procedure TfrmPrincipal.AdvGlowButton4Click(Sender: TObject);
 begin
   PageView1.ActivePageIndex := 0;
+end;
+
+procedure TfrmPrincipal.AdvGlowButton5Click(Sender: TObject);
+begin
+  PageView1.ActivePageIndex := 1;
 end;
 
 procedure TfrmPrincipal.AdvMetroButton2Click(Sender: TObject);

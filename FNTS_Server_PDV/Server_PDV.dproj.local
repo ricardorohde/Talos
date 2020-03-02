@@ -2,5 +2,9 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2018/03/07 21:27:53.000.716,G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Server_Nfce\Server_Nfce.dproj=G:\Prog\Store Protheus 8.1\Projetos\Fontes\FNTS_Server_Nfce\Server_PDV.dproj</Transaction>
+    <Transaction>2020/02/29 18:18:25.000.999,=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\Unit1.pas</Transaction>
+    <Transaction>2020/02/29 18:34:04.000.137,C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\contingencia.dfm=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\Unit1.dfm</Transaction>
+    <Transaction>2020/02/29 18:34:04.000.137,C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\contingencia.pas=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\Unit1.pas</Transaction>
+    <Transaction>2020/03/01 16:44:26.863,=C:\Users\Nova Tecnologia\Documents\GitHub\Talos\FNTS_Server_PDV\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

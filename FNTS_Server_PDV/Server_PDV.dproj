@@ -3,7 +3,7 @@
         <ProjectGuid>{5ED7C43B-09F0-4CF8-B2C2-B09A72AFEF25}</ProjectGuid>
         <MainSource>Server_PDV.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -103,6 +103,10 @@
             <Form>frmPrincipal</Form>
         </DCCReference>
         <DCCReference Include="..\FNTS_Comuns\Thread.CheckConnection.pas"/>
+        <DCCReference Include="contingencia.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -124,11 +128,13 @@
                     <Source Name="MainSource">Server_PDV.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\DclRxCtl230.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\DclRxCtl230.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\DclRxDB230.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\DclRxDB230.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\TALOS\Componentes\ACBr\Lib\Delphi\LibD23\ACBr_Integrador.bpl">ACBr - Integrador - (http://www.projetoacbr.com.br/)</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\dcllmdshell220.bpl">LMD 2014 - LMD-Tools ShellPack Components</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\dcllmdtxt220.bpl">LMD 2014 - LMD-Tools TextPack Components</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\dcllmdtools220.bpl">LMD 2014 - LMD-Tools Main Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\dcllmdtxt220.bpl">LMD 2014 - LMD-Tools TextPack Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k230.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp230.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k230.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Platforms>
@@ -137,6 +143,12 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="2">
+                <DeployFile LocalName="C:\TALOS\PDV\Server_PDV.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Server_PDV.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="C:\TALOS\PDV\Server_PDV.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Server_PDV.exe</RemoteName>

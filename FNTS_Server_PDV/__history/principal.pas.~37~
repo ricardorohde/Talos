@@ -116,6 +116,48 @@ type
     qrItemSubCST: TStringField;
     NxCheckBoxColumn3: TNxCheckBoxColumn;
     UniSQLMonitor1: TUniSQLMonitor;
+    qrItemSubUSA_GRADE: TIntegerField;
+    qrItem: TUniQuery;
+    qrItemCODIGO: TIntegerField;
+    qrItemCOD_BARRA: TStringField;
+    qrItemNOME: TStringField;
+    qrItemUNIDADE: TStringField;
+    qrItemPRECO_VENDA: TFloatField;
+    qrItemPRECO_PROMOCAO: TFloatField;
+    qrItemINICIO_PROMOCAO: TDateField;
+    qrItemFINAL_PROMOCAO: TDateField;
+    qrItemCST: TStringField;
+    qrItemALIQUOTA: TFloatField;
+    qrItemDESCONTO_MAXIMO: TFloatField;
+    qrItemST: TStringField;
+    qrItemESTOQUE: TFloatField;
+    qrItemIAT: TStringField;
+    qrItemIPPT: TStringField;
+    qrItemSITUACAO: TIntegerField;
+    qrItemREFERENCIA: TStringField;
+    qrItemTAMANHO: TStringField;
+    qrItemCOR: TStringField;
+    qrItemDESCRICAO_COR: TStringField;
+    qrItemDESCRICAO_MARCA: TStringField;
+    qrItemNCM: TStringField;
+    qrItemPRECO_VENDA2: TFloatField;
+    qrItemPRECO_VENDA3: TFloatField;
+    qrItemPRECO_VENDA4: TFloatField;
+    qrItemALIQNACIONAL: TFloatField;
+    qrItemCFOP: TStringField;
+    qrItemFOTOBD: TBlobField;
+    qrItemACRECIMO_MAXIMO: TFloatField;
+    qrItemCSOSN: TStringField;
+    qrItemGRUPO: TStringField;
+    qrItemUSA_BALANCA: TIntegerField;
+    qrItemUSA_TB_PC: TStringField;
+    qrItemCODIGO_ANP: TStringField;
+    qrItemCOMBO: TStringField;
+    qrItemINFORMA_CODIGO_BARRA_XML: TStringField;
+    qrItemPIZZA: TStringField;
+    qrItemUSA_GRADE: TIntegerField;
+    qrServidor_Grade: TUniQuery;
+    AdvGlowButton5: TAdvGlowButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -134,6 +176,7 @@ type
     procedure edIniciaClick(Sender: TObject);
     procedure conexao_servidorError(Sender: TObject; E: EDAError; var Fail: Boolean);
     procedure conexao_pdvError(Sender: TObject; E: EDAError; var Fail: Boolean);
+    procedure pnlAvisoClick(Sender: TObject);
   private
     { Private declarations }
     function Cript(Action, Src: string): string;
@@ -171,7 +214,7 @@ const
 implementation
 
 uses
-  Math, md52, System.Win.Registry;
+  Math, md52, System.Win.Registry, contingencia;
 
 {$R *.dfm}
 
@@ -1139,6 +1182,12 @@ begin
                         qrServidor.Params.ParamByName('numero_sat').AsString := qrPDV.FIELDBYNAME('numero_sat').AsString;
                       end;
 
+                      if (qrItemSubUSA_GRADE.AsInteger = 1) then begin
+
+
+                      end;
+
+
                       qrServidor.ExecSQL;
                       qrItemSub.Next;
                     end;
@@ -1219,10 +1268,54 @@ begin
                       qrServidor.Params.ParamByName('numero_sat').AsString := qrPDV.FIELDBYNAME('numero_sat').AsString;
                     end;
 
+
+                    // ------------------ UPDATE DE DEDUZIR OS PRODUTOS DA GRADE DO ESTOQUE ---------------------
+                  qrItem.Close;
+
+                  qrItem.SQL.Clear;
+                  qritem.SQL.Add('SELECT * FROM ESTOQUE');
+                  qritem.SQL.Add('where');
+                  qritem.SQL.Add('codigo = ');
+                  qritem.SQL.Add(qrServidor.Params.ParamByName('CODPRODUTO').ASSTRING);
+
+
+                  qrItem.Open;
+                  qrItem.First;
+
+                    if (qritem.FieldByName('USA_GRADE').AsInteger = 1) then begin
+
+                      qrServidor_Grade.Close;
+                      qrServidor_Grade.SQL.Clear;
+                      qrServidor_Grade.SQL.Add('update c000021');
+                      qrServidor_Grade.SQL.Add('set estoque = (estoque - ' + qrPDV3.FIELDBYNAME('QTDE').AsString + ')');
+                      qrServidor_Grade.SQL.Add('where codbarra = ' + qrItem.FieldByName('COD_BARRA').ASSTRING);
+
+                      try
+                      qrServidor_Grade.ExecSQL;
+
+                      Memo1.Lines.Add('Grade deduzida - Cod: ' + qrItem.FieldByName('COD_BARRA').ASSTRING + ' Qtd: '+ qrPDV3.FIELDBYNAME('QTDE').AsString);
+
+                      except
+                      on E:Exception do begin
+                        Memo1.Lines.Add('Erro na atualização de grade do produto ao tentar deduzir ' + qrPDV3.FIELDBYNAME('QTDE').AsString + ' unidades do produto ' +
+                        'de codigo de barras ' +  qrItem.FieldByName('COD_BARRA').ASSTRING + ' - ' + E.Message );
+                      end;
+
+
+
+                      end;
+
+                    end;
+
+                   //FIM DO UPDATE DA GRADE DEDUZIR DO ESTOQUE
+
                     qrServidor.ExecSQL;
                   end;
                   qrPDV3.next;
                 end;
+
+
+
 
                 try
                   qrPDV_Tabela.close;
@@ -3272,7 +3365,8 @@ begin
                   qrpdv.sql.add('CODIGO_ANP,');
                   qrpdv.sql.add('combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza');
+                  qrpdv.sql.add('pizza,');
+                  qrpdv.sql.add('USA_GRADE');
 
 
                   qrpdv.sql.add(') values (');
@@ -3305,7 +3399,8 @@ begin
                   qrpdv.sql.add(':CODIGO_ANP,');
                   qrpdv.sql.add(':combo,');
                   qrpdv.sql.add(':informa_codigo_barra_xml,');
-                  qrpdv.sql.add(':pizza');
+                  qrpdv.sql.add(':pizza,');
+                  qrpdv.sql.add(':usa_grade');
 
                   qrpdv.sql.add(')');
 
@@ -3368,6 +3463,7 @@ begin
                   qrpdv.parambyname('combo').AsString := qrservidor_tabela.fieldbyname('combo').AsString;
                   qrpdv.parambyname('informa_codigo_barra_xml').AsString := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
                   qrpdv.parambyname('pizza').AsString := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 0;
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
@@ -3409,7 +3505,8 @@ begin
                   qrpdv.sql.add('CODIGO_ANP = :CODIGO_ANP,');
                   qrpdv.sql.add('combo = :combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml = :informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza = :pizza');
+                  qrpdv.sql.add('pizza = :pizza,');
+                  qrpdv.sql.add('usa_grade = :usa_grade');
 
                   qrpdv.sql.add('where codigo = :codigo');
 
@@ -3471,6 +3568,7 @@ begin
                   qrpdv.parambyname('combo').asstring := qrservidor_tabela.fieldbyname('combo').AsString;
                   qrpdv.parambyname('informa_codigo_barra_xml').asstring := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
                   qrpdv.parambyname('pizza').asstring := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 0;
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
@@ -3540,7 +3638,7 @@ begin
                   qrpdv.sql.add('CODIGO_ANP,');
                   qrpdv.sql.add('combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza');
+                  qrpdv.sql.add('pizza,');
                   qrpdv.sql.add('USA_GRADE');
 
 
@@ -3574,7 +3672,7 @@ begin
                   qrpdv.sql.add(':CODIGO_ANP,');
                   qrpdv.sql.add(':combo,');
                   qrpdv.sql.add(':informa_codigo_barra_xml,');
-                  qrpdv.sql.add(':pizza');
+                  qrpdv.sql.add(':pizza,');
                   qrpdv.sql.add(':usa_grade');
 
 
@@ -3651,7 +3749,7 @@ begin
                 end;
               end
               else begin
-                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - PRODUTO - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
+                memo1.lines.add('PDV' + grid.CELL[0, I].ASSTRING + ' - ALT - PRODUTO DE GRADE - ' + qrservidor_tabela.fieldbyname('codigo').asstring);
                 try
                   qrpdv.close;
                   qrpdv.sql.clear;
@@ -3683,7 +3781,8 @@ begin
                   qrpdv.sql.add('CODIGO_ANP = :CODIGO_ANP,');
                   qrpdv.sql.add('combo = :combo,');
                   qrpdv.sql.add('informa_codigo_barra_xml = :informa_codigo_barra_xml,');
-                  qrpdv.sql.add('pizza = :pizza');
+                  qrpdv.sql.add('pizza = :pizza,');
+                  qrpdv.sql.add('usa_grade = :usa_grade');
 
                   qrpdv.sql.add('where codigo = :codigo');
 
@@ -3745,6 +3844,7 @@ begin
                   qrpdv.parambyname('combo').asstring := qrservidor_tabela.fieldbyname('combo').AsString;
                   qrpdv.parambyname('informa_codigo_barra_xml').asstring := qrservidor_tabela.fieldbyname('informa_codigo_barra_xml').AsString;
                   qrpdv.parambyname('pizza').asstring := qrservidor_tabela.fieldbyname('pizza').AsString;
+                  qrpdv.parambyname('usa_grade').AsInteger := 1;
                   qrpdv.ExecSQL;
                 except
                   on E: Exception do begin
@@ -4445,6 +4545,11 @@ begin
   Show;
 end;
 
+procedure TfrmPrincipal.pnlAvisoClick(Sender: TObject);
+begin
+
+end;
+
 // -------------------------------------------------------------------------- //
 
 procedure TfrmPrincipal.AdicionarUsuarios;
@@ -4544,7 +4649,7 @@ end;
 
 procedure TfrmPrincipal.AdvGlowButton3Click(Sender: TObject);
 begin
-  PageView1.ActivePageIndex := 1;
+  contingencia.Form1.Show;
 end;
 
 procedure TfrmPrincipal.AdvGlowButton4Click(Sender: TObject);
